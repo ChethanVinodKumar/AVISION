@@ -5,7 +5,11 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_Create">
         <methods>
+<<<<<<< HEAD
           <include name="verifyQuoteCreate"/>
+=======
+          <include name="verifySalesItemPriceListCreate"/>
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
           <include name="setUp"/>
         </methods>
       </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->

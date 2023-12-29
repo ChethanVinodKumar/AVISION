@@ -85,7 +85,7 @@ public class ItemPriceList_CreatePage extends TestBase {
 	public HomePage ItemPriceListCreate(String quantity, String leastCount, String markUp, String leastCostMinus,
 			String discountPlus, String discountMinus) throws InterruptedException {
 
-		driver.navigate().to("https://demo_keus.getapcs.com/master/price-list/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/master/price-list/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
 
@@ -98,7 +98,7 @@ public class ItemPriceList_CreatePage extends TestBase {
 		System.out.println(updatedXpath);
 		Thread.sleep(4000);
 		// **************************//
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
@@ -110,7 +110,7 @@ public class ItemPriceList_CreatePage extends TestBase {
 
 		System.out.println(updatedXpath1);
 		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 		threeLinesSideBarIcon.click();
 		sales.click();
 		itemPriceList.click();
