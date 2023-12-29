@@ -12,6 +12,8 @@ import com.Getapcs.Avision.Engineering.Item_Master_Create_Page;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page1;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
+import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
+import com.Getapcs.Avision.Sales.RFQ_CreatePage;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 
 public class TEST_Create extends TestBase {
@@ -28,8 +30,8 @@ public class TEST_Create extends TestBase {
 	Engg_BOM_Create_Page enggBomCreatePage;
 	Price_List Price_List;
 	EnggBOM_ReleaseBOM releaseBom;
-//	ItemPriceList_CreatePage priceList_CreatePage;
-//	RFQ_CreatePage rfq_CreatePage;
+	ItemPriceList_CreatePage priceList_CreatePage;
+	RFQ_CreatePage rfq_CreatePage;
 //	RFQ_ReleaseCS rfq_ReleaseCS;
 //	QuoteCreatePage quoteCreatePage;
 //	SalesOrder SalesOrder;
@@ -86,8 +88,8 @@ public class TEST_Create extends TestBase {
 		enggBomCreatePage = new Engg_BOM_Create_Page();
 //		enggBomEditPage = new Engg_BOM_Edit_Page();
 		releaseBom = new EnggBOM_ReleaseBOM();
-//		priceList_CreatePage = new ItemPriceList_CreatePage();
-//		rfq_CreatePage = new RFQ_CreatePage();
+		priceList_CreatePage = new ItemPriceList_CreatePage();
+		rfq_CreatePage = new RFQ_CreatePage();
 //		rfq_ReleaseCS = new RFQ_ReleaseCS();
 //		quoteCreatePage = new QuoteCreatePage();
 //		SalesOrder = new SalesOrder();
@@ -190,28 +192,28 @@ public class TEST_Create extends TestBase {
 		Thread.sleep(4000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
-//
-//	@Test(priority = 5)
-//	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
-//
-//		// Purchase Order Create Page
-//		homePage.clickonTransactionPriceListCreate();
-//		priceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 6)
-//	public void verifySalesRFQCreate() throws Throwable {
-//
-//		// Purchase Order Create Page
-//
-//		rfq_CreatePage.RFQCreate("TEST Rfq Number", "10", "TEST Note");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+
+	@Test(priority = 5)
+	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
+
+		// Purchase Order Create Page
+		homePage.clickonTransactionPriceListCreate();
+		priceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 6)
+	public void verifySalesRFQCreate() throws Throwable {
+
+		// Purchase Order Create Page
+
+		rfq_CreatePage.RFQCreate();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 //
 //	@Test(priority = 7)
 //	public void verifySalesRFQCS() throws Throwable {
