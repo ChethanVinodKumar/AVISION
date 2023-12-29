@@ -1,7 +1,5 @@
 package com.Getapcs.Avision.TEST;
 
-import java.awt.AWTException;
-
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -12,6 +10,7 @@ import com.Getapcs.Avision.Engineering.Item_Master_Create_Page;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page1;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
+import com.Getapcs.Avision.Sales.QuoteCreatePage;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 
 public class TEST_Create extends TestBase {
@@ -31,7 +30,7 @@ public class TEST_Create extends TestBase {
 //	ItemPriceList_CreatePage priceList_CreatePage;
 //	RFQ_CreatePage rfq_CreatePage;
 //	RFQ_ReleaseCS rfq_ReleaseCS;
-//	QuoteCreatePage quoteCreatePage;
+	QuoteCreatePage quoteCreatePage;
 //	SalesOrder SalesOrder;
 //	MaterialIssue MaterialIssue;
 //	Purchase_Requisation Purchase_Requisation;
@@ -89,7 +88,7 @@ public class TEST_Create extends TestBase {
 //		priceList_CreatePage = new ItemPriceList_CreatePage();
 //		rfq_CreatePage = new RFQ_CreatePage();
 //		rfq_ReleaseCS = new RFQ_ReleaseCS();
-//		quoteCreatePage = new QuoteCreatePage();
+		quoteCreatePage = new QuoteCreatePage();
 //		SalesOrder = new SalesOrder();
 //		ShopOrder = new ShopOrder();
 //		MaterialIssue = new MaterialIssue();
@@ -132,64 +131,65 @@ public class TEST_Create extends TestBase {
 //		VerifyInvoiceCreate = new VerifyInvoiceCreate();
 	}
 
-	@Test(priority = 1)
-	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
-		Thread.sleep(4000);
-		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//	@Test(priority = 1)
+//	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
+//		Thread.sleep(4000);
+//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 2)
+//	public void verifyItemMasterCreate() throws Throwable {
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+//				"TEST BatchSize",
+//
+//				"565");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+//				"TEST BatchSize",
+//
+//				"565");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 3)
+//	public void verifyBomCreate() throws Throwable {
+//
+//		homePage.clickOnBomCreatePage();
+//		enggBomCreatePage.bomCreate("1", // Quantity
+//				"50", // scarpAllowance
+//				"TestRemark", // Remark
+//				"1", // Version
+//				"10", // quantityPer
+//				"100", // probability
+//				"TEST Alternate Remark", // alternateRemark
+//				"1", // quantityNRE
+//				"20");// cost
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 4)
+//	public void verifyReleaseBom() throws Throwable {
+//		homePage.clickOnReleaseBomPage();
+//		releaseBom.releaseBom("Test Remark");// Remark
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 2)
-	public void verifyItemMasterCreate() throws Throwable {
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", "76543456", "Test Manufacturer or CustomerName",
-				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
-				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
-				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize",
-
-				"565");
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", "76543456", "Test Manufacturer or CustomerName",
-				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
-				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
-				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize",
-
-				"565");
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 3)
-	public void verifyBomCreate() throws Throwable {
-
-		homePage.clickOnBomCreatePage();
-		enggBomCreatePage.bomCreate("1", // Quantity
-				"50", // scarpAllowance
-				"TestRemark", // Remark
-				"1", // Version
-				"10", // quantityPer
-				"100", // probability
-				"TEST Alternate Remark", // alternateRemark
-				"1", // quantityNRE
-				"20");// cost
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 4)
-	public void verifyReleaseBom() throws Throwable {
-		homePage.clickOnReleaseBomPage();
-		releaseBom.releaseBom("Test Remark");// Remark
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
 //
 //	@Test(priority = 5)
 //	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
@@ -225,17 +225,17 @@ public class TEST_Create extends TestBase {
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 8)
-//	public void verifyQuoteCreate() throws Throwable {
-//
-//		// Purchase Order Create Page
-//
-//		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
-//				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+	@Test(priority = 8)
+	public void verifyQuoteCreate() throws Throwable {
+
+		// Purchase Order Create Page
+
+		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
+				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 //
 //	@Test(priority = 9)
 //	public void verifySalesOrderCreate() throws Throwable {
