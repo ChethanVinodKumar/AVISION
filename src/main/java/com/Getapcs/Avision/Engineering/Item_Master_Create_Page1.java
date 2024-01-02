@@ -219,7 +219,7 @@ public class Item_Master_Create_Page1 extends TestBase {
 
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/div/div/div[1]/div/ng-select/div/span[2]")
 	WebElement vendorCodeDropDown;
-	@FindBy(xpath = "(//span[normalize-space()='VD-0001'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='430025'])[1]")
 	WebElement vendorCodeDropDownDataSelect;
 
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/div/div/div[2]/div/ng-select/div/span[2]")

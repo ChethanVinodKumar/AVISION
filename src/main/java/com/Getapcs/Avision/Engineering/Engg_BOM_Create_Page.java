@@ -75,7 +75,7 @@ public class Engg_BOM_Create_Page extends TestBase {
 	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement customerNameField;
 
-	@FindBy(xpath = "(//span[normalize-space()='Avision Systems Pvt Ltd'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='AVision Systems Pvt Ltd .'])[1]")
 	WebElement customerNameFieldDataSelect;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Quantity']")

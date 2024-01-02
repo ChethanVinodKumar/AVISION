@@ -217,7 +217,7 @@ public class CompanyMaster extends TestBase {
 	@FindBy(xpath = "(//input[@aria-autocomplete='list'])[1]")
 	WebElement bankName;
 
-	@FindBy(xpath = "(//span[normalize-space()='HDFC'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='TEST Bank Name1'])[1]")
 	WebElement bankNameSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Branch'])[1]")
@@ -252,7 +252,7 @@ public class CompanyMaster extends TestBase {
 	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement paymentTerms;
 
-	@FindBy(xpath = "(//span[normalize-space()='ADVANCE 50% & BALANCE BEFORE SHIPMENT'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='Cash On Delivery'])[1]")
 	WebElement paymentTermsSelect;
 
 	@FindBy(xpath = "(//input[@type='text'])[6]")
@@ -360,7 +360,7 @@ public class CompanyMaster extends TestBase {
 	@FindBy(xpath = "(//input[@aria-autocomplete='list'])[1]")
 	WebElement uom;
 
-	@FindBy(xpath = "(//span[normalize-space()='Units'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='TEST UOM'])[1]")
 	WebElement uomSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Sqft'])[1]")
@@ -3407,7 +3407,7 @@ public class CompanyMaster extends TestBase {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
 		WebElement SaveButton = driver.findElement(By.xpath("//button[normalize-space()='Save']"));
-		SaveButton.sendKeys(Keys.ENTER);
+//		SaveButton.sendKeys(Keys.ENTER);
 
 		return new HomePage();
 	}

@@ -28,7 +28,7 @@ public class RFQ_CreatePage extends TestBase {
 
 	@FindBy(xpath = "(//input[@type='text'])[2]")
 	WebElement customerNameDropDown;
-	@FindBy(xpath = "(//span[normalize-space()='CS12369 - Avision Systems Pvt Ltd'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='ASPL|CS|23-24|004 - AVision Systems Pvt Ltd .'])[1]")
 	WebElement customerNameDropDownSelectData;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Customer Rfq Number']")
