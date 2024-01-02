@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
-public class Sourcing extends TestBase {
+public class VerifySourcing extends TestBase {
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement rfqNumberDropDown;
@@ -79,7 +79,7 @@ public class Sourcing extends TestBase {
 	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement saveButton;
 
-	public Sourcing() {
+	public VerifySourcing() {
 		PageFactory.initElements(driver, this);
 	}
 
