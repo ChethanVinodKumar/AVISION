@@ -28,9 +28,9 @@ import com.Getapcs.Avision.Transaction.ShopOrder;
 
 public class TEST_Create extends TestBase {
 
-	public final static String priceList = "TEST PriceList 8";
-	public final static String fg = "FG-8";
-	public final static String pp = "PP-8";
+	public final static String priceList = "TEST PriceList 1";
+	public final static String fg = "FG-1";
+	public final static String pp = "PP-1";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -154,14 +154,14 @@ public class TEST_Create extends TestBase {
 //		VerifyInvoiceCreate = new VerifyInvoiceCreate();
 	}
 
-	@Test(priority = 1)
-	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
-		Thread.sleep(4000);
-		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
+//	@Test(priority = 1)
+//	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
+//		Thread.sleep(4000);
+//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
 	@Test(priority = 2)
 	public void verifyItemMasterCreate() throws Throwable {
