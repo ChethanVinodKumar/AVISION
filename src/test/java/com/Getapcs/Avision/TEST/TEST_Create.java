@@ -29,8 +29,8 @@ import com.Getapcs.Avision.Transaction.ShopOrder;
 public class TEST_Create extends TestBase {
 
 	public final static String priceList = "TEST PriceList 1";
-	public final static String fg = "FG-1";
-	public final static String pp = "PP-1";
+	public final static String fg = "FG-2";
+	public final static String pp = "PP-2";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -275,91 +275,91 @@ public class TEST_Create extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-//	@Test(priority = 10)
-//	public void verifyQuoteCreate() throws Throwable {
-//
-//		// Purchase Order Create Page
-//
-//		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
-//				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 11)
-//	public void verifySalesOrderCreate() throws Throwable {
-//		homePage.clickOnSalesOrderCreate();
-//		SalesOrder.salesOrderCreate("20", // generalDiscount
-//				"20", // orderQty
-//				"10", // discount1
-//				"9", // sgst1
-//				"9", // cgst1
-//				"9", // igst1
-//				"9", // utgst1
-//				"10", // quantity1
-//				"Test Remark", // remark1
-//				"50", // orderqty2
-//				"20", // discount2
-//				"9", // sgst2
-//				"9", // cgst2
-//				"9", // igst2
-//				"9", // utgst2
-//				"15", // quantity2
-//				"Test Remark2", // remark2
-//				"50", // orderQty3
-//				"10", // discount3
-//				"9", // sgst3
-//				"9", // cgst3
-//				"9", // igst3
-//				"9", // utgst3
-//				"25", // quantity3
-//				"Test Remark3", // remark3
-//				"30", // orderQty4
-//				"10", // discount4
-//				"8", // sgst4
-//				"8", // cgst4
-//				"8", // igst4
-//				"8", // utgst4
-//				"15", // quantity4
-//				"Test Remark4", // remark4
-//				"PO57664", // poNumber
-//				"TEST Remark", // billingandShippingRemark
-//				"20", // totalAddidtional Charges
-//				"8", // sgst
-//				"8", // cgst
-//				"8", // igst
-//				"8", // utgst
-//				"20");// specialDiscount
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 12)
-//	public void verifyShopOrderCreate() throws Throwable {
-//
-//		homePage.clickOnTransactionShopOrderCreate();
-//		ShopOrder.ShopOrderCreate();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 13)
-//	public void verifyMaterialIssue() throws Throwable {
-//
-//		homePage.clickOnTransactionMaterialIssue();
-//		MaterialIssue.MaterialIssuePage();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 14)
-//	public void verifyPRcreate() throws Throwable {
-//		homePage.clickOnPRCreatePage();
-//		Purchase_Requisation.prCreatePage();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+	@Test(priority = 10)
+	public void verifyQuoteCreate() throws Throwable {
+
+		// Purchase Order Create Page
+
+		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
+				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 11)
+	public void verifySalesOrderCreate() throws Throwable {
+		homePage.clickOnSalesOrderCreate();
+		SalesOrder.salesOrderCreate("20", // generalDiscount
+				"20", // orderQty
+				"10", // discount1
+				"9", // sgst1
+				"9", // cgst1
+				"9", // igst1
+				"9", // utgst1
+				"10", // quantity1
+				"Test Remark", // remark1
+				"50", // orderqty2
+				"20", // discount2
+				"9", // sgst2
+				"9", // cgst2
+				"9", // igst2
+				"9", // utgst2
+				"15", // quantity2
+				"Test Remark2", // remark2
+				"50", // orderQty3
+				"10", // discount3
+				"9", // sgst3
+				"9", // cgst3
+				"9", // igst3
+				"9", // utgst3
+				"25", // quantity3
+				"Test Remark3", // remark3
+				"30", // orderQty4
+				"10", // discount4
+				"8", // sgst4
+				"8", // cgst4
+				"8", // igst4
+				"8", // utgst4
+				"15", // quantity4
+				"Test Remark4", // remark4
+				"PO57664", // poNumber
+				"TEST Remark", // billingandShippingRemark
+				"20", // totalAddidtional Charges
+				"8", // sgst
+				"8", // cgst
+				"8", // igst
+				"8", // utgst
+				"20");// specialDiscount
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 12)
+	public void verifyShopOrderCreate() throws Throwable {
+
+		homePage.clickOnTransactionShopOrderCreate();
+		ShopOrder.ShopOrderCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 13)
+	public void verifyMaterialIssue() throws Throwable {
+
+		homePage.clickOnTransactionMaterialIssue();
+		MaterialIssue.MaterialIssuePage();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 14)
+	public void verifyPRcreate() throws Throwable {
+		homePage.clickOnPRCreatePage();
+		Purchase_Requisation.prCreatePage();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 //
 //	@Test(priority = 15)
 //

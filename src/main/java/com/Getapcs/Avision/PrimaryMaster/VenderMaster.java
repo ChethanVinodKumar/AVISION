@@ -4,12 +4,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -31,20 +25,19 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Update'])[1]")
 	WebElement update;
 
-	@FindBy(xpath = "(//input[@placeholder='Enter Vendor Name'])[1]")
-	WebElement venderName;
+	@FindBy(xpath = "//input[@placeholder='Enter Vendor ID']")
+	WebElement venderID;
 
-	@FindBy(xpath = "(//input[@placeholder='Enter Vendor Name'])[2]")
-	WebElement venderName1;
+	@FindBy(xpath = "//input[@placeholder='Enter Vendor Name']")
+	WebElement venderName;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Vendor Alias'])[1]")
 	WebElement venderAlias;
 
 //General
-	@FindBy(xpath = "(//input[@type='text'])[3]")
+	@FindBy(xpath = "(//input[@type='text'])[4]")
 	WebElement venderType;
-
-	@FindBy(xpath = "(//span[normalize-space()='Domestic'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='Manufacturing']")
 	WebElement venderTypeSelect;
 
 	@FindBy(xpath = "//textarea[@placeholder='Enter Address']")
@@ -56,19 +49,17 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter state'])[1]")
 	WebElement state;
 
-	@FindBy(xpath = "(//div[@role='combobox']/.//input[@type='text'])[6]")
+	@FindBy(xpath = "(//input[@type='text'])[14]")
 	WebElement country;
-
 	@FindBy(xpath = "(//span[normalize-space()='India'])[1]")
 	WebElement countrySelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Pin / Zip Code'])[1]")
 	WebElement zipCode;
 
-	@FindBy(xpath = "(//input[@type='text'])[4]")
+	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement purchaseGroup;
-
-	@FindBy(xpath = "(//span[normalize-space()='TEST Purchase_Group'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='TEST Purchase_Group1']")
 	WebElement purchaseGroupSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Board No'])[1]")
@@ -80,32 +71,29 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter Email'])[1]")
 	WebElement email;
 
-	@FindBy(xpath = "(//input[@type='text'])[14]")
+	@FindBy(xpath = "(//input[@type='text'])[15]")
 	WebElement currency;
-
 	@FindBy(xpath = "(//span[normalize-space()='INR'])[1]")
 	WebElement currencySelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Google Pin Location'])[1]")
 	WebElement generalPinLocation;
 
-	@FindBy(xpath = "(//input[@type='text'])[5]")
+	@FindBy(xpath = "(//input[@type='text'])[6]")
 	WebElement typeOfCompany;
-
 	@FindBy(xpath = "(//span[normalize-space()='TEST Type_Of_Company'])[1]")
 	WebElement typeOfCompanySelect;
 
-	@FindBy(xpath = "(//input[@type='text'])[7]")
+	@FindBy(xpath = "(//input[@type='text'])[8]")
 	WebElement exportUnitType;
-
-	@FindBy(xpath = "(//span[normalize-space()='TEST Export_Unit_Type'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='TEST Export_Unit_Type1']")
 	WebElement exportUnitTypeSelect;
 
 	@FindBy(xpath = "(//span[@class='slider round'])[1]")
 	WebElement toggleButton;
-	@FindBy(xpath = "(//input[@type='text'])[12]")
-	WebElement shippingMode;
 
+	@FindBy(xpath = "(//input[@type='text'])[13]")
+	WebElement shippingMode;
 	@FindBy(xpath = "(//span[normalize-space()='BY ROAD'])[1]")
 	WebElement shippingModeSelect;
 
@@ -114,18 +102,16 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//a[normalize-space()='Contacts'])[1]")
 	WebElement contacts;
 
-	@FindBy(xpath = "(//input[@type='text'])[3]")
+	@FindBy(xpath = "(//input[@type='text'])[4]")
 	WebElement salutation;
-
 	@FindBy(xpath = "(//span[normalize-space()='Mr'])[1]")
 	WebElement salutationSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Call Name'])[1]")
 	WebElement callName;
 
-	@FindBy(xpath = "(//input[@type='text'])[9]")
+	@FindBy(xpath = "(//input[@type='text'])[10]")
 	WebElement mobileNumCode;
-
 	@FindBy(xpath = "(//span[normalize-space()='+91'])[1]")
 	WebElement mobileNumCodeSelect;
 
@@ -144,9 +130,8 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter Designation'])[1]")
 	WebElement designation;
 
-	@FindBy(xpath = "(//input[@type='text'])[11]")
+	@FindBy(xpath = "(//input[@type='text'])[12]")
 	WebElement mobileNumCode1;
-
 	@FindBy(xpath = "(//span[normalize-space()='+91'])[2]")
 	WebElement mobileNumCode1Select;
 
@@ -156,7 +141,7 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Extension'])[1]")
 	WebElement extension;
 
-	@FindBy(xpath = "(//input[@type='text'])[15]")
+	@FindBy(xpath = "(//input[@type='text'])[16]")
 	WebElement language;
 
 	@FindBy(xpath = "(//span[normalize-space()='TEST Language'])[1]")
@@ -165,7 +150,7 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter Last Name'])[1]")
 	WebElement lastName;
 
-	@FindBy(xpath = "(//input[@type='text'])[8]")
+	@FindBy(xpath = "(//input[@type='text'])[9]")
 	WebElement department;
 
 	@FindBy(xpath = "(//span[normalize-space()='TEST Department'])[1]")
@@ -179,15 +164,13 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//a[normalize-space()='Related Vendor Link'])[1]")
 	WebElement relatedVenderCategory;
 
-	@FindBy(xpath = "(//input[@type='text'])[3]")
+	@FindBy(xpath = "(//input[@type='text'])[4]")
 	WebElement vender;
-
-	@FindBy(xpath = "(//span[normalize-space()='Keus Automation Pvt Ltd'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='ABSOLUTE COMPOSITES PRIVATE LIMITED']")
 	WebElement venderSelect;
 
-	@FindBy(xpath = "(//input[@type='text'])[5]")
+	@FindBy(xpath = "(//input[@type='text'])[6]")
 	WebElement natureOfRelationship;
-
 	@FindBy(xpath = "(//span[normalize-space()='TEST Nature_Of_Relationship'])[1]")
 	WebElement natureOfRelationshipSelect;
 
@@ -234,8 +217,11 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter IBAN Code'])[1]")
 	WebElement ibanCode;
 
-	@FindBy(xpath = "(//span)[58]")
+	@FindBy(xpath = "(//span)[59]")
 	WebElement primaryToggleButton;
+
+	@FindBy(xpath = "(//span)[60]")
+	WebElement activeToggleButton;
 
 	@FindBy(xpath = "(//button[normalize-space()='Add'])[1]")
 	WebElement addBanking;
@@ -248,22 +234,21 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter Advance (%)'])[1]")
 	WebElement advance;
 
-	@FindBy(xpath = "(//input[@type='text'])[4]")
+	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement paymentTerms;
 
-	@FindBy(xpath = "(//span[normalize-space()='ADVANCE 50% & BALANCE BEFORE SHIPMENT'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='45% Advance and balance after delivery']")
 	WebElement paymentTermsSelect;
 
-	@FindBy(xpath = "(//input[@type='text'])[5]")
+	@FindBy(xpath = "(//input[@type='text'])[6]")
 	WebElement incoTerm;
-
 	@FindBy(xpath = "(//span[normalize-space()='TEST INCO_Term'])[1]")
 	WebElement incoTermSelect;
 
 	@FindBy(xpath = "(//textarea[@placeholder='Enter Special Terms'])[1]")
 	WebElement specialTerms;
 
-	@FindBy(xpath = "(//input[@type='text'])[6]")
+	@FindBy(xpath = "(//input[@type='text'])[7]")
 	WebElement preferredFreightForwarder;
 
 	@FindBy(xpath = "(//span[normalize-space()='TEST Preferred_Freight_Forwarder'])[1]")
@@ -300,16 +285,16 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//a[normalize-space()='Certifications/Docs'])[1]")
 	WebElement certifications;
 
-	@FindBy(xpath = "(//span)[50]")
+	@FindBy(xpath = "(//span)[53]")
 	WebElement iso;
 
-	@FindBy(xpath = "(//span)[51]")
+	@FindBy(xpath = "(//span)[54]")
 	WebElement as;
 
-	@FindBy(xpath = "(//span)[52]")
+	@FindBy(xpath = "(//span)[55]")
 	WebElement medical;
 
-	@FindBy(xpath = "(//span)[53]")
+	@FindBy(xpath = "(//span)[56]")
 	WebElement nadcap;
 
 //Details
@@ -326,11 +311,8 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter ICRA'])[1]")
 	WebElement icra;
 
-	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-vendor/div[2]/div/div/div/form/div/div[3]/div/div/div[4]/mat-expansion-panel/mat-expansion-panel-header/span[2]")
+	@FindBy(xpath = "(//span)[54]")
 	WebElement headCount1;
-
-	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-edit-company-master/div[2]/div/div/div/form/div/div[4]/div/div/div[4]/mat-expansion-panel/mat-expansion-panel-header/span[2]")
-	WebElement headCount2;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Head Count'])[1]")
 	WebElement enterHeadCount;
@@ -356,10 +338,9 @@ public class VenderMaster extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter Tools & Equip'])[1]")
 	WebElement toolsAndEquip;
 
-	@FindBy(xpath = "(//input[@aria-autocomplete='list'])[1]")
+	@FindBy(xpath = "(//input[@type='text'])[11]")
 	WebElement uom;
-
-	@FindBy(xpath = "(//span[normalize-space()='Units'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='Mtrs']")
 	WebElement uomSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter UOM'])[1]")
@@ -367,9 +348,14 @@ public class VenderMaster extends TestBase {
 
 	@FindBy(xpath = "(//span[@class='slider round'])[1]")
 	WebElement erpToggle;
-
 	@FindBy(xpath = "(//input[@placeholder='Enter ERP'])[1]")
 	WebElement enterErp;
+
+	@FindBy(xpath = "(//input[@value='yes'])[1]")
+	WebElement esdSetUpToggleButton;
+
+	@FindBy(xpath = "(//input[@value='yes'])[2]")
+	WebElement hazmatSetUpToggleButton;
 
 	@FindBy(xpath = "(//span[@class='slider round'])[2]")
 	WebElement ospToggle;
@@ -424,13 +410,15 @@ public class VenderMaster extends TestBase {
 
 	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
-	public HomePage VenderMasterCreate(String comId, String comName, String comAlias, String add, String cty,
+	public HomePage VenderMasterCreate(String venderId, String comName, String comAlias, String add, String cty,
 			String stat, String code, String boardnum, String web, String eml, String generalpin, String cName,
 			String mobileNo, String llNum, String fN, String desig, String mobileno2, String exten, String lN,
 			String eml1, String addrs, String gst, String pan, String brch, String account, String ifsc, String swtch,
 			String Iban, String adv, String specialtms, String turnovr, String dnb, String icr, String headcount,
 			String skill, String people, String cacp, String floor, String machine1, String tools, String sqft1,
-			String erp2, String osp2, String approved) throws InterruptedException, AWTException {
+			String erp2, String osp2, String approved) throws Exception {
+
+		venderID.sendKeys(venderId);
 
 		venderName.sendKeys(comName);
 		// 1Verifying that Item Number Text Field is Enabled or not
@@ -1882,29 +1870,7 @@ public class VenderMaster extends TestBase {
 
 		// Verifing that do we able to upload files or not.
 		WebElement UploadFiles1 = driver.findElement(By.xpath("(//input[@placeholder='Upload file'])[1]"));
-		JavascriptExecutor executor11 = (JavascriptExecutor) driver;
-		executor11.executeScript("arguments[0].click();", UploadFiles1);
-		Robot robot1 = new Robot();
-		robot1.delay(2000);
-		StringSelection stringSelection1 = new StringSelection(
-				"C:\\Users\\W2191\\eclipse-workspace\\Getapcs2\\src\\test\\java\\com\\testcases\\master1\\AALoginFunctionality.java");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection1, null);
-
-		// Press Enter to open the file dialog
-
-		robot1.delay(2000);
-
-		// Press Ctrl+V to paste the file path
-		robot1.keyPress(KeyEvent.VK_CONTROL);
-		robot1.keyPress(KeyEvent.VK_V);
-		robot1.delay(2000);
-		robot1.keyRelease(KeyEvent.VK_CONTROL);
-		robot1.keyRelease(KeyEvent.VK_V);
-
-		robot1.delay(2000);
-		// Press Enter to confirm the file selection
-		robot1.keyPress(KeyEvent.VK_ENTER);
-		robot1.keyRelease(KeyEvent.VK_ENTER);
+		uploadFile(driver, UploadFiles1, 1);
 
 		// js.executeScript("arguments[0].click();", saveButton);
 
