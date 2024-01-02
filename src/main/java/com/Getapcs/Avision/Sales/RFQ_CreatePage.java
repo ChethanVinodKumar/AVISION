@@ -40,62 +40,8 @@ public class RFQ_CreatePage extends TestBase {
 	@FindBy(xpath = "(//input[@formcontrolname='quotesExpectedDate'])[1]")
 	WebElement quoteExpectDatePicker;
 
-	@FindBy(xpath = "(//input[@type='text'])[5]")
-	WebElement typeOfSolution;
-
-	@FindBy(xpath = "(//span[normalize-space()='Automation'])[1]")
-	WebElement typeOfSolutionSelect;
-
-	@FindBy(xpath = "(//input[@type='text'])[6]")
-	WebElement productType;
-
-	@FindBy(xpath = "(//span[normalize-space()='Upsell - Endo'])[1]")
-	WebElement productTypeSelect;
-
-	@FindBy(xpath = "(//input[@type='text'])[9]")
-	WebElement roomName;
-
-	@FindBy(xpath = "(//span[normalize-space()='Home'])[1]")
-	WebElement roomNameSelect;
-
-	@FindBy(xpath = "(//input[@role='combobox'])[1]")
-	WebElement itemNumber;
-
-	@FindBy(xpath = "(//span[normalize-space()='798878123-Test Description'])[1]")
-	WebElement itemNumberSelect;
-
-	@FindBy(xpath = "(//input[@placeholder='Enter Quantity'])[1]")
-	WebElement quantity;
-
-	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
-	WebElement close;
-
-	@FindBy(xpath = "//button[normalize-space()='Save']")
+	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButton;
-
-	@FindBy(xpath = "(//a[normalize-space()='Notes'])[1]")
-	WebElement notesTab;
-
-	@FindBy(xpath = "(//input[@type='text'])[8]")
-	WebElement category;
-
-	@FindBy(xpath = "(//span[normalize-space()='TEST Category'])[1]")
-	WebElement categorySelect;
-
-	@FindBy(xpath = "(//textarea[@placeholder='Enter Note'])[1]")
-	WebElement note;
-
-	@FindBy(xpath = "(//button[normalize-space()='Add'])[1]")
-	WebElement add;
-
-	@FindBy(xpath = "(//input[@type='text'])[7]")
-	WebElement salesPerson;
-
-	@FindBy(xpath = "(//span[normalize-space()='Abhilashpatil'])[1]")
-	WebElement salesPersonSelect;
-
-	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
-	WebElement closeButton;
 
 	public RFQ_CreatePage() {
 		PageFactory.initElements(driver, this);
@@ -105,11 +51,10 @@ public class RFQ_CreatePage extends TestBase {
 
 	public HomePage RFQCreate() throws Throwable {
 
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
 
-		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
 		click(driver, threeLineIconBar);
@@ -120,23 +65,38 @@ public class RFQ_CreatePage extends TestBase {
 
 		click(driver, createRFQ);
 
-		// Customer Name
+		// RFQ Num
 
 		click(driver, rfqNumberField);
 		isSelected(driver, rfqNumberField, "rfqNumberField");
 		rfqNumberField.sendKeys("RFQ-" + ItemNumber);
 
-		// Click on Customer Name Drop Down RFQ Create Page-Sales Module
+		// Customer Name
+
 		click(driver, customerNameDropDown);
 		isSelected(driver, customerNameDropDown, "customerNameDropDown");
 		click(driver, customerNameDropDownSelectData);
 
 		// Customer RFQ Number
+
 		click(driver, customerRFQNumberField);
 		isSelected(driver, customerRFQNumberField, "customerRFQNumberField");
 		customerRFQNumberField.sendKeys("CSRFQ-" + ItemNumber);
 
-		// Verify and Click on Save Button in Create-Item PriceList-Sales Module
+		// Request Receiver Date Picker
+
+		click(driver, requestReceiveDatePicker);
+
+		datePicker(driver, requestReceiveDatePicker);
+
+		// Quote Date Picker
+
+		click(driver, quoteExpectDatePicker);
+
+		datePicker(driver, quoteExpectDatePicker);
+
+		// Save Button
+
 		click(driver, saveButton);
 
 		Thread.sleep(3000);

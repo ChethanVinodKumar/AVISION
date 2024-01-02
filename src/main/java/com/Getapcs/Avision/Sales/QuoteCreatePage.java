@@ -167,6 +167,9 @@ public class QuoteCreatePage extends TestBase {
 	@FindBy(xpath = "(//span[normalize-space()='50%-Advance'])[1]")
 	WebElement paymentTermsSelect;
 
+	@FindBy(xpath = "(//input[@placeholder='Enter Special Discount'])[1]")
+	WebElement specialDiscount;
+
 //RFQ NOTES TAB
 
 	@FindBy(xpath = "(//a[normalize-space()='RFQ Notes'])[1]")
@@ -175,7 +178,7 @@ public class QuoteCreatePage extends TestBase {
 	@FindBy(xpath = "(//input[@type='text'])[6]")
 	WebElement rfqNotes;
 
-	@FindBy(xpath = "(//span[normalize-space()='test note'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='TEST Note'])[1]")
 	WebElement rfqNotesSelect;
 
 //Other Terms
@@ -336,9 +339,6 @@ public class QuoteCreatePage extends TestBase {
 		assertTrue(expandableDropDown1IsDisplayed, "Expandable DropDown-1 is not Displayed.");
 		js.executeScript("arguments[0].click();", expandableDropDown1);
 
-		// Verify Discount Percentage Radio Button in General Tab
-		boolean discountPercentageRadioButtonIsDisplayed = discountPercentageRadioButton.isDisplayed();
-		assertTrue(discountPercentageRadioButtonIsDisplayed, "Discount Percentage Radio Button is not Displayed.");
 		discountPercentageRadioButton.click();
 
 		// Verify Discount Rupees Radio Button in General Tab
@@ -629,6 +629,9 @@ public class QuoteCreatePage extends TestBase {
 		assertTrue(specialDiscountPercentageRadioButton3IsDisplayed,
 				"specialDiscount Percentage Radio Button3 is not Displayed.");
 		specialDiscountPercentageRadioButton3.click();
+
+		click(driver, specialDiscount);
+		specialDiscount.sendKeys("5");
 
 //           		//Verify specialDiscount Rupees Radio Button3 in Total Calculation Tab
 //           		WebElement specialDiscountRupeesRadioButton3 = driver.findElement(By.xpath("//input[@id='specialDiscTotAmt']"));

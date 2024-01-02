@@ -19,6 +19,48 @@ public class RFQ_ReleaseCS extends TestBase {
 	@FindBy(xpath = "(//button[text()='CS'])[1]")
 	WebElement csButton1;
 
+	@FindBy(xpath = "(//input[@placeholder='Enter Item Number'])[1]")
+	WebElement itemNumber;
+
+	@FindBy(xpath = "(//input[@placeholder='Enter Quantity'])[1]")
+	WebElement quantity;
+
+	@FindBy(xpath = "(//textarea[@placeholder='Enter Description'])[1]")
+	WebElement description;
+
+	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
+	WebElement uploadFiles;
+
+	@FindBy(xpath = "(//button[normalize-space()='Add Schedule'])[1]")
+	WebElement addShedule;
+
+	@FindBy(xpath = "(//input[@formcontrolname='scheduleQty'])[1]")
+	WebElement quantityInaddShedule;
+
+	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Add'])[1]")
+	WebElement addButtonInShedule;
+
+	@FindBy(xpath = "(//button[normalize-space()='Ok'])[1]")
+	WebElement oKButton;
+
+	@FindBy(xpath = "(//button[normalize-space()='Add'])[1]")
+	WebElement addButton;
+
+	@FindBy(xpath = "(//a[normalize-space()='Notes'])[1]")
+	WebElement notesTab;
+
+	@FindBy(xpath = "(//input[@aria-autocomplete='list'])[1]")
+	WebElement category;
+
+	@FindBy(xpath = "(//span[normalize-space()='TEST Category1'])[1]")
+	WebElement categorySelect;
+
+	@FindBy(xpath = "(//textarea[@placeholder='Enter Note'])[1]")
+	WebElement note;
+
+	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
+	WebElement saveButton;
+
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-rfq-item-view/div[2]/div/div/div/form/div/div[4]/div/div/div/table/thead/tr/th[1]/input")
 	WebElement itemTabCheckBox;
 
@@ -34,7 +76,52 @@ public class RFQ_ReleaseCS extends TestBase {
 
 	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
-	public HomePage RFQCs() throws Throwable {
+	public HomePage RFQCs(String ItemNumber, String Quantity, String Description, String QuantityInaddShedule,
+			String Note) throws Throwable {
+
+//		click(driver, csButton);
+
+		click(driver, csButton1);
+
+		click(driver, itemNumber);
+
+		itemNumber.sendKeys(ItemNumber);
+
+		click(driver, quantity);
+
+		quantity.sendKeys(Quantity);
+
+		click(driver, description);
+
+		description.sendKeys(Description);
+
+		uploadFile(driver, uploadFiles, 1);
+
+		click(driver, addShedule);
+
+		click(driver, quantityInaddShedule);
+
+		quantityInaddShedule.sendKeys(QuantityInaddShedule);
+
+		click(driver, addButtonInShedule);
+
+		click(driver, oKButton);
+
+		click(driver, addButton);
+
+		click(driver, notesTab);
+
+		click(driver, category);
+
+		click(driver, categorySelect);
+
+		click(driver, note);
+
+		note.sendKeys(Note);
+
+		click(driver, addButton);
+
+		click(driver, saveButton);
 
 		// Verify and Release the CS
 		// Verify and Click on CS Button1

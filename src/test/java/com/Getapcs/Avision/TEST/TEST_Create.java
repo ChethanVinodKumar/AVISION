@@ -10,14 +10,22 @@ import com.Getapcs.Avision.Engineering.Item_Master_Create_Page;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page1;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
+import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
+import com.Getapcs.Avision.Sales.RFQ_CreatePage;
+import com.Getapcs.Avision.Sales.RFQ_ReleaseCS;
+import com.Getapcs.Avision.Sales.RFQ_ReleaseEngg;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
+import com.Getapcs.Avision.Transaction.MaterialIssue;
+import com.Getapcs.Avision.Transaction.Purchase_Requisation;
+import com.Getapcs.Avision.Transaction.SalesOrder;
+import com.Getapcs.Avision.Transaction.ShopOrder;
 
 public class TEST_Create extends TestBase {
 
-	public final static String priceList = "TEST PriceList 7";
-	public final static String fg = "FG-7";
-	public final static String pp = "PP-7";
+	public final static String priceList = "TEST PriceList 8";
+	public final static String fg = "FG-8";
+	public final static String pp = "PP-8";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -27,13 +35,14 @@ public class TEST_Create extends TestBase {
 	Engg_BOM_Create_Page enggBomCreatePage;
 	Price_List Price_List;
 	EnggBOM_ReleaseBOM releaseBom;
-//	ItemPriceList_CreatePage priceList_CreatePage;
-//	RFQ_CreatePage rfq_CreatePage;
-//	RFQ_ReleaseCS rfq_ReleaseCS;
+	ItemPriceList_CreatePage priceList_CreatePage;
+	RFQ_CreatePage rfq_CreatePage;
+	RFQ_ReleaseCS rfq_ReleaseCS;
+	RFQ_ReleaseEngg RFQ_ReleaseEngg;
 	QuoteCreatePage quoteCreatePage;
-//	SalesOrder SalesOrder;
-//	MaterialIssue MaterialIssue;
-//	Purchase_Requisation Purchase_Requisation;
+	SalesOrder SalesOrder;
+	MaterialIssue MaterialIssue;
+	Purchase_Requisation Purchase_Requisation;
 //	PRApproval1 PRApproval1;
 //	PRApproval2 PRApproval2;
 //	Purchase_Order Purchase_Order;
@@ -67,7 +76,7 @@ public class TEST_Create extends TestBase {
 //	VerifySalesOrderEditPage salesOrderEdit;
 //	VerifyPR_EditPage VerifyPR_EditPage;
 //	Purchase_Order_Edit Purchase_Order_Edit;
-//	ShopOrder ShopOrder;
+	ShopOrder ShopOrder;
 //	VerifyInvoiceCreate VerifyInvoiceCreate;
 
 	public TEST_Create() {
@@ -85,15 +94,16 @@ public class TEST_Create extends TestBase {
 		enggBomCreatePage = new Engg_BOM_Create_Page();
 //		enggBomEditPage = new Engg_BOM_Edit_Page();
 		releaseBom = new EnggBOM_ReleaseBOM();
-//		priceList_CreatePage = new ItemPriceList_CreatePage();
-//		rfq_CreatePage = new RFQ_CreatePage();
-//		rfq_ReleaseCS = new RFQ_ReleaseCS();
+		priceList_CreatePage = new ItemPriceList_CreatePage();
+		rfq_CreatePage = new RFQ_CreatePage();
+		rfq_ReleaseCS = new RFQ_ReleaseCS();
+		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
 		quoteCreatePage = new QuoteCreatePage();
-//		SalesOrder = new SalesOrder();
-//		ShopOrder = new ShopOrder();
-//		MaterialIssue = new MaterialIssue();
+		SalesOrder = new SalesOrder();
+		ShopOrder = new ShopOrder();
+		MaterialIssue = new MaterialIssue();
 //		Purchase_Order = new Purchase_Order();
-//		Purchase_Requisation = new Purchase_Requisation();
+		Purchase_Requisation = new Purchase_Requisation();
 //		PRApproval1 = new PRApproval1();
 //		PRApproval2 = new PRApproval2();
 //		openGrin = new openGrin();
@@ -189,7 +199,6 @@ public class TEST_Create extends TestBase {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
-
 //
 //	@Test(priority = 5)
 //	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
@@ -199,7 +208,7 @@ public class TEST_Create extends TestBase {
 //		priceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 6)
@@ -207,10 +216,10 @@ public class TEST_Create extends TestBase {
 //
 //		// Purchase Order Create Page
 //
-//		rfq_CreatePage.RFQCreate("TEST Rfq Number", "10", "TEST Note");
+//		rfq_CreatePage.RFQCreate();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 7)
@@ -219,23 +228,40 @@ public class TEST_Create extends TestBase {
 //		// Purchase Order Create Page
 //		homePage.clickonSalesRfqModifyorView();
 //		Thread.sleep(4000);
-//		rfq_ReleaseCS.RFQCs();
+//		rfq_ReleaseCS.RFQCs("12", // ItemNumber
+//				"10", // Quantity
+//				"TEST Description", // Description
+//				"10", // QuantityInaddShedule
+//				"TEST Note"); // String Note
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-	@Test(priority = 8)
-	public void verifyQuoteCreate() throws Throwable {
+//	@Test(priority = 8)
+//	public void verifySalesRFQENGG() throws Throwable {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonSalesRfqModifyorView();
+//		Thread.sleep(4000);
+//		RFQ_ReleaseEngg.RFQEngg("10", // QuantityInaddShedule
+//				"TEST Note"); // String Note
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
-		// Purchase Order Create Page
-
-		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "100", "9", "9",
-				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//	@Test(priority = 8)
+//	public void verifyQuoteCreate() throws Throwable {
+//
+//		// Purchase Order Create Page
+//
+//		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
+//				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 //
 //	@Test(priority = 9)
 //	public void verifySalesOrderCreate() throws Throwable {
@@ -282,7 +308,7 @@ public class TEST_Create extends TestBase {
 //				"8", // utgst
 //				"20");// specialDiscount
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 10)
@@ -291,7 +317,7 @@ public class TEST_Create extends TestBase {
 //		homePage.clickOnTransactionShopOrderCreate();
 //		ShopOrder.ShopOrderCreate();
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 11)
@@ -300,16 +326,16 @@ public class TEST_Create extends TestBase {
 //		homePage.clickOnTransactionMaterialIssue();
 //		MaterialIssue.MaterialIssuePage();
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 12)
-//	public void verifyPRcreate() throws Throwable {
-//		homePage.clickOnPRCreatePage();
-//		Purchase_Requisation.prCreatePage();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+	@Test(priority = 12)
+	public void verifyPRcreate() throws Throwable {
+		homePage.clickOnPRCreatePage();
+		Purchase_Requisation.prCreatePage();
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
 //
 //	@Test(priority = 13)
 //
