@@ -2,6 +2,7 @@ package com.Getapcs.Avision.TEST;
 
 import java.awt.AWTException;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -14,6 +15,7 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
+import com.Getapcs.Avision.Sales.Sourcing;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 
 public class TEST_Create extends TestBase {
@@ -32,6 +34,7 @@ public class TEST_Create extends TestBase {
 	EnggBOM_ReleaseBOM releaseBom;
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
+	Sourcing sourcing;
 //	RFQ_ReleaseCS rfq_ReleaseCS;
 //	QuoteCreatePage quoteCreatePage;
 //	SalesOrder SalesOrder;
@@ -90,6 +93,7 @@ public class TEST_Create extends TestBase {
 		releaseBom = new EnggBOM_ReleaseBOM();
 		priceList_CreatePage = new ItemPriceList_CreatePage();
 		rfq_CreatePage = new RFQ_CreatePage();
+		sourcing = new Sourcing();
 //		rfq_ReleaseCS = new RFQ_ReleaseCS();
 //		quoteCreatePage = new QuoteCreatePage();
 //		SalesOrder = new SalesOrder();
@@ -208,11 +212,21 @@ public class TEST_Create extends TestBase {
 	public void verifySalesRFQCreate() throws Throwable {
 
 		// Purchase Order Create Page
-
 		rfq_CreatePage.RFQCreate();
 
 		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 6)
+	public void verifySalesSourcing() throws Throwable {
+
+		// Purchase Order Create Page
+		homePage.clickonSoucing();
+		sourcing.sourcingCreate();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 //
 //	@Test(priority = 7)
@@ -597,25 +611,31 @@ public class TEST_Create extends TestBase {
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-////
-////	@Test(priority = 35)
-////	public void verifyReturnDO() throws Throwable {
-////		homePage.clickOnReturnDO();
-////		ReturnDO.ReturnDOCreate();
-////
-////		Thread.sleep(4000);
-////
-////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-////	}
-////
-////	@Test(priority = 37)
-////	public void verifyInvoiceCreate() throws Throwable {
-////		homePage.clickOnInvoiceCreate();
-////		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
-////
-////		Thread.sleep(4000);
-////
-////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-////	}
+//
+//	@Test(priority = 35)
+//	public void verifyReturnDO() throws Throwable {
+//		homePage.clickOnReturnDO();
+//		ReturnDO.ReturnDOCreate();
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 37)
+//	public void verifyInvoiceCreate() throws Throwable {
+//		homePage.clickOnInvoiceCreate();
+//		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+
+	@AfterTest
+	public void afterTest() {
+		driver.manage().window().minimize();
+		driver.quit();
+	}
 
 }

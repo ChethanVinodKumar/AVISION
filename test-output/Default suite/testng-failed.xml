@@ -5,7 +5,7 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_Create">
         <methods>
-          <include name="verifySalesItemPriceListCreate"/>
+          <include name="verifySalesSourcing"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->

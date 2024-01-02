@@ -80,6 +80,12 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//a[@routerlink='sales/quote/table'])[1]")
 	WebElement modifyorViewQuote;
 
+	@FindBy(xpath = "//span[normalize-space()='Sourcing']")
+	WebElement sourcing;
+
+	@FindBy(xpath = "//a[@routerlink='sales/sourcing/table']")
+	WebElement modifyorViewsourcing;
+
 //Transaction
 
 	@FindBy(xpath = "(//span[normalize-space()='Transactions'])[1]")
@@ -534,6 +540,16 @@ public class HomePage extends TestBase {
 		releaseBom.sendKeys(Keys.ENTER);
 	}
 
+	// Sales
+	public void clickonSoucing() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, sourcing);
+		click(driver, modifyorViewsourcing);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+	}
+
 //Transaction
 
 	public void clickOnSalesOrderCreate() throws InterruptedException {
@@ -622,7 +638,7 @@ public class HomePage extends TestBase {
 
 	}
 
-//Purchase Requization
+//Purchase Requisition
 
 	public void clickOnPRCreatePage() throws InterruptedException {
 		threeLinesSideBarIcon.click();
