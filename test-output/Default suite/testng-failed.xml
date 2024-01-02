@@ -3,12 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Getapcs.Avision.TEST.TEST_Create">
+      <class name="com.Getapcs.Avision.TEST.PrimaryMaster">
         <methods>
-          <include name="verifyPRcreate"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="verifyVenderMasterField"/>
+          <include name="verifyCustomerField"/>
+          <include name="verifyCompanyMaster"/>
         </methods>
-      </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
+      </class> <!-- com.Getapcs.Avision.TEST.PrimaryMaster -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
