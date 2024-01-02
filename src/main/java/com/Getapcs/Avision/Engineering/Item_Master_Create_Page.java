@@ -144,8 +144,17 @@ public class Item_Master_Create_Page extends TestBase {
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/ul/li[4]/a")
 	WebElement dimensionsTab;
 
-	@FindBy(xpath = "//input[@placeholder='Upload file']")
+	@FindBy(xpath = "(//input[@placeholder='Please Upload files.'])[1]")
 	WebElement filesUpload;
+
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement Savefiles;
+
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewFiles;
+
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeViewFiles;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Net Weight']")
 	WebElement netWeightField;
@@ -593,6 +602,12 @@ public class Item_Master_Create_Page extends TestBase {
 //Upload File
 
 		uploadFile(driver, filesUpload, 1);
+
+		click(driver, Savefiles);
+
+		click(driver, viewFiles);
+
+		click(driver, closeViewFiles);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);

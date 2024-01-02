@@ -32,32 +32,14 @@ public class QuoteCreatePage extends TestBase {
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement customerNameDropDown;
 
-	@FindBy(xpath = "(//span[normalize-space()='0003 - Test comName'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='CS12369 - Avision Systems Pvt Ltd'])[1]")
 	WebElement customerNameDropDownSelect;
-
-	@FindBy(xpath = "(//span[@class='ng-arrow-wrapper'])[2]")
-	WebElement customerAliasNameDropDown;
-
-	@FindBy(xpath = "(//span[normalize-space()='L112962 - Test comName1'])[1]")
-	WebElement customerAliasCLick;
 
 	@FindBy(xpath = "(//input[@type='text'])[3]")
 	WebElement rfqNumberDropDown;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Quote Ref.'])[1]")
 	WebElement quoteRefField3;
-
-	@FindBy(xpath = "(//input[@type='text'])[6]")
-	WebElement typeOfSolution;
-
-	@FindBy(xpath = "(//span[normalize-space()='TEST Of Solution1'])[1]")
-	WebElement typeOfSolutionSelect;
-
-	@FindBy(xpath = "(//input[@type='text'])[7]")
-	WebElement productType;
-
-	@FindBy(xpath = "(//span[normalize-space()='Smart Console'])[1]")
-	WebElement productTypeSelect;
 
 //General Tab
 
@@ -70,17 +52,11 @@ public class QuoteCreatePage extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter General Discount'])[1]")
 	WebElement generalDiscountField3;
 
-	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-kues-quote/div[2]/div/div/div/form/div/div[4]/div/div/mat-accordion/mat-expansion-panel/mat-expansion-panel-header/span[2]")
+	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-quote/div[2]/div/div/div/form/div/div[3]/div/div/mat-accordion/mat-expansion-panel/mat-expansion-panel-header/span[2]")
 	WebElement expandableDropDown1;
 
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-kues-quote/div[2]/div/div/div/form/div/div[4]/div/div/mat-accordion/mat-expansion-panel[2]/mat-expansion-panel-header/span[2]")
 	WebElement expandableDropDown2;
-
-	@FindBy(xpath = "By.xpath(\"(//input[@type='text'])[9]\")")
-	WebElement priceLIstDropDown;
-
-	@FindBy(xpath = "(//input[@placeholder='Enter Quantity'])[1]")
-	WebElement QuantityField3;
 
 	@FindBy(xpath = "(//input[@id='1'])[1]")
 	WebElement discountPercentageRadioButton;
@@ -176,45 +152,30 @@ public class QuoteCreatePage extends TestBase {
 	@FindBy(xpath = "(//span[@class='slider round'])[1]")
 	WebElement toggleButton;
 
-	@FindBy(xpath = "(//input[@type='text'])[10]")
+	@FindBy(xpath = "(//input[@type='text'])[7]")
 	WebElement additionalChargesLabel;
 
-	@FindBy(xpath = "(//span[normalize-space()='Installation Charges'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='TEST Additional Charges Name'])[1]")
 	WebElement additionalChargesLabelSelect;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Additional Charges'])[1]")
 	WebElement additinalChargesValue;
 
-	@FindBy(xpath = "(//input[@id='addtionalPer'])[1]")
-	WebElement additionalChargesValuePercentageRadioButton;
-
-	@FindBy(xpath = "(//input[@id='addtionalAmt'])[1]")
-	WebElement additionalChargesValueRupeesRadioButton;
-
-	@FindBy(xpath = "(//input[@placeholder='Enter IGST'])[1]")
-	WebElement igst;
-
-	@FindBy(xpath = "(//input[@placeholder='Enter CGST'])[1]")
-	WebElement cgst;
-
-	@FindBy(xpath = "(//input[@placeholder='Enter SGST'])[1]")
-	WebElement sgst;
-
-	@FindBy(xpath = "(//input[@placeholder='Enter UTGST'])[1]")
-	WebElement utgst;
-
-	@FindBy(xpath = "(//input[@type='text'])[19]")
+	@FindBy(xpath = "(//input[@type='text'])[16]")
 	WebElement paymentTerms;
 
-	@FindBy(xpath = "(//span[normalize-space()='ADV40'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='50%-Advance'])[1]")
 	WebElement paymentTermsSelect;
+
+	@FindBy(xpath = "(//input[@placeholder='Enter Special Discount'])[1]")
+	WebElement specialDiscount;
 
 //RFQ NOTES TAB
 
 	@FindBy(xpath = "(//a[normalize-space()='RFQ Notes'])[1]")
 	WebElement rfqNotesTab;
 
-	@FindBy(xpath = "(//input[@type='text'])[9]")
+	@FindBy(xpath = "(//input[@type='text'])[6]")
 	WebElement rfqNotes;
 
 	@FindBy(xpath = "(//span[normalize-space()='TEST Note'])[1]")
@@ -225,13 +186,13 @@ public class QuoteCreatePage extends TestBase {
 	@FindBy(xpath = "(//a[normalize-space()='Other Terms'])[1]")
 	WebElement otherTermsTab;
 
-	@FindBy(xpath = "(//input[@type='text'])[9]")
+	@FindBy(xpath = "(//input[@type='text'])[6]")
 	WebElement OtherTermDropdown;
 
-	@FindBy(xpath = "(//span[normalize-space()='TEST Quote_Terms1'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='50% Advance'])[1]")
 	WebElement OtherTermDropdownSelect;
 
-//Other Terms
+//Special Terms
 
 	@FindBy(xpath = "(//a[normalize-space()='Special Terms'])[1]")
 	WebElement specialTermsTab;
@@ -253,7 +214,7 @@ public class QuoteCreatePage extends TestBase {
 			String igst2, String cgst2, String sgst2, String utgst2, String additinalCharges, String igst3,
 			String cgst3, String sgst3, String utgst3, String specialTerms) throws Throwable {
 
-		driver.navigate().to("https://demo_keus.getapcs.com/sales/rfq/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
 
@@ -267,7 +228,7 @@ public class QuoteCreatePage extends TestBase {
 
 		System.out.println(updatedXpath);
 
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 
 		// Verify Three Line Side Bar in Home Page
 		boolean threeLineIconBarIsDisplayed = threeLineIconBar.isDisplayed();
@@ -378,28 +339,6 @@ public class QuoteCreatePage extends TestBase {
 		assertTrue(expandableDropDown1IsDisplayed, "Expandable DropDown-1 is not Displayed.");
 		js.executeScript("arguments[0].click();", expandableDropDown1);
 
-//		//Verify the Price List Drop Down in Quote Create Page-Sales Module
-//		boolean priceLIstDropDownIsDisplayed = priceLIstDropDown.isDisplayed();
-//		assertTrue(priceLIstDropDownIsDisplayed, "Price List Drop Down is not Displayed.");
-//		priceLIstDropDown.click();
-//		WebElement priceLIstDropDownFocusedElement = driver.switchTo().activeElement();
-//	    boolean priceLIstDropDownIsSelected = priceLIstDropDownFocusedElement.equals(priceLIstDropDown);
-//	    assertTrue(priceLIstDropDownIsSelected, "Price List Drop Down is not Selected");
-//	    driver.findElement(By.xpath("(//div[@class='h-50'])[1]")).click();
-
-		// Verify the Quantity Field3 in General Tab
-//        boolean QuantityField3IsDisplayed = QuantityField3.isDisplayed();
-//        assertTrue(QuantityField3IsDisplayed, "Quantity Field3 is not Displayed.");
-		QuantityField3.sendKeys(Keys.ENTER);
-		WebElement QuantityField3FocusedElement = driver.switchTo().activeElement();
-		boolean QuantityField3IsSelected = QuantityField3FocusedElement.equals(QuantityField3);
-		assertTrue(QuantityField3IsSelected, "Quantity Field3 is not Selected");
-		QuantityField3.clear();
-		QuantityField3.sendKeys(Quantity);
-
-		// Verify Discount Percentage Radio Button in General Tab
-		boolean discountPercentageRadioButtonIsDisplayed = discountPercentageRadioButton.isDisplayed();
-		assertTrue(discountPercentageRadioButtonIsDisplayed, "Discount Percentage Radio Button is not Displayed.");
 		discountPercentageRadioButton.click();
 
 		// Verify Discount Rupees Radio Button in General Tab
@@ -667,20 +606,6 @@ public class QuoteCreatePage extends TestBase {
 
 		js.executeScript("arguments[0].click();", additionalChargesLabelSelect);
 
-		// Verify Additional Charges Value Percentage Radio Button in General Tab
-		boolean additionalChargesValuePercentageRadioButtonIsDisplayed = additionalChargesValuePercentageRadioButton
-				.isDisplayed();
-		assertTrue(additionalChargesValuePercentageRadioButtonIsDisplayed,
-				"Additional Charges Value Percentage Radio Button is not Displayed.");
-		additionalChargesValuePercentageRadioButton.click();
-
-		// Verify additionalChargesValue Rupees Radio Button in General Tab
-		boolean additionalChargesValueRupeesRadioButtonIsDisplayed = additionalChargesValueRupeesRadioButton
-				.isDisplayed();
-		assertTrue(additionalChargesValueRupeesRadioButtonIsDisplayed,
-				"additionalChargesValue Rupees Radio Button is not Displayed.");
-		additionalChargesValueRupeesRadioButton.click();
-
 		// Verify the additionalChargesValue Field3 in General Tab
 		boolean additionalChargesValueField3IsDisplayed = additinalChargesValue.isDisplayed();
 		assertTrue(additionalChargesValueField3IsDisplayed, "additionalChargesValue Field3 is not Displayed.");
@@ -691,46 +616,6 @@ public class QuoteCreatePage extends TestBase {
 		assertTrue(additionalChargesValueField3IsSelected, "additionalChargesValue Field3 is not Selected");
 		additinalChargesValue.clear();
 		additinalChargesValue.sendKeys(additinalCharges);
-
-		// Verify the IGST Field6 in General Tab
-		boolean iGSTField6Field6IsDisplayed = igst.isDisplayed();
-		assertTrue(iGSTField6Field6IsDisplayed, "IGST Field6 is not Displayed.");
-		igst.sendKeys(Keys.ENTER);
-		WebElement iGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean iGSTField6IsSelected = iGSTField6FocusedElement.equals(igst);
-		assertTrue(iGSTField6IsSelected, "IGST Field6 is not Selected");
-		igst.clear();
-		igst.sendKeys(igst3);
-
-		// Verify the CGST Field6 in General Tab
-		boolean cGSTField6Field6IsDisplayed = cgst.isDisplayed();
-		assertTrue(cGSTField6Field6IsDisplayed, "CGST Field6 is not Displayed.");
-		cgst.sendKeys(Keys.ENTER);
-		WebElement cGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean cGSTField6IsSelected = cGSTField6FocusedElement.equals(cgst);
-		assertTrue(cGSTField6IsSelected, "CGST Field6 is not Selected");
-		cgst.clear();
-		cgst.sendKeys(cgst3);
-
-		// Verify the SGST Field6 in General Tab
-		boolean sGSTField6Field6IsDisplayed = sgst.isDisplayed();
-		assertTrue(sGSTField6Field6IsDisplayed, "SGST Field6 is not Displayed.");
-		sgst.sendKeys(Keys.ENTER);
-		WebElement sGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean sGSTField6IsSelected = sGSTField6FocusedElement.equals(sgst);
-		assertTrue(sGSTField6IsSelected, "SGST Field6 is not Selected");
-		sgst.clear();
-		sgst.sendKeys(sgst3);
-
-		// Verify the UTGST Field6 in General Tab
-		boolean uTGSTField6Field6IsDisplayed = utgst.isDisplayed();
-		assertTrue(uTGSTField6Field6IsDisplayed, "UTGST Field6 is not Displayed.");
-		utgst.sendKeys(Keys.ENTER);
-		WebElement uTGSTField6FocusedElement = driver.switchTo().activeElement();
-		boolean uTGSTField6IsSelected = uTGSTField6FocusedElement.equals(utgst);
-		assertTrue(uTGSTField6IsSelected, "UTGST Field6 is not Selected");
-		utgst.clear();
-		utgst.sendKeys(utgst3);
 
 		// Verify and Click on Add Button in Total Calculation Tab
 		boolean addButtoninTotalCalculationTabIsDisplayed = addButton.isDisplayed();
@@ -744,6 +629,9 @@ public class QuoteCreatePage extends TestBase {
 		assertTrue(specialDiscountPercentageRadioButton3IsDisplayed,
 				"specialDiscount Percentage Radio Button3 is not Displayed.");
 		specialDiscountPercentageRadioButton3.click();
+
+		click(driver, specialDiscount);
+		specialDiscount.sendKeys("5");
 
 //           		//Verify specialDiscount Rupees Radio Button3 in Total Calculation Tab
 //           		WebElement specialDiscountRupeesRadioButton3 = driver.findElement(By.xpath("//input[@id='specialDiscTotAmt']"));
