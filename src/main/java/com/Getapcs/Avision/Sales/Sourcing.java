@@ -150,6 +150,8 @@ public class Sourcing extends TestBase {
 
 		datePicker(driver, quoteDatePicker);
 
+		datePicker(driver, quoteValidityDatePicker);
+
 		return new HomePage();
 
 	}
