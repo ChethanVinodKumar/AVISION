@@ -83,6 +83,19 @@ public class PrimaryMaster extends TestBase {
 		Thread.sleep(1000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
+//	@Test(priority = 3)
+//	public void verifyCustomerField() throws InterruptedException, AWTException {
+//		homePage.clickOnCustomerMasterCreate();
+//
+//		homePage = CustomerMaster.CustomerMasterCreate("0007", "Test VenderName", "Test VenderAlias", "Test address",
+//				" Test city", "Test state", "Test code", " boardnum", " www.googkle.com", "wyz@mail.com", " 8753",
+//				"TEST Cell Name", "9098789876", "080-054678", "TEST First Name", "TEST Designation", "9498789876", "10",
+//				"TEST Last Name", "admin@mail.com", "TEST Address", "9", "gavs6682", "TEST Branch", "8786745796",
+//				"sgdv762178", "kh27", "jhh", "100000", "TEST Special Terms", "10000", "10", "TEST Icr", "10", "skill",
+//				" 10", "10", "floor", "machine1", " tools", "sqft1", "erp2", "osp2", "approved");
+//		Thread.sleep(1000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
 //	@Test(priority = 4)
 //	public void verifyCustomerMasterEdit() throws InterruptedException, AWTException {
@@ -113,6 +126,20 @@ public class PrimaryMaster extends TestBase {
 		Thread.sleep(1000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
+//	@Test(priority = 5)
+//	public void verifyVenderMasterField() throws InterruptedException, AWTException {
+//		homePage.clickOnVenderMasterCreate();
+//
+//		homePage = VenderMaster.VenderMasterCreate("123456789", "Test venName", "Test venAlias", "Test address",
+//				" Test city", "Test state", "Test code", " boardnum", " www.googkle.com", "wyz@mail.com", " 8753",
+//				"TEST Cell Name", "9098789876", "080-054678", "TEST First Name", "TEST Designation", "9498789876", "10",
+//				"TEST Last Name", "admin@mail.com", "TEST Address", "9", "gavs6682", "TEST Branch", "8786745796",
+//				"sgdv762178", "kh27", "jhh", "100000", "TEST Special Terms", "10000", "10", "TEST Icr", "10", "skill",
+//				" 10", "10", "floor", "machine1", " tools", "sqft1", "erp2", "osp2", "approved");
+//
+//		Thread.sleep(1000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
 //	@Test(priority = 6)
 //	public void verifyvenderMasterEdit() throws InterruptedException, AWTException {
@@ -130,6 +157,6 @@ public class PrimaryMaster extends TestBase {
 
 	@AfterTest
 	public void tearDown() {
-		driver.quit();
+		// driver.quit();
 	}
 }

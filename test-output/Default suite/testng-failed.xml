@@ -5,21 +5,9 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_Create">
         <methods>
-          <include name="verifySalesOrderCreate"/>
-          <include name="verifySalesSourcing"/>
-          <include name="verifySalesRFQENGG"/>
-          <include name="setUp"/>
-          <include name="verifySalesRFQCS"/>
-          <include name="verifyShopOrderCreate"/>
           <include name="verifyPRcreate"/>
-          <include name="verifySalesRFQCreate"/>
-          <include name="verifyBomCreate"/>
-          <include name="verifyMaterialIssue"/>
-          <include name="verifyReleaseBom"/>
           <include name="afterTest"/>
-          <include name="verifyQuoteCreate"/>
-          <include name="verifyItemMasterCreate"/>
-          <include name="verifySalesItemPriceListCreate"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
     </classes>

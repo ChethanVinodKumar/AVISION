@@ -98,12 +98,12 @@ public class Purchase_Requisation extends TestBase {
 	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement paymentTermsDropDown;
 
-	@FindBy(xpath = "(//span[normalize-space()='15 days CREDIT'])[1]")
+	@FindBy(xpath = "(//span[normalize-space()='50%-Advance'])[1]")
 	WebElement selectPaymentTermsDropDownValue;
 
 	@FindBy(xpath = "(//input[@type='text'])[6]")
 	WebElement shippingModeDropDown;
-	@FindBy(xpath = "//span[normalize-space()='BY ROAD']")
+	@FindBy(xpath = "(//span[normalize-space()='By Road'])[1]")
 	WebElement selectShippingModeDropDownValue;
 
 	@FindBy(linkText = "Terms")
@@ -217,7 +217,7 @@ public class Purchase_Requisation extends TestBase {
 		String tableXpath = "//table[@class='table table-striped']";
 
 		// Get the first PR number text from table
-		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[2]")).getText();
+		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
 		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
@@ -299,101 +299,101 @@ public class Purchase_Requisation extends TestBase {
 
 		click(driver, saveFiles);
 
-//		// ************Add Project Expansion Panel************
-//
-//		click(driver, addProjectExpansionPanel);
-//
-//		for (int k = 1; k <= 2; k++) {
-//
-//			click(driver, projectNumberDropDown);
-//
-//			WebElement selectProjectNumberDropDownValue = driver.findElement(By.xpath(updatedXpath1));
-//
-//			click(driver, selectProjectNumberDropDownValue);
-//
-//			click(driver, projectQuantityTextField);
-//
-//			projectQuantityTextField.clear();
-//
-//			projectQuantityTextField.sendKeys("500");
-//
-//			click(driver, addButtonInProjectExpansionPanel);
-//		}
-//
-//		// ************Add Delivery Schedule Expansion Panel************
-//
-//		click(driver, addDeliveryScheduleExpansionPanel);
-//
-//		for (int n = 1; n <= 2; n++) {
-//
-//			click(driver, scheduleDateDatePicker);
-//
-//			datePicker(driver, scheduleDateDatePicker);
-//
-//			click(driver, quantityTextField1);
-//
-//			quantityTextField1.clear();
-//
-//			quantityTextField1.sendKeys("500");
-//
-//			click(driver, addButtonInDeliveryScheduleExpansionPanel);
-//
-//		}
-//		click(driver, addSpecialInstructionsPanel);
-//
-//		click(driver, specialInstructionTextField);
-//
-//		specialInstructionTextField.clear();
-//
-//		specialInstructionTextField.sendKeys("TEST Special Instruction");
-//
-//		click(driver, addButtonInItemsTab);
-//
-//		// ################## Billing & Shipping Details Tab ######################
-//
-//		click(driver, billing$ShippingDetailsTab);
-//
-//		click(driver, deliveryTermsDropDown);
-//
-//		deliveryTermsDropDown.sendKeys("TEST Delivery");
-//
-//		click(driver, selectDeliveryTermsDropDownValue);
-//
-//		click(driver, paymentTermsDropDown);
-//
-//		click(driver, selectPaymentTermsDropDownValue);
-//
-//		click(driver, shippingModeDropDown);
-//
-//		click(driver, selectShippingModeDropDownValue);
-//
-//		// ##################################### Terms Tab
-//		// ############################################
-//
-//		click(driver, termsTab);
-//
-//		click(driver, retentionPeriodTextField);
-//
-//		retentionPeriodTextField.clear();
-//
-//		retentionPeriodTextField.sendKeys("TEST Retention Period");
-//
-//		click(driver, specialTerms$ConditionTextField);
-//
-//		specialTerms$ConditionTextField.clear();
-//
-//		specialTerms$ConditionTextField.sendKeys("TEST Special Terms & Condition");
-//
-//		String beforeSaveButton = driver.getCurrentUrl();
-//		System.out.println(beforeSaveButton);
-//
-//		Thread.sleep(5000);
-//
-//		click(driver, saveButtonInPRCreate);
-//
-//		Thread.sleep(5000);
-//		String afterSaveButton = driver.getCurrentUrl();
-//		System.out.println(afterSaveButton);
+		// ************Add Project Expansion Panel************
+
+		click(driver, addProjectExpansionPanel);
+
+		for (int k = 1; k <= 2; k++) {
+
+			click(driver, projectNumberDropDown);
+
+			WebElement selectProjectNumberDropDownValue = driver.findElement(By.xpath(updatedXpath1));
+
+			click(driver, selectProjectNumberDropDownValue);
+
+			click(driver, projectQuantityTextField);
+
+			projectQuantityTextField.clear();
+
+			projectQuantityTextField.sendKeys("500");
+
+			click(driver, addButtonInProjectExpansionPanel);
+		}
+
+		// ************Add Delivery Schedule Expansion Panel************
+
+		click(driver, addDeliveryScheduleExpansionPanel);
+
+		for (int n = 1; n <= 2; n++) {
+
+			click(driver, scheduleDateDatePicker);
+
+			datePicker(driver, scheduleDateDatePicker);
+
+			click(driver, quantityTextField1);
+
+			quantityTextField1.clear();
+
+			quantityTextField1.sendKeys("500");
+
+			click(driver, addButtonInDeliveryScheduleExpansionPanel);
+
+		}
+		click(driver, addSpecialInstructionsPanel);
+
+		click(driver, specialInstructionTextField);
+
+		specialInstructionTextField.clear();
+
+		specialInstructionTextField.sendKeys("TEST Special Instruction");
+
+		click(driver, addButtonInItemsTab);
+
+		// ################## Billing & Shipping Details Tab ######################
+
+		click(driver, billing$ShippingDetailsTab);
+
+		click(driver, deliveryTermsDropDown);
+
+		deliveryTermsDropDown.sendKeys("TEST Delivery");
+
+		click(driver, selectDeliveryTermsDropDownValue);
+
+		click(driver, paymentTermsDropDown);
+
+		click(driver, selectPaymentTermsDropDownValue);
+
+		click(driver, shippingModeDropDown);
+
+		click(driver, selectShippingModeDropDownValue);
+
+		// ##################################### Terms Tab
+		// ############################################
+
+		click(driver, termsTab);
+
+		click(driver, retentionPeriodTextField);
+
+		retentionPeriodTextField.clear();
+
+		retentionPeriodTextField.sendKeys("TEST Retention Period");
+
+		click(driver, specialTerms$ConditionTextField);
+
+		specialTerms$ConditionTextField.clear();
+
+		specialTerms$ConditionTextField.sendKeys("TEST Special Terms & Condition");
+
+		String beforeSaveButton = driver.getCurrentUrl();
+		System.out.println(beforeSaveButton);
+
+		Thread.sleep(5000);
+
+		click(driver, saveButtonInPRCreate);
+
+		Thread.sleep(5000);
+		String afterSaveButton = driver.getCurrentUrl();
+		System.out.println(afterSaveButton);
 
 		return new HomePage();
 

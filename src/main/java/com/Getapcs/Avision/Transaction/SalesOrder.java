@@ -298,12 +298,12 @@ public class SalesOrder extends TestBase {
 
 	@FindBy(xpath = "(//input[@type='text'])[9]")
 	WebElement billToDropDown;
-	@FindBy(xpath = "//span[normalize-space()='Adibatla']")
+	@FindBy(xpath = "//span[normalize-space()='Plot No. 17 (DTA), Aditya Nagar, Adibatla.']")
 	WebElement billToDropDownSelectData;
 
 	@FindBy(xpath = "(//input[@type='text'])[10]")
 	WebElement shipToDropDown;
-	@FindBy(xpath = "(//div[@role=\"option\"])[1]")
+	@FindBy(xpath = "//span[normalize-space()='Plot No. 17 (DTA), Aditya Nagar, Adibatla.']")
 	WebElement shipToDropDownSelectData;
 
 	@FindBy(xpath = "(//input[@type='text'])[11]")
