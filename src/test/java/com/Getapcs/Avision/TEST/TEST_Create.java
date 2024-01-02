@@ -17,6 +17,8 @@ import com.Getapcs.Avision.Sales.RFQ_ReleaseCS;
 import com.Getapcs.Avision.Sales.RFQ_ReleaseEngg;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 import com.Getapcs.Avision.Transaction.MaterialIssue;
+import com.Getapcs.Avision.Transaction.PRApproval1;
+import com.Getapcs.Avision.Transaction.PRApproval2;
 import com.Getapcs.Avision.Transaction.Purchase_Requisation;
 import com.Getapcs.Avision.Transaction.SalesOrder;
 import com.Getapcs.Avision.Transaction.ShopOrder;
@@ -43,8 +45,8 @@ public class TEST_Create extends TestBase {
 	SalesOrder SalesOrder;
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
-//	PRApproval1 PRApproval1;
-//	PRApproval2 PRApproval2;
+	PRApproval1 PRApproval1;
+	PRApproval2 PRApproval2;
 //	Purchase_Order Purchase_Order;
 //	openGrin openGrin;
 //	Grin Grin;
@@ -104,8 +106,8 @@ public class TEST_Create extends TestBase {
 		MaterialIssue = new MaterialIssue();
 //		Purchase_Order = new Purchase_Order();
 		Purchase_Requisation = new Purchase_Requisation();
-//		PRApproval1 = new PRApproval1();
-//		PRApproval2 = new PRApproval2();
+		PRApproval1 = new PRApproval1();
+		PRApproval2 = new PRApproval2();
 //		openGrin = new openGrin();
 //		Grin = new Grin();
 //		IQCConfirmation = new IQCConfirmation();
@@ -329,13 +331,13 @@ public class TEST_Create extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-	@Test(priority = 12)
-	public void verifyPRcreate() throws Throwable {
-		homePage.clickOnPRCreatePage();
-		Purchase_Requisation.prCreatePage();
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
+//	@Test(priority = 12)
+//	public void verifyPRcreate() throws Throwable {
+//		homePage.clickOnPRCreatePage();
+//		Purchase_Requisation.prCreatePage();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 //
 //	@Test(priority = 13)
 //
@@ -343,16 +345,16 @@ public class TEST_Create extends TestBase {
 //		homePage.clickOnPOApproval1();
 //		PRApproval1.prApproval1Page();
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 14)
-//	public void verifyPR_Approval2() throws Throwable {
-//		homePage.clickOnPRApproval2();
-//		PRApproval2.prApproval2Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-//	}
+	@Test(priority = 14)
+	public void verifyPR_Approval2() throws Throwable {
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
 //
 //	@Test(priority = 15)
 //	public void verifyPurchaseOrderCreate() throws Throwable {

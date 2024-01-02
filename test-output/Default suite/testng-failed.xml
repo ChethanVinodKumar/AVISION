@@ -5,7 +5,7 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_Create">
         <methods>
-          <include name="verifyPRcreate"/>
+          <include name="verifyPR_Approval2"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->

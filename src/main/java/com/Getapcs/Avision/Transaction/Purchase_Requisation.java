@@ -303,42 +303,36 @@ public class Purchase_Requisation extends TestBase {
 
 		click(driver, addProjectExpansionPanel);
 
-		for (int k = 1; k <= 2; k++) {
+		click(driver, projectNumberDropDown);
 
-			click(driver, projectNumberDropDown);
+		WebElement selectProjectNumberDropDownValue = driver.findElement(By.xpath(updatedXpath1));
 
-			WebElement selectProjectNumberDropDownValue = driver.findElement(By.xpath(updatedXpath1));
+		click(driver, selectProjectNumberDropDownValue);
 
-			click(driver, selectProjectNumberDropDownValue);
+		click(driver, projectQuantityTextField);
 
-			click(driver, projectQuantityTextField);
+		projectQuantityTextField.clear();
 
-			projectQuantityTextField.clear();
+		projectQuantityTextField.sendKeys("1000");
 
-			projectQuantityTextField.sendKeys("500");
-
-			click(driver, addButtonInProjectExpansionPanel);
-		}
+		click(driver, addButtonInProjectExpansionPanel);
 
 		// ************Add Delivery Schedule Expansion Panel************
 
 		click(driver, addDeliveryScheduleExpansionPanel);
 
-		for (int n = 1; n <= 2; n++) {
+		click(driver, scheduleDateDatePicker);
 
-			click(driver, scheduleDateDatePicker);
+		datePicker(driver, scheduleDateDatePicker);
 
-			datePicker(driver, scheduleDateDatePicker);
+		click(driver, quantityTextField1);
 
-			click(driver, quantityTextField1);
+		quantityTextField1.clear();
 
-			quantityTextField1.clear();
+		quantityTextField1.sendKeys("1000");
 
-			quantityTextField1.sendKeys("500");
+		click(driver, addButtonInDeliveryScheduleExpansionPanel);
 
-			click(driver, addButtonInDeliveryScheduleExpansionPanel);
-
-		}
 		click(driver, addSpecialInstructionsPanel);
 
 		click(driver, specialInstructionTextField);

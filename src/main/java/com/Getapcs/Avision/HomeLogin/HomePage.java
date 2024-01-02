@@ -149,10 +149,10 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//tbody/tr[9]/td[1]/i[1]")
 	WebElement prEditOption;
 
-	@FindBy(linkText = "PR Approval 1")
+	@FindBy(xpath = "(//a[normalize-space()='PR Approval-I'])[1]")
 	WebElement prApproval1;
 
-	@FindBy(xpath = "(//a[normalize-space()='PR Approval 2'])[1]")
+	@FindBy(xpath = "(//a[normalize-space()='PR Approval-II'])[1]")
 	WebElement prApproval2;
 
 	// PO
