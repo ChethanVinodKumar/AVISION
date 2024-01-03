@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Getapcs.Avision.TEST.TEST_Create">
+      <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
         <methods>
-          <include name="verifySalesSourcing"/>
-          <include name="afterTest"/>
+          <include name="verifySalesOrderCreate"/>
+          <include name="afetrTest"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
+      </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

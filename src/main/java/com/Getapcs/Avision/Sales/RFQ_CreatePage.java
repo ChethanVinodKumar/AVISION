@@ -1,7 +1,6 @@
 package com.Getapcs.Avision.Sales;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,8 +45,6 @@ public class RFQ_CreatePage extends TestBase {
 	public RFQ_CreatePage() {
 		PageFactory.initElements(driver, this);
 	}
-
-	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
 	public HomePage RFQCreate() throws Throwable {
 

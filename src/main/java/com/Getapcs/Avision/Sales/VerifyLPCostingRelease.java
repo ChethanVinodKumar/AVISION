@@ -44,7 +44,7 @@ public class VerifyLPCostingRelease extends TestBase {
 	@FindBy(xpath = "(//input[@id='discountPlus0'])[1]")
 	WebElement discountPlusField;
 
-	@FindBy(xpath = "//button[normalize-space()='Add']")
+	@FindBy(xpath = "//button[normalize-space()='Release']")
 	WebElement releaseButton;
 
 	public VerifyLPCostingRelease() {
@@ -96,7 +96,7 @@ public class VerifyLPCostingRelease extends TestBase {
 		discountPlusField.clear();
 		discountPlusField.sendKeys("5");
 
-//		click(driver, releaseButton);
+		click(driver, releaseButton);
 
 		System.out.println("\n" + "##### LP Costing Release End ##### " + "\n");
 

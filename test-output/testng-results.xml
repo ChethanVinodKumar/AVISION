@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-03T12:18:28 IST" name="Default suite" finished-at="2024-01-03T12:19:10 IST" duration-ms="42031">
+  <suite started-at="2024-01-03T17:10:49 IST" name="Default suite" finished-at="2024-01-03T17:11:30 IST" duration-ms="40878">
     <groups>
     </groups>
-    <test started-at="2024-01-03T12:18:28 IST" name="Default test" finished-at="2024-01-03T12:19:10 IST" duration-ms="42031">
-      <class name="com.Getapcs.Avision.TEST.TEST_Create">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_Create@512535ff]" started-at="2024-01-03T12:18:28 IST" name="setUp" finished-at="2024-01-03T12:18:42 IST" duration-ms="13987" status="PASS">
+    <test started-at="2024-01-03T17:10:49 IST" name="Default test" finished-at="2024-01-03T17:11:30 IST" duration-ms="40878">
+      <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:10:49 IST" name="setUp" finished-at="2024-01-03T17:11:00 IST" duration-ms="11034" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifySalesSourcing()[pri:9, instance:com.Getapcs.Avision.TEST.TEST_Create@512535ff]" started-at="2024-01-03T12:18:42 IST" name="verifySalesSourcing" finished-at="2024-01-03T12:19:09 IST" duration-ms="27326" status="PASS">
+        <test-method signature="verifySalesOrderCreate()[pri:11, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:11:00 IST" name="verifySalesOrderCreate" finished-at="2024-01-03T17:11:29 IST" duration-ms="29289" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifySalesSourcing -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_Create@512535ff]" started-at="2024-01-03T12:19:09 IST" name="afterTest" finished-at="2024-01-03T12:19:10 IST" duration-ms="645" status="PASS">
+        </test-method> <!-- verifySalesOrderCreate -->
+        <test-method is-config="true" signature="afetrTest()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:11:29 IST" name="afetrTest" finished-at="2024-01-03T17:11:30 IST" duration-ms="514" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
+        </test-method> <!-- afetrTest -->
+      </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
