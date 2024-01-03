@@ -110,7 +110,9 @@ public class TestBase {
 					actions.click(element).build().perform();
 				}
 			}
+
 		}
+
 	}
 
 // Is Selected

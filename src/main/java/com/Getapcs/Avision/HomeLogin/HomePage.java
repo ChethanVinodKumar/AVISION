@@ -86,6 +86,12 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//a[@routerlink='sales/sourcing/table']")
 	WebElement modifyorViewsourcing;
 
+	@FindBy(xpath = "//span[normalize-space()='LP Costing']")
+	WebElement lpCosting;
+
+	@FindBy(xpath = "//a[@routerlink='sales/lp-costing/table']")
+	WebElement lpCostingModifyorView;
+
 //Transaction
 
 	@FindBy(xpath = "(//span[normalize-space()='Transactions'])[1]")
@@ -546,6 +552,15 @@ public class HomePage extends TestBase {
 		click(driver, sales);
 		click(driver, sourcing);
 		click(driver, modifyorViewsourcing);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+	}
+
+	public void clickonLpCosting() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, lpCosting);
+		click(driver, lpCostingModifyorView);
 		click(driver, threeLinesSideBarIcon);
 		Thread.sleep(3000);
 	}

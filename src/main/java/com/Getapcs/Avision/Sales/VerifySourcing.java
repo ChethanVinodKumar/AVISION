@@ -24,7 +24,7 @@ public class VerifySourcing extends TestBase {
 
 	@FindBy(xpath = "(//input[@type='text'])[3]")
 	WebElement venderDropDown;
-	@FindBy(xpath = "(//span[normalize-space()='TEST Vender'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='ABSOLUTE COMPOSITES PRIVATE LIMITED']")
 	WebElement venderDropDownSelectData;
 
 	@FindBy(xpath = "//input[@formcontrolname='unitPrice']")
@@ -43,7 +43,7 @@ public class VerifySourcing extends TestBase {
 
 	@FindBy(xpath = "(//input[@type='text'])[8]")
 	WebElement leadTimeDropDown;
-	@FindBy(xpath = "//span[normalize-space()='10 week,10days']")
+	@FindBy(xpath = "//div[normalize-space()='22 week,11days']")
 	WebElement leadTimeDropDownSelectData;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Freight']")
@@ -84,6 +84,8 @@ public class VerifySourcing extends TestBase {
 	}
 
 	public HomePage sourcingCreate() throws Throwable {
+
+		System.out.println("\n" + "######## Sourcing Started ##########" + "\n");
 
 		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
 
@@ -151,6 +153,16 @@ public class VerifySourcing extends TestBase {
 		datePicker(driver, quoteDatePicker);
 
 		datePicker(driver, quoteValidityDatePicker);
+
+		uploadFile(driver, uploadFile, 1);
+
+		click(driver, addButton);
+
+		click(driver, saveButtoninVenderPopUp);
+
+		click(driver, saveButton);
+
+		System.out.println("\n" + "######## Sourcing Ended ##########" + "\n");
 
 		return new HomePage();
 
