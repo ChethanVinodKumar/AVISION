@@ -71,6 +71,8 @@ public class RFQ_ReleaseEngg extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
 
+		Thread.sleep(3000);
+
 		click(driver, enggButton);
 
 		click(driver, itemNumber);

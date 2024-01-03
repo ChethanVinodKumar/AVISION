@@ -1,6 +1,5 @@
 package com.Getapcs.Avision.Transaction;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +9,7 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class PRApproval2 extends TestBase {
 
-	@FindBy(xpath = "(//button[normalize-space()='Approve'])[2]")
+	@FindBy(xpath = "(//button[normalize-space()='Approve'])[1]")
 	WebElement approveButton;
 
 	@FindBy(xpath = "//table[@class='table table-striped']/tbody/tr[1]/td[1]")
@@ -81,26 +80,6 @@ public class PRApproval2 extends TestBase {
 	}
 
 	public HomePage prApproval2Page() throws Throwable {
-
-		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-requisition/table");
-
-		String tableXpath = "//table[@class='table table-striped']";
-
-		// Get the first PR number text from table
-		String prNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
-
-		System.out.println(prNumber);
-
-		// Store the element with hard coded PR number
-		String elementXpath = "//span[normalize-space()='031023PR-00002']";
-
-		String updatedXpath = elementXpath.replace("031023PR-00002", prNumber);
-
-		System.out.println(updatedXpath);
-
-		Thread.sleep(3000);
-
-		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-requisition/approvalII/table");
 
 		click(driver, approveButton);
 
