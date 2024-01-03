@@ -161,10 +161,10 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//tbody/tr[9]/td[1]/i[1]")
 	WebElement prEditOption;
 
-	@FindBy(linkText = "PR Approval 1")
+	@FindBy(xpath = "(//a[normalize-space()='PR Approval-I'])[1]")
 	WebElement prApproval1;
 
-	@FindBy(xpath = "(//a[normalize-space()='PR Approval 2'])[1]")
+	@FindBy(xpath = "(//a[normalize-space()='PR Approval-II'])[1]")
 	WebElement prApproval2;
 
 	// PO
@@ -178,10 +178,10 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//a[@routerlink='transaction/purchase-order/table'])[1]")
 	WebElement POModifyandView;
 
-	@FindBy(xpath = "(//a[normalize-space()='PO Approval 1'])[1]")
+	@FindBy(xpath = "(//a[normalize-space()='PO Approval-I'])[1]")
 	WebElement poApproval1;
 
-	@FindBy(xpath = "(//a[normalize-space()='PO Approval 2'])[1]")
+	@FindBy(xpath = "(//a[normalize-space()='PO Approval-II'])[1]")
 	WebElement poApproval2;
 
 	@FindBy(xpath = "(//a[normalize-space()='PO Confirmation'])[1]")
@@ -715,10 +715,10 @@ public class HomePage extends TestBase {
 	}
 
 	public void clickontransactionPOModelAndView() {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		purchaseOrder.click();
-		POmodelAndView.click();
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, purchaseOrder);
+		click(driver, POmodelAndView);
 	}
 
 	public void clickontransactionPOApproval1() {

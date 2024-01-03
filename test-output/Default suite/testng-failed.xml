@@ -5,8 +5,12 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
         <methods>
+<<<<<<< HEAD
           <include name="verifySalesOrderCreate"/>
           <include name="afetrTest"/>
+=======
+          <include name="verifyInventryReportAfterSOC"/>
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
           <include name="setUp"/>
         </methods>
       </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->

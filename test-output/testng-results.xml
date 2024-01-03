@@ -2,24 +2,43 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
   <suite started-at="2024-01-03T17:10:49 IST" name="Default suite" finished-at="2024-01-03T17:11:30 IST" duration-ms="40878">
+=======
+  <suite started-at="2024-01-03T15:48:16 IST" name="Default suite" finished-at="2024-01-03T15:48:52 IST" duration-ms="35910">
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
     <groups>
     </groups>
+<<<<<<< HEAD
     <test started-at="2024-01-03T17:10:49 IST" name="Default test" finished-at="2024-01-03T17:11:30 IST" duration-ms="40878">
       <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
         <test-method is-config="true" signature="setUp()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:10:49 IST" name="setUp" finished-at="2024-01-03T17:11:00 IST" duration-ms="11034" status="PASS">
+=======
+    <test started-at="2024-01-03T15:48:16 IST" name="Default test" finished-at="2024-01-03T15:48:52 IST" duration-ms="35910">
+      <class name="com.Getapcs.Avision.TEST.TEST_Create">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_Create@2bb7bd00]" started-at="2024-01-03T15:48:16 IST" name="setUp" finished-at="2024-01-03T15:48:26 IST" duration-ms="9936" status="PASS">
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
+<<<<<<< HEAD
         <test-method signature="verifySalesOrderCreate()[pri:11, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:11:00 IST" name="verifySalesOrderCreate" finished-at="2024-01-03T17:11:29 IST" duration-ms="29289" status="PASS">
+=======
+        <test-method signature="verifyInventryReportAfterSOC()[pri:30, instance:com.Getapcs.Avision.TEST.TEST_Create@2bb7bd00]" started-at="2024-01-03T15:48:26 IST" name="verifyInventryReportAfterSOC" finished-at="2024-01-03T15:48:52 IST" duration-ms="25900" status="PASS">
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
         </test-method> <!-- verifySalesOrderCreate -->
         <test-method is-config="true" signature="afetrTest()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:11:29 IST" name="afetrTest" finished-at="2024-01-03T17:11:30 IST" duration-ms="514" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afetrTest -->
       </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->
+=======
+        </test-method> <!-- verifyInventryReportAfterSOC -->
+      </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

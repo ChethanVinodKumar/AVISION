@@ -13,6 +13,12 @@ import com.Getapcs.Avision.Engineering.Item_Master_Create_Page;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page1;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterBinning;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterGrin;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterIQCConfirmation;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterMI;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterOpenGrin;
+import com.Getapcs.Avision.InventryReports.InventryReportBeforeOpenGrin;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
@@ -22,16 +28,22 @@ import com.Getapcs.Avision.Sales.VerifyLPCostingCreate;
 import com.Getapcs.Avision.Sales.VerifyLPCostingRelease;
 import com.Getapcs.Avision.Sales.VerifySourcing;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
+import com.Getapcs.Avision.Transaction.Binning;
+import com.Getapcs.Avision.Transaction.Grin;
+import com.Getapcs.Avision.Transaction.IQCConfirmation;
 import com.Getapcs.Avision.Transaction.MaterialIssue;
+import com.Getapcs.Avision.Transaction.PRApproval1;
+import com.Getapcs.Avision.Transaction.PRApproval2;
+import com.Getapcs.Avision.Transaction.Purchase_Order;
 import com.Getapcs.Avision.Transaction.Purchase_Requisation;
 import com.Getapcs.Avision.Transaction.SalesOrder;
 import com.Getapcs.Avision.Transaction.ShopOrder;
 
 public class TEST_Create extends TestBase {
 
-	public final static String priceList = "TEST PriceList 1";
-	public final static String fg = "FG-3";
-	public final static String pp = "PP-3";
+	public final static String priceList = "TEST PriceList 6";
+	public final static String fg = "FG-6";
+	public final static String pp = "PP-6";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -52,15 +64,15 @@ public class TEST_Create extends TestBase {
 	SalesOrder SalesOrder;
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
-//	PRApproval1 PRApproval1;
-//	PRApproval2 PRApproval2;
-//	Purchase_Order Purchase_Order;
+	PRApproval1 PRApproval1;
+	PRApproval2 PRApproval2;
+	Purchase_Order Purchase_Order;
 //	openGrin openGrin;
-//	Grin Grin;
-//	IQCConfirmation IQCConfirmation;
-//	Binning Binning;
+	Grin Grin;
+	IQCConfirmation IQCConfirmation;
+	Binning Binning;
 //	ShopOrderConfirmation ShopOrderConfirmation;
-//	InventryReportAfterSOC InventryReportAfterSOC;
+	InventryReportAfterMI InventryReportAfterMI;
 //	OQC OQC;
 //	OQCBinning OQCBinning;
 //	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
@@ -70,11 +82,11 @@ public class TEST_Create extends TestBase {
 //	MaterialRequest MaterialRequest;
 //	Material_ReturnNote Material_ReturnNote;
 //
-//	InventryReportBeforeOpenGrin InventryReportBeforeOpenGrin;
-//	InventryReportAfterOpenGrin InventryReportAfterOpenGrin;
-//	InventryReportAfterGrin InventryReportAfterGrin;
-//	InventryReportAfterIQCConfirmation InventryReportAfterIQCConfirmation;
-//	InventryReportAfterBinning InventryReportAfterBinning;
+	InventryReportBeforeOpenGrin InventryReportBeforeOpenGrin;
+	InventryReportAfterOpenGrin InventryReportAfterOpenGrin;
+	InventryReportAfterGrin InventryReportAfterGrin;
+	InventryReportAfterIQCConfirmation InventryReportAfterIQCConfirmation;
+	InventryReportAfterBinning InventryReportAfterBinning;
 //
 //	Item_Master_Edit_Page itemMasterEditPage;
 //	Engg_BOM_Edit_Page enggBomEditPage;
@@ -119,16 +131,16 @@ public class TEST_Create extends TestBase {
 		SalesOrder = new SalesOrder();
 		ShopOrder = new ShopOrder();
 		MaterialIssue = new MaterialIssue();
-//		Purchase_Order = new Purchase_Order();
+		Purchase_Order = new Purchase_Order();
 		Purchase_Requisation = new Purchase_Requisation();
-//		PRApproval1 = new PRApproval1();
-//		PRApproval2 = new PRApproval2();
+		PRApproval1 = new PRApproval1();
+		PRApproval2 = new PRApproval2();
 //		openGrin = new openGrin();
-//		Grin = new Grin();
-//		IQCConfirmation = new IQCConfirmation();
-//		Binning = new Binning();
+		Grin = new Grin();
+		IQCConfirmation = new IQCConfirmation();
+		Binning = new Binning();
 //		ShopOrderConfirmation = new ShopOrderConfirmation();
-//		InventryReportAfterSOC = new InventryReportAfterSOC();
+		InventryReportAfterMI = new InventryReportAfterMI();
 //		OQC = new OQC();
 //		OQCBinning = new OQCBinning();
 //		InventryReportAfterOQCBinning = new InventryReportAfterOQCBinning();
@@ -139,12 +151,12 @@ public class TEST_Create extends TestBase {
 //		MaterialRequest = new MaterialRequest();
 //		Material_ReturnNote = new Material_ReturnNote();
 //
-//		InventryReportBeforeOpenGrin = new InventryReportBeforeOpenGrin();
-//		InventryReportAfterOpenGrin = new InventryReportAfterOpenGrin();
-//		InventryReportAfterGrin = new InventryReportAfterGrin();
-//		InventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
-//		InventryReportAfterBinning = new InventryReportAfterBinning();
-//
+		InventryReportBeforeOpenGrin = new InventryReportBeforeOpenGrin();
+		InventryReportAfterOpenGrin = new InventryReportAfterOpenGrin();
+		InventryReportAfterGrin = new InventryReportAfterGrin();
+		InventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
+		InventryReportAfterBinning = new InventryReportAfterBinning();
+
 //		itemMasterEditPage = new Item_Master_Edit_Page();
 //		enggBomEditPage = new Engg_BOM_Edit_Page();
 //		PriceList_EditPage = new ItemPriceList_EditPage();
@@ -289,6 +301,108 @@ public class TEST_Create extends TestBase {
 	}
 
 //	@Test(priority = 10)
+//
+//	@Test(priority = 2)
+//	public void verifyItemMasterCreate() throws Throwable {
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePage.itemMasterCreate(fg, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+//				"TEST BatchSize",
+//				"565");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePage1.itemMasterCreate(pp, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+//				"TEST BatchSize",
+//
+//				"565");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 3)
+//	public void verifyBomCreate() throws Throwable {
+//
+//		homePage.clickOnBomCreatePage();
+//		enggBomCreatePage.bomCreate("1", // Quantity
+//				"50", // scarpAllowance
+//				"TestRemark", // Remark
+//				"1", // Version
+//				"10", // quantityPer
+//				"100", // probability
+//				"TEST Alternate Remark", // alternateRemark
+//				"1", // quantityNRE
+//				"20");// cost
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 4)
+//	public void verifyReleaseBom() throws Throwable {
+//		homePage.clickOnReleaseBomPage();
+//		releaseBom.releaseBom("Test Remark");// Remark
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 5)
+//	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonTransactionPriceListCreate();
+//		priceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 6)
+//	public void verifySalesRFQCreate() throws Throwable {
+//
+//		// Purchase Order Create Page
+//
+//		rfq_CreatePage.RFQCreate();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 7)
+//	public void verifySalesRFQCS() throws Throwable {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonSalesRfqModifyorView();
+//		Thread.sleep(4000);
+//		rfq_ReleaseCS.RFQCs("12", // ItemNumber
+//				"10", // Quantity
+//				"TEST Description", // Description
+//				"10", // QuantityInaddShedule
+//				"TEST Note"); // String Note
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 8)
+//	public void verifySalesRFQENGG() throws Throwable {
+//
+//		// Purchase Order Create Page
+//		homePage.clickonSalesRfqModifyorView();
+//		Thread.sleep(4000);
+//		RFQ_ReleaseEngg.RFQEngg("10", // QuantityInaddShedule
+//				"TEST Note"); // String Note
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 9)
 //	public void verifyQuoteCreate() throws Throwable {
 //
 //		// Purchase Order Create Page
@@ -301,6 +415,7 @@ public class TEST_Create extends TestBase {
 //	}
 
 //	@Test(priority = 11)
+//	@Test(priority = 10)
 //	public void verifySalesOrderCreate() throws Throwable {
 //		homePage.clickOnSalesOrderCreate();
 //		SalesOrder.salesOrderCreate("20", // generalDiscount
@@ -348,7 +463,8 @@ public class TEST_Create extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 12)
+//	@Test(priority = 11)
+
 //	public void verifyShopOrderCreate() throws Throwable {
 //
 //		homePage.clickOnTransactionShopOrderCreate();
@@ -376,22 +492,34 @@ public class TEST_Create extends TestBase {
 
 //
 //	@Test(priority = 15)
+//	@Test(priority = 13)
+//	public void verifyPRcreate() throws Throwable {
+//		homePage.clickOnPRCreatePage();
+//		Purchase_Requisation.prCreatePage();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 14)
+//
 //	public void verifyPR_Approval1() throws Throwable {
 //		homePage.clickOnPOApproval1();
 //		PRApproval1.prApproval1Page();
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 16)
+//	@Test(priority = 15)
 //	public void verifyPR_Approval2() throws Throwable {
 //		homePage.clickOnPRApproval2();
 //		PRApproval2.prApproval2Page();
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 17)
+//	@Test(priority = 16)
 //	public void verifyPurchaseOrderCreate() throws Throwable {
 //
 //		// Purchase Order Create Page
@@ -399,10 +527,10 @@ public class TEST_Create extends TestBase {
 //		Purchase_Order.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
 //				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 18)
+//	@Test(priority = 17)
 //	public void verifyPurchaseOrderApproval1() throws AWTException, InterruptedException {
 //		// Purchase Order POApproval 1
 //
@@ -420,12 +548,14 @@ public class TEST_Create extends TestBase {
 //		System.out.println("Project Number: " + projectNumber);
 //		System.out.println("Approval Status: " + approvalStatus);
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //
 //		homePage.clickontransactionPOApproval1();
 //		Purchase_Order.purchaseOrderApproval1();
 //
 //		System.out.println("After Approval");
+//		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
+//
 //		WebElement table1 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
 //
 //		// Extract the data from the first row of the table
@@ -441,10 +571,11 @@ public class TEST_Create extends TestBase {
 //		System.out.println("Approval Status: " + approvalStatus1);
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 19)
+//	@Test(priority = 18)
 //	public void verifyPurchaseOrderApproval2() throws AWTException, InterruptedException {
 //		// Purchase Order POApproval 2
 //
@@ -463,12 +594,13 @@ public class TEST_Create extends TestBase {
 //		System.out.println("Project Number: " + projectNumber2);
 //		System.out.println("Approval Status: " + approvalStatus2);
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //
 //		homePage.clickontransactionPOApproval2();
 //		Purchase_Order.purchaseOrderApproval2();
 //
 //		System.out.println("After Approval");
+//		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
 //		WebElement table3 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
 //
 //		// Extract the data from the first row of the table
@@ -483,16 +615,18 @@ public class TEST_Create extends TestBase {
 //		System.out.println("Approval Status: " + approvalStatus3);
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 20)
+
+//	@Test(priority = 19)
 //	public void verifyInventryReportBeforeGrin() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportBeforeOpenGrin.InventryReportPage();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //
@@ -515,12 +649,32 @@ public class TEST_Create extends TestBase {
 //	}
 //
 //	@Test(priority = 23)
+////
+////	@Test(priority = 20)
+////	public void verifyOpenGrinCreate() throws Throwable {
+////		homePage.clickOnOpenGRINCreate();
+////		openGrin.openGrinCreate();
+////
+////		Thread.sleep(4000);
+////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+////	}
+////
+////	@Test(priority = 21)
+////	public void verifyInventryReportAfterOpenGRIN() throws Throwable {
+////		homePage.clickOnInventryReportWithLocation();
+////		InventryReportAfterOpenGrin.InventryReportPage();
+////
+////		Thread.sleep(4000);
+////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+////	}
+////
+//	@Test(priority = 22)
 //	public void verifyGRINCreate() throws Throwable {
 //		homePage.clickOnGRINCreate();
 //		Grin.grinCreatePage("TEST-IN-1122", // invoiceNo
 //				"10", // invoiceGST
 //				"10", // totalInvoice
-//				"7687769", // mftrBatchNo
+//				"m1", // mftrBatchNo
 //				"10", // unitPrice
 //
 //				"9", // sgst
@@ -539,82 +693,101 @@ public class TEST_Create extends TestBase {
 //				"test charge");// otherChargesValue
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 24)
+//	@Test(priority = 23)
 //	public void verifyInventryReportAfterGRIN() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportAfterGrin.InventryReportPage();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 25)
+//	@Test(priority = 24)
 //	public void verifyIQCCreate() throws Throwable {
 //		homePage.clickOnIQCConfirmationCreate();
 //		IQCConfirmation.iqcConfirmationCreatePage();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 26)
+//	@Test(priority = 25)
 //	public void verifyInventryReportAfterIQC() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportAfterIQCConfirmation.InventryReportPage();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 27)
+//	@Test(priority = 26)
 //	public void verifyBinningCreate() throws Throwable {
 //		homePage.clickOnBinningCreate();
 //		Binning.BinningCreatePage();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 28)
+//	@Test(priority = 27)
 //	public void verifyInventryReportAfterBinning() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportAfterBinning.InventryReportPage();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 29)
+//	@Test(priority = 28)
 //	public void verifyMaterialIssueAfterPRPO() throws Throwable {
 //
 //		homePage.clickOnTransactionMaterialIssue();
 //		MaterialIssue.MaterialIssuePage();
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 30)
+//	@Test(priority = 29)
 //	public void verifyShopOrderConfirmation() throws Throwable {
 //
 //		homePage.clickOnShopOrderConfirmationCreate();
 //		ShopOrderConfirmation.ShopOrderConfirmationCreate();
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 31)
 //	public void verifyInventryReportAfterSOC() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportAfterSOC.InventryReportPage();
+
+	@Test(priority = 30)
+	public void verifyInventryReportAfterSOC() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterMI.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
 //
+
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 32)
+//	@Test(priority = 31)
 //	public void verifyOQC() throws Throwable {
 //
 //		homePage.clickOnOQCCreate();
@@ -624,6 +797,7 @@ public class TEST_Create extends TestBase {
 //	}
 //
 //	@Test(priority = 33)
+//	@Test(priority = 32)
 //	public void verifyOQCBinning() throws Throwable {
 //
 //		homePage.clickOnOQCBinningCreate();
@@ -633,6 +807,7 @@ public class TEST_Create extends TestBase {
 //	}
 //
 //	@Test(priority = 34)
+//	@Test(priority = 33)
 //	public void verifyInventryReportAfterOQCBinning() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportAfterOQCBinning.InventryReportPage();
@@ -642,6 +817,7 @@ public class TEST_Create extends TestBase {
 //	}
 //
 //	@Test(priority = 35)
+//	@Test(priority = 34)
 //	public void verifyDOCreate() throws Throwable {
 //
 //		homePage.clickOnDOCreate();
@@ -651,6 +827,7 @@ public class TEST_Create extends TestBase {
 //	}
 //
 //	@Test(priority = 36)
+//	@Test(priority = 35)
 //	public void verifyInventryReportAfterDO() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportAfterDO.InventryReportPage();
@@ -684,5 +861,25 @@ public class TEST_Create extends TestBase {
 		driver.manage().window().minimize();
 		driver.quit();
 	}
+//
+//	@Test(priority = 36)
+//	public void verifyReturnDO() throws Throwable {
+//		homePage.clickOnReturnDO();
+//		ReturnDO.ReturnDOCreate();
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 37)
+//	public void verifyInvoiceCreate() throws Throwable {
+//		homePage.clickOnInvoiceCreate();
+//		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 }
