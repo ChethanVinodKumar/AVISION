@@ -571,7 +571,7 @@ public class Item_Master_Create_Page1 extends TestBase {
 
 		rEACHToggleButton.click();
 
-		uploadFile(driver, filesUpload, 1);
+		uploadFile(driver, filesUpload, 0);
 
 		click(driver, Savefiles);
 
