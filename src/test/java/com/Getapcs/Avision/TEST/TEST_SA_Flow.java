@@ -5,9 +5,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
-import com.Getapcs.Avision.Engineering.BOM_Create_FG_SA;
 import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM;
 import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page;
+import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page_FOR_FG;
+import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page_FOR_SA_1;
+import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page_FOR_SA_2;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page1;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page_SA;
@@ -26,19 +28,20 @@ import com.Getapcs.Avision.Transaction.MaterialIssue;
 import com.Getapcs.Avision.Transaction.Purchase_Requisation;
 import com.Getapcs.Avision.Transaction.SalesOrder;
 import com.Getapcs.Avision.Transaction.ShopOrder;
+import com.Getapcs.Avision.Transaction.ShopOrder_For_FG;
 
 public class TEST_SA_Flow extends TestBase {
 
 	public final static String priceList = "TEST PriceList 1";
-	public final static String fg = "FG-8";
-	public final static String pp1 = "PP-7";
-	public final static String pp2 = "PP-8";
-	public final static String pp3 = "PP-9";
-	public final static String pp4 = "PP-10";
-	public final static String pp5 = "PP-11";
-	public final static String pp6 = "PP-12";
-	public final static String sa1 = "SA-7";
-	public final static String sa2 = "SA-8";
+	public final static String fg = "FG-15";
+	public final static String pp1 = "PP-20";
+	public final static String pp2 = "PP-21";
+	public final static String pp3 = "PP-22";
+	public final static String pp4 = "PP-23";
+	public final static String pp5 = "PP-24";
+	public final static String pp6 = "PP-25";
+	public final static String sa1 = "SA-11";
+	public final static String sa2 = "SA-12";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -46,8 +49,10 @@ public class TEST_SA_Flow extends TestBase {
 	Item_Master_Create_Page itemMasterCreatePageFG;
 	Item_Master_Create_Page1 itemMasterCreatePagePP;
 	Item_Master_Create_Page_SA itemMasterCreatePageSA;
+	Engg_BOM_Create_Page_FOR_SA_2 enggBomCreatePageForSA2;
+	Engg_BOM_Create_Page_FOR_SA_1 enggBomCreatePageForSA1;
+	Engg_BOM_Create_Page_FOR_FG enggBomCreatePageForFG;
 	Engg_BOM_Create_Page enggBomCreatePage;
-	BOM_Create_FG_SA enggBomCreatewithSAPage;
 	Price_List Price_List;
 	EnggBOM_ReleaseBOM releaseBom;
 	ItemPriceList_CreatePage priceList_CreatePage;
@@ -95,6 +100,7 @@ public class TEST_SA_Flow extends TestBase {
 //	VerifyPR_EditPage VerifyPR_EditPage;
 //	Purchase_Order_Edit Purchase_Order_Edit;
 	ShopOrder ShopOrder;
+	ShopOrder_For_FG shopOrderSA;
 //	VerifyInvoiceCreate VerifyInvoiceCreate;
 
 	public TEST_SA_Flow() {
@@ -111,7 +117,9 @@ public class TEST_SA_Flow extends TestBase {
 		itemMasterCreatePageSA = new Item_Master_Create_Page_SA();
 //		itemMasterEditPage = new Item_Master_Edit_Page();
 		enggBomCreatePage = new Engg_BOM_Create_Page();
-		enggBomCreatewithSAPage = new BOM_Create_FG_SA();
+		enggBomCreatePageForSA2 = new Engg_BOM_Create_Page_FOR_SA_2();
+		enggBomCreatePageForSA1 = new Engg_BOM_Create_Page_FOR_SA_1();
+		enggBomCreatePageForFG = new Engg_BOM_Create_Page_FOR_FG();
 //		enggBomEditPage = new Engg_BOM_Edit_Page();
 		releaseBom = new EnggBOM_ReleaseBOM();
 		priceList_CreatePage = new ItemPriceList_CreatePage();
@@ -129,6 +137,7 @@ public class TEST_SA_Flow extends TestBase {
 		quoteCreatePage = new QuoteCreatePage();
 		SalesOrder = new SalesOrder();
 		ShopOrder = new ShopOrder();
+		shopOrderSA = new ShopOrder_For_FG();
 		MaterialIssue = new MaterialIssue();
 //		Purchase_Order = new Purchase_Order();
 		Purchase_Requisation = new Purchase_Requisation();
@@ -170,7 +179,7 @@ public class TEST_SA_Flow extends TestBase {
 	}
 
 //	@Test(priority = 1)
-//	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
+//	public void verifyPrice_ListCreate() throws Throwable {
 //		Thread.sleep(4000);
 //		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
 //
@@ -264,57 +273,57 @@ public class TEST_SA_Flow extends TestBase {
 
 	}
 
-//	@Test(priority = 3)
-//	public void verifyBomCreateforSA() throws Throwable {
-//
-//		homePage.clickOnBomCreatePage();
-//		enggBomCreatePage.bomCreate("1", // Quantity
-//				"50", // scarpAllowance
-//				"TestRemark", // Remark
-//				"1", // Version
-//				"10", // quantityPer
-//				"100", // probability
-//				"TEST Alternate Remark", // alternateRemark
-//				"1", // quantityNRE
-//				"20");// cost
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
+	@Test(priority = 3)
+	public void verifyBomCreateforSA_FG() throws Throwable {
 
-//
-//	@Test(priority = 4)
-//	public void verifyReleaseBomforSA() throws Throwable {
-//		homePage.clickOnReleaseBomPage();
-//		releaseBom.releaseBom("Test Remark");// Remark
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//
-//	@Test(priority = 6)
-//	public void verifyBomCreate() throws Throwable {
-//
-//		homePage.clickOnBomCreatePage();
-//		enggBomCreatewithSAPage.bomCreate("10", // Quantity
-//				"50", // scarpAllowance
-//				"TestRemark", // Remark
-//				"1", // Version
-//				"10", // quantityPer
-//				"10", // probability
-//				"TEST Alternate Remark", // alternateRemark
-//				"10", // quantityNRE
-//				"20");// cost
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 7)
-//	public void verifyReleaseBom() throws Throwable {
-//		homePage.clickOnReleaseBomPage();
-//		releaseBom.releaseBom("Test Remark");// Remark
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
+		homePage.clickOnBomCreatePage();
+		enggBomCreatePageForSA2.bomCreate("9", // Quantity
+				"50", // scarpAllowance
+				"TestRemark", // Remark
+				"1", // Version
+				"10", // quantityPer
+				"100", // probability
+				"TEST Alternate Remark", // alternateRemark
+				"1", // quantityNRE
+				"20");// cost
+		Thread.sleep(3000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnBomCreatePage();
+		enggBomCreatePageForSA1.bomCreate("8", // Quantity
+				"50", // scarpAllowance
+				"TestRemark", // Remark
+				"1", // Version
+				"10", // quantityPer
+				"100", // probability
+				"TEST Alternate Remark", // alternateRemark
+				"1", // quantityNRE
+				"20");// cost
+		Thread.sleep(3000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+		homePage.clickOnBomCreatePage();
+		enggBomCreatePageForFG.bomCreate("7", // Quantity
+				"50", // scarpAllowance
+				"TestRemark", // Remark
+				"1", // Version
+				"10", // quantityPer
+				"100", // probability
+				"TEST Alternate Remark", // alternateRemark
+				"1", // quantityNRE
+				"20");// cost
+		Thread.sleep(3000);
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 7)
+	public void verifyReleaseBom() throws Throwable {
+		homePage.clickOnReleaseBomPage();
+		releaseBom.releaseBom("Test Remark");// Remark
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
 //
 //	@Test(priority = 8)
 //	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
@@ -440,6 +449,15 @@ public class TEST_SA_Flow extends TestBase {
 //				"8", // igst
 //				"8", // utgst
 //				"20");// specialDiscount
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 13)
+//	public void verifyShopOrderCreate() throws Throwable {
+//
+//		homePage.clickOnTransactionShopOrderCreate();
+//		shopOrderSA.ShopOrderCreate();
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}

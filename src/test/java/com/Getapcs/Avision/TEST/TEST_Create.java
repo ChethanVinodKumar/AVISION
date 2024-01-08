@@ -651,15 +651,15 @@ public class TEST_Create extends TestBase {
 //	public void verifyInventryReportAfterSOC() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
 //		InventryReportAfterSOC.InventryReportPage();
-
-	@Test(priority = 36)
-	public void verifyInventryReportAfterSOC() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		InventryReportAfterMI.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-	}
+//
+//	@Test(priority = 36)
+//	public void verifyInventryReportAfterSOC() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterMI.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
 
 //
 
@@ -736,12 +736,6 @@ public class TEST_Create extends TestBase {
 //
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
-
-	@AfterTest
-	public void afterTest() {
-		driver.manage().window().minimize();
-		driver.quit();
-	}
 //
 //	@Test(priority = 36)
 //	public void verifyReturnDO() throws Throwable {
@@ -762,5 +756,11 @@ public class TEST_Create extends TestBase {
 //
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
+
+	@AfterTest
+	public void afterTest() {
+		driver.manage().window().minimize();
+		driver.quit();
+	}
 
 }
