@@ -38,12 +38,15 @@ public class VerifySourcing extends TestBase {
 	@FindBy(xpath = "//span[normalize-space()='INR']")
 	WebElement currencyDropDownSelectData;
 
+	@FindBy(xpath = "(//table[@class='table table-striped']/tbody/tr[1]/td[3])[2]")
+	WebElement Qtyrequest;
+
 	@FindBy(xpath = "//input[@placeholder='Enter MOQ']")
 	WebElement moqCostField;
 
 	@FindBy(xpath = "(//input[@type='text'])[8]")
 	WebElement leadTimeDropDown;
-	@FindBy(xpath = "//div[normalize-space()='22 week,11days']")
+	@FindBy(xpath = "(//span[normalize-space()='22 week, 11 days'])[1]")
 	WebElement leadTimeDropDownSelectData;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Freight']")
@@ -130,9 +133,14 @@ public class VerifySourcing extends TestBase {
 		isSelected(driver, currencyDropDown, "currencyDropDown");
 		click(driver, currencyDropDownSelectData);
 
+		String elementValue = Qtyrequest.getText().trim();
+		System.out.println("Qtyrequest : " + elementValue + "\n");
+		int QtyrequestintValue = Integer.parseInt(elementValue);
+		QtyrequestintValue = QtyrequestintValue + QtyrequestintValue + 10;
+
 		click(driver, moqCostField);
 		isSelected(driver, moqCostField, "moqCostField");
-		moqCostField.sendKeys("50");
+		moqCostField.sendKeys(String.valueOf(QtyrequestintValue));
 
 		click(driver, leadTimeDropDown);
 		isSelected(driver, leadTimeDropDown, "leadTimeDropDown");
@@ -148,7 +156,7 @@ public class VerifySourcing extends TestBase {
 
 		click(driver, quoteQuantityField);
 		isSelected(driver, quoteQuantityField, "quoteQuantityField");
-		dutiesField.sendKeys("2");
+		quoteQuantityField.sendKeys("2");
 
 		datePicker(driver, quoteDatePicker);
 

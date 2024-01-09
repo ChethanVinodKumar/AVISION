@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 import org.apache.commons.io.FileUtils; // Import FileUtils
 import org.openqa.selenium.By;
@@ -29,9 +30,10 @@ import org.openqa.selenium.devtools.v118.network.Network;
 import org.openqa.selenium.devtools.v118.network.model.Request;
 import org.openqa.selenium.devtools.v118.network.model.Response;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
@@ -51,19 +53,20 @@ public class TestBase {
 		// pre-condition
 
 		// Incognito Mode Execution
-		options = new ChromeOptions();
-		options.addArguments("--incognito");
-		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability(ChromeOptions.CAPABILITY, options);
-		options.merge(cap);
-		driver = new ChromeDriver(options);
+//		options = new ChromeOptions();
+//		options.addArguments("--incognito");
+//		DesiredCapabilities cap = new DesiredCapabilities();
+//		cap.setCapability(ChromeOptions.CAPABILITY, options);
+//		options.merge(cap);
+//		driver = new ChromeDriver(options);
 
 		// Normal Execution
-//		driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+
 		actions = new Actions(driver);
 		robot = new Robot();
 		js = (JavascriptExecutor) driver;
@@ -90,6 +93,19 @@ public class TestBase {
 
 		driver.get("https://avision-demo.getapcs.com/login");
 
+	}
+
+	// Fluent Wait
+	public static WebElement waitForElement(WebDriver driver, WebElement element, int timeoutInSeconds,
+			int pollingIntervalInSeconds) {
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(timeoutInSeconds))
+				.pollingEvery(Duration.ofSeconds(pollingIntervalInSeconds)).ignoring(NoSuchElementException.class);
+
+		return wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return element;
+			}
+		});
 	}
 
 //Click Action

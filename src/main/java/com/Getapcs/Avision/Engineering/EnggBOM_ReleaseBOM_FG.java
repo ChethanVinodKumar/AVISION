@@ -52,7 +52,7 @@ public class EnggBOM_ReleaseBOM_FG extends TestBase {
 
 		System.out.println("\n" + "EnggBOM_ReleaseBOM_FG  Started" + "\n");
 
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
 
@@ -65,45 +65,47 @@ public class EnggBOM_ReleaseBOM_FG extends TestBase {
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", ItemNumber);
 
 		System.out.println(updatedXpath);
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/release-bom/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/engineering/release-bom/table");
 
 		for (int i = 1; i <= 3; i++) {
 
 			bomForReleaseCreateButton = driver
 					.findElement(By.xpath("//i[@class='mdi mdi-plus-box-outline edit-icon']"));
 			Thread.sleep(2000);
-//		bomForReleaseCreateButton.click();
-			js.executeScript("arguments[0].click();", bomForReleaseCreateButton);
+//		//			js.executeScript("arguments[0].click();", bomForReleaseCreateButton);
+			click(driver, bomForReleaseCreateButton);
 
 			relaeseForDropDown = driver.findElement(By.xpath("//ng-select[@placeholder='Select Release For']"));
 			Thread.sleep(2000);
+//			click(driver, relaeseForDropDown);
 			actions.click(relaeseForDropDown).perform();
 			if (i == 1) {
 				selectEngineering = driver.findElement(By.xpath("(//div[@role='option'])[1]"));
 				Thread.sleep(2000);
-//			selectEngineering.click();
-				js.executeScript("arguments[0].click();", selectEngineering);
+//				js.executeScript("arguments[0].click();", selectEngineering);
+				click(driver, selectEngineering);
 			}
 			if (i == 2) {
-				selectCosting = driver.findElement(By.xpath("//span[contains(text(),'Costing')]"));
+				selectCosting = driver.findElement(By.xpath("(//span[normalize-space()='Costing'])[1]"));
 				Thread.sleep(2000);
-//			selectCosting.click();
-				js.executeScript("arguments[0].click();", selectCosting);
+//				js.executeScript("arguments[0].click();", selectCosting);
+				click(driver, selectCosting);
 			}
 			if (i == 3) {
-				selectProduction = driver.findElement(By.xpath("//span[contains(text(),'Production')]"));
+				selectProduction = driver.findElement(By.xpath("(//span[normalize-space()='Production'])[1]"));
 				Thread.sleep(2000);
-//			selectProduction.click();
-				js.executeScript("arguments[0].click();", selectProduction);
+//				js.executeScript("arguments[0].click();", selectProduction);
+				click(driver, selectProduction);
 			}
 
 			releaseItemNumberDropDown = driver.findElement(By.xpath("(//input[@type='text'])[2]"));
 			js.executeScript("arguments[0].scrollIntoView(true);", releaseItemNumberDropDown);
 			Thread.sleep(2000);
-			releaseItemNumberDropDown.click();
+//			releaseItemNumberDropDown.click();
+			click(driver, releaseItemNumberDropDown);
 
 			WebElement itemNumberDropDownDataSelect = driver.findElement(By.xpath(updatedXpath));
-			js.executeScript("arguments[0].click();", itemNumberDropDownDataSelect);
+			click(driver, itemNumberDropDownDataSelect);
 
 			releaseVersionDropDown = driver.findElement(By.xpath("(//input[@type='text'])[3]"));
 			js.executeScript("arguments[0].scrollIntoView(true);", releaseVersionDropDown);

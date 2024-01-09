@@ -3,7 +3,6 @@ package com.Getapcs.Avision.Sales;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,8 +49,6 @@ public class RFQ_ReleaseEngg extends TestBase {
 	public RFQ_ReleaseEngg() {
 		PageFactory.initElements(driver, this);
 	}
-
-	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
 	public HomePage RFQEngg(String QuantityInaddShedule, String Note) throws Throwable {
 

@@ -71,6 +71,9 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//span[text()='RFQ']")
 	WebElement rfq;
 
+	@FindBy(xpath = "(//a[@routerlink='sales/rfq/create'])[1]")
+	WebElement createRFQ;
+
 	@FindBy(xpath = "//a[@routerlink='sales/rfq/table']")
 	WebElement modifyorViewRfq;
 
@@ -402,8 +405,7 @@ public class HomePage extends TestBase {
 		primaryMaster.click();
 		companyMaster.click();
 		modifyorView.click();
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click()", editButton);
+		js.executeScript("arguments[0].click()", editButton);
 
 		Thread.sleep(4000);
 	}
@@ -455,6 +457,14 @@ public class HomePage extends TestBase {
 		click(driver, sales);
 		itemPriceList.click();
 		itemPriceListCreate.sendKeys(Keys.ENTER);
+		click(driver, threeLinesSideBarIcon);
+	}
+
+	public void clickonRFQCreate() {
+		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, rfq);
+		click(driver, createRFQ);
 		click(driver, threeLinesSideBarIcon);
 	}
 

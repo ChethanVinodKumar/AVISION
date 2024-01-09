@@ -68,7 +68,7 @@ public class ShopOrder_For_FG extends TestBase {
 	public HomePage ShopOrderCreate() throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("//*************Shop Order Create Page******************");
-		driver.navigate().to("https://demo_keus.getapcs.com/engineering/engg-bom/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
 
@@ -84,7 +84,7 @@ public class ShopOrder_For_FG extends TestBase {
 
 		// ***********//
 
-		driver.navigate().to("https://demo_keus.getapcs.com/sales/rfq/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
@@ -100,7 +100,7 @@ public class ShopOrder_For_FG extends TestBase {
 
 		// *****//
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/sales-order/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath2 = "//table[@class='table table-striped']";
 
@@ -114,7 +114,7 @@ public class ShopOrder_For_FG extends TestBase {
 
 		System.out.println(updatedXpath2);
 
-		driver.navigate().to("https://demo_keus.getapcs.com/transaction/shop-order/create");
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order/create");
 
 		Thread.sleep(2000);
 
@@ -125,7 +125,7 @@ public class ShopOrder_For_FG extends TestBase {
 		click(driver, fgItemNumber);
 		isSelected(driver, fgItemNumber, "fgItemNumber");
 		fgItemNumber.sendKeys("FG");
-
+		Thread.sleep(2000);
 		WebElement fgItemNumberSelect = driver.findElement(By.xpath(updatedXpath));
 		click(driver, fgItemNumberSelect);
 
