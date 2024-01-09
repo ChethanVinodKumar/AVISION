@@ -6,6 +6,9 @@ import org.testng.annotations.Test;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM;
+import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM_FG;
+import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM_SA1;
+import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM_SA2;
 import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page;
 import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page_FOR_FG;
 import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page_FOR_SA_1;
@@ -25,10 +28,20 @@ import com.Getapcs.Avision.Sales.VerifyLPCostingRelease;
 import com.Getapcs.Avision.Sales.VerifySourcing;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 import com.Getapcs.Avision.Transaction.MaterialIssue;
+import com.Getapcs.Avision.Transaction.MaterialIssue_FG;
+import com.Getapcs.Avision.Transaction.MaterialIssue_SA1;
+import com.Getapcs.Avision.Transaction.MaterialIssue_SA2;
+import com.Getapcs.Avision.Transaction.PRApproval1;
+import com.Getapcs.Avision.Transaction.PRApproval2;
 import com.Getapcs.Avision.Transaction.Purchase_Requisation;
+import com.Getapcs.Avision.Transaction.Purchase_Requisation_FG;
+import com.Getapcs.Avision.Transaction.Purchase_Requisation_SA1;
+import com.Getapcs.Avision.Transaction.Purchase_Requisation_SA2;
 import com.Getapcs.Avision.Transaction.SalesOrder;
 import com.Getapcs.Avision.Transaction.ShopOrder;
 import com.Getapcs.Avision.Transaction.ShopOrder_For_FG;
+import com.Getapcs.Avision.Transaction.ShopOrder_For_SA;
+import com.Getapcs.Avision.Transaction.ShopOrder_For_SA2;
 
 public class TEST_SA_Flow extends TestBase {
 
@@ -55,6 +68,9 @@ public class TEST_SA_Flow extends TestBase {
 	Engg_BOM_Create_Page enggBomCreatePage;
 	Price_List Price_List;
 	EnggBOM_ReleaseBOM releaseBom;
+	EnggBOM_ReleaseBOM_SA2 releaseBomSA2;
+	EnggBOM_ReleaseBOM_SA1 releaseBomSA1;
+	EnggBOM_ReleaseBOM_FG releaseBomFG;
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
 	RFQ_ReleaseCS rfq_ReleaseCS;
@@ -66,8 +82,11 @@ public class TEST_SA_Flow extends TestBase {
 	SalesOrder SalesOrder;
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
-//	PRApproval1 PRApproval1;
-//	PRApproval2 PRApproval2;
+	Purchase_Requisation_SA2 puchaseRequisitionSA2;
+	Purchase_Requisation_SA1 puchaseRequisitionSA1;
+	Purchase_Requisation_FG puchaseRequisitionFG;
+	PRApproval1 PRApproval1;
+	PRApproval2 PRApproval2;
 //	Purchase_Order Purchase_Order;
 //	openGrin openGrin;
 //	Grin Grin;
@@ -100,7 +119,12 @@ public class TEST_SA_Flow extends TestBase {
 //	VerifyPR_EditPage VerifyPR_EditPage;
 //	Purchase_Order_Edit Purchase_Order_Edit;
 	ShopOrder ShopOrder;
-	ShopOrder_For_FG shopOrderSA;
+	ShopOrder_For_SA ShopOrderSA2;
+	ShopOrder_For_SA2 ShopOrderSA1;
+	ShopOrder_For_FG ShopOrderFG;
+	MaterialIssue_SA2 materialIssueSA2;
+	MaterialIssue_SA1 materialIssueSA1;
+	MaterialIssue_FG materialIssueFG;
 //	VerifyInvoiceCreate VerifyInvoiceCreate;
 
 	public TEST_SA_Flow() {
@@ -122,6 +146,9 @@ public class TEST_SA_Flow extends TestBase {
 		enggBomCreatePageForFG = new Engg_BOM_Create_Page_FOR_FG();
 //		enggBomEditPage = new Engg_BOM_Edit_Page();
 		releaseBom = new EnggBOM_ReleaseBOM();
+		releaseBomSA2 = new EnggBOM_ReleaseBOM_SA2();
+		releaseBomSA1 = new EnggBOM_ReleaseBOM_SA1();
+		releaseBomFG = new EnggBOM_ReleaseBOM_FG();
 		priceList_CreatePage = new ItemPriceList_CreatePage();
 		rfq_CreatePage = new RFQ_CreatePage();
 		sourcing = new VerifySourcing();
@@ -131,18 +158,27 @@ public class TEST_SA_Flow extends TestBase {
 //		quoteCreatePage = new QuoteCreatePage();
 //		SalesOrder = new SalesOrder();
 //		ShopOrder = new ShopOrder();
-//		MaterialIssue = new MaterialIssue();
+		MaterialIssue = new MaterialIssue();
+		materialIssueSA2 = new MaterialIssue_SA2();
+		materialIssueSA1 = new MaterialIssue_SA1();
+		materialIssueFG = new MaterialIssue_FG();
 		rfq_ReleaseCS = new RFQ_ReleaseCS();
 		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
 		quoteCreatePage = new QuoteCreatePage();
 		SalesOrder = new SalesOrder();
 		ShopOrder = new ShopOrder();
-		shopOrderSA = new ShopOrder_For_FG();
+		ShopOrderSA2 = new ShopOrder_For_SA();
+		ShopOrderSA1 = new ShopOrder_For_SA2();
+		ShopOrderFG = new ShopOrder_For_FG();
 		MaterialIssue = new MaterialIssue();
 //		Purchase_Order = new Purchase_Order();
 		Purchase_Requisation = new Purchase_Requisation();
-//		PRApproval1 = new PRApproval1();
-//		PRApproval2 = new PRApproval2();
+
+		puchaseRequisitionSA2 = new Purchase_Requisation_SA2();
+		puchaseRequisitionSA1 = new Purchase_Requisation_SA1();
+		puchaseRequisitionFG = new Purchase_Requisation_FG();
+		PRApproval1 = new PRApproval1();
+		PRApproval2 = new PRApproval2();
 //		openGrin = new openGrin();
 //		Grin = new Grin();
 //		IQCConfirmation = new IQCConfirmation();
@@ -187,143 +223,154 @@ public class TEST_SA_Flow extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 
-	@Test(priority = 2)
-	public void verifyItemMasterCreateforSA() throws Throwable {
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePageFG.itemMasterCreate(fg, "Test Description", "76543456", "Test Manufacturer or CustomerName",
-				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
-				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
-				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
-				"TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePageSA.itemMasterCreate(sa1, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePageSA.itemMasterCreate(sa2, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePagePP.itemMasterCreate(pp1, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePagePP.itemMasterCreate(pp2, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePagePP.itemMasterCreate(pp3, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePagePP.itemMasterCreate(pp4, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePagePP.itemMasterCreate(pp5, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		homePage.clickOnItemMasterCreate();
-		itemMasterCreatePagePP.itemMasterCreate(pp6, "Test Description", "76543456",
-				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
-				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
-				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
-				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
-		Thread.sleep(2000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-	}
-
-	@Test(priority = 3)
-	public void verifyBomCreateforSA_FG() throws Throwable {
-
-		homePage.clickOnBomCreatePage();
-		enggBomCreatePageForSA2.bomCreate("9", // Quantity
-				"50", // scarpAllowance
-				"TestRemark", // Remark
-				"1", // Version
-				"10", // quantityPer
-				"100", // probability
-				"TEST Alternate Remark", // alternateRemark
-				"1", // quantityNRE
-				"20");// cost
-		Thread.sleep(3000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-		homePage.clickOnBomCreatePage();
-		enggBomCreatePageForSA1.bomCreate("8", // Quantity
-				"50", // scarpAllowance
-				"TestRemark", // Remark
-				"1", // Version
-				"10", // quantityPer
-				"100", // probability
-				"TEST Alternate Remark", // alternateRemark
-				"1", // quantityNRE
-				"20");// cost
-		Thread.sleep(3000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-		homePage.clickOnBomCreatePage();
-		enggBomCreatePageForFG.bomCreate("7", // Quantity
-				"50", // scarpAllowance
-				"TestRemark", // Remark
-				"1", // Version
-				"10", // quantityPer
-				"100", // probability
-				"TEST Alternate Remark", // alternateRemark
-				"1", // quantityNRE
-				"20");// cost
-		Thread.sleep(3000);
-		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
-
-	}
-
-	@Test(priority = 7)
-	public void verifyReleaseBom() throws Throwable {
-		homePage.clickOnReleaseBomPage();
-		releaseBom.releaseBom("Test Remark");// Remark
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
+//	@Test(priority = 2)
+//	public void verifyItemMasterCreateforSA() throws Throwable {
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePageFG.itemMasterCreate(fg, "Test Description", "76543456", "Test Manufacturer or CustomerName",
+//				"DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323", "TEST-FootPrint", "TEST ProcessStep",
+//				"TEST descriptinRouting", "9", "10", "100", "5", "10", "Test Reorder", "TEST 2Bin", "TEST LeadTime",
+//				"TEST expiryDays", "TEST Inspection Int Days", "TEST specialInstructions", "TEST instructions", "10",
+//				"TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePageSA.itemMasterCreate(sa1, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePageSA.itemMasterCreate(sa2, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePagePP.itemMasterCreate(pp1, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePagePP.itemMasterCreate(pp2, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePagePP.itemMasterCreate(pp3, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePagePP.itemMasterCreate(pp4, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePagePP.itemMasterCreate(pp5, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnItemMasterCreate();
+//		itemMasterCreatePagePP.itemMasterCreate(pp6, "Test Description", "76543456",
+//				"Test Manufacturer or CustomerName", "DR-N-5676", "REV-43", "T-DOC-RET-21", "10", "30", "300", "323",
+//				"TEST-FootPrint", "TEST ProcessStep", "TEST descriptinRouting", "9", "10", "100", "5", "10",
+//				"Test Reorder", "TEST 2Bin", "TEST LeadTime", "TEST expiryDays", "TEST Inspection Int Days",
+//				"TEST specialInstructions", "TEST instructions", "10", "TEST BatchSize", "565");
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//	}
+//
+//	@Test(priority = 3)
+//	public void verifyBomCreateforSA_FG() throws Throwable {
+//
+//		homePage.clickOnBomCreatePage();
+//		enggBomCreatePageForSA2.bomCreate("9", // Quantity
+//				"50", // scarpAllowance
+//				"TestRemark", // Remark
+//				"1", // Version
+//				"10", // quantityPer
+//				"100", // probability
+//				"TEST Alternate Remark", // alternateRemark
+//				"1", // quantityNRE
+//				"20");// cost
+//		Thread.sleep(3000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnBomCreatePage();
+//		enggBomCreatePageForSA1.bomCreate("8", // Quantity
+//				"50", // scarpAllowance
+//				"TestRemark", // Remark
+//				"1", // Version
+//				"10", // quantityPer
+//				"100", // probability
+//				"TEST Alternate Remark", // alternateRemark
+//				"1", // quantityNRE
+//				"20");// cost
+//		Thread.sleep(3000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnBomCreatePage();
+//		enggBomCreatePageForFG.bomCreate("7", // Quantity
+//				"50", // scarpAllowance
+//				"TestRemark", // Remark
+//				"1", // Version
+//				"10", // quantityPer
+//				"100", // probability
+//				"TEST Alternate Remark", // alternateRemark
+//				"1", // quantityNRE
+//				"20");// cost
+//		Thread.sleep(3000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//	}
+//
+//	@Test(priority = 4)
+//	public void verifyReleaseBom() throws Throwable {
+//
+//		homePage.clickOnReleaseBomPage();
+//		releaseBomSA2.releaseBom("Test Remark");// Remark
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnReleaseBomPage();
+//		releaseBomSA1.releaseBom("Test Remark");// Remark
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnReleaseBomPage();
+//		releaseBomFG.releaseBom("Test Remark");// Remark
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 //
 //	@Test(priority = 8)
 //	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
@@ -338,6 +385,7 @@ public class TEST_SA_Flow extends TestBase {
 //	@Test(priority = 9)
 //	public void verifySalesRFQCreate() throws Throwable {
 //
+//		homePage.clickonRFQCreate();
 //		rfq_CreatePage.RFQCreate();
 //
 //		Thread.sleep(4000);
@@ -363,11 +411,10 @@ public class TEST_SA_Flow extends TestBase {
 //	public void verifySalesRFQENGG() throws Throwable {
 //
 //		homePage.clickonSalesRfqModifyorView();
-//		Thread.sleep(4000);
 //		RFQ_ReleaseEngg.RFQEngg("10", // QuantityInaddShedule
 //				"TEST Note"); // String Note
 //
-//		Thread.sleep(4000);
+//		Thread.sleep(3000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
@@ -377,7 +424,7 @@ public class TEST_SA_Flow extends TestBase {
 //		homePage.clickonSoucing();
 //		sourcing.sourcingCreate();
 //
-//		Thread.sleep(4000);
+//		Thread.sleep(3000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
@@ -395,7 +442,7 @@ public class TEST_SA_Flow extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 10)
+//	@Test(priority = 13)
 //	public void verifyQuoteCreate() throws Throwable {
 //
 //		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
@@ -405,7 +452,7 @@ public class TEST_SA_Flow extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 11)
+//	@Test(priority = 14)
 //	public void verifySalesOrderCreate() throws Throwable {
 //		homePage.clickOnSalesOrderCreate();
 //		SalesOrder.salesOrderCreate("20", // generalDiscount
@@ -453,14 +500,96 @@ public class TEST_SA_Flow extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 13)
+//	@Test(priority = 15)
 //	public void verifyShopOrderCreate() throws Throwable {
 //
 //		homePage.clickOnTransactionShopOrderCreate();
-//		shopOrderSA.ShopOrderCreate();
+//		ShopOrderSA2.ShopOrderCreate();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnTransactionShopOrderCreate();
+//		ShopOrderSA1.ShopOrderCreate();
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnTransactionShopOrderCreate();
+//		ShopOrderFG.ShopOrderCreate();
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
+//
+//	@Test(priority = 11)
+//	public void verifyMaterialIssue() throws Throwable {
+//
+//		homePage.clickOnTransactionMaterialIssue();
+//		materialIssueSA2.MaterialIssuePage();
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnTransactionMaterialIssue();
+//		materialIssueSA1.MaterialIssuePage();
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//
+//		homePage.clickOnTransactionMaterialIssue();
+//		materialIssueFG.MaterialIssuePage();
+//		Thread.sleep(2000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+
+	@Test(priority = 12)
+	public void verifyPRcreate$Approvals_1_2() throws Throwable {
+		homePage.clickOnPRCreatePage();
+		puchaseRequisitionSA2.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		// ##############################################################################
+
+		homePage.clickOnPRCreatePage();
+		puchaseRequisitionSA1.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		// ############################################################################
+
+		homePage.clickOnPRCreatePage();
+		puchaseRequisitionFG.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
 
 	@AfterTest
 	public void afetrTest() {
