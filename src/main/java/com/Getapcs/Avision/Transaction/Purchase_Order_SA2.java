@@ -324,20 +324,27 @@ public class Purchase_Order_SA2 extends TestBase {
 				click(driver, addProject);
 			}
 
+			Thread.sleep(1000);
 			click(driver, projectNumber);
-			WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath1));
-			click(driver, projectNumberSelect);
+			Thread.sleep(1000);
+			if (i == 1) {
+				WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath1));
+				Thread.sleep(1000);
+				click(driver, projectNumberSelect);
+			}
 
 			click(driver, projectQuntity);
 			isSelected(driver, projectQuntity, "projectQuntity");
 			projectQuntity.clear();
 			projectQuntity.sendKeys(projectQty);
 
-			click(driver, prButton);
+			if (i == 1) {
+				click(driver, prButton);
 
-			click(driver, prSelect);
+				click(driver, prSelect);
 
-			click(driver, savePR);
+				click(driver, savePR);
+			}
 
 			click(driver, addProjectNumber);
 

@@ -116,6 +116,8 @@ public class ShopOrder_For_FG extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order/create");
 
+		Thread.sleep(4000);
+
 		datePicker(driver, soCloseDatePicker);
 
 //FG Item Number

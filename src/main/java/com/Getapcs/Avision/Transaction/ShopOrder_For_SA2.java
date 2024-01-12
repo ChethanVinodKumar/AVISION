@@ -118,9 +118,9 @@ public class ShopOrder_For_SA2 extends TestBase {
 		WebElement projectNo = driver.findElement(By.xpath(updatedXpathProjectNo));
 		click(driver, projectNo);
 
-		datePicker(driver, soCloseDatePicker);
+		Thread.sleep(4000);
 
-		Thread.sleep(1000);
+		datePicker(driver, soCloseDatePicker);
 
 //		String saRequiredQty = driver
 //				.findElement(By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[6]/div/input")).getText();

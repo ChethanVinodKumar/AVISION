@@ -26,6 +26,16 @@ public class IQCConfirmation extends TestBase {
 
 	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement remarks;
+	@FindBy(xpath = "(//input[@type='text'])[10]")
+	WebElement remarks1;
+	@FindBy(xpath = "(//input[@type='text'])[15]")
+	WebElement remarks2;
+	@FindBy(xpath = "(//input[@type='text'])[20]")
+	WebElement remarks3;
+	@FindBy(xpath = "(//input[@type='text'])[25]")
+	WebElement remarks4;
+	@FindBy(xpath = "(//input[@type='text'])[30]")
+	WebElement remarks5;
 
 	@FindBy(xpath = "(//a[normalize-space()='Other Details'])[1]")
 	WebElement otherDetails;
@@ -146,7 +156,17 @@ public class IQCConfirmation extends TestBase {
 		boolean isHiddenremarksField = !remarks.isDisplayed();
 		assertFalse(isHiddenremarksField);
 
-		remarks.sendKeys("TEST Remarks");
+		remarks.sendKeys("TEST Remarks1");
+
+		remarks1.sendKeys("TEST Remarks2");
+
+		remarks2.sendKeys("TEST Remarks3");
+
+		remarks3.sendKeys("TEST Remarks4");
+
+		remarks4.sendKeys("TEST Remarks5");
+
+		remarks5.sendKeys("TEST Remarks6");
 
 		click(driver, otherDetails);
 
