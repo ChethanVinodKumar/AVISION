@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
-public class InventryReportAfterDO extends TestBase {
+public class InventryReportAfterReturnODO extends TestBase {
 
 	// Material Issue
 
@@ -35,7 +35,7 @@ public class InventryReportAfterDO extends TestBase {
 	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
 	WebElement viewButton;
 
-	public InventryReportAfterDO() {
+	public InventryReportAfterReturnODO() {
 
 		PageFactory.initElements(driver, this);
 
@@ -45,41 +45,52 @@ public class InventryReportAfterDO extends TestBase {
 
 	public HomePage InventryReportPage() throws InterruptedException, IOException {
 
-////Part Type
-//
-//		driver.navigate().to("https://demo_keus.getapcs.com/transaction/delivery-order/table");
-//
-//		click(driver, viewButton);
-//		String tableXpath = "//table[@class='table mb-2']";
-//
-//		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
-//
-//		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
-//
-//		String updatedXpath = elementXpath.replace("PP-54", partType1);
-//
-//		System.out.println(updatedXpath);
+//Part Type
 
-//part Type
-		driver.navigate().to("https://avision-demo.getapcs.com/engineering/item-master/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/return-open-delivery-order-list/table");
 
-		String tableXpath1 = "//table[@class='table table-striped']";
+		click(driver, viewButton);
 
-		String partType1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
+		String tableXpath = "//table[@class='table mb-2 ng-untouched ng-pristine ng-valid']";
 
+		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
+
+//		// Remove leading and trailing whitespaces
+//		partType1 = partType1.trim();
+//
+//		// Remove the trailing hyphen and any characters after it
+//		int hyphenIndex = partType1.indexOf(" - Test Description");
+//		if (hyphenIndex != -1) {
+//			partType1 = partType1.substring(0, hyphenIndex);
+//		}
+
+		// Store the element with hard coded PR number
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
 
 		String updatedXpath = elementXpath.replace("PP-54", partType1);
 
 		System.out.println(updatedXpath);
 
-		String partType2 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[2]")).getText();
-
-		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
-
-		String updatedXpath1 = elementXpath1.replace("PP-54", partType2);
-
-		System.out.println(updatedXpath1);
+////part Type
+//		driver.navigate().to("https://demo_keus.getapcs.com/engineering/item-master/table");
+//
+//		String tableXpath1 = "//table[@class='table table-striped']";
+//
+//		String partType1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
+//
+//		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath = elementXpath.replace("PP-54", partType1);
+//
+//		System.out.println(updatedXpath);
+//
+//		String partType2 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[2]")).getText();
+//
+//		String elementXpath1 = "(//div[normalize-space()='PP-54'])[1]";
+//
+//		String updatedXpath1 = elementXpath1.replace("PP-54", partType2);
+//
+//		System.out.println(updatedXpath1);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/reports/inventory-report");
 
@@ -94,13 +105,13 @@ public class InventryReportAfterDO extends TestBase {
 
 		click(driver, partTypeSelect);
 
-		click(driver, searchPartType);
-		searchPartType.clear();
-		searchPartType.sendKeys(partType2);
-
-		WebElement partTypeSelect1 = driver.findElement(By.xpath(updatedXpath1));
-
-		click(driver, partTypeSelect1);
+//		click(driver, searchPartType);
+//		searchPartType.clear();
+//		searchPartType.sendKeys(partType2);
+//
+//		WebElement partTypeSelect1 = driver.findElement(By.xpath(updatedXpath1));
+//
+//		click(driver, partTypeSelect1);
 
 //Filter
 

@@ -14,10 +14,18 @@ import com.Getapcs.Avision.Engineering.Item_Master_Create_Page1;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
 import com.Getapcs.Avision.InventryReports.InventryReportAfterBinning;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterDO;
 import com.Getapcs.Avision.InventryReports.InventryReportAfterGrin;
 import com.Getapcs.Avision.InventryReports.InventryReportAfterIQCConfirmation;
 import com.Getapcs.Avision.InventryReports.InventryReportAfterMI;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterMaterialRequest;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterMaterialReturnNote;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterODO;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterOQCBinning;
 import com.Getapcs.Avision.InventryReports.InventryReportAfterOpenGrin;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterReturnDO;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterReturnInvoice;
+import com.Getapcs.Avision.InventryReports.InventryReportAfterReturnODO;
 import com.Getapcs.Avision.InventryReports.InventryReportBeforeOpenGrin;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
@@ -29,21 +37,32 @@ import com.Getapcs.Avision.Sales.VerifyLPCostingRelease;
 import com.Getapcs.Avision.Sales.VerifySourcing;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 import com.Getapcs.Avision.Transaction.Binning;
+import com.Getapcs.Avision.Transaction.DeliveryOrder;
 import com.Getapcs.Avision.Transaction.Grin;
 import com.Getapcs.Avision.Transaction.IQCConfirmation;
 import com.Getapcs.Avision.Transaction.MaterialIssue;
+import com.Getapcs.Avision.Transaction.MaterialRequest;
+import com.Getapcs.Avision.Transaction.Material_ReturnNote;
+import com.Getapcs.Avision.Transaction.OQC;
+import com.Getapcs.Avision.Transaction.OQCBinning;
+import com.Getapcs.Avision.Transaction.OpenMRN;
 import com.Getapcs.Avision.Transaction.PRApproval1;
 import com.Getapcs.Avision.Transaction.PRApproval2;
 import com.Getapcs.Avision.Transaction.Purchase_Order;
 import com.Getapcs.Avision.Transaction.Purchase_Requisation;
+import com.Getapcs.Avision.Transaction.ReturnDO;
+import com.Getapcs.Avision.Transaction.ReturnInvoice;
+import com.Getapcs.Avision.Transaction.ReturnOpenDO;
 import com.Getapcs.Avision.Transaction.SalesOrder;
 import com.Getapcs.Avision.Transaction.ShopOrder;
+import com.Getapcs.Avision.Transaction.ShopOrderConfirmation;
+import com.Getapcs.Avision.Transaction.openDeliveryOrder;
 
 public class TEST_Create extends TestBase {
 
-	public final static String priceList = "TEST PriceList 6";
-	public final static String fg = "FG-6";
-	public final static String pp = "PP-6";
+	public final static String priceList = "TEST PriceList 10";
+	public final static String fg = "FG-004";
+	public final static String pp = "PP-004";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -71,22 +90,32 @@ public class TEST_Create extends TestBase {
 	Grin Grin;
 	IQCConfirmation IQCConfirmation;
 	Binning Binning;
-//	ShopOrderConfirmation ShopOrderConfirmation;
+	ShopOrderConfirmation ShopOrderConfirmation;
 	InventryReportAfterMI InventryReportAfterMI;
-//	OQC OQC;
-//	OQCBinning OQCBinning;
-//	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
-//	DeliveryOrder DeliveryOrder;
-//	InventryReportAfterDO InventryReportAfterDO;
-//	ReturnDO ReturnDO;
-//	MaterialRequest MaterialRequest;
-//	Material_ReturnNote Material_ReturnNote;
-//
+	OQC OQC;
+	OQCBinning OQCBinning;
+	InventryReportAfterOQCBinning InventryReportAfterOQCBinning;
+	DeliveryOrder DeliveryOrder;
+	InventryReportAfterDO InventryReportAfterDO;
+	ReturnDO ReturnDO;
+	openDeliveryOrder openDeliveryOrder;
+	ReturnOpenDO ReturnOpenDO;
+	ReturnInvoice ReturnInvoice;
+	MaterialRequest MaterialRequest;
+	InventryReportAfterMaterialRequest InventryReportAfterMaterialRequest;
+	InventryReportAfterMaterialReturnNote InventryReportAfterMaterialReturnNote;
+	Material_ReturnNote Material_ReturnNote;
+	OpenMRN OpenMRN;
+
 	InventryReportBeforeOpenGrin InventryReportBeforeOpenGrin;
 	InventryReportAfterOpenGrin InventryReportAfterOpenGrin;
 	InventryReportAfterGrin InventryReportAfterGrin;
 	InventryReportAfterIQCConfirmation InventryReportAfterIQCConfirmation;
 	InventryReportAfterBinning InventryReportAfterBinning;
+	InventryReportAfterReturnDO InventryReportAfterReturnDO;
+	InventryReportAfterODO InventryReportAfterODO;
+	InventryReportAfterReturnODO InventryReportAfterReturnODO;
+	InventryReportAfterReturnInvoice InventryReportAfterReturnInvoice;
 //
 //	Item_Master_Edit_Page itemMasterEditPage;
 //	Engg_BOM_Edit_Page enggBomEditPage;
@@ -139,23 +168,32 @@ public class TEST_Create extends TestBase {
 		Grin = new Grin();
 		IQCConfirmation = new IQCConfirmation();
 		Binning = new Binning();
-//		ShopOrderConfirmation = new ShopOrderConfirmation();
+		ShopOrderConfirmation = new ShopOrderConfirmation();
 		InventryReportAfterMI = new InventryReportAfterMI();
-//		OQC = new OQC();
-//		OQCBinning = new OQCBinning();
-//		InventryReportAfterOQCBinning = new InventryReportAfterOQCBinning();
-//		DeliveryOrder = new DeliveryOrder();
-//		InventryReportAfterDO = new InventryReportAfterDO();
-//		ReturnDO = new ReturnDO();
-//		Price_List = new Price_List();
-//		MaterialRequest = new MaterialRequest();
-//		Material_ReturnNote = new Material_ReturnNote();
-//
+		OQC = new OQC();
+		OQCBinning = new OQCBinning();
+		InventryReportAfterOQCBinning = new InventryReportAfterOQCBinning();
+		DeliveryOrder = new DeliveryOrder();
+		InventryReportAfterDO = new InventryReportAfterDO();
+		ReturnDO = new ReturnDO();
+		openDeliveryOrder = new openDeliveryOrder();
+		ReturnOpenDO = new ReturnOpenDO();
+		ReturnInvoice = new ReturnInvoice();
+		MaterialRequest = new MaterialRequest();
+		InventryReportAfterMaterialRequest = new InventryReportAfterMaterialRequest();
+		Material_ReturnNote = new Material_ReturnNote();
+		OpenMRN = new OpenMRN();
+		InventryReportAfterMaterialReturnNote = new InventryReportAfterMaterialReturnNote();
+
 		InventryReportBeforeOpenGrin = new InventryReportBeforeOpenGrin();
 		InventryReportAfterOpenGrin = new InventryReportAfterOpenGrin();
 		InventryReportAfterGrin = new InventryReportAfterGrin();
 		InventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
 		InventryReportAfterBinning = new InventryReportAfterBinning();
+		InventryReportAfterReturnDO = new InventryReportAfterReturnDO();
+		InventryReportAfterODO = new InventryReportAfterODO();
+		InventryReportAfterReturnODO = new InventryReportAfterReturnODO();
+		InventryReportAfterReturnInvoice = new InventryReportAfterReturnInvoice();
 
 //		itemMasterEditPage = new Item_Master_Edit_Page();
 //		enggBomEditPage = new Engg_BOM_Edit_Page();
@@ -170,6 +208,7 @@ public class TEST_Create extends TestBase {
 //		VerifyInvoiceCreate = new VerifyInvoiceCreate();
 	}
 
+//
 //	@Test(priority = 1)
 //	public void verifyPrice_ListCreate() throws AWTException, InterruptedException {
 //		Thread.sleep(4000);
@@ -441,25 +480,11 @@ public class TEST_Create extends TestBase {
 //		homePage.clickontransactionPOApproval2();
 //		Purchase_Order.purchaseOrderApproval2();
 //
-//		System.out.println("After Approval");
-//		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
-//		WebElement table3 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-//
-//		// Extract the data from the first row of the table
-//		WebElement firstRow3 = table3.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-//		String projectNumber3 = firstRow3.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-//		String approvalStatus3 = firstRow3.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
-//																						// status
-//		Thread.sleep(4000);
-//		// Output the extracted data
-//
-//		System.out.println("Project Number: " + projectNumber3);
-//		System.out.println("Approval Status: " + approvalStatus3);
-//
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
+//	@Test(priority = 19)
 //	@Test(priority = 22)
 //	public void verifyInventryReportBeforeGrin() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
@@ -469,7 +494,26 @@ public class TEST_Create extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//
+////	@Test(priority = 20)
+////	public void verifyOpenGrinCreate() throws Throwable {
+////		homePage.clickOnOpenGRINCreate();
+////		openGrin.openGrinCreate();
+////
+////		Thread.sleep(4000);
+////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+////	}
+////
+////	@Test(priority = 21)
+////	public void verifyInventryReportAfterOpenGRIN() throws Throwable {
+////		homePage.clickOnInventryReportWithLocation();
+////		InventryReportAfterOpenGrin.InventryReportPage();
+////
+////		Thread.sleep(4000);
+////		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+////	}
+
+//	@Test(priority = 22)
+
 //	@Test(priority = 23)
 //	public void verifyOpenGrinCreate() throws Throwable {
 //		homePage.clickOnOpenGRINCreate();
@@ -588,7 +632,19 @@ public class TEST_Create extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
+//	@Test(priority = 29)
+//	public void verifyInventryReportAfteMI() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterMI.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 30)
+
 //	@Test(priority = 34)
+
 //	public void verifyShopOrderConfirmation() throws Throwable {
 //
 //		homePage.clickOnShopOrderConfirmationCreate();
@@ -597,6 +653,7 @@ public class TEST_Create extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
+
 //	@Test(priority = 35)
 //	public void verifyInventryReportAfterSOC() throws Throwable {
 //		homePage.clickOnInventryReportWithLocation();
@@ -624,7 +681,7 @@ public class TEST_Create extends TestBase {
 //		homePage.clickOnOQCCreate();
 //		OQC.OQCCreate("10");
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 33)
@@ -634,7 +691,7 @@ public class TEST_Create extends TestBase {
 //		homePage.clickOnOQCBinningCreate();
 //		OQCBinning.OQCBinningCreate("5");
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 34)
@@ -644,7 +701,7 @@ public class TEST_Create extends TestBase {
 //		InventryReportAfterOQCBinning.InventryReportPage();
 //
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 35)
@@ -654,7 +711,7 @@ public class TEST_Create extends TestBase {
 //		homePage.clickOnDOCreate();
 //		DeliveryOrder.DeliveryOrderCreate("10", "5");
 //		Thread.sleep(4000);
-//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
 //	@Test(priority = 36)
@@ -664,9 +721,142 @@ public class TEST_Create extends TestBase {
 //		InventryReportAfterDO.InventryReportPage();
 //
 //		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 36)
+//	public void verifyReturnDO() throws Throwable {
+//		homePage.clickOnReturnDO();
+//		ReturnDO.ReturnDOCreate("5");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 37)
+//	public void verifyInventryReportAfterReturnDO() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterReturnODO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 38)
+//	public void verifyOpenDeliveryOrder() throws Throwable {
+//		homePage.clickOnOpenDeliveryOrder();
+//		openDeliveryOrder.openDeliveryOrderCreate("10", "5", "100");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 39)
+//	public void verifyInventryReportAfterODO() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterODO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 40)
+//	public void verifyReturnOpenDeliveryOrder() throws Throwable {
+//		homePage.clickOnReturnOpenDeliveryOrder();
+//		ReturnOpenDO.ReturnOpenDOCreate("10", "5");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 41)
+//	public void verifyInventryReportAfterReturnODO() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterReturnODO.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+////
+//	@Test(priority = 42)
+//	public void verifyInvoiceCreate() throws Throwable {
+//		homePage.clickOnInvoiceCreate();
+//		VerifyInvoiceCreate.invoiceCreate("TEST Remark");
+//
+//		Thread.sleep(4000);
+//
 //		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
 //	}
 //
+//	@Test(priority = 43)
+//	public void verifyReturnInvoiceCreate() throws Throwable {
+//		homePage.clickOnInvoiceTable();
+//		ReturnInvoice.ReturnInvoicepage("2", "1");
+//
+//		Thread.sleep(4000);
+//
+//		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+//	}
+//	@Test(priority = 44)
+//	public void verifyInventryReportAfterInvoice() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		InventryReportAfterReturnInvoice.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+	@Test(priority = 45)
+	public void verifyMaterialRequest() throws Throwable {
+		homePage.clickOnMaterialRequest();
+		MaterialRequest.MRCreate("20", "10");
+
+		Thread.sleep(4000);
+
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 46)
+	public void verifyInventryReportAfterMaterialRequest() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterMaterialRequest.InventryReportPage();
+
+		Thread.sleep(4000);
+
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 47)
+	public void verifyMaterialReturnNote() throws Throwable {
+		homePage.clickOnMaterialReturnNote();
+		Material_ReturnNote.MRNCreate("10");
+
+		Thread.sleep(4000);
+
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 48)
+	public void verifyMaterialReturnNoteOpenMRN() throws Throwable {
+		homePage.clickOnMaterialReturnNoteOpenMRN();
+		OpenMRN.OpenMRNIssueMRN("10");
+
+		Thread.sleep(4000);
+
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 49)
+	public void verifyInventryReportAfterMaterialReturnNote() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterMaterialReturnNote.InventryReportPage();
+
+		Thread.sleep(4000);
+
+		driver.navigate().to("https://demo_keus.getapcs.com/dashboard");
+	}//
 //	@Test(priority = 37)
 //	public void verifyReturnDO() throws Throwable {
 //		homePage.clickOnReturnDO();

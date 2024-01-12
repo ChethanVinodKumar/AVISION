@@ -70,6 +70,10 @@ public class TestBase {
 
 //		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
@@ -109,6 +113,7 @@ public class TestBase {
 				.pollingEvery(Duration.ofSeconds(pollingInterval)).ignoring(ElementClickInterceptedException.class);
 
 		return wait.until(new Function<WebDriver, WebElement>() {
+			@Override
 			public WebElement apply(WebDriver driver) {
 				return wait.until(ExpectedConditions.elementToBeClickable(element));
 			}
@@ -209,7 +214,7 @@ public class TestBase {
 	public static void datePicker(WebDriver driver, WebElement element) throws InterruptedException {
 		waitForElement(driver, element, 10, 1);
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
-		Thread.sleep(Duration.ofSeconds(2));
+		Thread.sleep(2000);
 		click(driver, element);
 
 		for (int i = 0; i < 5; i++) {
@@ -226,7 +231,7 @@ public class TestBase {
 			throws InterruptedException {
 		waitForElement(driver, element, 10, 1);
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
-		Thread.sleep(Duration.ofSeconds(2));
+		Thread.sleep(2000);
 		click(driver, element);
 
 		for (int i = 0; i < numberOfClicks; i++) {

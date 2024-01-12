@@ -5,12 +5,29 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
         <methods>
+<<<<<<< HEAD
           <include name="verifyInventryReportAfterIQC"/>
           <include name="verifyInventryReportBeforeGrin"/>
           <include name="verifyIQCCreate"/>
           <include name="verifyInventryReportAfterGrin"/>
           <include name="verifyPOcreate$Approvals_1_2"/>
           <include name="verifyGRINCreate"/>
+=======
+<<<<<<< HEAD
+          <include name="verifyMaterialRequest"/>
+          <include name="verifyMaterialReturnNoteOpenMRN"/>
+          <include name="verifyInventryReportAfterMaterialReturnNote"/>
+          <include name="verifyMaterialReturnNote"/>
+          <include name="verifyInventryReportAfterMaterialRequest"/>
+=======
+<<<<<<< HEAD
+          <include name="verifySalesOrderCreate"/>
+          <include name="afetrTest"/>
+=======
+          <include name="verifyInventryReportAfterSOC"/>
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION.git
           <include name="setUp"/>
           <include name="afetrTest"/>
         </methods>

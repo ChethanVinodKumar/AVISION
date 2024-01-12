@@ -37,8 +37,8 @@ public class Purchase_Requisation extends TestBase {
 	@FindBy(xpath = "(//input[@formcontrolname='prItemFiles'])[1]")
 	WebElement uploadItemFiels;
 
-	@FindBy(xpath = "(//button[normalize-space()='Save'])[2]")
-	WebElement saveFiles;
+	@FindBy(xpath = "(//button[normalize-space()='Upload'])[1]")
+	WebElement uploadFilesButton;
 
 	@FindBy(xpath = "(//input[@role='combobox'])[1]")
 	WebElement itemNumberDropDown;
@@ -297,7 +297,9 @@ public class Purchase_Requisation extends TestBase {
 
 		uploadFile(driver, uploadItemFiels, 1);
 
-		click(driver, saveFiles);
+		click(driver, uploadFilesButton);
+
+		click(driver, closeButton);
 
 		// ************Add Project Expansion Panel************
 
@@ -378,16 +380,9 @@ public class Purchase_Requisation extends TestBase {
 
 		specialTerms$ConditionTextField.sendKeys("TEST Special Terms & Condition");
 
-		String beforeSaveButton = driver.getCurrentUrl();
-		System.out.println(beforeSaveButton);
-
 		Thread.sleep(5000);
 
 		click(driver, saveButtonInPRCreate);
-
-		Thread.sleep(5000);
-		String afterSaveButton = driver.getCurrentUrl();
-		System.out.println(afterSaveButton);
 
 		return new HomePage();
 

@@ -105,7 +105,7 @@ public class Grin extends TestBase {
 	@FindBy(xpath = "//input[@placeholder='Enter UTGST']")
 	WebElement uTGSTField;
 
-	@FindBy(xpath = "(//input[@type='date'])[14]")
+	@FindBy(xpath = "(//input[@type='text'])[14]")
 	WebElement remarksField;
 
 	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Save'])[1]")
@@ -136,6 +136,9 @@ public class Grin extends TestBase {
 
 	@FindBy(xpath = "//input[@placeholder='BE Currency Value']")
 	WebElement beCurrencyValueField;
+
+	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
+	WebElement uploadDocButton;
 
 	@FindBy(linkText = "Other Cost")
 	WebElement otherCostTab;
@@ -218,7 +221,7 @@ public class Grin extends TestBase {
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
-		String itemNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[2]/td[2]")).getText();
+		String itemNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
 
 		System.out.println(itemNumber);
 
@@ -437,16 +440,16 @@ public class Grin extends TestBase {
 		uTGSTField.clear();
 		uTGSTField.sendKeys(utgst);
 
-		click(driver, remarksField);
-
-		remarksField.sendKeys("TEST");
-
 		// Verify save Button in Add Taxes Pop-UP
 //          WebElement saveButtonInAddTaxesPOPUP = driver.findElement(By.xpath("(//button[@type='submit'][normalize-space()='Save'])[1]"));
 		boolean saveButtonInAddTaxesPOPUP1IsDisplayed = saveButtonInAddTaxesPOPUP.isDisplayed();
 		assertTrue(saveButtonInAddTaxesPOPUP1IsDisplayed,
 				"save Button in Add Taxes Pop-Up Expansion Panel is not Displayed.");
 		saveButtonInAddTaxesPOPUP.click();
+
+		js.executeScript("arguments[0].click();", remarksField);
+
+		remarksField.sendKeys("TEST");
 
 		// Verify Freight Charges Tab
 		boolean freightChargesTabIsDisplayed = freightChargesTab.isDisplayed();
@@ -536,6 +539,8 @@ public class Grin extends TestBase {
 		boolean beCurrencyValueFieldIsSelected = beCurrencyValueFieldFocusedElement.equals(beCurrencyValueField);
 		assertTrue(beCurrencyValueFieldIsSelected, "B/E Currency Value Field is not Selected");
 		beCurrencyValueField.sendKeys(beCurrencyValue);
+
+		uploadFile(driver, uploadDocButton, 1);
 
 		// Verify Other Cost Tab
 		boolean otherCostTabIsDisplayed = otherCostTab.isDisplayed();

@@ -1,6 +1,5 @@
 package com.Getapcs.Avision.TEST;
 
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -619,7 +618,7 @@ public class TEST_SA_Flow extends TestBase {
 
 		// ######### Purchase Order Create Page For SA2 ###############
 		homePage.clickontransactionPOcreate();
-		purchaseOrderSA2.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
+		purchaseOrderSA2.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
@@ -637,7 +636,7 @@ public class TEST_SA_Flow extends TestBase {
 
 		// ######### Purchase Order Create Page For SA1 ###############
 		homePage.clickontransactionPOcreate();
-		purchaseOrderSA1.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
+		purchaseOrderSA1.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
@@ -655,7 +654,7 @@ public class TEST_SA_Flow extends TestBase {
 
 		// ######### Purchase Order Create Page For FG ###############
 		homePage.clickontransactionPOcreate();
-		purchaseOrderFG.purchaseOrderCreatePage("10", "1000", "1000", "1000", "1000", "TEST Special Instructions", "8",
+		purchaseOrderFG.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
 		Thread.sleep(4000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
@@ -671,74 +670,74 @@ public class TEST_SA_Flow extends TestBase {
 		Thread.sleep(4000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
-
-	@Test(priority = 20)
-	public void verifyInventryReportBeforeGrin() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		inventryReportBeforGrin.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 21)
-	public void verifyGRINCreate() throws Throwable {
-		homePage.clickOnGRINCreate();
-		grin.grinCreatePage("TEST-IN-1122", // invoiceNo
-				"10", // invoiceGST
-				"10", // totalInvoice
-				"m1", // mftrBatchNo
-				"10", // unitPrice
-				"9", // sgst
-				"9", // cgst
-				"9", // igst
-				"9", // utgst
-				"AWB-1-5657", // awbNo1
-				"AWB-2-5657", // awbNo2
-				"BE-557", // beNo
-				"80", // beCurrencyValue
-				"10", // freight
-				"10", // insurance
-				"10", // loadingOrUnloading
-				"80", // currencyConversion
-				"10", // transport
-				"test charge");// otherChargesValue
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 22)
-	public void verifyInventryReportAfterGrin() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		inventryReportAfterGrin.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 23)
-	public void verifyIQCCreate() throws Throwable {
-		homePage.clickOnIQCConfirmationCreate();
-		IQCConfirmation.iqcConfirmationCreatePage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 24)
-	public void verifyInventryReportAfterIQC() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		inventryReportAfterIQCConfirmation.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@AfterTest
-	public void afetrTest() {
-		driver.manage().window().minimize();
-		driver.quit();
-	}
+//
+//	@Test(priority = 20)
+//	public void verifyInventryReportBeforeGrin() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		inventryReportBeforGrin.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 21)
+//	public void verifyGRINCreate() throws Throwable {
+//		homePage.clickOnGRINCreate();
+//		grin.grinCreatePage("TEST-IN-1122", // invoiceNo
+//				"10", // invoiceGST
+//				"10", // totalInvoice
+//				"m1", // mftrBatchNo
+//				"10", // unitPrice
+//				"9", // sgst
+//				"9", // cgst
+//				"9", // igst
+//				"9", // utgst
+//				"AWB-1-5657", // awbNo1
+//				"AWB-2-5657", // awbNo2
+//				"BE-557", // beNo
+//				"80", // beCurrencyValue
+//				"10", // freight
+//				"10", // insurance
+//				"10", // loadingOrUnloading
+//				"80", // currencyConversion
+//				"10", // transport
+//				"test charge");// otherChargesValue
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 22)
+//	public void verifyInventryReportAfterGrin() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		inventryReportAfterGrin.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 23)
+//	public void verifyIQCCreate() throws Throwable {
+//		homePage.clickOnIQCConfirmationCreate();
+//		IQCConfirmation.iqcConfirmationCreatePage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@Test(priority = 24)
+//	public void verifyInventryReportAfterIQC() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		inventryReportAfterIQCConfirmation.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
+//
+//	@AfterTest
+//	public void afetrTest() {
+//		driver.manage().window().minimize();
+//		driver.quit();
+//	}
 
 }

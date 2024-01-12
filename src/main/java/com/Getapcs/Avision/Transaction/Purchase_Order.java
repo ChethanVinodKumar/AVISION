@@ -696,6 +696,7 @@ public class Purchase_Order extends TestBase {
 
 		uploadFile(driver, UploadFiles1, 2);
 
+		Thread.sleep(2000);
 		click(driver, save);
 		Thread.sleep(4000);
 		return new HomePage();
