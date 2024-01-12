@@ -735,15 +735,15 @@ public class HomePage extends TestBase {
 		threeLinesSideBarIcon.click();
 		transaction.click();
 		purchaseOrder.click();
-		poApproval1.click();
+		click(driver, poApproval1);
 	}
 
 	public void clickontransactionPOApproval2() {
 		threeLinesSideBarIcon.click();
 		transaction.click();
 		purchaseOrder.click();
-		poApproval2.sendKeys(Keys.ENTER);
-		;
+		click(driver, poApproval2);
+
 	}
 
 	public void clickonPOEdit() {

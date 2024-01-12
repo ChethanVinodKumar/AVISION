@@ -17,7 +17,7 @@ public class Purchase_Requisation_SA1 extends TestBase {
 	WebElement prDateElement;
 
 	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Issue Material'])[2]")
-	WebElement materialIssueViewButton_SA2;
+	WebElement materialIssueViewButton_SA1;
 
 	@FindBy(xpath = "(//input[@type='text'])[2]")
 	WebElement procurementTypeDropDown;
@@ -222,8 +222,8 @@ public class Purchase_Requisation_SA1 extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/material-issue/table");
 
-		waitForElement(driver, materialIssueViewButton_SA2, 10, 1);
-		click(driver, materialIssueViewButton_SA2);
+		waitForElement(driver, materialIssueViewButton_SA1, 10, 1);
+		click(driver, materialIssueViewButton_SA1);
 
 		String tableXpath = "//table[@formarrayname='ItemData']";
 
@@ -441,7 +441,7 @@ public class Purchase_Requisation_SA1 extends TestBase {
 
 		Thread.sleep(4000);
 
-//		click(driver, saveButtonInPRCreate);
+		click(driver, saveButtonInPRCreate);
 
 		Thread.sleep(4000);
 		String afterSaveButton = driver.getCurrentUrl();

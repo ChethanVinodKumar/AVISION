@@ -116,8 +116,6 @@ public class ShopOrder_For_FG extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order/create");
 
-		Thread.sleep(2000);
-
 		datePicker(driver, soCloseDatePicker);
 
 //FG Item Number
@@ -233,7 +231,7 @@ public class ShopOrder_For_FG extends TestBase {
 		System.out.println("totalRelease Qty : " + totalReleaseQtyvalue + "\n");
 
 //Save Button
-		Thread.sleep(4000);
+		waitForElement(driver, saveButton, 10, 2);
 		click(driver, saveButton);
 
 		return new HomePage();

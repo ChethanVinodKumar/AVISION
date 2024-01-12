@@ -441,7 +441,7 @@ public class Purchase_Requisation_SA2 extends TestBase {
 
 		Thread.sleep(4000);
 
-//		click(driver, saveButtonInPRCreate);
+		click(driver, saveButtonInPRCreate);
 
 		Thread.sleep(4000);
 		String afterSaveButton = driver.getCurrentUrl();

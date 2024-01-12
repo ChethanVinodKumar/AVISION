@@ -427,41 +427,8 @@ public class TEST_Create extends TestBase {
 //	public void verifyPurchaseOrderApproval1() throws AWTException, InterruptedException {
 //		// Purchase Order POApproval 1
 //
-//		homePage.clickontransactionPOModelAndView();
-//
-//		System.out.println("Before Approval");
-//		WebElement table = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-//
-//		// Extract the data from the first row of the table
-//		WebElement firstRow = table.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-//		String projectNumber = firstRow.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-//		String approvalStatus = firstRow.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval status
-//
-//		// Output the extracted data
-//		System.out.println("Project Number: " + projectNumber);
-//		System.out.println("Approval Status: " + approvalStatus);
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
 //		homePage.clickontransactionPOApproval1();
 //		Purchase_Order.purchaseOrderApproval1();
-//
-//		System.out.println("After Approval");
-//		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
-//
-//		WebElement table1 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-//
-//		// Extract the data from the first row of the table
-//		WebElement firstRow1 = table1.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-//		String projectNumber1 = firstRow1.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-//		String approvalStatus1 = firstRow1.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval
-//																						// status
-//
-//		Thread.sleep(4000);
-//
-//		// Output the extracted data
-//		System.out.println("Project Number: " + projectNumber1);
-//		System.out.println("Approval Status: " + approvalStatus1);
 //
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
@@ -470,23 +437,6 @@ public class TEST_Create extends TestBase {
 //	@Test(priority = 21)
 //	public void verifyPurchaseOrderApproval2() throws AWTException, InterruptedException {
 //		// Purchase Order POApproval 2
-//
-//		homePage.clickontransactionPOModelAndView();
-//
-//		System.out.println("Before Approval");
-//		WebElement table2 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
-//
-//		// Extract the data from the first row of the table
-//		WebElement firstRow2 = table2.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
-//		String projectNumber2 = firstRow2.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
-//		String approvalStatus2 = firstRow2.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
-//																						// status
-//
-//		// Output the extracted data
-//		System.out.println("Project Number: " + projectNumber2);
-//		System.out.println("Approval Status: " + approvalStatus2);
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //
 //		homePage.clickontransactionPOApproval2();
 //		Purchase_Order.purchaseOrderApproval2();

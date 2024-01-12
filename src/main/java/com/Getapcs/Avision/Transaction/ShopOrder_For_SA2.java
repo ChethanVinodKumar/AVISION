@@ -118,8 +118,6 @@ public class ShopOrder_For_SA2 extends TestBase {
 		WebElement projectNo = driver.findElement(By.xpath(updatedXpathProjectNo));
 		click(driver, projectNo);
 
-		Thread.sleep(2000);
-
 		datePicker(driver, soCloseDatePicker);
 
 		Thread.sleep(1000);
@@ -142,7 +140,7 @@ public class ShopOrder_For_SA2 extends TestBase {
 		releaseQty.sendKeys(saRequiredQty);
 
 //Save Button
-		Thread.sleep(4000);
+		waitForElement(driver, saveButton, 10, 2);
 		click(driver, saveButton);
 
 		return new HomePage();

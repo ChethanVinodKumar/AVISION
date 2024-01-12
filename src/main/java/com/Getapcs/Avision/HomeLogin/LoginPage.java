@@ -15,7 +15,7 @@ public class LoginPage extends TestBase {
 	@FindBy(id = "password")
 	WebElement password;
 
-	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-login/div/div/div[1]/form/div[3]/select")
+	@FindBy(xpath = "(//select)[1]")
 	WebElement selectUnit;
 
 	@FindBy(xpath = "(//span[@class='button__text'])[1]")

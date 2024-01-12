@@ -97,9 +97,6 @@ public class ShopOrder_For_SA extends TestBase {
 
 		Thread.sleep(4000);
 
-//		js.executeScript("arguments[0].click();", saRadioButton);
-
-//		saRadioButton.click();
 		click(driver, saRadioButton);
 
 		click(driver, saItemNumberDropDown);
@@ -118,7 +115,6 @@ public class ShopOrder_For_SA extends TestBase {
 		WebElement projectNo = driver.findElement(By.xpath(updatedXpathProjectNo));
 		click(driver, projectNo);
 
-		Thread.sleep(4000);
 		datePicker(driver, soCloseDatePicker);
 
 		Thread.sleep(1000);
@@ -141,7 +137,7 @@ public class ShopOrder_For_SA extends TestBase {
 		releaseQty.sendKeys(saRequiredQty);
 
 //Save Button
-		Thread.sleep(4000);
+		waitForElement(driver, saveButton, 10, 2);
 		click(driver, saveButton);
 
 		return new HomePage();
