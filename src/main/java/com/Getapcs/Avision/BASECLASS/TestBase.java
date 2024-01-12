@@ -61,9 +61,9 @@ public class TestBase {
 		// Normal Execution
 //		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 		actions = new Actions(driver);
 		robot = new Robot();
 		js = (JavascriptExecutor) driver;

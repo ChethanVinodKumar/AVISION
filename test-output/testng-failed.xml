@@ -5,7 +5,11 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_Create">
         <methods>
-          <include name="verifyInventryReportAfterSOC"/>
+          <include name="verifyMaterialRequest"/>
+          <include name="verifyMaterialReturnNoteOpenMRN"/>
+          <include name="verifyInventryReportAfterMaterialReturnNote"/>
+          <include name="verifyMaterialReturnNote"/>
+          <include name="verifyInventryReportAfterMaterialRequest"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->

@@ -264,6 +264,20 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
 	WebElement returnDo;
 
+	// Open Delivery Order
+
+	@FindBy(xpath = "(//span[normalize-space()='Open Delivery Order'])[1]")
+	WebElement openDeliveryOrder;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/open-delivery-order/create'])[1]")
+	WebElement createOpenDeliveryOrder;
+
+	@FindBy(xpath = "(//a[@routerlink='transaction/open-delivery-order/table'])[1]")
+	WebElement MorVOpenDeliveryOrder;
+
+	@FindBy(xpath = "(//button[normalize-space()='Return ODO'])[1]")
+	WebElement returnODO;
+
 	// Invoice
 
 	@FindBy(xpath = "//span[normalize-space()='Invoice']")
@@ -577,11 +591,12 @@ public class HomePage extends TestBase {
 	}
 
 	public void clickOnTransactionShopOrderCreate() {
-		// TODO Auto-generated method stub
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		js.executeScript("arguments[0].click();", shopOrder);
-		createShopOrder.sendKeys(Keys.ENTER);
+
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, shopOrder);
+		click(driver, createShopOrder);
+
 	}
 
 	public void clickOnTransactionShopOrderEdit() {
@@ -881,12 +896,38 @@ public class HomePage extends TestBase {
 	}
 
 	public void clickOnReturnDO() throws InterruptedException {
+
 		click(driver, threeLinesSideBarIcon);
 		click(driver, transaction);
 		click(driver, deliveryOrder);
 		click(driver, MorVDeliveryOrder);
 		click(driver, threeLinesSideBarIcon);
 		click(driver, returnDo);
+
+		Thread.sleep(3000);
+
+	}
+
+	// Open Delivery Order
+
+	public void clickOnOpenDeliveryOrder() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, openDeliveryOrder);
+		click(driver, createOpenDeliveryOrder);
+		click(driver, threeLinesSideBarIcon);
+
+		Thread.sleep(3000);
+
+	}
+
+	public void clickOnReturnOpenDeliveryOrder() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, openDeliveryOrder);
+		click(driver, MorVOpenDeliveryOrder);
+		click(driver, returnODO);
+		click(driver, threeLinesSideBarIcon);
 
 		Thread.sleep(3000);
 

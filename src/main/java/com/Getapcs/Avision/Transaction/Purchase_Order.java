@@ -192,7 +192,7 @@ public class Purchase_Order extends TestBase {
 	WebElement approve;
 
 	@FindBy(xpath = "(//button[normalize-space()='Yes'])[1]")
-	WebElement approvePOPUP;
+	WebElement yesButton;
 
 	@FindBy(xpath = "//table[@class='table table-striped']/tbody/tr[1]/td[1]")
 	WebElement itemNumber1;
@@ -693,6 +693,7 @@ public class Purchase_Order extends TestBase {
 
 		uploadFile(driver, UploadFiles1, 2);
 
+		Thread.sleep(2000);
 		click(driver, save);
 		Thread.sleep(4000);
 		return new HomePage();
@@ -703,6 +704,22 @@ public class Purchase_Order extends TestBase {
 	// Page*************************************//
 
 	public HomePage purchaseOrderApproval1() throws AWTException, InterruptedException {
+
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
+
+		System.out.println("Before Approval");
+		WebElement table = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+
+		// Extract the data from the first row of the table
+		WebElement firstRow = table.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+		String projectNumber = firstRow.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+		String approvalStatus = firstRow.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval status
+
+		// Output the extracted data
+		System.out.println("Project Number: " + projectNumber);
+		System.out.println("Approval Status: " + approvalStatus);
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/approvalI/table");
 
 		click(driver, arrroval1View);
 
@@ -716,15 +733,54 @@ public class Purchase_Order extends TestBase {
 
 		click(driver, terms);
 
+		Thread.sleep(4000);
+
 		click(driver, approve);
 
-		click(driver, approvePOPUP);
+		Thread.sleep(4000);
+
+		click(driver, yesButton);
+
+		System.out.println("After Approval");
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
+
+		WebElement table1 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+
+		// Extract the data from the first row of the table
+		WebElement firstRow1 = table1.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+		String projectNumber1 = firstRow1.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+		String approvalStatus1 = firstRow1.findElement(By.xpath(".//td[6]")).getText(); // 6th column for approval
+																						// status
+
+		Thread.sleep(4000);
+
+		// Output the extracted data
+		System.out.println("Project Number: " + projectNumber1);
+		System.out.println("Approval Status: " + approvalStatus1);
+
 		return new HomePage();
 	}
 
 //**********************************PO Approval 2********************************************//
 
 	public HomePage purchaseOrderApproval2() throws AWTException, InterruptedException {
+
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
+
+		System.out.println("Before Approval");
+		WebElement table2 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+
+		// Extract the data from the first row of the table
+		WebElement firstRow2 = table2.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+		String projectNumber2 = firstRow2.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+		String approvalStatus2 = firstRow2.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
+																						// status
+
+		// Output the extracted data
+		System.out.println("Project Number: " + projectNumber2);
+		System.out.println("Approval Status: " + approvalStatus2);
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/approvalII/table");
 
 		click(driver, arrroval2View);
 
@@ -738,9 +794,29 @@ public class Purchase_Order extends TestBase {
 
 		click(driver, terms);
 
+		Thread.sleep(4000);
+
 		click(driver, approve);
 
-		click(driver, approvePOPUP);
+		Thread.sleep(4000);
+
+		click(driver, yesButton);
+
+		System.out.println("After Approval");
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
+		WebElement table3 = driver.findElement(By.xpath("(//table[@class='table table-striped'])[1]"));
+
+		// Extract the data from the first row of the table
+		WebElement firstRow3 = table3.findElement(By.xpath("//tbody/tr[1]")); // Use tr[2] to skip the header row
+		String projectNumber3 = firstRow3.findElement(By.xpath(".//td[2]")).getText(); // 2nd column for project number
+		String approvalStatus3 = firstRow3.findElement(By.xpath(".//td[7]")).getText(); // 6th column for approval
+																						// status
+		Thread.sleep(4000);
+		// Output the extracted data
+
+		System.out.println("Project Number: " + projectNumber3);
+		System.out.println("Approval Status: " + approvalStatus3);
+
 		return new HomePage();
 	}
 

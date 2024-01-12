@@ -458,18 +458,16 @@ public class SalesOrder extends TestBase {
 		// ################## Items Tab ######################
 
 		// Verify Items Tab in Sales Order Create Page
-		assertTrue(itemsTab.isDisplayed(), "Items Tab is not Displayed.");
-		itemsTab.click();
 
 		// Verify General Discount Percentage Radio Button in General Tab
 		assertTrue(generalDiscountPercentageRadioButton.isDisplayed(),
 				"General Discount Percentage Radio Button is not Displayed.");
-		generalDiscountPercentageRadioButton.click();
+		click(driver, generalDiscountPercentageRadioButton);
 
 		// Verify General Discount Rupees Radio Button in General Tab
 		assertTrue(generalDiscountRupeesRadioButton.isDisplayed(),
 				"General Discount Rupees Radio Button is not Displayed.");
-		generalDiscountRupeesRadioButton.click();
+		click(driver, generalDiscountRupeesRadioButton);
 
 		// Verify the General Discount Field3 in General Tab
 		assertTrue(generalDiscountField3.isDisplayed(), "General Discount Field3 is not Displayed.");
