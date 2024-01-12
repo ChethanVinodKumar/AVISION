@@ -3,16 +3,25 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Getapcs.Avision.TEST.TEST_Create">
+      <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
         <methods>
+<<<<<<< HEAD
           <include name="verifyMaterialRequest"/>
           <include name="verifyMaterialReturnNoteOpenMRN"/>
           <include name="verifyInventryReportAfterMaterialReturnNote"/>
           <include name="verifyMaterialReturnNote"/>
           <include name="verifyInventryReportAfterMaterialRequest"/>
+=======
+<<<<<<< HEAD
+          <include name="verifySalesOrderCreate"/>
+          <include name="afetrTest"/>
+=======
+          <include name="verifyInventryReportAfterSOC"/>
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
+      </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

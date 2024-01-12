@@ -2,15 +2,12 @@ package com.Getapcs.Avision.Sales;
 
 import static org.testng.Assert.assertTrue;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
@@ -270,8 +267,6 @@ public class QuoteCreatePage extends TestBase {
 
 		WebElement rfqSelect = driver.findElement(By.xpath(updatedXpath));
 		js.executeScript("arguments[0].click();", rfqSelect);
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		// Verify the Quote Ref. Field3
 		boolean quoteRefField3IsDisplayed = quoteRefField3.isDisplayed();

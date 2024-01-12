@@ -94,6 +94,8 @@ public class PRApproval2 extends TestBase {
 		click(driver, approval2Button);
 
 		click(driver, yesButton);
+
+		Thread.sleep(2000);
 		return new HomePage();
 
 	}

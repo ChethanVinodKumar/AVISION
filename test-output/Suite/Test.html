@@ -1,0 +1,530 @@
+<html>
+<head>
+<title>TestNG:  Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>90/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Nov 27 11:32:57 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>418 seconds (418438 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyCostingMethodEdit()'><b>verifyCostingMethodEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifycostCenterEdit()'><b>verifycostCenterEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPayment_TermEdit()'><b>verifyPayment_TermEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyNatureOfRelationshipCreate()'><b>verifyNatureOfRelationshipCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyCustomerTypeEdit()'><b>verifyCustomerTypeEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyDeliveryTermsEdit()'><b>verifyDeliveryTermsEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPackingInstructionsEdit()'><b>verifyPackingInstructionsEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>5</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyCustomerCategoryCreate()'><b>verifyCustomerCategoryCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>6</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyProcurement_TypeEdit()'><b>verifyProcurement_TypeEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>6</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifySalutationsEdit()'><b>verifySalutationsEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyLeadTimesCreate()'><b>verifyLeadTimesCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyLovcationCreate()'><b>verifyLovcationCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPackingInstructionsCreate()'><b>verifyPackingInstructionsCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPartTypeCreate()'><b>verifyPartTypeCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyTypeOfCompanyEdit()'><b>verifyTypeOfCompanyEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyProcessCreate()'><b>verifyProcessCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>5</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyAdditinalChargesEdit()'><b>verifyAdditinalChargesEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster<br>Parameters: 101, 5, 5, 5, 5, TEST Description1, TEST Trmarks1</td>
+<td></td>
+<td>7</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyQuoteTermsEdit()'><b>verifyQuoteTermsEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyNumberOFRoomCreate()'><b>verifyNumberOFRoomCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyUOMEdit()'><b>verifyUOMEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyExportUnitTypeCreate()'><b>verifyExportUnitTypeCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyLeadTimesEdit()'><b>verifyLeadTimesEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyCompanyCategoryCreate()'><b>verifyCompanyCategoryCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyVenderCategoryCreate()'><b>verifyVenderCategoryCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifycommodityCreate()'><b>verifycommodityCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyBankNameCreate()'><b>verifyBankNameCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyCostingMethod()'><b>verifyCostingMethod</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPrice_ListCreate()'><b>verifyPrice_ListCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyProcurement_TypeCreate()'><b>verifyProcurement_TypeCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>6</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyBasisOfApprovalCreate()'><b>verifyBasisOfApprovalCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyDepartmentCreate()'><b>verifyDepartmentCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPreferred_Freight_ForwarderEdit()'><b>verifyPreferred_Freight_ForwarderEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyOrderTypeMasterCreate()'><b>verifyOrderTypeMasterCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPreferred_Freight_ForwarderCreate()'><b>verifyPreferred_Freight_ForwarderCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyVenderTypeCreate()'><b>verifyVenderTypeCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyUOCCreate()'><b>verifyUOCCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyWareHouseCreate()'><b>verifyWareHouseCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyLanguageCreate()'><b>verifyLanguageCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyLanguageEdit()'><b>verifyLanguageEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyUOMCreate()'><b>verifyUOMCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyShipmentModeCreate()'><b>verifyShipmentModeCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyRiskCategoryCreate()'><b>verifyRiskCategoryCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyBankNameEdit()'><b>verifyBankNameEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyIncoTermsCreate()'><b>verifyIncoTermsCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyAuditFrequencyCreate()'><b>verifyAuditFrequencyCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster<br>Parameters: TEST Audit Frequency Name, TEST Description, TEST remarks</td>
+<td></td>
+<td>6</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyScopeOfSupplyCreate()'><b>verifyScopeOfSupplyCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifycostCenter()'><b>verifycostCenter</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyCustomerTypeCreate()'><b>verifyCustomerTypeCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyShipmentModeEdit()'><b>verifyShipmentModeEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyDeliveryTermsCreate()'><b>verifyDeliveryTermsCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPrice_ListEdit()'><b>verifyPrice_ListEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyQuoteTermsCreate()'><b>verifyQuoteTermsCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyWareHouseEdit()'><b>verifyWareHouseEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifycategoryCreate()'><b>verifycategoryCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyIncoTermsEdit()'><b>verifyIncoTermsEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifycommodityEdit()'><b>verifycommodityEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyBasisOfApprovalEdit()'><b>verifyBasisOfApprovalEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifySalutationsCreate()'><b>verifySalutationsCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyGSTPercentageEdit()'><b>verifyGSTPercentageEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyAuditFrequencyEdit()'><b>verifyAuditFrequencyEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster<br>Parameters: TEST Description1, TEST remarks1</td>
+<td></td>
+<td>6</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyNatureOfRelationshipEdit()'><b>verifyNatureOfRelationshipEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPurchase_GroupEdit()'><b>verifyPurchase_GroupEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifycategoryEdit()'><b>verifycategoryEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyShipmentInstructionsEdit()'><b>verifyShipmentInstructionsEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyDepartmentEdit()'><b>verifyDepartmentEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyTypeOfCompanyCreate()'><b>verifyTypeOfCompanyCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyVenderTypeEdit()'><b>verifyVenderTypeEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyLovcationEdit()'><b>verifyLovcationEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyMaterialTypeCreate()'><b>verifyMaterialTypeCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifySegmentEdit()'><b>verifySegmentEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifySegmentCreate()'><b>verifySegmentCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyOrderTypeMasterEdit()'><b>verifyOrderTypeMasterEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyGSTPercentageCreate()'><b>verifyGSTPercentageCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyProcessEdit()'><b>verifyProcessEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyTypeOfSolutionEdit()'><b>verifyTypeOfSolutionEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyAdditinalChargesCreate()'><b>verifyAdditinalChargesCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster<br>Parameters: TEST Additional Charges Name, 100, 5, 5, 5, 5, TEST Description, TEST Trmarks</td>
+<td></td>
+<td>10</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyShipmentInstructionsCreate()'><b>verifyShipmentInstructionsCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyExportUnitTypeEdit()'><b>verifyExportUnitTypeEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyVenderCategoryEdit()'><b>verifyVenderCategoryEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyIssuingStockEdit()'><b>verifyIssuingStockEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyIssuingStockCreate()'><b>verifyIssuingStockCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyNumberOFRoomEdit()'><b>verifyNumberOFRoomEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyScopeOfSupplyEdit()'><b>verifyScopeOfSupplyEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyUOCEdit()'><b>verifyUOCEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyTypeOfSolutionCreate()'><b>verifyTypeOfSolutionCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPayment_TermCreate()'><b>verifyPayment_TermCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyCustomerCategoryEdit()'><b>verifyCustomerCategoryEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>6</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyPurchase_GroupCreate()'><b>verifyPurchase_GroupCreate</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyRiskCategoryEdit()'><b>verifyRiskCategoryEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>3</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+<tr>
+<td title='com.getapcs.testcases.SecondaryMaster.verifyMaterialTypeEdit()'><b>verifyMaterialTypeEdit</b><br>Test class: com.getapcs.testcases.SecondaryMaster</td>
+<td></td>
+<td>4</td>
+<td>com.getapcs.testcases.SecondaryMaster@6c6c5427</td></tr>
+</table><p>
+</body>
+</html>

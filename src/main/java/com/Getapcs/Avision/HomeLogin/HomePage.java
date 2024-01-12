@@ -71,6 +71,9 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//span[text()='RFQ']")
 	WebElement rfq;
 
+	@FindBy(xpath = "(//a[@routerlink='sales/rfq/create'])[1]")
+	WebElement createRFQ;
+
 	@FindBy(xpath = "//a[@routerlink='sales/rfq/table']")
 	WebElement modifyorViewRfq;
 
@@ -79,6 +82,18 @@ public class HomePage extends TestBase {
 
 	@FindBy(xpath = "(//a[@routerlink='sales/quote/table'])[1]")
 	WebElement modifyorViewQuote;
+
+	@FindBy(xpath = "//span[normalize-space()='Sourcing']")
+	WebElement sourcing;
+
+	@FindBy(xpath = "//a[@routerlink='sales/sourcing/table']")
+	WebElement modifyorViewsourcing;
+
+	@FindBy(xpath = "//span[normalize-space()='LP Costing']")
+	WebElement lpCosting;
+
+	@FindBy(xpath = "//a[@routerlink='sales/lp-costing/table']")
+	WebElement lpCostingModifyorView;
 
 //Transaction
 
@@ -404,8 +419,7 @@ public class HomePage extends TestBase {
 		primaryMaster.click();
 		companyMaster.click();
 		modifyorView.click();
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click()", editButton);
+		js.executeScript("arguments[0].click()", editButton);
 
 		Thread.sleep(4000);
 	}
@@ -457,6 +471,14 @@ public class HomePage extends TestBase {
 		click(driver, sales);
 		itemPriceList.click();
 		itemPriceListCreate.sendKeys(Keys.ENTER);
+		click(driver, threeLinesSideBarIcon);
+	}
+
+	public void clickonRFQCreate() {
+		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, rfq);
+		click(driver, createRFQ);
 		click(driver, threeLinesSideBarIcon);
 	}
 
@@ -548,6 +570,25 @@ public class HomePage extends TestBase {
 		releaseBom.sendKeys(Keys.ENTER);
 	}
 
+	// Sales
+	public void clickonSoucing() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, sourcing);
+		click(driver, modifyorViewsourcing);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+	}
+
+	public void clickonLpCosting() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, lpCosting);
+		click(driver, lpCostingModifyorView);
+		click(driver, threeLinesSideBarIcon);
+		Thread.sleep(3000);
+	}
+
 //Transaction
 
 	public void clickOnSalesOrderCreate() throws InterruptedException {
@@ -637,7 +678,7 @@ public class HomePage extends TestBase {
 
 	}
 
-//Purchase Requization
+//Purchase Requisition
 
 	public void clickOnPRCreatePage() throws InterruptedException {
 		threeLinesSideBarIcon.click();
@@ -709,15 +750,15 @@ public class HomePage extends TestBase {
 		threeLinesSideBarIcon.click();
 		transaction.click();
 		purchaseOrder.click();
-		poApproval1.click();
+		click(driver, poApproval1);
 	}
 
 	public void clickontransactionPOApproval2() {
 		threeLinesSideBarIcon.click();
 		transaction.click();
 		purchaseOrder.click();
-		poApproval2.sendKeys(Keys.ENTER);
-		;
+		click(driver, poApproval2);
+
 	}
 
 	public void clickonPOEdit() {

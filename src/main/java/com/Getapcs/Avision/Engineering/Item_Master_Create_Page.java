@@ -399,48 +399,7 @@ public class Item_Master_Create_Page extends TestBase {
 		boolean isDeselectedDescriptionTextField = !descriptionField1.isSelected();
 		assertTrue(isDeselectedDescriptionTextField);
 
-//		// verifying that ActiveStatus is displayed or hidden.
-//		boolean isDisplayedActiveStatus = activeStatus.isDisplayed();
-//		assertTrue(isDisplayedActiveStatus);
-//		boolean isHiddenActiveStatus = !activeStatus.isDisplayed();
-//		assertFalse(isHiddenActiveStatus);
-//
-//		// Verifying that ObsoluteToggleButton is enabled or not
-//		boolean isEnabledObsoluteToggleButton = obsoluteToggleButton.isEnabled();
-//		assertTrue(isEnabledObsoluteToggleButton);
-//		boolean isDisabledObsoluteToggleButton = !obsoluteToggleButton.isEnabled();
-//		assertFalse(isDisabledObsoluteToggleButton);
-//
-//		// verifying that ObsoluteToggleButton is displayed or hidden.
-//		boolean isDisplayedObsoluteToggleButton = obsoluteToggleButton.isDisplayed();
-//		assertTrue(isDisplayedObsoluteToggleButton);
-//		boolean isHiddenObsoluteToggleButton = !obsoluteToggleButton.isDisplayed();
-//		assertFalse(isHiddenObsoluteToggleButton);
-
 		uploadFile(driver, uploadPhoto, 0);
-
-//        //Verifying and Upload Photo in Grin Create 
-//  		js.executeScript("arguments[0].click();",uploadPhoto);
-//  		robot.delay(2000);
-//  		StringSelection stringSelection1 = new StringSelection("search-ms:displayname=Search%20Results%20in%20Downloads&crumb=System.Generic.String%3Aimage&crumb=location:C%3A%5CUsers%5CW2191%5CDownloads\\image");
-//          Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection1, null);
-//
-//          // Press Enter to open the file dialog
-//     
-//          robot.delay(2000);
-//          
-//          // Press Ctrl+V to paste the file path
-//          robot.keyPress(KeyEvent.VK_CONTROL);
-//          robot.keyPress(KeyEvent.VK_V);
-//          robot.delay(2000);
-//          robot.keyRelease(KeyEvent.VK_CONTROL);
-//          robot.keyRelease(KeyEvent.VK_V);
-//         
-//          
-//          robot.delay(2000);
-//          // Press Enter to confirm the file selection
-//          robot.keyPress(KeyEvent.VK_ENTER);
-//          robot.keyRelease(KeyEvent.VK_ENTER);
 
 		// ###################### GeneralDescription ##############################
 

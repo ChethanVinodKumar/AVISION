@@ -1,7 +1,6 @@
 package com.Getapcs.Avision.Sales;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,18 +9,6 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class RFQ_CreatePage extends TestBase {
-
-	@FindBy(xpath = "//button[@class='navbar-toggler navbar-toggler align-self-center']//span[@class='mdi mdi-menu']")
-	WebElement threeLineIconBar;
-
-	@FindBy(xpath = "(//span[normalize-space()='Sales'])[1]")
-	WebElement salesModuledropdown;
-
-	@FindBy(xpath = "//span[text()='RFQ']")
-	WebElement rfq;
-
-	@FindBy(xpath = "//a[@routerlink='sales/rfq/create']")
-	WebElement createRFQ;
 
 	@FindBy(xpath = "//input[@formcontrolname='rfqNumber']")
 	WebElement rfqNumberField;
@@ -47,8 +34,6 @@ public class RFQ_CreatePage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	JavascriptExecutor executor = (JavascriptExecutor) driver;
-
 	public HomePage RFQCreate() throws Throwable {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
@@ -57,13 +42,7 @@ public class RFQ_CreatePage extends TestBase {
 
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
-		click(driver, threeLineIconBar);
-
-		click(driver, salesModuledropdown);
-
-		click(driver, rfq);
-
-		click(driver, createRFQ);
+		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/create");
 
 		// RFQ Num
 

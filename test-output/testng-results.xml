@@ -2,15 +2,38 @@
 <testng-results ignored="0" total="5" passed="0" failed="5" skipped="0">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
   <suite started-at="2024-01-12T12:47:39 IST" name="Default suite" finished-at="2024-01-12T12:48:26 IST" duration-ms="46363">
+=======
+<<<<<<< HEAD
+  <suite started-at="2024-01-03T17:10:49 IST" name="Default suite" finished-at="2024-01-03T17:11:30 IST" duration-ms="40878">
+=======
+  <suite started-at="2024-01-03T15:48:16 IST" name="Default suite" finished-at="2024-01-03T15:48:52 IST" duration-ms="35910">
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
     <groups>
     </groups>
+<<<<<<< HEAD
     <test started-at="2024-01-12T12:47:39 IST" name="Default test" finished-at="2024-01-12T12:48:26 IST" duration-ms="46363">
+=======
+<<<<<<< HEAD
+    <test started-at="2024-01-03T17:10:49 IST" name="Default test" finished-at="2024-01-03T17:11:30 IST" duration-ms="40878">
+      <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:10:49 IST" name="setUp" finished-at="2024-01-03T17:11:00 IST" duration-ms="11034" status="PASS">
+=======
+    <test started-at="2024-01-03T15:48:16 IST" name="Default test" finished-at="2024-01-03T15:48:52 IST" duration-ms="35910">
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
       <class name="com.Getapcs.Avision.TEST.TEST_Create">
+<<<<<<< HEAD
         <test-method is-config="true" signature="setUp()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_Create@53812a9b]" started-at="2024-01-12T12:47:39 IST" name="setUp" finished-at="2024-01-12T12:47:51 IST" duration-ms="11617" status="PASS">
+=======
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_Create@2bb7bd00]" started-at="2024-01-03T15:48:16 IST" name="setUp" finished-at="2024-01-03T15:48:26 IST" duration-ms="9936" status="PASS">
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
+<<<<<<< HEAD
         <test-method signature="verifyMaterialRequest()[pri:45, instance:com.Getapcs.Avision.TEST.TEST_Create@53812a9b]" started-at="2024-01-12T12:47:51 IST" name="verifyMaterialRequest" finished-at="2024-01-12T12:48:25 IST" duration-ms="34509" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
@@ -63,8 +86,16 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+=======
+<<<<<<< HEAD
+        <test-method signature="verifySalesOrderCreate()[pri:11, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:11:00 IST" name="verifySalesOrderCreate" finished-at="2024-01-03T17:11:29 IST" duration-ms="29289" status="PASS">
+=======
+        <test-method signature="verifyInventryReportAfterSOC()[pri:30, instance:com.Getapcs.Avision.TEST.TEST_Create@2bb7bd00]" started-at="2024-01-03T15:48:26 IST" name="verifyInventryReportAfterSOC" finished-at="2024-01-03T15:48:52 IST" duration-ms="25900" status="PASS">
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
         </test-method> <!-- verifyMaterialRequest -->
         <test-method signature="verifyInventryReportAfterMaterialRequest()[pri:46, instance:com.Getapcs.Avision.TEST.TEST_Create@53812a9b]" started-at="2024-01-12T12:48:25 IST" name="verifyInventryReportAfterMaterialRequest" finished-at="2024-01-12T12:48:26 IST" duration-ms="80" status="FAIL">
           <exception class="org.openqa.selenium.json.JsonException">
@@ -602,7 +633,19 @@ at org.openqa.selenium.interactions.Sequence.toJson(Sequence.java:81)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInventryReportAfterMaterialReturnNote -->
+=======
+<<<<<<< HEAD
+        </test-method> <!-- verifySalesOrderCreate -->
+        <test-method is-config="true" signature="afetrTest()[pri:0, instance:com.Getapcs.Avision.TEST.TEST_SA_Flow@149dd36b]" started-at="2024-01-03T17:11:29 IST" name="afetrTest" finished-at="2024-01-03T17:11:30 IST" duration-ms="514" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afetrTest -->
+      </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->
+=======
+        </test-method> <!-- verifyInventryReportAfterSOC -->
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
       </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
+>>>>>>> branch 'master' of https://github.com/ChethanVinodKumar/AVISION
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

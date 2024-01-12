@@ -12,9 +12,11 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 import org.apache.commons.io.FileUtils; // Import FileUtils
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -25,17 +27,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v118.network.Network;
-import org.openqa.selenium.devtools.v118.network.model.Request;
-import org.openqa.selenium.devtools.v118.network.model.Response;
+import org.openqa.selenium.devtools.v120.network.Network;
+import org.openqa.selenium.devtools.v120.network.model.Request;
+import org.openqa.selenium.devtools.v120.network.model.Response;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
 	public static WebDriver driver;
+//	public static FirefoxDriver driver;
 	public static ChromeOptions options;
 	public static WebDriverWait wait;
 	public static Actions actions;
@@ -48,7 +53,10 @@ public class TestBase {
 	@SuppressWarnings("deprecation")
 	public static void initialization() throws AWTException {
 
+//		System.setProperty("webdriver.chrome.driver",
+//				"C:\\Users\\Gopal Reddy\\Desktop\\chromedriver_win32 (3)\\chromedriver.exe");
 		// pre-condition
+//		WebDriverManager.chromedriver().setup();
 
 		// Incognito Mode Execution
 		options = new ChromeOptions();
@@ -59,11 +67,17 @@ public class TestBase {
 		driver = new ChromeDriver(options);
 
 		// Normal Execution
+
 //		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+
 		actions = new Actions(driver);
 		robot = new Robot();
 		js = (JavascriptExecutor) driver;
@@ -75,7 +89,7 @@ public class TestBase {
 		devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 		devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
 			Request res = requestConsumer.getRequest();
-//        	System.out.println("Send URL :- "+res.getUrl()+"\n"+"\n");
+//			System.out.println("Send URL :- " + res.getUrl() + "\n" + "\n");
 
 		});
 
@@ -92,13 +106,35 @@ public class TestBase {
 
 	}
 
+	// Fluent Wait
+	public static WebElement waitForElement(WebDriver driver, WebElement element, int timeout, int pollingInterval) {
+
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(timeout))
+				.pollingEvery(Duration.ofSeconds(pollingInterval)).ignoring(ElementClickInterceptedException.class);
+
+		return wait.until(new Function<WebDriver, WebElement>() {
+			@Override
+			public WebElement apply(WebDriver driver) {
+				return wait.until(ExpectedConditions.elementToBeClickable(element));
+			}
+		});
+	}
+
+	// Usage:
+
+//	WebElement element = driver.findElement(By.id("elementId"));
+//	element = waitForElement(driver, element, 30, 2);
+//	element.click();
+
 //Click Action
 
 	public static void click(WebDriver driver, WebElement element) {
+		waitForElement(driver, element, 30, 2);
 		try {
 			if (!element.isDisplayed()) {
 				throw new NoSuchElementException("Element not visible so could not click: " + element);
 			}
+
 			element.click();
 		} catch (Exception e) {
 			try {
@@ -110,7 +146,9 @@ public class TestBase {
 					actions.click(element).build().perform();
 				}
 			}
+
 		}
+
 	}
 
 // Is Selected
@@ -121,13 +159,12 @@ public class TestBase {
 
 	// File Upload
 	public static void uploadFile(WebDriver driver, WebElement element, int fileIndex) throws Exception {
-
 		js.executeScript("arguments[0].click();", element);
 
-		String[] files = new String[] {
-				"search-ms:displayname=Search%20Results%20in%20Downloads&crumb=System.Generic.String%3Aimage&crumb=location:C%3A%5CUsers%5CW2191%5CDownloads\\image", // imgae
-				"C:\\Users\\W2191\\Desktop\\WYZ MINDZ Tasks\\Chethan V _18-12-2023 to 23-12-2023.xlsx", // excel
-				"C:\\Users\\W2191\\Desktop\\Project Documentation.docx", "C:\\Users\\W2191\\Documents\\123.txt" }; // docx
+		String[] files = new String[] { "C:\\Users\\Gopal Reddy\\Desktop\\Screenshot 2023-10-27 114940.png", // imgae
+				"C:\\Users\\Gopal Reddy\\Downloads\\TempletForTC.xlsx", // excel
+				"C:\\Users\\Gopal Reddy\\Downloads\\Transaction-Open GRIN-Open GRIN Edit Page.docx",
+				"C:\\Users\\Gopal Reddy\\Desktop\\HardCoded To Soft Coded.txt" }; // docx
 
 		String file = files[fileIndex];
 
@@ -156,6 +193,7 @@ public class TestBase {
 	// Label-Label Tag
 	public static void dataPrint(WebDriver driver, WebElement element, String variableName)
 			throws InterruptedException {
+		waitForElement(driver, element, 10, 1);
 		assertTrue(element.isDisplayed(), element + " is not IsDisplayed.");
 		// To extract Value Attribute and use same approach to retrieve
 		String elementValue = element.getText().trim();
@@ -166,13 +204,17 @@ public class TestBase {
 	// Label-input Tag
 	public static void dataPrintFromInputtag(WebDriver driver, WebElement element, String variableName)
 			throws InterruptedException {
+		waitForElement(driver, element, 10, 1);
+		assertTrue(element.isDisplayed(), element + " is not IsDisplayed.");
 		String elementValue = (String) js.executeScript("return arguments[0].value;", element);
 		System.out.println("\n" + variableName + " : " + elementValue + "\n");
 	}
 
 	// Date Picker 1
 	public static void datePicker(WebDriver driver, WebElement element) throws InterruptedException {
+		waitForElement(driver, element, 10, 1);
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
+		Thread.sleep(2000);
 		click(driver, element);
 
 		for (int i = 0; i < 5; i++) {
@@ -187,7 +229,9 @@ public class TestBase {
 	// Date Picker 2
 	public static void selectPreviousDate(WebDriver driver, WebElement element, int numberOfClicks)
 			throws InterruptedException {
+		waitForElement(driver, element, 10, 1);
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
+		Thread.sleep(2000);
 		click(driver, element);
 
 		for (int i = 0; i < numberOfClicks; i++) {
@@ -202,7 +246,7 @@ public class TestBase {
 	// Screen Shot
 	public static void screenShot(String fileName) throws IOException {
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshotFile, new File(".//Getapcs_Keus1//ScreenShot//" + fileName + ".png"));
+		FileUtils.copyFile(screenshotFile, new File(".//Getapcs_Avision//ScreenShot//" + fileName + ".png"));
 
 	}
 

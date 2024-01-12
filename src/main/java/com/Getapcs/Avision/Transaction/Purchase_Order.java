@@ -194,6 +194,9 @@ public class Purchase_Order extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Yes'])[1]")
 	WebElement yesButton;
 
+	@FindBy(xpath = "(//button[normalize-space()='Yes'])[1]")
+	WebElement approvePOPUP;
+
 	@FindBy(xpath = "//table[@class='table table-striped']/tbody/tr[1]/td[1]")
 	WebElement itemNumber1;
 
@@ -702,7 +705,6 @@ public class Purchase_Order extends TestBase {
 
 	// *****************************PO Approval 1
 	// Page*************************************//
-
 	public HomePage purchaseOrderApproval1() throws AWTException, InterruptedException {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
@@ -761,7 +763,7 @@ public class Purchase_Order extends TestBase {
 		return new HomePage();
 	}
 
-//**********************************PO Approval 2********************************************//
+//***********PO Approval 2***************//
 
 	public HomePage purchaseOrderApproval2() throws AWTException, InterruptedException {
 
@@ -819,5 +821,4 @@ public class Purchase_Order extends TestBase {
 
 		return new HomePage();
 	}
-
 }
