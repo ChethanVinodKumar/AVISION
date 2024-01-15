@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -26,10 +25,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v120.network.Network;
-import org.openqa.selenium.devtools.v120.network.model.Request;
-import org.openqa.selenium.devtools.v120.network.model.Response;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
@@ -83,24 +78,24 @@ public class TestBase {
 		js = (JavascriptExecutor) driver;
 
 		// For Get the Error Status
-		DevTools devTools = ((ChromeDriver) driver).getDevTools();
-		devTools.createSession();
-
-		devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-		devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
-			Request res = requestConsumer.getRequest();
-//			System.out.println("Send URL :- " + res.getUrl() + "\n" + "\n");
-
-		});
-
-		devTools.addListener(Network.responseReceived(), response -> {
-			Response res = response.getResponse();
-//        	System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
-			if (res.getStatus().toString().startsWith("3") || res.getStatus().toString().startsWith("4")
-					|| res.getStatus().toString().startsWith("5"))
-				System.out.println(
-						res.getStatus() + " :- " + res.getStatusText() + "\n" + "Error URL :- " + res.getUrl() + "\n");
-		});
+//		DevTools devTools = ((ChromeDriver) driver).getDevTools();
+//		devTools.createSession();
+//
+//		devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+//		devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
+////			Request res = requestConsumer.getRequest();
+////			System.out.println("Send URL :- " + res.getUrl() + "\n" + "\n");
+//
+//		});
+//
+//		devTools.addListener(Network.responseReceived(), response -> {
+//			Response res = response.getResponse();
+////        	System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
+//			if (res.getStatus().toString().startsWith("3") || res.getStatus().toString().startsWith("4")
+//					|| res.getStatus().toString().startsWith("5"))
+//				System.out.println(
+//						res.getStatus() + " :- " + res.getStatusText() + "\n" + "Error URL :- " + res.getUrl() + "\n");
+//		});
 
 		driver.get("https://avision-demo.getapcs.com/login");
 

@@ -1,0 +1,178 @@
+package com.Getapcs.Avision.FG_SA.InventryReports;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.Getapcs.Avision.BASECLASS.TestBase;
+import com.Getapcs.Avision.HomeLogin.HomePage;
+
+public class InventryReportAfterBinning extends TestBase {
+
+	// Material Issue
+
+	@FindBy(xpath = "(//span[@class='dropdown-multiselect__caret'])[1]")
+	WebElement partType;
+
+	@FindBy(xpath = "(//span[@class='dropdown-btn'])[2]")
+	WebElement projectNumber;
+
+	@FindBy(xpath = "(//input[@placeholder='Search'])[2]")
+	WebElement searchPartType;
+
+	@FindBy(xpath = "(//input[@placeholder='Search'])[3]")
+	WebElement searchprojectNumber;
+
+	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
+	WebElement filter;
+
+	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	WebElement viewButton;
+
+	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")
+	WebElement itemsTab;
+
+	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
+	WebElement addProject;
+
+	public InventryReportAfterBinning() {
+
+		PageFactory.initElements(driver, this);
+
+	}
+
+	// *************Inventry Report Page******************//
+
+	public HomePage InventryReportPage() throws InterruptedException, IOException {
+
+//Part Type
+
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/binning/table");
+
+		click(driver, viewButton);
+
+		String tableXpath = "//table[@class='table mb-2']";
+		// Store the element with hard coded PR number
+		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
+
+		// Get the number-1 text from table
+		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText().trim()
+				.replaceFirst("\\s*-\\s*$", "");
+
+		String updatedXpath1 = elementXpath.replace("PP-54", partType1);
+
+		System.out.println(updatedXpath1);
+
+		// Get the number-2 text from table
+		String partType2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText().trim()
+				.replaceFirst("\\s*-\\s*$", "");
+
+		String updatedXpath2 = elementXpath.replace("PP-54", partType2);
+
+		System.out.println(updatedXpath2);
+
+		// Get the number-3 text from table
+		String partType3 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[2]")).getText().trim()
+				.replaceFirst("\\s*-\\s*$", "");
+
+		String updatedXpath3 = elementXpath.replace("PP-54", partType3);
+
+		System.out.println(updatedXpath3);
+
+		// Get the number-4 text from table
+		String partType4 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[4]/td[2]")).getText().trim()
+				.replaceFirst("\\s*-\\s*$", "");
+
+		String updatedXpath4 = elementXpath.replace("PP-54", partType4);
+
+		System.out.println(updatedXpath4);
+
+		// Get the number-5 text from table
+		String partType5 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[5]/td[2]")).getText().trim()
+				.replaceFirst("\\s*-\\s*$", "");
+
+		String updatedXpath5 = elementXpath.replace("PP-54", partType5);
+
+		System.out.println(updatedXpath5);
+
+		// Get the number-6 text from table
+		String partType6 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[6 ]/td[2]")).getText().trim()
+				.replaceFirst("\\s*-\\s*$", "");
+
+		String updatedXpath6 = elementXpath.replace("PP-54", partType6);
+
+		System.out.println(updatedXpath6);
+
+		driver.navigate().to("https://avision-demo.getapcs.com/reports/inventory-report");
+
+//Part Type
+
+		for (int i = 1; i <= 6; i++) {
+
+			if (i == 1) {
+				click(driver, partType);
+			}
+
+			if (i == 1) {
+				searchPartType.clear();
+				searchPartType.sendKeys(partType1);
+
+				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath1));
+				click(driver, partTypeSelect);
+			}
+
+			if (i == 2) {
+				searchPartType.clear();
+				searchPartType.sendKeys(partType2);
+
+				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath2));
+				click(driver, partTypeSelect);
+			}
+
+			if (i == 3) {
+				searchPartType.clear();
+				searchPartType.sendKeys(partType3);
+
+				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath3));
+				click(driver, partTypeSelect);
+			}
+
+			if (i == 4) {
+				searchPartType.clear();
+				searchPartType.sendKeys(partType4);
+
+				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath4));
+				click(driver, partTypeSelect);
+			}
+
+			if (i == 5) {
+				searchPartType.clear();
+				searchPartType.sendKeys(partType5);
+
+				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath5));
+				click(driver, partTypeSelect);
+			}
+
+			if (i == 6) {
+				searchPartType.clear();
+				searchPartType.sendKeys(partType6);
+
+				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath6));
+				click(driver, partTypeSelect);
+			}
+		}
+
+//Filter
+
+		click(driver, filter);
+
+		Thread.sleep(4000);
+		screenShot("After Binning");
+
+		return new HomePage();
+	}
+
+}

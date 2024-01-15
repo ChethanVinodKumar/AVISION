@@ -138,6 +138,7 @@ public class ShopOrder_For_SA extends TestBase {
 
 //Save Button
 		waitForElement(driver, saveButton, 10, 2);
+		Thread.sleep(4000);
 		click(driver, saveButton);
 
 		return new HomePage();

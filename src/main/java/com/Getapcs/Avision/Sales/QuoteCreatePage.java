@@ -14,18 +14,6 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class QuoteCreatePage extends TestBase {
 
-	@FindBy(xpath = "//button[@class='navbar-toggler navbar-toggler align-self-center']//span[@class='mdi mdi-menu']")
-	WebElement threeLineIconBar;
-
-	@FindBy(xpath = "(//span[normalize-space()='Sales'])[1]")
-	WebElement salesModuledropdown;
-
-	@FindBy(xpath = "(//span[normalize-space()='Quote'])[1]")
-	WebElement quoteModuleDropDown;
-
-	@FindBy(xpath = "//a[@routerlink='sales/quote/create']")
-	WebElement createQuoteOption;
-
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement customerNameDropDown;
 
@@ -225,28 +213,7 @@ public class QuoteCreatePage extends TestBase {
 
 		System.out.println(updatedXpath);
 
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
-		// Verify Three Line Side Bar in Home Page
-		boolean threeLineIconBarIsDisplayed = threeLineIconBar.isDisplayed();
-		assertTrue(threeLineIconBarIsDisplayed, "Three Line Icon Bar is not Displayed");
-		threeLineIconBar.click();
-
-		// Click on Sales Module
-		boolean salesModuledropdownIsDisplayed = salesModuledropdown.isDisplayed();
-		assertTrue(salesModuledropdownIsDisplayed, "Sales Module dropdown IsDisplayed.");
-		salesModuledropdown.click();
-
-		// Click on Quote Module Drop Down
-		boolean quoteModuleDropDownIsDisplayed = quoteModuleDropDown.isDisplayed();
-		assertTrue(quoteModuleDropDownIsDisplayed, "Sales Module dropdown IsDisplayed.");
-		quoteModuleDropDown.click();
-
-		// Click on Create Quote
-		boolean createQuoteOptionIsDisplayed = createQuoteOption.isDisplayed();
-		assertTrue(createQuoteOptionIsDisplayed, "Sales Module dropdown IsDisplayed.");
-		createQuoteOption.click();
-		js.executeScript("arguments[0].click();", threeLineIconBar);
+		driver.navigate().to("https://avision-demo.getapcs.com/sales/quote/create");
 
 		// Verify the Customer Name Drop Down in LP Costing Page-Sales Module
 		boolean customerNameDropDownIsDisplayed = customerNameDropDown.isDisplayed();

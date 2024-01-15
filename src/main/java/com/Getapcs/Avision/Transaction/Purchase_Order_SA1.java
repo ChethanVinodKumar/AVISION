@@ -341,13 +341,13 @@ public class Purchase_Order_SA1 extends TestBase {
 			projectQuntity.clear();
 			projectQuntity.sendKeys(projectQty);
 
-			if (i == 1) {
-				click(driver, prButton);
-
-				click(driver, prSelect);
-
-				click(driver, savePR);
-			}
+//			if (i == 1) {
+//				click(driver, prButton);
+//
+//				click(driver, prSelect);
+//
+//				click(driver, savePR);
+//			}
 			click(driver, addProjectNumber);
 
 			if (i == 1) {
@@ -476,13 +476,15 @@ public class Purchase_Order_SA1 extends TestBase {
 
 		click(driver, terms);
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 		click(driver, approve);
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 		click(driver, yesButton);
+
+		Thread.sleep(4000);
 
 		System.out.println("After Approval");
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
@@ -537,13 +539,15 @@ public class Purchase_Order_SA1 extends TestBase {
 
 		click(driver, terms);
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 		click(driver, approve);
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
 		click(driver, yesButton);
+
+		Thread.sleep(4000);
 
 		System.out.println("After Approval");
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");

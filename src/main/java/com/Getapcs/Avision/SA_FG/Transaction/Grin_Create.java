@@ -866,7 +866,7 @@ public class Grin_Create extends TestBase {
 		// Verify Other Charges Value Field
 		click(driver, otherChargesValueField);
 		isSelected(driver, otherChargesValueField, "otherChargesValueField");
-		otherChargesValueField.sendKeys("TEST otherChargesValue");
+		otherChargesValueField.sendKeys("10");
 
 		// Verify Add Button in Other Charges Tab
 		click(driver, addButton);

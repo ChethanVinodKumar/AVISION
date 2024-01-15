@@ -18,12 +18,20 @@ import com.Getapcs.Avision.Engineering.Engg_BOM_Create_Page_FOR_SA_2;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page1;
 import com.Getapcs.Avision.Engineering.Item_Master_Create_Page_SA;
+import com.Getapcs.Avision.FG_SA.InventryReports.InventryReportAfterBinning;
 import com.Getapcs.Avision.FG_SA.InventryReports.InventryReportAfterGrin;
 import com.Getapcs.Avision.FG_SA.InventryReports.InventryReportAfterIQCConfirmation;
 import com.Getapcs.Avision.FG_SA.InventryReports.InventryReportBeforGrin;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
+import com.Getapcs.Avision.SA_FG.Transaction.Binning_SA_FG;
 import com.Getapcs.Avision.SA_FG.Transaction.Grin_Create;
+import com.Getapcs.Avision.SA_FG.Transaction.OQCBinning_SA1;
+import com.Getapcs.Avision.SA_FG.Transaction.OQCBinning_SA2;
+import com.Getapcs.Avision.SA_FG.Transaction.OQC_SA1;
+import com.Getapcs.Avision.SA_FG.Transaction.OQC_SA2;
+import com.Getapcs.Avision.SA_FG.Transaction.ShopOrderConfirmation_SA1;
+import com.Getapcs.Avision.SA_FG.Transaction.ShopOrderConfirmation_SA2;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
@@ -56,19 +64,20 @@ import com.Getapcs.Avision.Transaction.ShopOrder_For_SA2;
 public class TEST_SA_Flow extends TestBase {
 
 	public final static String priceList = "TEST PriceList 1";
-	public final static String fg = "FG-22";
-	public final static String pp1 = "PP-62";
-	public final static String pp2 = "PP-63";
-	public final static String pp3 = "PP-64";
-	public final static String pp4 = "PP-65";
-	public final static String pp5 = "PP-66";
-	public final static String pp6 = "PP-67";
-	public final static String sa1 = "SA-23";
-	public final static String sa2 = "SA-24";
+	public final static String fg = "FG-24";
+	public final static String pp1 = "PP-74";
+	public final static String pp2 = "PP-75";
+	public final static String pp3 = "PP-76";
+	public final static String pp4 = "PP-78";
+	public final static String pp5 = "PP-79";
+	public final static String pp6 = "PP-80";
+	public final static String sa1 = "SA-27";
+	public final static String sa2 = "SA-28";
 
 	LoginPage loginPage;
 	HomePage homePage;
 
+	// Engg
 	Item_Master_Create_Page itemMasterCreatePageFG;
 	Item_Master_Create_Page1 itemMasterCreatePagePP;
 	Item_Master_Create_Page_SA itemMasterCreatePageSA;
@@ -81,6 +90,8 @@ public class TEST_SA_Flow extends TestBase {
 	EnggBOM_ReleaseBOM_SA2 releaseBomSA2;
 	EnggBOM_ReleaseBOM_SA1 releaseBomSA1;
 	EnggBOM_ReleaseBOM_FG releaseBomFG;
+
+	// Sales
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
 	RFQ_ReleaseCS rfq_ReleaseCS;
@@ -89,6 +100,8 @@ public class TEST_SA_Flow extends TestBase {
 	VerifyLPCostingCreate lpCosting;
 	VerifyLPCostingRelease lpCostingRelease;
 	QuoteCreatePage quoteCreatePage;
+
+	// Transaction
 	SalesOrder SalesOrder;
 	MaterialIssue MaterialIssue;
 	Purchase_Requisation Purchase_Requisation;
@@ -102,18 +115,26 @@ public class TEST_SA_Flow extends TestBase {
 	PRApproval2 PRApproval2;
 	Grin_Create grin;
 	IQCConfirmation iQCConfirmation;
+	Binning_SA_FG binning;
+	ShopOrder ShopOrder;
 	ShopOrder_For_SA ShopOrderSA2;
 	ShopOrder_For_SA2 ShopOrderSA1;
 	ShopOrder_For_FG ShopOrderFG;
+	ShopOrderConfirmation_SA2 shopOrderConfirmationSA2;
+	ShopOrderConfirmation_SA1 shopOrderConfirmationSA1;
 	MaterialIssue_SA2 materialIssueSA2;
 	MaterialIssue_SA1 materialIssueSA1;
 	MaterialIssue_FG materialIssueFG;
+	OQC_SA2 oqcSA2;
+	OQC_SA1 oqcSA1;
+	OQCBinning_SA2 oqcBinningSA2;
+	OQCBinning_SA1 oqcBinningSA1;
 
 	// Inventry
 	InventryReportBeforGrin inventryReportBeforGrin;
 	InventryReportAfterGrin inventryReportAfterGrin;
 	InventryReportAfterIQCConfirmation inventryReportAfterIQCConfirmation;
-	ShopOrder ShopOrder;
+	InventryReportAfterBinning inventryReportAfterBinning;
 
 	public TEST_SA_Flow() {
 		super();
@@ -141,9 +162,6 @@ public class TEST_SA_Flow extends TestBase {
 		lpCosting = new VerifyLPCostingCreate();
 		lpCostingRelease = new VerifyLPCostingRelease();
 		MaterialIssue = new MaterialIssue();
-		materialIssueSA2 = new MaterialIssue_SA2();
-		materialIssueSA1 = new MaterialIssue_SA1();
-		materialIssueFG = new MaterialIssue_FG();
 		rfq_ReleaseCS = new RFQ_ReleaseCS();
 		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
 		quoteCreatePage = new QuoteCreatePage();
@@ -152,7 +170,11 @@ public class TEST_SA_Flow extends TestBase {
 		ShopOrderSA2 = new ShopOrder_For_SA();
 		ShopOrderSA1 = new ShopOrder_For_SA2();
 		ShopOrderFG = new ShopOrder_For_FG();
-		MaterialIssue = new MaterialIssue();
+		shopOrderConfirmationSA2 = new ShopOrderConfirmation_SA2();
+		shopOrderConfirmationSA1 = new ShopOrderConfirmation_SA1();
+		materialIssueSA2 = new MaterialIssue_SA2();
+		materialIssueSA1 = new MaterialIssue_SA1();
+		materialIssueFG = new MaterialIssue_FG();
 		Purchase_Requisation = new Purchase_Requisation();
 		puchaseRequisitionSA2 = new Purchase_Requisation_SA2();
 		puchaseRequisitionSA1 = new Purchase_Requisation_SA1();
@@ -164,20 +186,26 @@ public class TEST_SA_Flow extends TestBase {
 		purchaseOrderFG = new Purchase_Order_FG();
 		grin = new Grin_Create();
 		iQCConfirmation = new IQCConfirmation();
+		binning = new Binning_SA_FG();
+		oqcSA2 = new OQC_SA2();
+		oqcSA1 = new OQC_SA1();
+		oqcBinningSA2 = new OQCBinning_SA2();
+		oqcBinningSA1 = new OQCBinning_SA1();
 		inventryReportBeforGrin = new InventryReportBeforGrin();
 		inventryReportAfterGrin = new InventryReportAfterGrin();
 		inventryReportAfterIQCConfirmation = new InventryReportAfterIQCConfirmation();
+		inventryReportAfterBinning = new InventryReportAfterBinning();
 
 	}
 
-	@Test(priority = 1)
-	public void verifyPrice_ListCreate() throws Throwable {
-		Thread.sleep(4000);
-		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
+//	@Test(priority = 1)
+//	public void verifyPrice_ListCreate() throws Throwable {
+//		Thread.sleep(4000);
+//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
 	@Test(priority = 2)
 	public void verifyItemMasterCreateforSA() throws Throwable {
@@ -328,7 +356,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 8)
+	@Test(priority = 5)
 	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
 
 		homePage.clickonTransactionPriceListCreate();
@@ -338,7 +366,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 6)
 	public void verifySalesRFQCreate() throws Throwable {
 
 		homePage.clickonRFQCreate();
@@ -348,7 +376,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 10)
+	@Test(priority = 7)
 	public void verifySalesRFQCS() throws Throwable {
 
 		homePage.clickonSalesRfqModifyorView();
@@ -363,7 +391,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 11)
+	@Test(priority = 8)
 	public void verifySalesRFQENGG() throws Throwable {
 
 		homePage.clickonSalesRfqModifyorView();
@@ -374,7 +402,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 9)
 	public void verifySalesSourcing() throws Throwable {
 
 		homePage.clickonSoucing();
@@ -384,7 +412,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 10)
 	public void verifySalesLpCosting() throws Throwable {
 
 		homePage.clickonLpCosting();
@@ -398,9 +426,10 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 11)
 	public void verifyQuoteCreate() throws Throwable {
 
+		homePage.clickonSalesQuoteCreate();
 		quoteCreatePage.QuoteCreate("TEST Quote Ref", "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
 				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
 
@@ -408,7 +437,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 12)
 	public void verifySalesOrderCreate() throws Throwable {
 		homePage.clickOnSalesOrderCreate();
 		SalesOrder.salesOrderCreate("20", // generalDiscount
@@ -456,7 +485,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 16)
+	@Test(priority = 13)
 	public void verifyShopOrderCreate() throws Throwable {
 
 		homePage.clickOnTransactionShopOrderCreate();
@@ -475,7 +504,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 17)
+	@Test(priority = 14)
 	public void verifyMaterialIssue() throws Throwable {
 
 		homePage.clickOnTransactionMaterialIssue();
@@ -494,7 +523,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 18)
+	@Test(priority = 15)
 	public void verifyPRcreate$Approvals_1_2() throws Throwable {
 
 		homePage.clickOnPRCreatePage();
@@ -548,7 +577,7 @@ public class TEST_SA_Flow extends TestBase {
 
 	}
 
-	@Test(priority = 19)
+	@Test(priority = 16)
 	public void verifyPOcreate$Approvals_1_2() throws Throwable {
 
 		// ######### Purchase Order Create Page For SA2 ###############
@@ -561,52 +590,52 @@ public class TEST_SA_Flow extends TestBase {
 		// Purchase Order POApproval 1
 		homePage.clickontransactionPOApproval1();
 		purchaseOrderSA2.purchaseOrderApproval1();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 		// Purchase Order POApproval 2
 		homePage.clickontransactionPOApproval2();
 		purchaseOrderSA2.purchaseOrderApproval2();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 
 		// ######### Purchase Order Create Page For SA1 ###############
 		homePage.clickontransactionPOcreate();
 		purchaseOrderSA1.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 
 		// Purchase Order POApproval 1
 		homePage.clickontransactionPOApproval1();
 		purchaseOrderSA1.purchaseOrderApproval1();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 		// Purchase Order POApproval 2
 		homePage.clickontransactionPOApproval2();
 		purchaseOrderSA1.purchaseOrderApproval2();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 
 		// ######### Purchase Order Create Page For FG ###############
 		homePage.clickontransactionPOcreate();
 		purchaseOrderFG.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
 				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 
 		// Purchase Order POApproval 1
 		homePage.clickontransactionPOApproval1();
 		purchaseOrderFG.purchaseOrderApproval1();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 		// Purchase Order POApproval 2
 		homePage.clickontransactionPOApproval2();
 		purchaseOrderFG.purchaseOrderApproval2();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 20)
+	@Test(priority = 17)
 	public void verifyInventryReportBeforeGrin() throws Throwable {
 		homePage.clickOnInventryReportWithLocation();
 		inventryReportBeforGrin.InventryReportPage();
@@ -615,7 +644,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 21)
+	@Test(priority = 18)
 	public void verifyGRINCreate() throws Throwable {
 		homePage.clickOnGRINCreate();
 		grin.grinCreatePage("TEST-IN-1122", // invoiceNo
@@ -642,7 +671,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 22)
+	@Test(priority = 19)
 	public void verifyInventryReportAfterGrin() throws Throwable {
 		homePage.clickOnInventryReportWithLocation();
 		inventryReportAfterGrin.InventryReportPage();
@@ -651,7 +680,7 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 23)
+	@Test(priority = 20)
 	public void verifyIQCCreate() throws Throwable {
 		homePage.clickOnIQCConfirmationCreate();
 		iQCConfirmation.iqcConfirmationCreatePage();
@@ -660,13 +689,111 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 24)
+	@Test(priority = 21)
 	public void verifyInventryReportAfterIQC() throws Throwable {
 		homePage.clickOnInventryReportWithLocation();
 		inventryReportAfterIQCConfirmation.InventryReportPage();
 
 		Thread.sleep(4000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 22)
+	public void verifyBinningCreate() throws Throwable {
+		homePage.clickOnBinningCreate();
+		binning.BinningCreatePage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 23)
+	public void verifyInventryReportAfterBinnig() throws Throwable {
+		homePage.clickOnInventryReportWithLocation();
+		inventryReportAfterBinning.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 24)
+	public void verifyMaterialIssueReleaseForSA2() throws Throwable {
+
+		homePage.clickOnTransactionMaterialIssue();
+		materialIssueSA2.MaterialIssuePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 25)
+	public void verifyShopOrderConfirmationForSA2() throws Throwable {
+
+		homePage.clickOnShopOrderConfirmationCreate();
+		shopOrderConfirmationSA2.ShopOrderConfirmationCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 26)
+	public void verifyOQC_ForSA2() throws Throwable {
+
+		homePage.clickOnOQCCreate();
+		oqcSA2.OQCCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 27)
+	public void verifyOQCBinnig_ForSA2() throws Throwable {
+
+		homePage.clickOnOQCBinningCreate();
+		oqcBinningSA2.OQCBinningCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 28)
+	public void verifyMaterialIssueReleaseForSA1() throws Throwable {
+
+		homePage.clickOnTransactionMaterialIssue();
+		materialIssueSA1.MaterialIssuePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 29)
+	public void verifyShopOrderConfirmationForSA1() throws Throwable {
+
+		homePage.clickOnShopOrderConfirmationCreate();
+		shopOrderConfirmationSA1.ShopOrderConfirmationCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 30)
+	public void verifyOQC_ForSA1() throws Throwable {
+
+		homePage.clickOnOQCCreate();
+		oqcSA1.OQCCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 31)
+	public void verifyOQCBinnig_ForSA1() throws Throwable {
+
+		homePage.clickOnOQCBinningCreate();
+		oqcBinningSA1.OQCBinningCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
 	}
 
 	@AfterTest

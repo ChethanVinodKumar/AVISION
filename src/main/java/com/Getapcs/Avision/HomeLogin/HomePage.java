@@ -95,6 +95,12 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//a[@routerlink='sales/lp-costing/table']")
 	WebElement lpCostingModifyorView;
 
+	@FindBy(xpath = "(//span[normalize-space()='Quote'])[1]")
+	WebElement quoteModuleDropDown;
+
+	@FindBy(xpath = "//a[@routerlink='sales/quote/create']")
+	WebElement createQuoteOption;
+
 //Transaction
 
 	@FindBy(xpath = "(//span[normalize-space()='Transactions'])[1]")
@@ -499,6 +505,15 @@ public class HomePage extends TestBase {
 		click(driver, threeLinesSideBarIcon);
 	}
 
+	public void clickonSalesQuoteCreate() {
+		threeLinesSideBarIcon.click();
+		click(driver, sales);
+		click(driver, quoteModuleDropDown);
+		click(driver, createQuoteOption);
+		click(driver, threeLinesSideBarIcon);
+
+	}
+
 	public void clickonSalesQuoteModifyorView() {
 		threeLinesSideBarIcon.click();
 		sales.click();
@@ -637,6 +652,7 @@ public class HomePage extends TestBase {
 		click(driver, transaction);
 		click(driver, shopOrder);
 		click(driver, createShopOrder);
+		click(driver, threeLinesSideBarIcon);
 
 	}
 
@@ -675,6 +691,7 @@ public class HomePage extends TestBase {
 		click(driver, transaction);
 		click(driver, materialIssueDropdown);
 		click(driver, materialIssue);
+		click(driver, threeLinesSideBarIcon);
 
 	}
 
@@ -736,6 +753,7 @@ public class HomePage extends TestBase {
 		transaction.click();
 		purchaseOrder.click();
 		poCreate.click();
+		click(driver, threeLinesSideBarIcon);
 
 	}
 
