@@ -250,6 +250,12 @@ public class Purchase_Order_SA2 extends TestBase {
 
 		System.out.println(updatedXpathPP2);
 
+		String reqQty1 = driver.findElement(By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[7]")).getText();
+		System.out.println("reqQty : " + reqQty1);
+
+		int reqQty2 = Integer.parseInt(reqQty1) + 560;
+		String reqQty = String.valueOf(reqQty2);
+
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
@@ -318,7 +324,7 @@ public class Purchase_Order_SA2 extends TestBase {
 			click(driver, quntity);
 			isSelected(driver, quntity, "quntity");
 			quntity.clear();
-			quntity.sendKeys(quantity);
+			quntity.sendKeys(reqQty);
 
 			if (i == 1) {
 				click(driver, addProject);
@@ -336,7 +342,7 @@ public class Purchase_Order_SA2 extends TestBase {
 			click(driver, projectQuntity);
 			isSelected(driver, projectQuntity, "projectQuntity");
 			projectQuntity.clear();
-			projectQuntity.sendKeys(projectQty);
+			projectQuntity.sendKeys(reqQty);
 
 //			if (i == 1) {
 //				click(driver, prButton);
@@ -357,7 +363,7 @@ public class Purchase_Order_SA2 extends TestBase {
 
 			click(driver, deliverySheduleQuntity);
 			isSelected(driver, deliverySheduleQuntity, "deliverySheduleQuntity");
-			deliverySheduleQuntity.sendKeys(deliveryProjectQty);
+			deliverySheduleQuntity.sendKeys(reqQty);
 
 			click(driver, addDeliveryShedule);
 			if (i == 1) {

@@ -528,7 +528,7 @@ public class HomePage extends TestBase {
 		threeLinesSideBarIcon.click();
 		engineering.click();
 		itemMaster.click();
-		create.sendKeys(Keys.ENTER);
+		click(driver, create);
 		click(driver, threeLinesSideBarIcon);
 
 	}
@@ -698,32 +698,30 @@ public class HomePage extends TestBase {
 //Purchase Requisition
 
 	public void clickOnPRCreatePage() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		pr.click();
-		js.executeScript("arguments[0].click();", prCreate);
-		Thread.sleep(4000);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, pr);
+		click(driver, prCreate);
+		click(driver, threeLinesSideBarIcon);
+
 	}
 
 	public void clickOnPOApproval1() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		pr.click();
-		prApproval1.click();
-		Thread.sleep(4000);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, pr);
+		click(driver, prApproval1);
+		click(driver, threeLinesSideBarIcon);
 	}
 
 	public void clickOnPRApproval2() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		pr.click();
-//			prApproval2.click();
-		js.executeScript("arguments[0].click();", prApproval2);
-		Thread.sleep(4000);
-//			menu.click();
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, pr);
+		click(driver, prApproval2);
+		click(driver, threeLinesSideBarIcon);
 	}
 
 	public void clickOnPREditPage() throws InterruptedException {

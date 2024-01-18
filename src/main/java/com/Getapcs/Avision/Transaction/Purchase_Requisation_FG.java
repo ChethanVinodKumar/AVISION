@@ -247,6 +247,12 @@ public class Purchase_Requisation_FG extends TestBase {
 
 		System.out.println(updatedXpathPP2);
 
+		String reqQty1 = driver.findElement(By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[7]")).getText();
+		System.out.println("reqQty : " + reqQty1);
+
+		int reqQty2 = Integer.parseInt(reqQty1) + 560;
+		String reqQty = String.valueOf(reqQty2);
+
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
@@ -324,7 +330,7 @@ public class Purchase_Requisation_FG extends TestBase {
 
 			quantityTextField.clear();
 
-			quantityTextField.sendKeys("1000");
+			quantityTextField.sendKeys(reqQty);
 
 			// Upload files
 
@@ -352,7 +358,7 @@ public class Purchase_Requisation_FG extends TestBase {
 
 			projectQuantityTextField.clear();
 
-			projectQuantityTextField.sendKeys("1000");
+			projectQuantityTextField.sendKeys(reqQty);
 
 			click(driver, addButtonInProjectExpansionPanel);
 
@@ -381,7 +387,7 @@ public class Purchase_Requisation_FG extends TestBase {
 
 			quantityTextField1.clear();
 
-			quantityTextField1.sendKeys("1000");
+			quantityTextField1.sendKeys(reqQty);
 
 			click(driver, addButtonInDeliveryScheduleExpansionPanel);
 

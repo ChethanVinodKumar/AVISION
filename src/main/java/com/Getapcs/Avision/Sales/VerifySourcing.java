@@ -1,5 +1,7 @@
 package com.Getapcs.Avision.Sales;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +11,10 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class VerifySourcing extends TestBase {
+
+	public static final String unitPrice = "120";
+	public static final String freight = "3";
+	public static final String duities = "5";
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement rfqNumberDropDown;
@@ -73,6 +79,9 @@ public class VerifySourcing extends TestBase {
 	@FindBy(xpath = "//button[normalize-space()='Add']")
 	WebElement addButton;
 
+	@FindBy(xpath = "(//table[@class='table table-striped'])[3]/tbody/tr[1]/td[15]")
+	WebElement moqCostValue;
+
 	@FindBy(xpath = "//button[@type='submit'][normalize-space()='Save']")
 	WebElement saveButtoninVenderPopUp;
 
@@ -123,7 +132,8 @@ public class VerifySourcing extends TestBase {
 
 		click(driver, unitPriceField);
 		isSelected(driver, unitPriceField, "unitPriceField");
-		unitPriceField.sendKeys("10");
+		unitPriceField.sendKeys(unitPrice);
+		double unitPrice2 = Integer.parseInt(unitPrice);
 
 		click(driver, unitPricePerField);
 		isSelected(driver, unitPricePerField, "unitPricePerField");
@@ -135,12 +145,12 @@ public class VerifySourcing extends TestBase {
 
 		String elementValue = Qtyrequest.getText().trim();
 		System.out.println("Qtyrequest : " + elementValue + "\n");
-		int QtyrequestintValue = Integer.parseInt(elementValue);
-		QtyrequestintValue = QtyrequestintValue + QtyrequestintValue + 10;
+		double requiredQtyValue = Integer.parseInt(elementValue);
+		double moqQty = requiredQtyValue + requiredQtyValue + 289;
 
 		click(driver, moqCostField);
 		isSelected(driver, moqCostField, "moqCostField");
-		moqCostField.sendKeys(String.valueOf(QtyrequestintValue));
+		moqCostField.sendKeys(String.valueOf(moqQty));
 
 		click(driver, leadTimeDropDown);
 		isSelected(driver, leadTimeDropDown, "leadTimeDropDown");
@@ -148,15 +158,30 @@ public class VerifySourcing extends TestBase {
 
 		click(driver, freightField);
 		isSelected(driver, freightField, "freightField");
-		freightField.sendKeys("10");
+		freightField.sendKeys(freight);
+		double freight2 = Integer.parseInt(freight);
 
 		click(driver, dutiesField);
 		isSelected(driver, dutiesField, "dutiesField");
-		dutiesField.sendKeys("10");
+		dutiesField.sendKeys(duities);
+		double duities2 = Integer.parseInt(duities);
 
 		click(driver, quoteQuantityField);
 		isSelected(driver, quoteQuantityField, "quoteQuantityField");
-		quoteQuantityField.sendKeys("2");
+		quoteQuantityField.sendKeys("1");
+
+		double freight1 = unitPrice2 * (freight2 / 100);
+		double duities1 = unitPrice2 * (duities2 / 100);
+
+		double landingPrice = unitPrice2 + freight1 + duities1;
+
+		double remainingQty = moqQty - requiredQtyValue;
+
+		double moqCost = remainingQty * landingPrice / requiredQtyValue;
+
+		String moqCost1 = String.format("%.2f", moqCost);
+
+		System.out.println("moqCost : " + moqCost1);
 
 		datePicker(driver, quoteDatePicker);
 
@@ -165,6 +190,11 @@ public class VerifySourcing extends TestBase {
 		uploadFile(driver, uploadFile, 1);
 
 		click(driver, addButton);
+
+		String moqCostValue1 = moqCostValue.getText().trim();
+		System.out.println("Qtyrequest : " + moqCostValue1 + "\n" + "moqCost1 : " + moqCost1);
+
+		assertEquals(moqCostValue1, moqCost1);
 
 		click(driver, saveButtoninVenderPopUp);
 
