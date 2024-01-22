@@ -30,6 +30,14 @@
 	    <artifactId>selenium-chrome-driver</artifactId>
 	    <version>4.16.1</version>
 	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v85 -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-devtools-v85</artifactId>
+	    <version>4.16.1</version>
+	</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 	<dependency>

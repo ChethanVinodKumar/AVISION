@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import org.apache.commons.io.FileUtils; // Import FileUtils
@@ -27,9 +26,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v120.network.Network;
-import org.openqa.selenium.devtools.v120.network.model.Request;
-import org.openqa.selenium.devtools.v120.network.model.Response;
+import org.openqa.selenium.devtools.v118.network.Network;
+import org.openqa.selenium.devtools.v118.network.model.Request;
+import org.openqa.selenium.devtools.v118.network.model.Response;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
@@ -50,13 +49,9 @@ public class TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
 	static WebElement closeButton;
 
-	@SuppressWarnings("deprecation")
+	
 	public static void initialization() throws AWTException {
 
-//		System.setProperty("webdriver.chrome.driver",
-//				"C:\\Users\\Gopal Reddy\\Desktop\\chromedriver_win32 (3)\\chromedriver.exe");
-		// pre-condition
-//		WebDriverManager.chromedriver().setup();
 
 		// Incognito Mode Execution
 		options = new ChromeOptions();
@@ -70,8 +65,7 @@ public class TestBase {
 
 //		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
 		actions = new Actions(driver);
@@ -92,15 +86,21 @@ public class TestBase {
 		devTools.addListener(Network.responseReceived(), response -> {
 			Response res = response.getResponse();
 //        	System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
-			if (res.getStatus().toString().startsWith("3") || res.getStatus().toString().startsWith("4")
-					|| res.getStatus().toString().startsWith("5"))
-				System.out.println(
+        	
+        	if(!res.getStatus().toString().startsWith("2")) {
+        		System.out.println(
 						res.getStatus() + " :- " + res.getStatusText() + "\n" + "Error URL :- " + res.getUrl() + "\n");
+        		
+        	}
+			
 		});
+		
+	
 
 		driver.get("https://avision-demo.getapcs.com/login");
 
 	}
+		
 
 	// Fluent Wait
 	public static WebElement waitForElement(WebDriver driver, WebElement element, int timeout, int pollingInterval) {
@@ -125,7 +125,8 @@ public class TestBase {
 //Click Action
 
 	public static void click(WebDriver driver, WebElement element) {
-		waitForElement(driver, element, 30, 2);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		wait.until(ExpectedConditions.visibilityOf(element));
 		try {
 			if (!element.isDisplayed()) {
 				throw new NoSuchElementException("Element not visible so could not click: " + element);
@@ -241,9 +242,20 @@ public class TestBase {
 
 	// Screen Shot
 	public static void screenShot(String fileName) throws IOException {
-		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshotFile, new File(".//Getapcs_Avision//ScreenShot//" + fileName + ".png"));
+		
+		String filePath = ".//Getapcs_Avision//ScreenShot//" + fileName + ".png";
 
+	    // Check if the previous screenshot file exists
+	    File previousScreenshot = new File(filePath);
+	    if (previousScreenshot.exists()) {
+	        // Delete the previous screenshot file
+	        FileUtils.forceDelete(previousScreenshot);
+	    }
+		
+		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshotFile, new File(filePath));
+
+		
 	}
 
 	// Pagination

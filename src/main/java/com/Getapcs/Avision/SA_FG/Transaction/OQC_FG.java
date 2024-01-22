@@ -41,7 +41,7 @@ public class OQC_FG extends TestBase {
 
 //*************OQC Create Page******************
 
-	public HomePage OQCCreate(String AcceptedQunatity) throws InterruptedException {
+	public HomePage OQCCreate() throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("//*************OQC Create Page******************");
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order-confirm/table");
@@ -86,17 +86,21 @@ public class OQC_FG extends TestBase {
 
 		dataPrintFromInputtag(driver, shopOrderQtyElement, "shopOrderQtyElement");
 
+		String elementValue = (String) js.executeScript("return arguments[0].value;", pendingQty);
+		System.out.println(" pendingQty : " + elementValue + "\n");
+
 //Accepted Qty
 
 		click(driver, acceptedQty);
 
 		isSelected(driver, acceptedQty, "acceptedQty");
 
-		acceptedQty.sendKeys(AcceptedQunatity);
+		int acceptedQty1 = Integer.parseInt(elementValue);
+		acceptedQty1 = acceptedQty1 - 1;
+		System.out.println("acceptedQty1 : " + acceptedQty1);
 
-//pending Qty
+		acceptedQty.sendKeys(String.valueOf(acceptedQty1));
 
-		dataPrintFromInputtag(driver, pendingQty, "pendingQty");
 
 //rejectedQty
 

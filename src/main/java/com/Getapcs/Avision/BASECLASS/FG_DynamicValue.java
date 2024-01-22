@@ -6,15 +6,17 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class FG_DynamicValue {
-	private static final String FILE_PATH = "counter.properties";
+	private static final String FILE_PATH = "counterFG.properties";
 	private static final String COUNTER_KEY = "counter";
 
+	
 	public static String generateDynamicValue() {
 		int counter = getCounter();
 		String dynamicValue = "FG-" + String.format("%02d", counter);
 		incrementCounter();
 		return dynamicValue;
 	}
+	
 
 	private static int getCounter() {
 		Properties properties = new Properties();
@@ -39,5 +41,6 @@ public class FG_DynamicValue {
 			e.printStackTrace();
 		}
 	}
+	
 
 }

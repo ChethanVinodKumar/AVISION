@@ -6,6 +6,15 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.Getapcs.Avision.BASECLASS.FG_DynamicValue;
+import com.Getapcs.Avision.BASECLASS.PP_DynamicValue1;
+import com.Getapcs.Avision.BASECLASS.PP_DynamicValue2;
+import com.Getapcs.Avision.BASECLASS.PP_DynamicValue3;
+import com.Getapcs.Avision.BASECLASS.PP_DynamicValue4;
+import com.Getapcs.Avision.BASECLASS.PP_DynamicValue5;
+import com.Getapcs.Avision.BASECLASS.PP_DynamicValue6;
+import com.Getapcs.Avision.BASECLASS.SA_DynamicValue1;
+import com.Getapcs.Avision.BASECLASS.SA_DynamicValue2;
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM;
 import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM_FG;
@@ -29,8 +38,10 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 import com.Getapcs.Avision.HomeLogin.LoginPage;
 import com.Getapcs.Avision.SA_FG.Transaction.Binning_SA_FG;
 import com.Getapcs.Avision.SA_FG.Transaction.Grin_Create;
+import com.Getapcs.Avision.SA_FG.Transaction.OQCBinning_FG;
 import com.Getapcs.Avision.SA_FG.Transaction.OQCBinning_SA1;
 import com.Getapcs.Avision.SA_FG.Transaction.OQCBinning_SA2;
+import com.Getapcs.Avision.SA_FG.Transaction.OQC_FG;
 import com.Getapcs.Avision.SA_FG.Transaction.OQC_SA1;
 import com.Getapcs.Avision.SA_FG.Transaction.OQC_SA2;
 import com.Getapcs.Avision.SA_FG.Transaction.ShopOrderConfirmation_FG;
@@ -68,15 +79,15 @@ import com.Getapcs.Avision.Transaction.ShopOrder_For_SA2;
 public class TEST_SA_Flow extends TestBase {
 
 	public final static String priceList = "TEST PriceList 0001";
-	public final static String fg = "FG-26";
-	public final static String pp1 = "PP-87";
-	public final static String pp2 = "PP-88";
-	public final static String pp3 = "PP-89";
-	public final static String pp4 = "PP-90";
-	public final static String pp5 = "PP-91";
-	public final static String pp6 = "PP-92";
-	public final static String sa1 = "SA-31";
-	public final static String sa2 = "SA-32";
+	public final static String fg = FG_DynamicValue.generateDynamicValue();
+	public final static String pp1 = PP_DynamicValue1.generateDynamicValue();
+	public final static String pp2 = PP_DynamicValue2.generateDynamicValue();
+	public final static String pp3 = PP_DynamicValue3.generateDynamicValue();
+	public final static String pp4 = PP_DynamicValue4.generateDynamicValue();
+	public final static String pp5 = PP_DynamicValue5.generateDynamicValue();
+	public final static String pp6 = PP_DynamicValue6.generateDynamicValue();
+	public final static String sa1 = SA_DynamicValue1.generateDynamicValue();
+	public final static String sa2 = SA_DynamicValue2.generateDynamicValue();
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -132,8 +143,11 @@ public class TEST_SA_Flow extends TestBase {
 	MaterialIssue_FG materialIssueFG;
 	OQC_SA2 oqcSA2;
 	OQC_SA1 oqcSA1;
+	OQC_FG oqcFG;
 	OQCBinning_SA2 oqcBinningSA2;
 	OQCBinning_SA1 oqcBinningSA1;
+	OQCBinning_FG oqcBinningFG;
+//	OQC
 
 	// Inventry
 	InventryReportBeforGrin inventryReportBeforGrin;
@@ -208,16 +222,20 @@ public class TEST_SA_Flow extends TestBase {
 		inventryReportAfterMaterialIssue_FG = new InventryReportAfterMaterialIssue_FG();
 
 	}
+	
+	
 
-	@Test(priority = 1)
-	public void verifyPrice_ListCreate() throws Throwable {
-		Thread.sleep(4000);
-		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+	
+//	@Test(priority = 1)
+//	public void verifyPrice_ListCreate() throws Throwable {
+//		Thread.sleep(4000);
+//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
+	
 	@Test(priority = 2)
 	public void verifyItemMasterCreateforSA() throws Throwable {
 
@@ -921,6 +939,46 @@ public class TEST_SA_Flow extends TestBase {
 
 		homePage.clickOnInventryReportWithLocation();
 		inventryReportAfterMaterialIssue_FG.InventryReportPage("AfterShopOrderConfirmationForFG");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+	
+	@Test(priority = 44)
+	public void verifyOQC_ForFG() throws Throwable {
+
+		homePage.clickOnOQCCreate();
+		oqcFG.OQCCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 45)
+	public void verifyInventryAfterOQCForFG() throws Throwable {
+
+		homePage.clickOnInventryReportWithLocation();
+		inventryReportAfterMaterialIssue_FG.InventryReportPage("AfterOQCForSA1");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 46)
+	public void verifyOQCBinnig_ForFG() throws Throwable {
+
+		homePage.clickOnOQCBinningCreate();
+		oqcBinningFG.OQCBinningCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+	
+	@Test(priority = 47)
+	public void verifyInventryAfterOQCBinningForFG() throws Throwable {
+
+		homePage.clickOnInventryReportWithLocation();
+		inventryReportAfterMaterialIssue_FG.InventryReportPage("AfterOQCForSA1");
 		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 

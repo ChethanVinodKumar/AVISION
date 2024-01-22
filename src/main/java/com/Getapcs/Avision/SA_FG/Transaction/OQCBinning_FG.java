@@ -24,6 +24,9 @@ public class OQCBinning_FG extends TestBase {
 
 	@FindBy(xpath = "(//button[normalize-space()='Binning'])[1]")
 	WebElement binning;
+	
+	@FindBy(xpath = "//label[contains(text(), 'Item Quantity :')]/following-sibling::label[@class='property']/b")
+	WebElement itemQty;
 
 	@FindBy(xpath = "(//input[@type='text'])[3]")
 	WebElement warehouse;
@@ -68,7 +71,7 @@ public class OQCBinning_FG extends TestBase {
 
 //*************OQC Binning Create Page******************
 
-	public HomePage OQCBinningCreate(String Quantity) throws InterruptedException {
+	public HomePage OQCBinningCreate() throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("//*************OQC Binning Create Page******************");
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
@@ -130,6 +133,10 @@ public class OQCBinning_FG extends TestBase {
 //Binning 
 
 		click(driver, binning);
+		
+		int itemQty1 = Integer.parseInt(itemQty.getText());
+		itemQty1 = itemQty1 / 2;
+		String qty = String.valueOf(itemQty1);
 
 		for (int i = 1; i <= 2; i++) {
 
@@ -171,7 +178,7 @@ public class OQCBinning_FG extends TestBase {
 
 			click(driver, quantity);
 
-			quantity.sendKeys(Quantity);
+			quantity.sendKeys(qty);
 
 			click(driver, add);
 		}

@@ -1,34 +1,42 @@
 package Getapcs_Avision.Getapcs_Avision1;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.Getapcs.Avision.BASECLASS.TestBase;
+
+
+
 public class Practice {
 
-	public static void main(String[] args) {
-		// Creating an object
-		MyClass obj1 = new MyClass(42);
+public static void main(String[] args) throws InterruptedException, Exception {
+	
+	WebDriver driver = new ChromeDriver();
+	
+	driver.get("https://bard.google.com/chat/9fa9c64aa4e52bc9?hl=en");
+	
+	
+	 String fileName = "whatsApp";
+	 String filePath = ".//Getapcs_Avision//ScreenShot//" + fileName + ".png";
 
-		// Creating a reference to the same object
-		MyClass obj2 = obj1;
-
-		// Modifying the object through one reference
-		obj1.setValue(100);
-
-		// Accessing the object through the other reference
-		System.out.println("Value through obj2: " + obj2.getValue()); // Output: Value through obj2: 100
-	}
+	    // Check if the previous screenshot file exists
+	    File previousScreenshot = new File(filePath);
+	    if (previousScreenshot.exists()) {
+	        // Delete the previous screenshot file
+	        FileUtils.forceDelete(previousScreenshot);
+	    }
+		
+		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshotFile, new File(filePath));
 }
-
-class MyClass {
-	private int value;
-
-	public MyClass(int value) {
-		this.value = value;
-	}
-
-	public int getValue() {
-		return value;
-	}
-
-	public void setValue(int value) {
-		this.value = value;
-	}
 }

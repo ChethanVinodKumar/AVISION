@@ -5,13 +5,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-public class SA_DynamicValue2 {
-	private static final String FILE_PATH = "counterSA2.properties";
+public class PP_DynamicValue4 {
+	private static final String FILE_PATH = "counterPP4.properties";
 	private static final String COUNTER_KEY = "counter";
 
 	public static String generateDynamicValue() {
 		int counter = getCounter();
-		String dynamicValue = "SA-" + String.format("%02d", counter);
+		String dynamicValue = "PP-" + String.format("%02d", counter);
 		incrementCounter();
 		return dynamicValue;
 	}

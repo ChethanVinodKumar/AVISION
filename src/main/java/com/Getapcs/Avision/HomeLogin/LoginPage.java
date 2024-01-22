@@ -18,7 +18,7 @@ public class LoginPage extends TestBase {
 	@FindBy(xpath = "(//select)[1]")
 	WebElement selectUnit;
 
-	@FindBy(xpath = "(//span[@class='button__text'])[1]")
+	@FindBy(xpath = "(//span[text()='Sign In'])[1]")
 	WebElement signIn;
 
 	public HomePage loginloginTest;

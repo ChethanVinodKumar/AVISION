@@ -1,6 +1,5 @@
 package com.Getapcs.Avision.HomeLogin;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -443,8 +442,7 @@ public class HomePage extends TestBase {
 		primaryMaster.click();
 		customerMaster.click();
 		modifyorView1.click();
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click()", editButton);
+		click(driver, editButton);
 
 		Thread.sleep(4000);
 	}
@@ -462,8 +460,7 @@ public class HomePage extends TestBase {
 		primaryMaster.click();
 		venderMaster.click();
 		modifyorView2.click();
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click()", editButton);
+		click(driver, editButton);
 
 		Thread.sleep(4000);
 	}
@@ -1068,6 +1065,7 @@ public class HomePage extends TestBase {
 		click(driver, inventryReportWithLocation);
 		click(driver, threeLinesSideBarIcon);
 		Thread.sleep(3000);
+		
 
 	}
 

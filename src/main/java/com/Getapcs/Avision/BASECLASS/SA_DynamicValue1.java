@@ -5,8 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-public class SA_DynamicValue2 {
-	private static final String FILE_PATH = "counterSA2.properties";
+public class SA_DynamicValue1 {
+	private static final String FILE_PATH = "counterSA1.properties";
 	private static final String COUNTER_KEY = "counter";
 
 	public static String generateDynamicValue() {
