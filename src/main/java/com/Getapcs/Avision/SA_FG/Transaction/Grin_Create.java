@@ -158,18 +158,19 @@ public class Grin_Create extends TestBase {
 	@FindBy(xpath = "(//input[@type='date'])[13]")
 	WebElement expiryDate5;
 
-	@FindBy(xpath = "//input[@placeholder='Upload file']")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[1]")
 	WebElement cocUploadFiles;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[2]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[2]")
 	WebElement cocUploadFiles1;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[3]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[3]")
 	WebElement cocUploadFiles2;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[4]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[4]")
 	WebElement cocUploadFiles3;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[5]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[5]")
 	WebElement cocUploadFiles4;
-	@FindBy(xpath = "(//input[@placeholder='Upload file'])[6]")
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[6]")
 	WebElement cocUploadFiles5;
+	
 
 	@FindBy(xpath = "//i[@title='Add Taxes']")
 	WebElement taxesButton;
@@ -473,6 +474,8 @@ public class Grin_Create extends TestBase {
 
 				// Verifying and Coc Upload Files in Grin Create
 				uploadFile(driver, cocUploadFiles, 3);
+				uploadFile(driver, uploadFiles, 3);
+				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton);
@@ -591,6 +594,8 @@ public class Grin_Create extends TestBase {
 
 				// Verifying and Coc Upload Files in Grin Create
 				uploadFile(driver, cocUploadFiles2, 3);
+				uploadFile(driver, uploadFiles, 3);
+				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton2);
@@ -633,6 +638,8 @@ public class Grin_Create extends TestBase {
 
 				// Verifying and Coc Upload Files in Grin Create
 				uploadFile(driver, cocUploadFiles3, 3);
+				uploadFile(driver, uploadFiles, 3);
+				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton3);
@@ -708,6 +715,8 @@ public class Grin_Create extends TestBase {
 
 				// Verifying and Coc Upload Files in Grin Create
 				uploadFile(driver, cocUploadFiles4, 3);
+				uploadFile(driver, uploadFiles, 3);
+				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton4);
@@ -751,6 +760,8 @@ public class Grin_Create extends TestBase {
 
 				// Verifying and Coc Upload Files in Grin Create
 				uploadFile(driver, cocUploadFiles5, 1);
+				uploadFile(driver, uploadFiles, 3);
+				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton5);

@@ -26,9 +26,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v118.network.Network;
-import org.openqa.selenium.devtools.v118.network.model.Request;
-import org.openqa.selenium.devtools.v118.network.model.Response;
+import org.openqa.selenium.devtools.v120.network.model.Response;
+import org.openqa.selenium.devtools.v120.network.Network;
+import org.openqa.selenium.devtools.v120.network.model.Request;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
@@ -37,8 +37,11 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+
 public class TestBase {
-	public static WebDriver driver;
+	public static ChromeDriver driver;
+	public static DevTools devTools;
 //	public static FirefoxDriver driver;
 	public static ChromeOptions options;
 	public static WebDriverWait wait;
@@ -73,27 +76,29 @@ public class TestBase {
 		js = (JavascriptExecutor) driver;
 
 		// For Get the Error Status
-		DevTools devTools = ((ChromeDriver) driver).getDevTools();
-		devTools.createSession();
 
-		devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-		devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
-			Request res = requestConsumer.getRequest();
-//			System.out.println("Send URL :- " + res.getUrl() + "\n" + "\n");
+//		devTools = ((ChromeDriver) driver).getDevTools();
+//		devTools.createSession();
+//
+//		devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+//		devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
+//			Request res = requestConsumer.getRequest();
+////        	System.out.println("Send URL :- "+res.getUrl()+"\n"+"\n");
+//
+//		});
+//
+//		devTools.addListener(Network.responseReceived(), response -> {
+//			Response res = response.getResponse();
+////        	System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
+//			 if (!res.getStatus().toString().startsWith("2")) {
+//	                System.out.println(
+//	                        res.getStatus() + " :- " + res.getStatusText() + "\n" +
+//	                                "Error URL: " + res.getUrl() + "\n");
+//	            }
+//	        });
+        
+            
 
-		});
-
-		devTools.addListener(Network.responseReceived(), response -> {
-			Response res = response.getResponse();
-//        	System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
-        	
-        	if(!res.getStatus().toString().startsWith("2")) {
-        		System.out.println(
-						res.getStatus() + " :- " + res.getStatusText() + "\n" + "Error URL :- " + res.getUrl() + "\n");
-        		
-        	}
-			
-		});
 		
 	
 
@@ -156,6 +161,7 @@ public class TestBase {
 
 	// File Upload
 	public static void uploadFile(WebDriver driver, WebElement element, int fileIndex) throws Exception {
+		
 		js.executeScript("arguments[0].click();", element);
 
 		String[] files = new String[] { "C:\\Users\\Gopal Reddy\\Desktop\\Screenshot 2023-10-27 114940.png", // imgae

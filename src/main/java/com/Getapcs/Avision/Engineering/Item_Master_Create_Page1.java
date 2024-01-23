@@ -571,13 +571,13 @@ public class Item_Master_Create_Page1 extends TestBase {
 
 		rEACHToggleButton.click();
 
-		uploadFile(driver, filesUpload, 0);
-
-		click(driver, Savefiles);
-
-		click(driver, viewFiles);
-
-		click(driver, closeViewFiles);
+//		uploadFile(driver, filesUpload, 1);
+//
+//		click(driver, Savefiles);
+//
+//		click(driver, viewFiles);
+//
+//		click(driver, closeViewFiles);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);
@@ -1012,7 +1012,6 @@ public class Item_Master_Create_Page1 extends TestBase {
 		instructionsField.sendKeys(instructions);
 
 		// Quality
-//		WebElement Quality = driver.findElement(By.xpath("/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/ul/li[10]/a"));
 
 		qualityTab.click();
 

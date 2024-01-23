@@ -18,7 +18,7 @@ public class FG_DynamicValue {
 	}
 	
 
-	private static int getCounter() {
+	public static int getCounter() {
 		Properties properties = new Properties();
 		try (FileReader reader = new FileReader(FILE_PATH)) {
 			properties.load(reader);

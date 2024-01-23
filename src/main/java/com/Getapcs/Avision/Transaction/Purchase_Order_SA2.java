@@ -344,14 +344,14 @@ public class Purchase_Order_SA2 extends TestBase {
 			projectQuntity.clear();
 			projectQuntity.sendKeys(reqQty);
 
-//			if (i == 1) {
-//				click(driver, prButton);
-//
-//				click(driver, prSelect);
-//
-//				click(driver, savePR);
-//				Thread.sleep(2000);
-//			}
+			if (i == 1) {
+				click(driver, prButton);
+
+				click(driver, prSelect);
+
+				click(driver, savePR);
+				Thread.sleep(2000);
+			}
 
 			click(driver, addProjectNumber);
 

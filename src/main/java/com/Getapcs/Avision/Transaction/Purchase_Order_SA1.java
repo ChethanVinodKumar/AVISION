@@ -347,13 +347,13 @@ public class Purchase_Order_SA1 extends TestBase {
 			projectQuntity.clear();
 			projectQuntity.sendKeys(reqQty);
 
-//			if (i == 1) {
-//				click(driver, prButton);
-//
-//				click(driver, prSelect);
-//
-//				click(driver, savePR);
-//			}
+			if (i == 1) {
+				click(driver, prButton);
+
+				click(driver, prSelect);
+
+				click(driver, savePR);
+			}
 			click(driver, addProjectNumber);
 
 			if (i == 1) {

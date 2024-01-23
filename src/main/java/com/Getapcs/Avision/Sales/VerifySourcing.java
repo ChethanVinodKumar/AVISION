@@ -52,7 +52,7 @@ public class VerifySourcing extends TestBase {
 
 	@FindBy(xpath = "(//input[@type='text'])[8]")
 	WebElement leadTimeDropDown;
-	@FindBy(xpath = "(//span[normalize-space()='22 week, 11 days'])[1]")
+	@FindBy(xpath = "(//div[@role='option'])[1]")
 	WebElement leadTimeDropDownSelectData;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Freight']")

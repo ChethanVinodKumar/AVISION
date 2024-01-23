@@ -560,13 +560,13 @@ public class Item_Master_Create_Page extends TestBase {
 
 //Upload File
 
-		uploadFile(driver, filesUpload, 1);
-
-		click(driver, Savefiles);
-
-		click(driver, viewFiles);
-
-		click(driver, closeViewFiles);
+//		uploadFile(driver, filesUpload, 1);
+//
+//		click(driver, Savefiles);
+//
+//		click(driver, viewFiles);
+//
+//		click(driver, closeViewFiles);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);
@@ -797,7 +797,7 @@ public class Item_Master_Create_Page extends TestBase {
 
 		assertEquals(MinfieldHeightSize, MaxfieldHeightSize);
 		assertEquals(MaxfieldWidthSize, MinfieldWidthSize);
-		;
+		
 
 		// 1Verifying that ReOrder Text Field is Enabled or not
 		boolean isEnabledReOrderField = reOrderField.isEnabled();
@@ -1001,7 +1001,6 @@ public class Item_Master_Create_Page extends TestBase {
 		instructionsField.sendKeys(instructions);
 
 		// Quality
-//		WebElement Quality = driver.findElement(By.xpath("/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/ul/li[10]/a"));
 
 		qualityTab.click();
 

@@ -3,13 +3,42 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Getapcs.Avision.TEST.TEST_Create">
+      <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
         <methods>
-          <include name="afterTest"/>
+          <include name="verifyOQCBinnig_ForSA1"/>
+          <include name="verifyOQCBinnig_ForSA2"/>
+          <include name="verifyIQCCreate"/>
+          <include name="verifyInventryAfterShopOrderConfirmationForFG"/>
+          <include name="verifyShopOrderConfirmationForFG"/>
+          <include name="verifyInventryAfterOQCForSA1"/>
+          <include name="verifyOQCBinnig_ForFG"/>
+          <include name="verifyInventryAfterOQCBinningForSA1"/>
+          <include name="verifyGRINCreate"/>
+          <include name="verifyShopOrderConfirmationForSA1"/>
+          <include name="verifyShopOrderConfirmationForSA2"/>
+          <include name="verifyInventryAfterOQC_ForSA2"/>
+          <include name="verifyInventryReportAfterIQC"/>
+          <include name="verifyMaterialIssueReleaseForSA2"/>
+          <include name="verifyInventryAfterOQCBinning_ForSA2"/>
+          <include name="verifyInventryAfterShopOrderConfirmationForSA2"/>
+          <include name="verifyInventryAfterShopOrderConfirmationForSA1"/>
+          <include name="verifyMaterialIssueReleaseForSA1"/>
+          <include name="verifyInventryAfterMaterialIssueReleaseForSA1"/>
+          <include name="verifyInventryAfterMaterialIssueReleaseForSA2"/>
+          <include name="afetrTest"/>
+          <include name="verifyInventryAfterMaterialIssueReleaseForFG"/>
+          <include name="verifyOQC_ForSA1"/>
+          <include name="verifyOQC_ForSA2"/>
+          <include name="verifyMaterialIssueReleaseForFG"/>
+          <include name="verifyInventryReportAfterGrin"/>
+          <include name="verifyOQC_ForFG"/>
+          <include name="verifyInventryReportAfterBinnig"/>
+          <include name="verifyInventryAfterOQCForFG"/>
+          <include name="verifyInventryAfterOQCBinningForFG"/>
+          <include name="verifyBinningCreate"/>
           <include name="setUp"/>
-          <include name="verifySalesRFQCS"/>
         </methods>
-      </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
+      </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
