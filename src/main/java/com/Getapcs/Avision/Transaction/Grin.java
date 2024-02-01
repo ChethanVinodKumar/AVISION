@@ -181,7 +181,6 @@ public class Grin extends TestBase {
 			String totalInvoice, // 10
 			String mftrBatchNo, // 67356743
 			String unitPrice, // 10
-
 			String sgst, // 9
 			String cgst, // 9
 			String igst, // 9

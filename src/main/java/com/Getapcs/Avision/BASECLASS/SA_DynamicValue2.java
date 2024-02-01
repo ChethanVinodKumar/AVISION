@@ -30,7 +30,7 @@ public class SA_DynamicValue2 {
 
 	private static void incrementCounter() {
 		Properties properties = new Properties();
-		int counter = getCounter() + 1;
+		int counter = getCounter() + 2;
 		properties.setProperty(COUNTER_KEY, String.valueOf(counter));
 
 		try (FileWriter writer = new FileWriter(FILE_PATH)) {

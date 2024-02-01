@@ -22,7 +22,7 @@ public class VerifySourcing extends TestBase {
 	@FindBy(xpath = "//button[normalize-space()='Filter']")
 	WebElement filterButton;
 
-	@FindBy(xpath = "//tbody/tr[1]/td[1]/button[1]")
+	@FindBy(xpath = "//button[text()='Sourcing']")
 	WebElement sourcingButton;
 
 	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-icon'])[1]")

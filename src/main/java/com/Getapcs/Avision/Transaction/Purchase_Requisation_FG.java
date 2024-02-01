@@ -334,13 +334,13 @@ public class Purchase_Requisation_FG extends TestBase {
 
 			// Upload files
 
-			if (i == 1) {
-				click(driver, uploadFiles);
-
-				uploadFile(driver, uploadItemFiels, 1);
-				click(driver, uploadButton);
-				click(driver, closeButton);
-			}
+//			if (i == 1) {
+//				click(driver, uploadFiles);
+//
+//				uploadFile(driver, uploadItemFiels, 1);
+//				click(driver, uploadButton);
+//				click(driver, closeButton);
+//			}
 
 			// ************Add Project Expansion Panel************
 

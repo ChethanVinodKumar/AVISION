@@ -30,7 +30,7 @@ public class PP_DynamicValue3 {
 
 	private static void incrementCounter() {
 		Properties properties = new Properties();
-		int counter = getCounter() + 1;
+		int counter = getCounter() + 6;
 		properties.setProperty(COUNTER_KEY, String.valueOf(counter));
 
 		try (FileWriter writer = new FileWriter(FILE_PATH)) {

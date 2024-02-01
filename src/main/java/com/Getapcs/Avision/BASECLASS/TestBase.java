@@ -25,8 +25,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v120.network.model.Response;
+import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v120.network.Network;
 import org.openqa.selenium.devtools.v120.network.model.Request;
 import org.openqa.selenium.interactions.Actions;
@@ -36,8 +36,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 
 public class TestBase {
 	public static ChromeDriver driver;
@@ -52,9 +50,7 @@ public class TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
 	static WebElement closeButton;
 
-	
 	public static void initialization() throws AWTException {
-
 
 		// Incognito Mode Execution
 		options = new ChromeOptions();
@@ -77,35 +73,12 @@ public class TestBase {
 
 		// For Get the Error Status
 
-//		devTools = ((ChromeDriver) driver).getDevTools();
-//		devTools.createSession();
-//
-//		devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-//		devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
-//			Request res = requestConsumer.getRequest();
-////        	System.out.println("Send URL :- "+res.getUrl()+"\n"+"\n");
-//
-//		});
-//
-//		devTools.addListener(Network.responseReceived(), response -> {
-//			Response res = response.getResponse();
-////        	System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
-//			 if (!res.getStatus().toString().startsWith("2")) {
-//	                System.out.println(
-//	                        res.getStatus() + " :- " + res.getStatusText() + "\n" +
-//	                                "Error URL: " + res.getUrl() + "\n");
-//	            }
-//	        });
-        
-            
-
-		
-	
+		// For Get the Error Status
+		NetworkError.networkTabConsoleOutputToFile(".//Getapcs_Avision//output");
 
 		driver.get("https://avision-demo.getapcs.com/login");
 
 	}
-		
 
 	// Fluent Wait
 	public static WebElement waitForElement(WebDriver driver, WebElement element, int timeout, int pollingInterval) {
@@ -161,7 +134,7 @@ public class TestBase {
 
 	// File Upload
 	public static void uploadFile(WebDriver driver, WebElement element, int fileIndex) throws Exception {
-		
+
 		js.executeScript("arguments[0].click();", element);
 
 		String[] files = new String[] { "C:\\Users\\Gopal Reddy\\Desktop\\Screenshot 2023-10-27 114940.png", // imgae
@@ -248,20 +221,19 @@ public class TestBase {
 
 	// Screen Shot
 	public static void screenShot(String fileName) throws IOException {
-		
+
 		String filePath = ".//Getapcs_Avision//ScreenShot//" + fileName + ".png";
 
-	    // Check if the previous screenshot file exists
-	    File previousScreenshot = new File(filePath);
-	    if (previousScreenshot.exists()) {
-	        // Delete the previous screenshot file
-	        FileUtils.forceDelete(previousScreenshot);
-	    }
-		
+		// Check if the previous screenshot file exists
+		File previousScreenshot = new File(filePath);
+		if (previousScreenshot.exists()) {
+			// Delete the previous screenshot file
+			FileUtils.forceDelete(previousScreenshot);
+		}
+
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshotFile, new File(filePath));
 
-		
 	}
 
 	// Pagination

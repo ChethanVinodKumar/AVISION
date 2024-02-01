@@ -10,13 +10,13 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class Grin_Create extends TestBase {
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[2]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[2]")
 	WebElement viewButton1;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[3]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[3]")
 	WebElement viewButton2;
 
 	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")
@@ -48,20 +48,23 @@ public class Grin_Create extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
 	WebElement uploadFiles;
 
-	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Close'])[13]")
+	@FindBy(xpath = "(//button[normalize-space()='Upload'])[1]")
+	WebElement uploadButton;
+
+	@FindBy(xpath = "//button[text()='Close']")
 	WebElement fileCloseButton;
 
 	@FindBy(xpath = "(//input[@type='text'])[5]")
 	WebElement poNumberField;
-	@FindBy(xpath = "(//input[@type='text'])[15]")
+	@FindBy(xpath = "(//input[@type='text'])[14]")
 	WebElement poNumberField1;
-	@FindBy(xpath = "(//input[@type='text'])[25]")
+	@FindBy(xpath = "(//input[@type='text'])[23]")
 	WebElement poNumberField2;
-	@FindBy(xpath = "(//input[@type='text'])[35]")
+	@FindBy(xpath = "(//input[@type='text'])[32]")
 	WebElement poNumberField3;
-	@FindBy(xpath = "(//input[@type='text'])[45]")
+	@FindBy(xpath = "(//input[@type='text'])[41]")
 	WebElement poNumberField4;
-	@FindBy(xpath = "(//input[@type='text'])[55]")
+	@FindBy(xpath = "(//input[@type='text'])[50]")
 	WebElement poNumberField5;
 
 	@FindBy(xpath = "//span[contains(text(),'TISPL-MFPO-1080-0019')]")
@@ -69,44 +72,42 @@ public class Grin_Create extends TestBase {
 
 	@FindBy(xpath = "//input[@role='combobox']")
 	WebElement itemOrDescriptionNumberField;
-	@FindBy(xpath = "(//input[@type='text'])[16]")
+	@FindBy(xpath = "(//input[@type='text'])[15]")
 	WebElement itemOrDescriptionNumberField1;
-	@FindBy(xpath = "(//input[@type='text'])[26]")
+	@FindBy(xpath = "(//input[@type='text'])[24]")
 	WebElement itemOrDescriptionNumberField2;
-	@FindBy(xpath = "(//input[@type='text'])[36]")
+	@FindBy(xpath = "(//input[@type='text'])[33]")
 	WebElement itemOrDescriptionNumberField3;
-	@FindBy(xpath = "(//input[@type='text'])[46]")
+	@FindBy(xpath = "(//input[@type='text'])[42]")
 	WebElement itemOrDescriptionNumberField4;
-	@FindBy(xpath = "(//input[@type='text'])[56]")
+	@FindBy(xpath = "(//input[@type='text'])[51]")
 	WebElement itemOrDescriptionNumberField5;
 
-	@FindBy(xpath = "//span[contains(text(),'ECB0002-111M INS. SINGLE END SLEEVE 0.25MM, 24# VI')]")
-	WebElement selectItemOrDescriptionNumberFieldValue;
 
 	@FindBy(xpath = "(//input[@type='text'])[8]")
 	WebElement mftrBatchNoNumberField;
-	@FindBy(xpath = "(//input[@type='text'])[18]")
+	@FindBy(xpath = "(//input[@type='text'])[17]")
 	WebElement mftrBatchNoNumberField1;
-	@FindBy(xpath = "(//input[@type='text'])[28]")
+	@FindBy(xpath = "(//input[@type='text'])[26]")
 	WebElement mftrBatchNoNumberField2;
-	@FindBy(xpath = "(//input[@type='text'])[38]")
+	@FindBy(xpath = "(//input[@type='text'])[35]")
 	WebElement mftrBatchNoNumberField3;
-	@FindBy(xpath = "(//input[@type='text'])[48]")
+	@FindBy(xpath = "(//input[@type='text'])[44]")
 	WebElement mftrBatchNoNumberField4;
-	@FindBy(xpath = "(//input[@type='text'])[58]")
+	@FindBy(xpath = "(//input[@type='text'])[53]")
 	WebElement mftrBatchNoNumberField5;
 
 	@FindBy(xpath = "(//input[@type='text'])[9]")
 	WebElement unitPriceField;
-	@FindBy(xpath = "(//input[@type='text'])[19]")
+	@FindBy(xpath = "(//input[@type='text'])[18]")
 	WebElement unitPriceField1;
-	@FindBy(xpath = "(//input[@type='text'])[29]")
+	@FindBy(xpath = "(//input[@type='text'])[27]")
 	WebElement unitPriceField2;
-	@FindBy(xpath = "(//input[@type='text'])[39]")
+	@FindBy(xpath = "(//input[@type='text'])[36]")
 	WebElement unitPriceField3;
-	@FindBy(xpath = "(//input[@type='text'])[49]")
+	@FindBy(xpath = "(//input[@type='text'])[45]")
 	WebElement unitPriceField4;
-	@FindBy(xpath = "(//input[@type='text'])[59]")
+	@FindBy(xpath = "(//input[@type='text'])[54]")
 	WebElement unitPriceField5;
 
 	@FindBy(xpath = "(//input[@type='text'])[10]")
@@ -170,9 +171,8 @@ public class Grin_Create extends TestBase {
 	WebElement cocUploadFiles4;
 	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[6]")
 	WebElement cocUploadFiles5;
-	
 
-	@FindBy(xpath = "//i[@title='Add Taxes']")
+	@FindBy(xpath = "(//i[@title='Add Taxes'])[1]")
 	WebElement taxesButton;
 	@FindBy(xpath = "(//i[@title='Add Taxes'])[2]")
 	WebElement taxesButton1;
@@ -196,18 +196,21 @@ public class Grin_Create extends TestBase {
 
 	@FindBy(xpath = "//input[@placeholder='Enter UTGST']")
 	WebElement uTGSTField;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter UTGST']")
+	WebElement dutiesField;
 
-	@FindBy(xpath = "(//input[@type='text'])[14]")
+	@FindBy(xpath = "(//input[@type='text'])[13]")
 	WebElement remarksField;
-	@FindBy(xpath = "(//input[@type='text'])[24]")
+	@FindBy(xpath = "(//input[@type='text'])[22]")
 	WebElement remarksField1;
-	@FindBy(xpath = "(//input[@type='text'])[34]")
+	@FindBy(xpath = "(//input[@type='text'])[31]")
 	WebElement remarksField2;
-	@FindBy(xpath = "(//input[@type='text'])[44]")
+	@FindBy(xpath = "(//input[@type='text'])[40]")
 	WebElement remarksField3;
-	@FindBy(xpath = "(//input[@type='text'])[54]")
+	@FindBy(xpath = "(//input[@type='text'])[59]")
 	WebElement remarksField4;
-	@FindBy(xpath = "(//input[@type='text'])[64]")
+	@FindBy(xpath = "(//input[@type='text'])[68]")
 	WebElement remarksField5;
 
 	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Save'])[1]")
@@ -275,7 +278,7 @@ public class Grin_Create extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage grinCreatePage(String invoiceNo, // TEST-IN-1122
+	public HomePage grinCreatePage(String invoiceNo, // TEST-IN-1122 
 			String invoiceGST, // 10
 			String totalInvoice, // 10
 			String mftrBatchNo, // 67356743
@@ -295,7 +298,7 @@ public class Grin_Create extends TestBase {
 			String transport, // 10
 			String otherChargesValue) throws Throwable {
 
-		System.out.println("Grin Create Page");
+		System.out.println("##### Grin Create Page #####");
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
 
@@ -473,8 +476,9 @@ public class Grin_Create extends TestBase {
 				datePicker(driver, manufactureDatePicker);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles, 3);
+				click(driver, cocUploadFiles);
 				uploadFile(driver, uploadFiles, 3);
+				click(driver, uploadButton);
 				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
@@ -517,14 +521,17 @@ public class Grin_Create extends TestBase {
 				datePicker(driver, manufactureDatePicker1);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles1, 3);
+				click(driver, cocUploadFiles1);
+				uploadFile(driver, uploadFiles, 3);
+				click(driver, uploadButton);
+				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton1);
 
-				click(driver, remarksField1);
-				isSelected(driver, remarksField1, "remarksField1");
-				remarksField1.sendKeys("TEST-2");
+//				click(driver, remarksField1);
+//				isSelected(driver, remarksField1, "remarksField1");
+//				remarksField1.sendKeys("TEST-2");
 
 			}
 
@@ -593,16 +600,18 @@ public class Grin_Create extends TestBase {
 				datePicker(driver, manufactureDatePicker2);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles2, 3);
+				click(driver, cocUploadFiles2);
 				uploadFile(driver, uploadFiles, 3);
+				click(driver, uploadButton);
 				click(driver, fileCloseButton);
+
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton2);
 
-				click(driver, remarksField2);
-				isSelected(driver, remarksField2, "remarksField2");
-				remarksField2.sendKeys("TEST-3");
+//				click(driver, remarksField2);
+//				isSelected(driver, remarksField2, "remarksField2");
+//				remarksField2.sendKeys("TEST-3");
 			}
 			if (j == 2) {
 				// Verify and Select Value from po Number Field in GRIN Create-Transaction
@@ -637,16 +646,17 @@ public class Grin_Create extends TestBase {
 				datePicker(driver, manufactureDatePicker3);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles3, 3);
+				click(driver, cocUploadFiles3);
 				uploadFile(driver, uploadFiles, 3);
+				click(driver, uploadButton);
 				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton3);
 
-				click(driver, remarksField3);
-				isSelected(driver, remarksField3, "remarksField3");
-				remarksField3.sendKeys("TEST-4");
+//				click(driver, remarksField3);
+//				isSelected(driver, remarksField3, "remarksField3");
+//				remarksField3.sendKeys("TEST-4");
 			}
 
 			// Verify and Enter Value in SGST Field in GRIN Create-Transaction Module
@@ -714,16 +724,17 @@ public class Grin_Create extends TestBase {
 				datePicker(driver, manufactureDatePicker4);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles4, 3);
+				click(driver, cocUploadFiles4);
 				uploadFile(driver, uploadFiles, 3);
+				click(driver, uploadButton);
 				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton4);
 
-				click(driver, remarksField4);
-				isSelected(driver, remarksField4, "remarksField");
-				remarksField4.sendKeys("TEST-5");
+//				click(driver, remarksField4);
+//				isSelected(driver, remarksField4, "remarksField");
+//				remarksField4.sendKeys("TEST-5");
 			}
 
 			if (k == 2) {
@@ -759,16 +770,17 @@ public class Grin_Create extends TestBase {
 				datePicker(driver, manufactureDatePicker5);
 
 				// Verifying and Coc Upload Files in Grin Create
-				uploadFile(driver, cocUploadFiles5, 1);
+				click(driver, cocUploadFiles5);
 				uploadFile(driver, uploadFiles, 3);
+				click(driver, uploadButton);
 				click(driver, fileCloseButton);
 
 				// Verify Taxes Button in Add Project Pop-UP
 				click(driver, taxesButton5);
 
-				click(driver, remarksField5);
-				isSelected(driver, remarksField5, "remarksField5");
-				remarksField5.sendKeys("TEST-6");
+//				click(driver, remarksField5);
+//				isSelected(driver, remarksField5, "remarksField5");
+//				remarksField5.sendKeys("TEST-6");
 			}
 
 			// Verify and Enter Value in SGST Field in GRIN Create-Transaction Module

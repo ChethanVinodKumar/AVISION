@@ -65,8 +65,8 @@ public class RFQ_CreatePage extends TestBase {
 		// Request Receiver Date Picker
 
 		click(driver, requestReceiveDatePicker);
-
-		datePicker(driver, requestReceiveDatePicker);
+		
+		selectPreviousDate(driver, requestReceiveDatePicker, 5);
 
 		// Quote Date Picker
 

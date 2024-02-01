@@ -9,8 +9,8 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class PRApproval1 extends TestBase {
 
-	@FindBy(xpath = "(//button[normalize-space()='Approve'])[1]")
-	WebElement approveButton;
+	@FindBy(xpath = "(//button[text()='View'])[1]")
+	WebElement approveViewButton;
 
 	@FindBy(xpath = "//label[text()='PR Date']/following-sibling::label[@class='field2']")
 	WebElement prDateElement;
@@ -80,7 +80,7 @@ public class PRApproval1 extends TestBase {
 
 	public HomePage prApproval1Page() throws Throwable {
 
-		click(driver, approveButton);
+		click(driver, approveViewButton);
 
 		dataPrintFromInputtag(driver, prDateElement, "prDateElement");
 

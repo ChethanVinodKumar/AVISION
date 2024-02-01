@@ -29,13 +29,13 @@ public class InventryReportAfterGrin extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[2]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[2]")
 	WebElement viewButton1;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[3]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[3]")
 	WebElement viewButton2;
 
 	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")

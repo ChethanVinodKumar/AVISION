@@ -831,9 +831,8 @@ public class HomePage extends TestBase {
 		click(driver, threeLinesSideBarIcon);
 		transaction.click();
 		iqcConfirmation.click();
-//			iqcConfirmationCreate.click();
-		js.executeScript("arguments[0].click();", iqcConfirmationCreate);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, iqcConfirmationCreate);
+		click(driver, threeLinesSideBarIcon);
 //			menu.click();
 		Thread.sleep(3000);
 
@@ -1065,7 +1064,6 @@ public class HomePage extends TestBase {
 		click(driver, inventryReportWithLocation);
 		click(driver, threeLinesSideBarIcon);
 		Thread.sleep(3000);
-		
 
 	}
 

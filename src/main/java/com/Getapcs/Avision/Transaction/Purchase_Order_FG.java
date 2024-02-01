@@ -3,7 +3,6 @@ package com.Getapcs.Avision.Transaction;
 import java.awt.AWTException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -214,7 +213,6 @@ public class Purchase_Order_FG extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Yes'])[1]")
 	WebElement confirmPOPUP;
 
-	JavascriptExecutor executor = (JavascriptExecutor) driver;
 
 	public Purchase_Order_FG() {
 		PageFactory.initElements(driver, this);
