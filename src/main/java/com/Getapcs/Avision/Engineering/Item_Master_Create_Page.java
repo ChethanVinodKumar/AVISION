@@ -560,13 +560,13 @@ public class Item_Master_Create_Page extends TestBase {
 
 //Upload File
 
-//		uploadFile(driver, filesUpload, 1);
-//
-//		click(driver, Savefiles);
-//
-//		click(driver, viewFiles);
-//
-//		click(driver, closeViewFiles);
+		uploadFile(driver, filesUpload, 1);
+
+		click(driver, Savefiles);
+
+		click(driver, viewFiles);
+
+		click(driver, closeViewFiles);
 
 		// Dimensions Tab
 		dimensionsTab.sendKeys(Keys.ENTER);

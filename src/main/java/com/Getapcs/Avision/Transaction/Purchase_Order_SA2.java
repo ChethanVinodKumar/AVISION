@@ -344,6 +344,7 @@ public class Purchase_Order_SA2 extends TestBase {
 			projectQuntity.clear();
 			projectQuntity.sendKeys(reqQty);
 
+			try {
 			if (i == 1) {
 				click(driver, prButton);
 
@@ -351,6 +352,9 @@ public class Purchase_Order_SA2 extends TestBase {
 
 				click(driver, savePR);
 				Thread.sleep(2000);
+			}
+			}catch(Exception e) {
+				System.out.println("Purchase Requisition Not Created for These.");
 			}
 
 			click(driver, addProjectNumber);

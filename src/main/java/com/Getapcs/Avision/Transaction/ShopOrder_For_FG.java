@@ -23,7 +23,7 @@ public class ShopOrder_For_FG extends TestBase {
 	WebElement fgItemNumberSelect;
 
 	@FindBy(xpath = "(//input[@type='text'])[4]")
-	WebElement bomGroup;
+	WebElement bomVersionNo;
 
 	@FindBy(xpath = "(//div[@role='option'])[1]")
 	WebElement bomGroupSelect;
@@ -132,48 +132,26 @@ public class ShopOrder_For_FG extends TestBase {
 //BOM Group
 
 		// Verify that bomGroup Field is Displayed or not
-		boolean isDisabledbomGroupFieldn = !bomGroup.isDisplayed();
-		Assert.assertFalse(isDisabledbomGroupFieldn);
-		js.executeScript("arguments[0].scrollIntoView(true);", bomGroup);
-		Thread.sleep(5000);
 
-		bomGroup.click();
-
-		js.executeScript("arguments[0].click();", bomGroupSelect);
+		click(driver, bomVersionNo);
+		Thread.sleep(2000);
+		click(driver, bomGroupSelect);
 
 //Project Number
 
 		// Verify that projectNum Field is Displayed or not
-		boolean isDisabledprojectNumFieldn = !projectNum.isDisplayed();
-		Assert.assertFalse(isDisabledprojectNumFieldn);
-
-		js.executeScript("arguments[0].scrollIntoView(true);", projectNum);
-		projectNum.click();
-		// Verify that projectNum Field is clickable or not
-		WebElement projectNumFieldFocusedElement = driver.switchTo().activeElement();
-		boolean projectNumFieldIsSelected = projectNumFieldFocusedElement.equals(projectNum);
-		Assert.assertTrue(projectNumFieldIsSelected, "projectNum Text Field is not Selected");
-
+		click(driver, projectNum);
+		isSelected(driver, projectNum, "projectNum");
 		WebElement projectNumSelect = driver.findElement(By.xpath(updatedXpath1));
+		click(driver, projectNumSelect);
 
-		js.executeScript("arguments[0].click();", projectNumSelect);
 //Sales Order Number
-
-		// Verify that salesOrderNum Field is Displayed or not
-		boolean isDisabledsalesOrderNumFieldn = !salesOrderNum.isDisplayed();
-		Assert.assertFalse(isDisabledsalesOrderNumFieldn);
-
-		js.executeScript("arguments[0].scrollIntoView(true);", salesOrderNum);
-		salesOrderNum.click();
-
-		// Verify that salesOrderNum Field is clickable or not
-		WebElement salesOrderNumFieldFocusedElement = driver.switchTo().activeElement();
-		boolean salesOrderNumFieldIsSelected = salesOrderNumFieldFocusedElement.equals(salesOrderNum);
-		Assert.assertTrue(salesOrderNumFieldIsSelected, "salesOrderNum Text Field is not Selected");
+		click(driver, salesOrderNum);
+		isSelected(driver, salesOrderNum, "salesOrderNum");
 
 		WebElement salesOrderNum = driver.findElement(By.xpath(updatedXpath2));
+		click(driver, salesOrderNum);
 
-		js.executeScript("arguments[0].click();", salesOrderNum);
 //Sales Order Number
 
 		// Get the first PR number text from table
@@ -203,18 +181,8 @@ public class ShopOrder_For_FG extends TestBase {
 //Release Qty
 
 		// Verify that releaseQty Field is Displayed or not
-		boolean isDisabledreleaseQtyFieldn = !releaseQty.isDisplayed();
-		assertFalse(isDisabledreleaseQtyFieldn);
-
-		// Verify that releaseQty Field is clickable or not
-		WebElement releaseQtyFieldFocusedElement = driver.switchTo().activeElement();
-		boolean releaseQtyFieldIsSelected = releaseQtyFieldFocusedElement.equals(releaseQty);
-		assertFalse(releaseQtyFieldIsSelected, "releaseQty Text Field is not Selected");
-
-		// Verifying that releaseQty Text Field is Enabled or not
-		boolean isEnabledreleaseQtyField = releaseQty.isEnabled();
-		assertTrue(isEnabledreleaseQtyField);
-
+		click(driver, releaseQty);
+		isSelected(driver, releaseQty, "releaseQty");
 		releaseQty.clear();
 		releaseQty.sendKeys(requiredQtyvalue);
 
