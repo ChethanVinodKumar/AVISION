@@ -105,32 +105,32 @@ public class InventryReportAfterMaterialIssue_SA1 extends TestBase {
 				searchPartType.clear();
 				searchPartType.sendKeys(partType1);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath1));
-				click(driver, partTypeSelect);
+				WebElement partTypeSelect1 = driver.findElement(By.xpath(updatedXpath1));
+				click(driver, partTypeSelect1);
 			}
 
 			if (i == 2) {
 				searchPartType.clear();
 				searchPartType.sendKeys(partType2);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath3));
-				click(driver, partTypeSelect);
+				WebElement partTypeSelect2 = driver.findElement(By.xpath(updatedXpath2));
+				click(driver, partTypeSelect2);
 			}
 
 			if (i == 3) {
 				searchPartType.clear();
 				searchPartType.sendKeys(partType3);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath3));
-				click(driver, partTypeSelect);
+				WebElement partTypeSelect3 = driver.findElement(By.xpath(updatedXpath3));
+				click(driver, partTypeSelect3);
 			}
 
 			if (i == 4) {
 				searchPartType.clear();
 				searchPartType.sendKeys(partType4);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpathSA));
-				click(driver, partTypeSelect);
+				WebElement partTypeSelect4 = driver.findElement(By.xpath(updatedXpathSA));
+				click(driver, partTypeSelect4);
 			}
 
 		}

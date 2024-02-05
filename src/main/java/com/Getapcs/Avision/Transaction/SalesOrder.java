@@ -434,7 +434,12 @@ public class SalesOrder extends TestBase {
 		// -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 		// Verify the Order Qty Field1 in Sales Order Create Page-Transaction Module
-		assertTrue(OrderQtyField1.isDisplayed(), "Order Qty Field1 is not Displayed.");
+		click(driver, OrderQtyField1);
+		isSelected(driver, OrderQtyField1, "OrderQtyField1");
+		OrderQtyField1.clear();
+		String n = "168";
+		OrderQtyField1.sendKeys(n);
+		
 //		OrderQtyField1.sendKeys(Keys.ENTER);
 //		WebElement OrderQtyField1FocusedElement = driver.switchTo().activeElement();
 //	    boolean OrderQtyField1IsSelected = OrderQtyField1FocusedElement.equals(OrderQtyField1);
@@ -488,13 +493,11 @@ public class SalesOrder extends TestBase {
 		datePicker(driver, sheduleDate);
 
 		click(driver, quantity);
-
-		quantity.sendKeys("10");
-
+		quantity.clear();
+		quantity.sendKeys(n);
 		click(driver, add);
-
 		click(driver, save);
-
+		
 		click(driver, remarkField1);
 		isSelected(driver, remarkField1, "remarkField1");
 		remarkField1.clear();

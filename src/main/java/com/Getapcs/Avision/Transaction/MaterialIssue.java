@@ -36,8 +36,7 @@ public class MaterialIssue extends TestBase {
 	// *************Material Issue Page******************//
 
 	public HomePage MaterialIssuePage() throws InterruptedException {
-
-		js.executeScript("arguments[0].click();", issueMaterial);
+		click(driver, issueMaterial);
 
 		System.out.println("//************Material Issue***************//");
 

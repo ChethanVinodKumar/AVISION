@@ -113,7 +113,7 @@ public class InventryReportAfterMaterialIssue_FG extends TestBase {
 				searchPartType.clear();
 				searchPartType.sendKeys(partType2);
 
-				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath3));
+				WebElement partTypeSelect = driver.findElement(By.xpath(updatedXpath2));
 				click(driver, partTypeSelect);
 			}
 

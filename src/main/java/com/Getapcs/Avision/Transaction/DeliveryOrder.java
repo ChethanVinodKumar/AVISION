@@ -193,15 +193,19 @@ public class DeliveryOrder extends TestBase {
 		issuedTo.sendKeys("TEST Issued To");
 
 //Dispatch Quantity
+		
+		String dispatchQty1 = driver.findElement(By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[8]")).getText();
 
 		click(driver, dispatchQty);
 		dispatchQty.clear();
-		dispatchQty.sendKeys(DispatchQuantity);
+		dispatchQty.sendKeys(dispatchQty1);
 
 //Binning 
 
 		click(driver, binning);
-
+		
+		String dQty = driver.findElement(By.xpath("//label[normalize-space()='Dispatch Qty']/..//label[@class='property']")).getText();
+		
 		for (int i = 1; i <= 2; i++) {
 
 			if (i == 1) {
@@ -241,7 +245,7 @@ public class DeliveryOrder extends TestBase {
 			}
 			click(driver, quantity);
 
-			quantity.sendKeys(Quantity);
+			quantity.sendKeys(String.valueOf(Integer.parseInt(dQty)/2));
 
 			click(driver, add);
 		}

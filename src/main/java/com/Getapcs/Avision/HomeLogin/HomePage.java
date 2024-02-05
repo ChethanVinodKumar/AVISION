@@ -245,7 +245,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//a[normalize-space()='Shop Order Confirm'])[1]")
 	WebElement shopOrderConfirmation;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-table-icon'])[1]")
 	WebElement createshopOrderConfirmation;
 
 	// OQC
@@ -256,7 +256,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//a[@routerlink='transaction/fg-oqc'])[1]")
 	WebElement oQC1;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-table-icon'])[1]")
 	WebElement createOQC;
 
 	// OQC Binning
@@ -267,7 +267,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//a[@routerlink='transaction/oqc-binning'])[1]")
 	WebElement oQCBinningModifyorView;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-table-icon'])[1]")
 	WebElement createOQCBinning;
 
 	// Delivery Order
@@ -876,31 +876,34 @@ public class HomePage extends TestBase {
 	// Shop Order Confirmation
 
 	public void clickOnShopOrderConfirmationCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		js.executeScript("arguments[0].click();", shopOrder);
-		js.executeScript("arguments[0].click();", shopOrderConfirmation);
-		js.executeScript("arguments[0].click();", createshopOrderConfirmation);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, shopOrder);
+		click(driver, shopOrderConfirmation);
+		click(driver, createshopOrderConfirmation);
+		click(driver, threeLinesSideBarIcon);
 	}
 
 	public void clickOnShopOrderConfirmationTable() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		js.executeScript("arguments[0].click();", shopOrder);
-		js.executeScript("arguments[0].click();", shopOrderConfirmation);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, shopOrder);
+		click(driver, shopOrderConfirmation);
+		click(driver, threeLinesSideBarIcon);
+		
 	}
 
 	// OQC
 
 	public void clickOnOQCCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		js.executeScript("arguments[0].click();", oQC);
-		js.executeScript("arguments[0].click();", oQC1);
-		js.executeScript("arguments[0].click();", createOQC);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, oQC);
+		click(driver, oQC1);
+		click(driver, createOQC);
+		click(driver, threeLinesSideBarIcon);
 	}
 
 	public void clickOnOQCTable() throws InterruptedException {
@@ -955,8 +958,6 @@ public class HomePage extends TestBase {
 		click(driver, deliveryOrder);
 		click(driver, MorVDeliveryOrder);
 		click(driver, threeLinesSideBarIcon);
-		click(driver, returnDo);
-
 		Thread.sleep(3000);
 
 	}

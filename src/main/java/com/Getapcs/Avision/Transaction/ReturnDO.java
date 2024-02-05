@@ -13,6 +13,9 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class ReturnDO extends TestBase {
 
 	// Return Delivery Order
+	
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
+	WebElement shopOrderViewButton;
 
 	@FindBy(xpath = "//label[text()='Customer Name']/..//input[@formcontrolname='customerName']")
 	WebElement customerName;
@@ -86,8 +89,14 @@ public class ReturnDO extends TestBase {
 	@FindBy(xpath = "//table[@formarrayname='ItemData']/tbody/tr[1]/td[7]")
 	WebElement DispatchQty;
 
-	@FindBy(xpath = "(//button[normalize-space()='Return DO'])[1]")
+	@FindBy(xpath = "(//i[@title='Return Delivery Order'])[1]")
 	WebElement returnDO;
+	
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
+	WebElement viewDOButton;
+	
+	@FindBy(xpath = "//button[normalize-space()='Binning']")
+	WebElement binningButton;
 
 	public ReturnDO() {
 
@@ -100,11 +109,14 @@ public class ReturnDO extends TestBase {
 
 		// Part Type
 
-		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order/table");
+		
+		click(driver, shopOrderViewButton);
 
 		String tableXpath = "//table[@class='table table-striped']";
+		String tableXpath1 = "//table[@class='table mb-2']";
 
-		String projectNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
 
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
 
@@ -113,7 +125,28 @@ public class ReturnDO extends TestBase {
 		System.out.println(updatedXpath);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/delivery-order/table");
-
+		click(driver, viewDOButton);
+		click(driver, binningButton);
+		
+		String xPath = "(//span[normalize-space()='AVision Stores-III(General)'])[1]";
+		
+		
+		String wareHouse1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
+		String locationn1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		String qty1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+		
+		String wareHouse2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[1]")).getText();
+		String locationn2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
+		String qty2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
+		
+		String updatedXpathW1 = xPath.replace("AVision Stores-III(General)", wareHouse1);
+		String updatedXpathW2 = xPath.replace("AVision Stores-III(General)", wareHouse2);
+		String updatedXpathL1 = xPath.replace("AVision Stores-III(General)", locationn1);
+		String updatedXpathL2 = xPath.replace("AVision Stores-III(General)", locationn2);
+		System.out.println(updatedXpathW1+"\n"+updatedXpathW2+"\n"+updatedXpathL1+"\n"+updatedXpathL2);
+		
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/delivery-order/table");
+		Thread.sleep(2000);
 		click(driver, returnDO);
 
 //Customer Name
@@ -173,7 +206,6 @@ public class ReturnDO extends TestBase {
 			click(driver, projectNumber);
 
 			WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath));
-
 			click(driver, projectNumberSelect);
 
 			if (i == 1) {
@@ -183,16 +215,19 @@ public class ReturnDO extends TestBase {
 				click(driver, warehouse);
 
 				isSelected(driver, warehouse, "warehouse");
-
-				click(driver, warehouseSelect);
-
+				WebElement warehouseSelect1 = driver.findElement(By.xpath(updatedXpathW1));
+				click(driver, warehouseSelect1);
 				// Location
 
 				click(driver, location);
 
 				isSelected(driver, location, "location");
+				WebElement locationSelect1 = driver.findElement(By.xpath(updatedXpathL1));
+				click(driver, locationSelect1);
+				
+				click(driver, quantityBinning);
+				quantityBinning.sendKeys(qty1);
 
-				click(driver, locationSelect);
 			}
 			if (i == 2) {
 				// Warehouse
@@ -200,20 +235,20 @@ public class ReturnDO extends TestBase {
 				click(driver, warehouse1);
 
 				isSelected(driver, warehouse1, "warehouse1");
-
-				click(driver, warehouseSelect1);
+				WebElement warehouseSelect2 = driver.findElement(By.xpath(updatedXpathW2));
+				click(driver, warehouseSelect2);
 
 				// Location
 
 				click(driver, location1);
 
 				isSelected(driver, location1, "location1");
-
-				click(driver, locationSelect1);
+				WebElement locationSelect2 = driver.findElement(By.xpath(updatedXpathL2));
+				click(driver, locationSelect2);
+				
+				click(driver, quantityBinning);
+				quantityBinning.sendKeys(qty2);
 			}
-			click(driver, quantityBinning);
-
-			quantityBinning.sendKeys(Quantity);
 
 			click(driver, add);
 		}
@@ -221,10 +256,9 @@ public class ReturnDO extends TestBase {
 //Remarks Field
 
 		click(driver, remarks);
-
 		isSelected(driver, remarks, "remarks");
+		remarks.sendKeys("Test Remark");
 
-		returnBy.sendKeys("TEST remarks");
 
 //Save Button
 

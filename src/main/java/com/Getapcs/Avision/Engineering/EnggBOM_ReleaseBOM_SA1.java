@@ -113,14 +113,23 @@ public class EnggBOM_ReleaseBOM_SA1 extends TestBase {
 			releaseVersionDropDown.sendKeys(Keys.ENTER);
 			releaseVersionDropDown.sendKeys(Keys.ENTER);
 
-			releaseNoteField = driver.findElement(By.xpath("//textarea[@placeholder='Enter Release Note']"));
-			js.executeScript("arguments[0].scrollIntoView(true);", releaseNoteField);
-			releaseNoteField.sendKeys(releaseNote);
-			// 1Verifying that Item Number Text Field is Enabled or not
-			assertTrue(releaseNoteField.isEnabled());
+			if (i == 1) {
+				releaseNoteField = driver.findElement(By.xpath("//textarea[@placeholder='Enter Release Note']"));
+				js.executeScript("arguments[0].scrollIntoView(true);", releaseNoteField);
+				releaseNoteField.sendKeys("Engg Released");
+			}
 
-			// Verifying that ReleaseNotes Text Field is displayed or hidden.
-			assertTrue(releaseNoteField.isDisplayed());
+			if (i == 2) {
+				releaseNoteField = driver.findElement(By.xpath("//textarea[@placeholder='Enter Release Note']"));
+				js.executeScript("arguments[0].scrollIntoView(true);", releaseNoteField);
+				releaseNoteField.sendKeys("Costing Released");
+			}
+
+			if (i == 3) {
+				releaseNoteField = driver.findElement(By.xpath("//textarea[@placeholder='Enter Release Note']"));
+				js.executeScript("arguments[0].scrollIntoView(true);", releaseNoteField);
+				releaseNoteField.sendKeys("Production Released");
+			}
 
 			releaseButton = driver.findElement(By.xpath("//button[normalize-space()='Release']"));
 			js.executeScript("arguments[0].scrollIntoView(true);", releaseButton);

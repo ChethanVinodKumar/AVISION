@@ -72,9 +72,22 @@ public class TestBase {
 		js = (JavascriptExecutor) driver;
 
 		// For Get the Error Status
+		   devTools = ((ChromeDriver) driver).getDevTools();
+           devTools.createSession();
+           devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+           devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
+               Request req = requestConsumer.getRequest();
+               // System.out.println("Send URL :- "+req.getUrl()+"\n"+"\n");
+           });
 
-		// For Get the Error Status
-		NetworkError.networkTabConsoleOutputToFile(".//Getapcs_Avision//output");
+           devTools.addListener(Network.responseReceived(), response -> {
+               Response res = response.getResponse();
+               // System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
+               if (res.getStatus().toString().startsWith("3") || res.getStatus().toString().startsWith("4")
+                       || res.getStatus().toString().startsWith("5"))
+                   System.out.println(
+                           res.getStatus() + " :- " + res.getStatusText() + "\n" + "Error URL :- " + res.getUrl() + "\n");
+           });
 
 		driver.get("https://avision-demo.getapcs.com/login");
 
@@ -137,10 +150,10 @@ public class TestBase {
 
 		js.executeScript("arguments[0].click();", element);
 
-		String[] files = new String[] { "C:\\Users\\Gopal Reddy\\Desktop\\Screenshot 2023-10-27 114940.png", // imgae
-				"C:\\Users\\Gopal Reddy\\Downloads\\TempletForTC.xlsx", // excel
-				"C:\\Users\\Gopal Reddy\\Downloads\\Transaction-Open GRIN-Open GRIN Edit Page.docx",
-				"C:\\Users\\Gopal Reddy\\Desktop\\HardCoded To Soft Coded.txt" }; // docx
+		String[] files = new String[] { "D:\\c drive\\Desktop\\Picture1.png", // imgae
+				"D:\\c drive\\Desktop\\Avision Table Pages.xlsx", // excel
+				"D:\\c drive\\Desktop\\Sales Order Create.docx",
+				"D:\\c drive\\Desktop\\Utility Methods.txt" }; // docx
 
 		String file = files[fileIndex];
 
@@ -188,7 +201,7 @@ public class TestBase {
 
 	// Date Picker 1
 	public static void datePicker(WebDriver driver, WebElement element) throws InterruptedException {
-		waitForElement(driver, element, 10, 1);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
 		Thread.sleep(2000);
 		click(driver, element);
@@ -205,7 +218,7 @@ public class TestBase {
 	// Date Picker 2
 	public static void selectPreviousDate(WebDriver driver, WebElement element, int numberOfClicks)
 			throws InterruptedException {
-		waitForElement(driver, element, 10, 1);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 		assertTrue(element.isDisplayed(), "Date Picker is not Displayed.");
 		Thread.sleep(2000);
 		click(driver, element);
