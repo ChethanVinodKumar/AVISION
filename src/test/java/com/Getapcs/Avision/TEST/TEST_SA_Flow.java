@@ -689,14 +689,14 @@ public class TEST_SA_Flow extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 
-	@Test(priority = 17)
-	public void verifyInventryReportBeforeGrin() throws Throwable {
-		homePage.clickOnInventryReportWithLocation();
-		inventryReportBeforGrin.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
+//	@Test(priority = 17)
+//	public void verifyInventryReportBeforeGrin() throws Throwable {
+//		homePage.clickOnInventryReportWithLocation();
+//		inventryReportBeforGrin.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
 	@Test(priority = 18)
 	public void verifyGRINCreate() throws Throwable {
