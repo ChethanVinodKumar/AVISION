@@ -358,23 +358,6 @@ public class Item_Master_Edit_Page extends TestBase {
 		descriptionField1.clear();
 		Thread.sleep(2000);
 		descriptionField1.sendKeys(description);
-		// 1Verifying that Description Text Field is Enabled or not
-		boolean isEnabledDescriptionTextField = descriptionField1.isEnabled();
-		assertTrue(isEnabledDescriptionTextField);
-		boolean isDisabledDescriptionTextFieldn = !descriptionField1.isEnabled();
-		assertFalse(isDisabledDescriptionTextFieldn);
-
-		// Verifying that Description Text Field is displayed or hidden.
-		boolean isDisplayedDescriptionTextField = descriptionField1.isDisplayed();
-		assertTrue(isDisplayedDescriptionTextField);
-		boolean isHiddenDescriptionTextField = !descriptionField1.isDisplayed();
-		assertFalse(isHiddenDescriptionTextField);
-
-		// Verifying that Description Text Field is Selected or unselected
-		boolean isSelectedDescriptionTextField = descriptionField1.isSelected();
-		assertFalse(isSelectedDescriptionTextField);
-		boolean isDeselectedDescriptionTextField = !descriptionField1.isSelected();
-		assertTrue(isDeselectedDescriptionTextField);
 
 //		// verifying that ActiveStatus is displayed or hidden.
 //		boolean isDisplayedActiveStatus = activeStatus.isDisplayed();

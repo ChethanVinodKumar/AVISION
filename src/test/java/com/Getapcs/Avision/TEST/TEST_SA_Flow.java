@@ -1009,15 +1009,15 @@ public class TEST_SA_Flow extends TestBase {
 //
 //	}
 //	
-//	@Test(priority = 48)
-//	public void verifyDOforFG() throws Throwable {
-//
-//		homePage.clickOnDOCreate();
-//		doOrder.DeliveryOrderCreate("10", "5");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
+	@Test(priority = 48)
+	public void verifyDOforFG() throws Throwable {
+
+		homePage.clickOnDOCreate();
+		doOrder.DeliveryOrderCreate("10", "5");
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
 //	
 //	@Test(priority = 49)
 //	public void verifyInventryAfterDOForFG() throws Throwable {

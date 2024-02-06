@@ -5,7 +5,7 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
         <methods>
-          <include name="verifyReturnDO"/>
+          <include name="verifyPOcreate$Approvals_1_2"/>
           <include name="afetrTest"/>
           <include name="setUp"/>
         </methods>
