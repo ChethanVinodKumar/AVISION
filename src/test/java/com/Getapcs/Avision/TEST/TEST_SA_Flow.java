@@ -270,14 +270,14 @@ public class TEST_SA_Flow extends TestBase {
 	
 
 	
-//	@Test(priority = 1)
-//	public void verifyPrice_ListCreate() throws Throwable {
-//		Thread.sleep(4000);
-//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
+	@Test(priority = 1)
+	public void verifyPrice_ListCreate() throws Throwable {
+		Thread.sleep(4000);
+		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
 
 	
 //	@Test(priority = 2)
