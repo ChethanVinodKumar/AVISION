@@ -101,7 +101,7 @@ public class ShopOrderConfirmation extends TestBase {
 //produced Qty
 
 		WebElement table = driver.findElement(By.xpath("(//table)[1]"));
-		int ProducedQTy = ShopOrderConfirmationDynamicValue.validateProducedQuantity(table);
+		double ProducedQTy = ShopOrderConfirmationDynamicValue.validateProducedQuantity(table);
 		String ProducedQTy1 = String.valueOf(ProducedQTy);
 
 		click(driver, producedQty);

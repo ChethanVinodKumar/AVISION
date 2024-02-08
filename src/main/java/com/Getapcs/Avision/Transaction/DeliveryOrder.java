@@ -245,7 +245,7 @@ public class DeliveryOrder extends TestBase {
 			}
 			click(driver, quantity);
 
-			quantity.sendKeys(String.valueOf(Integer.parseInt(dQty)/2));
+			quantity.sendKeys(String.valueOf(Double.parseDouble(dQty)/2));
 
 			click(driver, add);
 		}

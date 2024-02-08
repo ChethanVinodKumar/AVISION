@@ -245,7 +245,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//a[normalize-space()='Shop Order Confirm'])[1]")
 	WebElement shopOrderConfirmation;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-plus-box-outline edit-table-icon'])[1]")
+	@FindBy(xpath = "//div[@class='create-icon-div']/..//i[@class='mdi mdi-plus-box-outline edit-table-icon']")
 	WebElement createshopOrderConfirmation;
 
 	// OQC

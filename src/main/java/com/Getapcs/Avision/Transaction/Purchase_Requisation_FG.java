@@ -30,6 +30,9 @@ public class Purchase_Requisation_FG extends TestBase {
 
 	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
 	WebElement uploadFile;
+	
+	@FindBy(xpath = "//button[@title='Click to upload files.']")
+	WebElement clikToUploadFile;
 
 	@FindBy(linkText = "Items")
 	WebElement itemTab;
@@ -286,7 +289,7 @@ public class Purchase_Requisation_FG extends TestBase {
 		// Upload Files
 
 		uploadFile(driver, uploadFile, 1);
-//		click(driver, deliveryTermsElement)
+		click(driver, clikToUploadFile);
 
 		// ################## Item Tab ######################
 
@@ -299,7 +302,7 @@ public class Purchase_Requisation_FG extends TestBase {
 			click(driver, itemNumberDropDown);
 
 			itemNumberDropDown.clear();
-			itemNumberDropDown.sendKeys("PP");
+			itemNumberDropDown.sendKeys("Purchase");
 
 			if (i == 1) {
 				WebElement itemNumberDropDownDataSelect = driver.findElement(By.xpath(updatedXpathPP1));

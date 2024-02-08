@@ -308,14 +308,14 @@ public class Purchase_Order_SA1 extends TestBase {
 			if (i == 1) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("PP");
+				itemNumber.sendKeys("Purchase");
 				WebElement itemNumberSelect = driver.findElement(By.xpath(updatedXpathPP1));
 				click(driver, itemNumberSelect);
 			}
 			if (i == 2) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("PP");
+				itemNumber.sendKeys("Purchase");
 				WebElement itemNumberSelect1 = driver.findElement(By.xpath(updatedXpathPP2));
 				click(driver, itemNumberSelect1);
 			}

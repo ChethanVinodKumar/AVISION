@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
@@ -305,14 +306,14 @@ public class Purchase_Order_SA2 extends TestBase {
 			if (i == 1) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("PP");
+				itemNumber.sendKeys("Purchase");
 				WebElement itemNumberSelect = driver.findElement(By.xpath(updatedXpathPP1));
 				click(driver, itemNumberSelect);
 			}
 			if (i == 2) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("PP");
+				itemNumber.sendKeys("Purchase");
 				WebElement itemNumberSelect1 = driver.findElement(By.xpath(updatedXpathPP2));
 				click(driver, itemNumberSelect1);
 			}
@@ -447,8 +448,14 @@ public class Purchase_Order_SA2 extends TestBase {
 
 		uploadFile(driver, UploadFiles1, 2);
 
+//		String bu = driver.getCurrentUrl();
 		click(driver, save);
+		
 		Thread.sleep(4000);
+		
+//		String au = driver.getCurrentUrl();
+		
+//		Assert.assertNotEquals(bu, au);
 		return new HomePage();
 
 	}

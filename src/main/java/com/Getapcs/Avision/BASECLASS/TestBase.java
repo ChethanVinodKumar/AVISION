@@ -25,10 +25,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.v120.network.model.Response;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v120.network.Network;
 import org.openqa.selenium.devtools.v120.network.model.Request;
+import org.openqa.selenium.devtools.v120.network.model.Response;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +36,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class TestBase {
 	public static ChromeDriver driver;
@@ -64,6 +65,7 @@ public class TestBase {
 
 //		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
@@ -84,9 +86,14 @@ public class TestBase {
                Response res = response.getResponse();
                // System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
                if (res.getStatus().toString().startsWith("3") || res.getStatus().toString().startsWith("4")
-                       || res.getStatus().toString().startsWith("5"))
-                   System.out.println(
-                           res.getStatus() + " :- " + res.getStatusText() + "\n" + "Error URL :- " + res.getUrl() + "\n");
+                       || res.getStatus().toString().startsWith("5")) {
+            	   String errorMessage = "Error status received: " + res.getStatus() + " - " + res.getStatusText()
+                   + "\nError URL: " + res.getUrl();
+            	   
+            	   System.out.println(errorMessage);
+                   // Hard assertion
+                   Assert.fail(errorMessage);
+               }
            });
 
 		driver.get("https://avision-demo.getapcs.com/login");
@@ -100,7 +107,6 @@ public class TestBase {
 				.pollingEvery(Duration.ofSeconds(pollingInterval)).ignoring(ElementClickInterceptedException.class);
 
 		return wait.until(new Function<WebDriver, WebElement>() {
-			@Override
 			public WebElement apply(WebDriver driver) {
 				return wait.until(ExpectedConditions.elementToBeClickable(element));
 			}

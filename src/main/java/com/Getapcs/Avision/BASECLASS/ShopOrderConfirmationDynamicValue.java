@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 public class ShopOrderConfirmationDynamicValue extends TestBase {
 
-	public static int validateProducedQuantity(WebElement table) {
+	public static double validateProducedQuantity(WebElement table) {
 
 		// Find cells
 		WebElement bomQtyCell = driver.findElement(By.xpath("//table[@class='table mb-2']/tbody/tr[1]/td[4]"));
@@ -15,9 +15,9 @@ public class ShopOrderConfirmationDynamicValue extends TestBase {
 		System.out.println(issuedQtyCell);
 
 		// Get values and calculate
-		int bomQty = Integer.parseInt(bomQtyCell.getText());
-		int issuedQty = Integer.parseInt(issuedQtyCell.getText());
-		int producedQty = issuedQty / bomQty;
+		double bomQty = Double.parseDouble(bomQtyCell.getText());
+		double issuedQty = Double.parseDouble(issuedQtyCell.getText());
+		double producedQty = issuedQty / bomQty;
 
 		// Validate and print
 		System.out.println("Produced Qty: " + producedQty);

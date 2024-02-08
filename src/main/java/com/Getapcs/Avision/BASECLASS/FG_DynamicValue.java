@@ -12,7 +12,7 @@ public class FG_DynamicValue {
 	
 	public static String generateDynamicValue() {
 		int counter = getCounter();
-		String dynamicValue = "FG-" + String.format("%02d", counter);
+		String dynamicValue = "FinishedGood-" + String.format("%02d", counter);
 		incrementCounter();
 		return dynamicValue;
 	}

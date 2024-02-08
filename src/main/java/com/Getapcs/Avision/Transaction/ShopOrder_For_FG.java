@@ -124,7 +124,7 @@ public class ShopOrder_For_FG extends TestBase {
 
 		click(driver, fgItemNumber);
 		isSelected(driver, fgItemNumber, "fgItemNumber");
-		fgItemNumber.sendKeys("FG");
+		fgItemNumber.sendKeys(fgItemNumber1);
 		Thread.sleep(2000);
 		WebElement fgItemNumberSelect = driver.findElement(By.xpath(updatedXpath));
 		click(driver, fgItemNumberSelect);

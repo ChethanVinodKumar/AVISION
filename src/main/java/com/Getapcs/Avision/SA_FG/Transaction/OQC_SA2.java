@@ -98,11 +98,11 @@ public class OQC_SA2 extends TestBase {
 
 		isSelected(driver, acceptedQty, "acceptedQty");
 
-		int acceptedQty1 = Integer.parseInt(elementValue);
-		acceptedQty1 = acceptedQty1 - 1;
-		System.out.println("acceptedQty1 : " + acceptedQty1);
+		double acceptedQty1 = Double.parseDouble(elementValue);
+		int acceptedQty2 = (int)acceptedQty1 - 1;
+		System.out.println("acceptedQty2 : " + acceptedQty2);
 
-		acceptedQty.sendKeys(String.valueOf(acceptedQty1));
+		acceptedQty.sendKeys(String.valueOf(acceptedQty2));
 
 //rejectedQty
 

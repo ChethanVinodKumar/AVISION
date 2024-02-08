@@ -134,7 +134,7 @@ public class OQCBinning_FG extends TestBase {
 
 		click(driver, binning);
 		
-		int itemQty1 = Integer.parseInt(itemQty.getText());
+		double itemQty1 = Double.parseDouble(itemQty.getText());
 		itemQty1 = itemQty1 / 2;
 		String qty = String.valueOf(itemQty1);
 

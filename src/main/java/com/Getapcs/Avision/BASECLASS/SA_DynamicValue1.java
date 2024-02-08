@@ -11,7 +11,7 @@ public class SA_DynamicValue1 {
 
 	public static String generateDynamicValue() {
 		int counter = getCounter();
-		String dynamicValue = "SA-" + String.format("%02d", counter);
+		String dynamicValue = "SubAssembly-" + String.format("%02d", counter);
 		incrementCounter();
 		return dynamicValue;
 	}

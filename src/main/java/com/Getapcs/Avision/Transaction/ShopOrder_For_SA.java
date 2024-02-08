@@ -101,7 +101,7 @@ public class ShopOrder_For_SA extends TestBase {
 
 		click(driver, saItemNumberDropDown);
 		isSelected(driver, saItemNumberDropDown, "saItemNumberDropDown");
-		saItemNumberDropDown.sendKeys("SA");
+		saItemNumberDropDown.sendKeys(saItemNumber1);
 		Thread.sleep(2000);
 		WebElement saNumberSelect = driver.findElement(By.xpath(updatedXpathSA));
 		click(driver, saNumberSelect);

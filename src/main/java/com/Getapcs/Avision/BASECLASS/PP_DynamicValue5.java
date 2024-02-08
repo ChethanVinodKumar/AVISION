@@ -11,7 +11,7 @@ public class PP_DynamicValue5 {
 
 	public static String generateDynamicValue() {
 		int counter = getCounter();
-		String dynamicValue = "PP-" + String.format("%02d", counter);
+		String dynamicValue = "PurchasePart-" + String.format("%02d", counter);
 		incrementCounter();
 		return dynamicValue;
 	}
