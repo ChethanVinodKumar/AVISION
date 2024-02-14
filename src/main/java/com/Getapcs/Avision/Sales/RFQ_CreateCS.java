@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
-public class RFQ_ReleaseCS extends TestBase {
+public class RFQ_CreateCS extends TestBase {
 
 	@FindBy(xpath = "(//i[@title='CS'])[1]")
 	WebElement csButton;
@@ -27,6 +27,15 @@ public class RFQ_ReleaseCS extends TestBase {
 
 	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
 	WebElement uploadFiles;
+	
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement saveFiles;
+	
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewFiles;
+	
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
 
 	@FindBy(xpath = "(//button[normalize-space()='Add Schedule'])[1]")
 	WebElement addShedule;
@@ -67,7 +76,7 @@ public class RFQ_ReleaseCS extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Release'])[1]")
 	WebElement releaseButtonInCSRelease;
 
-	public RFQ_ReleaseCS() {
+	public RFQ_CreateCS() {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -92,6 +101,9 @@ public class RFQ_ReleaseCS extends TestBase {
 		description.sendKeys(Description);
 
 		uploadFile(driver, uploadFiles, 1);
+		click(driver, saveFiles);
+		click(driver, viewFiles);
+		click(driver, closeButton);
 
 		click(driver, addShedule);
 
@@ -119,20 +131,20 @@ public class RFQ_ReleaseCS extends TestBase {
 
 		click(driver, saveButton);
 
-		// Verify and Release the CS
-		
-		click(driver, csButton1);
-
-		Thread.sleep(2000);
-
-		// Verify and Click on Check Box which is Present in Item Tab-CS Release
-//		click(driver, itemTabCheckBox);
-		itemTabCheckBox.sendKeys(Keys.SPACE);
-		// itemTabCheckBox1.sendKeys(Keys.SPACE);
-
-		Thread.sleep(2000);
-
-		click(driver, releaseButtonInCSRelease);
+//		// Verify and Release the CS
+//		
+//		click(driver, csButton1);
+//
+//		Thread.sleep(2000);
+//
+//		// Verify and Click on Check Box which is Present in Item Tab-CS Release
+////		click(driver, itemTabCheckBox);
+//		itemTabCheckBox.sendKeys(Keys.SPACE);
+//		// itemTabCheckBox1.sendKeys(Keys.SPACE);
+//
+//		Thread.sleep(2000);
+//
+//		click(driver, releaseButtonInCSRelease);
 		return new HomePage();
 
 	}

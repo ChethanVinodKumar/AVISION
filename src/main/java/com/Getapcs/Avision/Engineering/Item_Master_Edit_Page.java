@@ -345,7 +345,7 @@ public class Item_Master_Edit_Page extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage itemMasterEdit(String description) throws Throwable {
+	public HomePage itemMasterEdit(String footPrint) throws Throwable {
 
 		String actualText = headingText.getText();
 		String expectedText = "Item Master";
@@ -353,11 +353,13 @@ public class Item_Master_Edit_Page extends TestBase {
 
 		Thread.sleep(5000);
 
-		click(driver, descriptionField1);
-		descriptionField1.clear();
-		descriptionField1.clear();
+		click(driver, dimensionsTab);
+		
+		click(driver, footPrintField);
+		footPrintField.clear();
+		footPrintField.clear();
 		Thread.sleep(2000);
-		descriptionField1.sendKeys(description);
+		footPrintField.sendKeys(footPrint);
 
 //		// verifying that ActiveStatus is displayed or hidden.
 //		boolean isDisplayedActiveStatus = activeStatus.isDisplayed();

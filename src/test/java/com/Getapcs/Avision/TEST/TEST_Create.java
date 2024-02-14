@@ -29,8 +29,8 @@ import com.Getapcs.Avision.InventryReports.InventryReportAfterReturnODO;
 import com.Getapcs.Avision.InventryReports.InventryReportBeforeOpenGrin;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
+import com.Getapcs.Avision.Sales.RFQ_CreateCS;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
-import com.Getapcs.Avision.Sales.RFQ_ReleaseCS;
 import com.Getapcs.Avision.Sales.RFQ_ReleaseEngg;
 import com.Getapcs.Avision.Sales.VerifyLPCostingCreate;
 import com.Getapcs.Avision.Sales.VerifyLPCostingRelease;
@@ -75,7 +75,7 @@ public class TEST_Create extends TestBase {
 	EnggBOM_ReleaseBOM releaseBom;
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
-	RFQ_ReleaseCS rfq_ReleaseCS;
+	RFQ_CreateCS rfq_CreateCS;
 	RFQ_ReleaseEngg RFQ_ReleaseEngg;
 	VerifySourcing sourcing;
 	VerifyLPCostingCreate lpCosting;
@@ -156,7 +156,7 @@ public class TEST_Create extends TestBase {
 //		SalesOrder = new SalesOrder();
 //		ShopOrder = new ShopOrder();
 //		MaterialIssue = new MaterialIssue();
-		rfq_ReleaseCS = new RFQ_ReleaseCS();
+		rfq_CreateCS = new RFQ_CreateCS();
 		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
 		quoteCreatePage = new QuoteCreatePage();
 		SalesOrder = new SalesOrder();
@@ -279,6 +279,7 @@ public class TEST_Create extends TestBase {
 //
 //		Thread.sleep(4000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//		
 //	}
 //
 //	@Test(priority = 6)

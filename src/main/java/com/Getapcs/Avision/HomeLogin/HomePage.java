@@ -44,7 +44,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//a[@routerlink='masters/company-master/table']")
 	WebElement modifyorView;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-pencil edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to edit'])[1]")
 	WebElement editButton;
 
 	@FindBy(xpath = "(//span[normalize-space()='Vendor Master'])[1]")
@@ -470,18 +470,33 @@ public class HomePage extends TestBase {
 //Sales
 
 	public void clickonTransactionPriceListCreate() {
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
 		click(driver, sales);
-		itemPriceList.click();
-		itemPriceListCreate.sendKeys(Keys.ENTER);
+		click(driver, itemPriceList);
+		click(driver, itemPriceListCreate);
+		click(driver, threeLinesSideBarIcon);
+	}
+	
+	public void clickonTransactionPriceListEdit() {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, itemPriceList);
+		click(driver, modifyorViewItemPriceList);
 		click(driver, threeLinesSideBarIcon);
 	}
 
 	public void clickonRFQCreate() {
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
 		click(driver, sales);
 		click(driver, rfq);
 		click(driver, createRFQ);
+		click(driver, threeLinesSideBarIcon);
+	}
+	public void clickonRFQEdit() {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, rfq);
+		click(driver, modifyorViewRfq);
 		click(driver, threeLinesSideBarIcon);
 	}
 
@@ -512,9 +527,10 @@ public class HomePage extends TestBase {
 	}
 
 	public void clickonSalesQuoteModifyorView() {
-		threeLinesSideBarIcon.click();
-		sales.click();
-		quote.click();
+		
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, quote);
 		click(driver, modifyorViewQuote);
 		click(driver, threeLinesSideBarIcon);
 	}
@@ -522,20 +538,23 @@ public class HomePage extends TestBase {
 //Engineering
 
 	public void clickOnItemMasterCreate() {
-		threeLinesSideBarIcon.click();
-		engineering.click();
-		itemMaster.click();
+		
+		click(driver, threeLinesSideBarIcon);
+		click(driver, engineering);
+		click(driver, itemMaster);
 		click(driver, create);
 		click(driver, threeLinesSideBarIcon);
 
 	}
 
 	public void clickOnItemMasterEdit() {
-		threeLinesSideBarIcon.click();
-		engineering.click();
-		itemMaster.click();
-		modifyorViewItemMaster.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", editButton);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, engineering);
+		click(driver, itemMaster);
+		click(driver, modifyorViewItemMaster);
+		click(driver, editButton);
+		click(driver, threeLinesSideBarIcon);
+		
 
 	}
 
@@ -550,19 +569,21 @@ public class HomePage extends TestBase {
 
 	public void clickOnBomCreatePage() {
 		// TODO Auto-generated method stub
-		threeLinesSideBarIcon.click();
-		engineering.click();
-		enggBom.click();
-		createEnggBom.sendKeys(Keys.ENTER);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, engineering);
+		click(driver, enggBom);
+		click(driver, createEnggBom);
+		
 	}
 
 	public void clickOnBomEditPage() {
 		// TODO Auto-generated method stub
-		threeLinesSideBarIcon.click();
-		engineering.click();
-		enggBom.click();
-		modifyorViewEnggBom.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", editButtonEnggBom);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, engineering);
+		click(driver, enggBom);
+		click(driver, modifyorViewEnggBom);
+		click(driver, editButton);
+		click(driver, threeLinesSideBarIcon);
 	}
 
 	public void clickOnBomTablePage() {

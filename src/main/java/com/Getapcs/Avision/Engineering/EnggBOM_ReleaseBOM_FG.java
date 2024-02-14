@@ -63,6 +63,9 @@ public class EnggBOM_ReleaseBOM_FG extends TestBase {
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", ItemNumber);
+		
+		String revNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[5]")).getText();
+		String updatedXpathREVNo = elementXpath.replace("Item-FG-11-TEST", revNumber);
 
 		System.out.println(updatedXpath);
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/release-bom/table");
@@ -108,10 +111,9 @@ public class EnggBOM_ReleaseBOM_FG extends TestBase {
 			click(driver, itemNumberDropDownDataSelect);
 
 			releaseVersionDropDown = driver.findElement(By.xpath("(//input[@type='text'])[3]"));
-			js.executeScript("arguments[0].scrollIntoView(true);", releaseVersionDropDown);
-			Thread.sleep(2000);
-			releaseVersionDropDown.sendKeys(Keys.ENTER);
-			releaseVersionDropDown.sendKeys(Keys.ENTER);
+			click(driver, releaseVersionDropDown);
+			WebElement revNumbrSelect = driver.findElement(By.xpath(updatedXpathREVNo));
+			click(driver, revNumbrSelect);
 
 			if (i == 1) {
 				releaseNoteField = driver.findElement(By.xpath("//textarea[@placeholder='Enter Release Note']"));

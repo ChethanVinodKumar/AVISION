@@ -19,8 +19,8 @@ import com.Getapcs.Avision.InventryReports.InventryReportAfterOpenGrin;
 import com.Getapcs.Avision.InventryReports.InventryReportBeforeOpenGrin;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
+import com.Getapcs.Avision.Sales.RFQ_CreateCS;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
-import com.Getapcs.Avision.Sales.RFQ_ReleaseCS;
 import com.Getapcs.Avision.Sales.RFQ_ReleaseEngg;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 import com.Getapcs.Avision.Transaction.Binning;
@@ -58,7 +58,7 @@ public class TEST_Create_MR extends TestBase {
 	EnggBOM_ReleaseBOM releaseBom;
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
-	RFQ_ReleaseCS rfq_ReleaseCS;
+	RFQ_CreateCS rfq_CreateCS;
 	RFQ_ReleaseEngg RFQ_ReleaseEngg;
 	QuoteCreatePage quoteCreatePage;
 	SalesOrder SalesOrder;
@@ -106,7 +106,7 @@ public class TEST_Create_MR extends TestBase {
 		releaseBom = new EnggBOM_ReleaseBOM();
 		priceList_CreatePage = new ItemPriceList_CreatePage();
 		rfq_CreatePage = new RFQ_CreatePage();
-		rfq_ReleaseCS = new RFQ_ReleaseCS();
+		rfq_CreateCS = new RFQ_CreateCS();
 		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
 		quoteCreatePage = new QuoteCreatePage();
 		SalesOrder = new SalesOrder();

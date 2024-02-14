@@ -1,7 +1,5 @@
 package com.Getapcs.Avision.TEST;
 
-import java.awt.AWTException;
-
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -9,14 +7,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.Getapcs.Avision.BASECLASS.FG_DynamicValue;
-import com.Getapcs.Avision.BASECLASS.PP_DynamicValue1;
-import com.Getapcs.Avision.BASECLASS.PP_DynamicValue2;
-import com.Getapcs.Avision.BASECLASS.PP_DynamicValue3;
-import com.Getapcs.Avision.BASECLASS.PP_DynamicValue4;
-import com.Getapcs.Avision.BASECLASS.PP_DynamicValue5;
-import com.Getapcs.Avision.BASECLASS.PP_DynamicValue6;
-import com.Getapcs.Avision.BASECLASS.SA_DynamicValue1;
-import com.Getapcs.Avision.BASECLASS.SA_DynamicValue2;
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM;
 import com.Getapcs.Avision.Engineering.EnggBOM_ReleaseBOM_FG;
@@ -53,8 +43,8 @@ import com.Getapcs.Avision.SA_FG.Transaction.ShopOrderConfirmation_SA1;
 import com.Getapcs.Avision.SA_FG.Transaction.ShopOrderConfirmation_SA2;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
+import com.Getapcs.Avision.Sales.RFQ_CreateCS;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
-import com.Getapcs.Avision.Sales.RFQ_ReleaseCS;
 import com.Getapcs.Avision.Sales.RFQ_ReleaseEngg;
 import com.Getapcs.Avision.Sales.VerifyLPCostingCreate;
 import com.Getapcs.Avision.Sales.VerifyLPCostingRelease;
@@ -119,7 +109,7 @@ public class TEST_SA_Flow extends TestBase {
 	// Sales
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
-	RFQ_ReleaseCS rfq_ReleaseCS;
+	RFQ_CreateCS rfq_CreateCS;
 	RFQ_ReleaseEngg RFQ_ReleaseEngg;
 	VerifySourcing sourcing;
 	VerifyLPCostingCreate lpCosting;
@@ -202,7 +192,7 @@ public class TEST_SA_Flow extends TestBase {
 		lpCosting = new VerifyLPCostingCreate();
 		lpCostingRelease = new VerifyLPCostingRelease();
 		MaterialIssue = new MaterialIssue();
-		rfq_ReleaseCS = new RFQ_ReleaseCS();
+		rfq_CreateCS = new RFQ_CreateCS();
 		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
 		quoteCreatePage = new QuoteCreatePage();
 		SalesOrder = new SalesOrder();
@@ -270,14 +260,14 @@ public class TEST_SA_Flow extends TestBase {
 	
 
 	
-	@Test(priority = 1)
-	public void verifyPrice_ListCreate() throws Throwable {
-		Thread.sleep(4000);
-		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
+//	@Test(priority = 1)
+//	public void verifyPrice_ListCreate() throws Throwable {
+//		Thread.sleep(4000);
+//		Price_List.Price_ListCreate(priceList, "TEST Description", "TEST Remarks");
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
 	
 //	@Test(priority = 2)
@@ -651,7 +641,7 @@ public class TEST_SA_Flow extends TestBase {
 //		Thread.sleep(2000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
-
+//
 //	@Test(priority = 15)
 //	public void verifyPRcreate$Approvals_1_2() throws Throwable {
 //
@@ -714,18 +704,18 @@ public class TEST_SA_Flow extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //
 //	}
-
-	@Test(priority = 16)
-	public void verifyPOcreate$Approvals_1_2() throws Throwable {
-
-		// ######### Purchase Order Create Page For SA2 ###############
-		test = reports.createTest("purchaseOrderSA2 Create");
-		homePage.clickontransactionPOcreate();
-		purchaseOrderSA2.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
-				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-		Thread.sleep(4000);
+//
+//	@Test(priority = 16)
+//	public void verifyPOcreate$Approvals_1_2() throws Throwable {
+//
+//		// ######### Purchase Order Create Page For SA2 ###############
+//		test = reports.createTest("purchaseOrderSA2 Create");
+//		homePage.clickontransactionPOcreate();
+//		purchaseOrderSA2.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
+//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+//		Thread.sleep(4000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-
+//
 //		// Purchase Order POApproval 1
 //		test = reports.createTest("purchaseOrderSA2 prApproval1");
 //		homePage.clickontransactionPOApproval1();
@@ -780,17 +770,17 @@ public class TEST_SA_Flow extends TestBase {
 //		poApproval2.purchaseOrderApproval2();
 //		Thread.sleep(2000);
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
-
-	@Test(priority = 17)
-	public void verifyInventryReportBeforeGrin() throws Throwable {
-		test = reports.createTest("inventryReportBeforGrin");
-		homePage.clickOnInventryReportWithLocation();
-		inventryReportBeforGrin.InventryReportPage();
-
-		Thread.sleep(4000);
-		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-	}
+//	}
+//
+//	@Test(priority = 17)
+//	public void verifyInventryReportBeforeGrin() throws Throwable {
+//		test = reports.createTest("inventryReportBeforGrin");
+//		homePage.clickOnInventryReportWithLocation();
+//		inventryReportBeforGrin.InventryReportPage();
+//
+//		Thread.sleep(4000);
+//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+//	}
 
 	@Test(priority = 18)
 	public void verifyGRINCreate() throws Throwable {
@@ -1133,48 +1123,48 @@ public class TEST_SA_Flow extends TestBase {
 
 	}
 	
-//	@Test(priority = 48)
-//	public void verifyDOforFG() throws Throwable {
-//
-//		test = reports.createTest("DOforFG Create");
-//		homePage.clickOnDOCreate();
-//		doOrder.DeliveryOrderCreate("10", "5");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//	
-//	@Test(priority = 49)
-//	public void verifyInventryAfterDOForFG() throws Throwable {
-//		test = reports.createTest("InventryAfterDOForFG");
-//		homePage.clickOnInventryReportWithLocation();
-//		InventryReportAfterDO.InventryReportPage("After DO For FG");
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//	
-//	@Test(priority = 50)
-//	public void verifyReturnDO() throws Throwable {
-//		
-//		test = reports.createTest("ReturnDO Create");
-//		homePage.clickOnReturnDO();
-//		returnDO.ReturnDOCreate("5");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//	
-//	@Test(priority = 51)
-//	public void verifyInventryAfterReturnDOForFG() throws Throwable {
-//		
-//		test = reports.createTest("InventryAfterReturnDOForFG");
-//		homePage.clickOnInventryReportWithLocation();
-//		inventryReportAfterReturnDO.InventryReportPage("After ReturnDO");
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
+	@Test(priority = 48)
+	public void verifyDOforFG() throws Throwable {
+
+		test = reports.createTest("DOforFG Create");
+		homePage.clickOnDOCreate();
+		doOrder.DeliveryOrderCreate("10", "5");
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+	
+	@Test(priority = 49)
+	public void verifyInventryAfterDOForFG() throws Throwable {
+		test = reports.createTest("InventryAfterDOForFG");
+		homePage.clickOnInventryReportWithLocation();
+		InventryReportAfterDO.InventryReportPage("After DO For FG");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+	
+	@Test(priority = 50)
+	public void verifyReturnDO() throws Throwable {
+		
+		test = reports.createTest("ReturnDO Create");
+		homePage.clickOnReturnDO();
+		returnDO.ReturnDOCreate("5");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+	
+	@Test(priority = 51)
+	public void verifyInventryAfterReturnDOForFG() throws Throwable {
+		
+		test = reports.createTest("InventryAfterReturnDOForFG");
+		homePage.clickOnInventryReportWithLocation();
+		inventryReportAfterReturnDO.InventryReportPage("After ReturnDO");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
 	
 	@AfterMethod
 	public void getTestResult(ITestResult result) {

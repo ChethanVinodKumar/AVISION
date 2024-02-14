@@ -142,9 +142,13 @@ public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
 		System.out.println("\n" + "Engg_BOM_Create_Page_FOR_FG  Started" + "\n");
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/item-master/table");
+		
+		driver.navigate().refresh();
+		Thread.sleep(500);
 
 		String tableXpath = "//table[@class='table table-striped']";
 
+		Thread.sleep(200);
 		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[9]/td[2]")).getText();
 
@@ -160,12 +164,15 @@ public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
 		// Get the first PR number text from table
 		String ItemNum = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
 
+		Thread.sleep(200);
 		// Store the element with hard coded PR number
 		String elementXpath1 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpathPP1 = elementXpath1.replace("Item-FG-11-TEST", ItemNum + "-Test Description");
 
 		System.out.println(updatedXpathPP1);
+
+		Thread.sleep(200);
 
 		// Get the first PR number text from table
 		String ItemNum1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
@@ -178,6 +185,9 @@ public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
 		System.out.println(updatedXpathPP2);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
+		driver.navigate().refresh();
+		Thread.sleep(500);
+
 
 		// Get the first PR number text from table
 		String ItemNum3 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
@@ -190,6 +200,7 @@ public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
 		System.out.println(updatedXpathSA1);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/create");
+		driver.navigate().refresh();
 
 		// Item Number
 

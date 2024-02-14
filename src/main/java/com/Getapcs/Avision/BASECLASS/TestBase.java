@@ -120,7 +120,6 @@ public class TestBase {
 //	element.click();
 
 //Click Action
-
 	public static void click(WebDriver driver, WebElement element) {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		wait.until(ExpectedConditions.visibilityOf(element));

@@ -139,9 +139,11 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 		System.out.println("\n" + "Engg_BOM_Create_Page_FOR_SA_2  Started" + "\n");
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/item-master/table");
+		driver.navigate().refresh();
 
 		String tableXpath = "//table[@class='table table-striped']";
 
+		Thread.sleep(500);
 		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[7]/td[2]")).getText();
 
@@ -164,6 +166,7 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 
 		System.out.println(updatedXpathPP5);
 
+		Thread.sleep(500);
 		// Get the first PR number text from table
 		String ItemNum1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[6]/td[2]")).getText();
 
@@ -175,6 +178,7 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 		System.out.println(updatedXpathPP6);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/create");
+		driver.navigate().refresh();
 
 		// Item Number
 

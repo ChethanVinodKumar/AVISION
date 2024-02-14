@@ -268,4 +268,6 @@ public class Price_List extends TestBase {
 
 		return new HomePage();
 	}
+
+	
 }

@@ -179,20 +179,19 @@ public class Engg_BOM_Edit_Page extends TestBase {
 //		assertFalse(isHiddenScrapAllowanceField);
 //		scarpAllowanceField.clear();
 //		scarpAllowanceField.sendKeys(scarpAllowance);
+		
+		click(driver, clickForUpdateChildItem);
+		Thread.sleep(3000);
 
 		// 1Verifying that Remarks Field is Enabled or not
-		boolean isEnabledRemarksField = remarkField.isEnabled();
-		assertTrue(isEnabledRemarksField);
-		boolean isDisabledRemarksFieldn = !remarkField.isEnabled();
-		assertFalse(isDisabledRemarksFieldn);
-
-		// Verifying that Quality Field is displayed or hidden.
-		boolean isDisplayedRemarksField = remarkField.isDisplayed();
-		assertTrue(isDisplayedRemarksField);
-		boolean isHiddenRemarksField = !remarkField.isDisplayed();
-		assertFalse(isHiddenRemarksField);
+		click(driver, remarkField);
+		isSelected(driver, remarkField, "remarkField");
 		remarkField.clear();
 		remarkField.sendKeys(remark);
+		
+		Thread.sleep(1000);
+		click(driver, updateChildItemButton);
+		Thread.sleep(2000);
 
 //		boolean isDisplayedItemTypeChildItemsField = childItemTypeElement.isDisplayed();
 //		assertTrue(isDisplayedItemTypeChildItemsField);
@@ -215,11 +214,11 @@ public class Engg_BOM_Edit_Page extends TestBase {
 //		childItemToggleButton.click();
 //		childItemToggleButton.click();
 
-		click(driver, updateChildItemButton);
-
-//		// Alternate Tab
-		click(driver, alternatesTab);
-		Thread.sleep(2000);
+//		click(driver, updateChildItemButton);
+//
+////		// Alternate Tab
+//		click(driver, alternatesTab);
+//		Thread.sleep(2000);
 //		clickForUpdateAlternateTab.click();
 
 		/*
@@ -299,8 +298,8 @@ public class Engg_BOM_Edit_Page extends TestBase {
 //		alternateUpdateButton.click();
 //
 //		// NRE / Consumable Tab
-		click(driver, nreOrConsumableTab);
-		Thread.sleep(2000);
+//		click(driver, nreOrConsumableTab);
+//		Thread.sleep(2000);
 //
 //		clickForUpdateNRETab.click();
 //

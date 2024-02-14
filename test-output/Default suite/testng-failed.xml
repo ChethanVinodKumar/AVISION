@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Getapcs.Avision.TEST.TEST_SA_Flow">
+      <class name="com.Getapcs.Avision.TEST.SA_FG_Create_Edit">
         <methods>
-          <include name="getTestResult"/>
-          <include name="verifyPOcreate$Approvals_1_2"/>
           <include name="afetrTest"/>
           <include name="setUp"/>
+          <include name="verifySalesCSEdit"/>
+          <include name="getTestResult"/>
         </methods>
-      </class> <!-- com.Getapcs.Avision.TEST.TEST_SA_Flow -->
+      </class> <!-- com.Getapcs.Avision.TEST.SA_FG_Create_Edit -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

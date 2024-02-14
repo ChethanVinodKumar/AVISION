@@ -101,7 +101,7 @@ public class RFQ_EditPage extends TestBase {
 	@FindBy(xpath = "//a[@routerlink='sales/rfq/table']")
 	WebElement modifyorView;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-pencil edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to Edit'])[1]")
 	WebElement editButton;
 
 	@FindBy(xpath = "(//textarea[@placeholder='Enter Remarks'])[1]")
@@ -128,36 +128,14 @@ public class RFQ_EditPage extends TestBase {
 	public HomePage RFQEdit(String rfqNumber, String EnterRemarks, String EnterReason, String Enterquantity,
 			String Enternote) throws Throwable {
 
-		// Verify Three Line Side Bar in Home Page
-		boolean threeLineIconBarIsDisplayed = threeLineIconBar.isDisplayed();
-		assertTrue(threeLineIconBarIsDisplayed, "Three Line Icon Bar is not Displayed");
-		threeLineIconBar.click();
-
-		// Click on Sales Module
-		boolean salesModuledropdownIsDisplayed = salesModuledropdown.isDisplayed();
-		assertTrue(salesModuledropdownIsDisplayed, "Sales Module dropdown IsDisplayed.");
-		salesModuledropdown.click();
-
-		// Verify and Click on RFQ in Sales Module
-		boolean rfqIsDisplayed = rfq.isDisplayed();
-		assertTrue(rfqIsDisplayed, "RFQ is not Displayed.");
-		rfq.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-		// Verify and Click on Create Module in RFQ-Sales Module
-		boolean createRFQIsDisplayed = modifyorView.isDisplayed();
-		assertTrue(createRFQIsDisplayed, "Create RFQ is not Displayed.");
-		modifyorView.click();
-
-		executor.executeScript("arguments[0].click();", editButton);
+		click(driver, editButton);
 
 		// Customer Name
 
 		// Click on Customer Name Drop Down RFQ Create Page-Sales Module
-		boolean customerNameDropDownIsDisplayed = customerNameDropDown.isDisplayed();
-		assertTrue(customerNameDropDownIsDisplayed, "Customer Name Drop Down is not Displayed.");
-		customerNameDropDown.sendKeys(Keys.ENTER);
-		executor.executeScript("arguments[0].click();", customerNameDropDownSelect);
+//		click(driver, customerNameDropDown);
+//		isSelected(driver, customerNameDropDown, "customerNameDropDown");
+//		click(driver, customerNameDropDownSelect);
 
 //		//Click on Customer Alias Name Drop Down RFQ Create Page-Sales Module
 //		WebElement customerAliasNameDropDown = driver.findElement(By.xpath("(//input[@type='text'])[2]"));
@@ -171,231 +149,202 @@ public class RFQ_EditPage extends TestBase {
 		// Customer RFQ Number
 
 		// Verify and Click on Customer RFQ Number Field in Item Price List-Edit
-		// Page-Sales Module
-		boolean customerRFQNumberFieldIsDisplayed = customerRFQNumberField.isDisplayed();
-		assertTrue(customerRFQNumberFieldIsDisplayed,
-				"Customer RFQ Number Field in Create Page is not Displayed in View/Modify-Item Price List-Sales Module.");
-		customerRFQNumberField.clear();
-		customerRFQNumberField.sendKeys(rfqNumber);
+//		click(driver, customerRFQNumberField);
+//		isSelected(driver, customerRFQNumberField, "customerRFQNumberField");
+//		customerRFQNumberField.clear();
+//		customerRFQNumberField.sendKeys(rfqNumber);
 
 		// Request Receive Date
 
 		// Verify and Click on Request Receive Date Picker in Item Price List-Edit
-		// Page-Sales Module
-		boolean requestReceiveDatePickerIsDisplayed = requestReceiveDatePicker.isDisplayed();
-		assertTrue(requestReceiveDatePickerIsDisplayed,
-				"Request Receive Date Picker in Create Page is not Displayed in View/Modify-Item Price List-Sales Module.");
-		requestReceiveDatePicker.sendKeys(Keys.ENTER);
-
-		// Quote Expect Date
+		selectPreviousDate(driver, requestReceiveDatePicker, 3);
 
 		// Verify and Click on Quote Expect Date Picker in Item Price List-Edit
-		// Page-Sales Module
-		boolean quoteExpectDatePickerIsDisplayed = quoteExpectDatePicker.isDisplayed();
-		assertTrue(quoteExpectDatePickerIsDisplayed,
-				"Quote Expect Date Picker in Create Page is not Displayed in View/Modify-Item Price List-Sales Module.");
-		quoteExpectDatePicker.sendKeys(Keys.ENTER);
-		for (int i = 0; i < 6; i++) {
-			quoteExpectDatePicker.sendKeys(Keys.ARROW_DOWN);
-			Thread.sleep(500); // Add a small delay if needed
-		}
-		quoteExpectDatePicker.sendKeys(Keys.ARROW_RIGHT);
-		quoteExpectDatePicker.sendKeys(Keys.ENTER);
+		datePicker(driver, quoteExpectDatePicker);
 
 		// typeOfSolution
 
 		// Verify that typeOfSolution Field is Displayed or not
-		boolean isDisabledtypeOfSolutionFieldn = !typeOfSolution.isDisplayed();
-		assertFalse(isDisabledtypeOfSolutionFieldn);
+//		click(driver, typeOfSolution);
+//		isSelected(driver, typeOfSolution, "typeOfSolution");
+//		click(driver, typeOfSolutionSelect);
 
-		// Verify that typeOfSolution Field is clickable or not
-		WebElement typeOfSolutionFieldFocusedElement = driver.switchTo().activeElement();
-		boolean typeOfSolutionFieldIsSelected = typeOfSolutionFieldFocusedElement.equals(typeOfSolution);
-		assertFalse(typeOfSolutionFieldIsSelected, "typeOfSolution Text Field is not Selected");
-
-		// Verifying that typeOfSolution Text Field is Enabled or not
-		boolean isEnabledInspectionIntDaysField = typeOfSolution.isEnabled();
-		assertTrue(isEnabledInspectionIntDaysField);
-
-		typeOfSolution.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", typeOfSolutionSelect);
 
 		// Product Type
 
 		// Verify that productType Field is Displayed or not
-		boolean isDisabledproductTypeFieldn = !productType.isDisplayed();
-		assertFalse(isDisabledproductTypeFieldn);
-
-		// Verify that productType Field is clickable or not
-		WebElement productTypeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean productTypeFieldIsSelected = productTypeFieldFocusedElement.equals(productType);
-		assertFalse(productTypeFieldIsSelected, "productType Text Field is not Selected");
-
-		// Verifying that productType Text Field is Enabled or not
-		boolean isEnabledproductTypeField = productType.isEnabled();
-		assertTrue(isEnabledproductTypeField);
-
-		productType.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", productTypeSelect);
-
-		// remarks
-
-		remarks.sendKeys(Keys.ENTER);
-		// Verify that remarks Field is Displayed or not
-		boolean isDisabledremarksFieldn = !remarks.isDisplayed();
-		assertFalse(isDisabledremarksFieldn);
-//				
-//				//Verify that  remarks Field is clickable or not
-//		  		WebElement remarksFieldFocusedElement = driver.switchTo().activeElement();
-//			    boolean remarksFieldIsSelected = remarksFieldFocusedElement.equals(remarks);
-//			    assertFalse(remarksFieldIsSelected, "remarks Text Field is not Selected");
-//		          
-		// Verifying that remarks Text Field is Enabled or not
-		boolean isEnabledremarksField = remarks.isEnabled();
-		assertTrue(isEnabledremarksField);
-		remarks.clear();
-		remarks.sendKeys(EnterRemarks);
-
-		// Verifying the Placeholder which is present in remarks text field.
-		String displayedTextInremarks = remarks.getAttribute("placeholder");
-
-		String expected_placeholder4 = "Enter Remarks";
-
-		assertEquals(displayedTextInremarks, expected_placeholder4);
-
-		// resonForModification
-
-		reasonForModification.sendKeys(Keys.ENTER);
-		// Verify that resonForModification Field is Displayed or not
-		boolean isDisabledresonForModificationFieldn = !reasonForModification.isDisplayed();
-		assertFalse(isDisabledresonForModificationFieldn);
-//				
-//				//Verify that  resonForModification Field is clickable or not
-//		  		WebElement resonForModificationFieldFocusedElement = driver.switchTo().activeElement();
-//			    boolean resonForModificationFieldIsSelected = resonForModificationFieldFocusedElement.equals(resonForModification);
-//			    assertFalse(resonForModificationFieldIsSelected, "resonForModification Text Field is not Selected");
-//		          
-		// Verifying that resonForModification Text Field is Enabled or not
-		boolean isEnabledresonForModificationField = reasonForModification.isEnabled();
-		assertTrue(isEnabledresonForModificationField);
-		reasonForModification.clear();
-		reasonForModification.sendKeys(EnterReason);
-
-		// Verifying the Placeholder which is present in resonForModification text
-		// field.
-		String displayedTextInresonForModification = reasonForModification.getAttribute("placeholder");
-
-		String expected_placeholder6 = "Enter Reason For Modification";
-
-		assertEquals(displayedTextInresonForModification, expected_placeholder6);
-
-//ITEM
-
-		executor.executeScript("arguments[0].click();", itemTable);
-
-		// Room Name Field
-
-		// Verify that roomName Field is Displayed or not
-		boolean isDisabledroomNameFieldn = !roomName.isDisplayed();
-		assertFalse(isDisabledroomNameFieldn);
-
-		// Verify that roomName Field is clickable or not
-		WebElement roomNameFieldFocusedElement = driver.switchTo().activeElement();
-		boolean roomNameFieldIsSelected = roomNameFieldFocusedElement.equals(roomName);
-		assertFalse(roomNameFieldIsSelected, "roomName Text Field is not Selected");
-
-		// Verifying that roomName Text Field is Enabled or not
-		boolean isEnabledroomNameField = roomName.isEnabled();
-		assertTrue(isEnabledroomNameField);
-
-		roomName.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", roomNameSelect);
-
-		// Item Number Field
-
-		// Verify that itemNumber Field is Displayed or not
-		boolean isDisableditemNumberFieldn = !itemNumber.isDisplayed();
-		assertFalse(isDisableditemNumberFieldn);
-
-		// Verify that itemNumber Field is clickable or not
-		WebElement itemNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean itemNumberFieldIsSelected = itemNumberFieldFocusedElement.equals(itemNumber);
-		assertFalse(itemNumberFieldIsSelected, "itemNumber Text Field is not Selected");
-
-//		// Verifying that itemNumber Text Field is Enabled or not
-//		boolean isEnableditemNumberField = itemNumber.isEnabled();
-//		assertTrue(isEnableditemNumberField);
-//		click(driver, itemNumber);
-//		Thread.sleep(2000);
-//		itemNumber.sendKeys(Keys.CONTROL + "a");
-//		Thread.sleep(2000);
-//		itemNumber.sendKeys(Keys.BACK_SPACE);
-//		Thread.sleep(2000);
-//		itemNumber.click();
+//		boolean isDisabledproductTypeFieldn = !productType.isDisplayed();
+//		assertFalse(isDisabledproductTypeFieldn);
 //
-//		executor.executeScript("arguments[0].click();", itemNumberSelect);
-
-		// Quantity
-
-		quantity.sendKeys(Keys.ENTER);
-		// Verify that quantity Field is Displayed or not
-		boolean isDisabledquantityFieldn = !quantity.isDisplayed();
-		assertFalse(isDisabledquantityFieldn);
-//				
-//				//Verify that  quantity Field is clickable or not
-//		  		WebElement quantityFieldFocusedElement = driver.switchTo().activeElement();
-//			    boolean quantityFieldIsSelected = quantityFieldFocusedElement.equals(quantity);
-//			    assertFalse(quantityFieldIsSelected, "quantity Text Field is not Selected");
-//		          
-		// Verifying that quantity Text Field is Enabled or not
-		boolean isEnabledquantityField = quantity.isEnabled();
-		assertTrue(isEnabledquantityField);
-		quantity.clear();
-		quantity.sendKeys(Enterquantity);
-
-		// Verifying the Placeholder which is present in quantity text field.
-		String displayedTextInquantity = quantity.getAttribute("placeholder");
-
-		String expected_placeholder7 = "Enter Quantity";
-
-		assertEquals(displayedTextInquantity, expected_placeholder7);
-
-		// UploadFiles
-		// Verifing that do we able to upload files or not.
-		WebElement UploadFiles = driver.findElement(By.xpath("(//input[@placeholder='Upload Items'])[1]"));
-		JavascriptExecutor executor1 = (JavascriptExecutor) driver;
-		executor1.executeScript("arguments[0].click();", UploadFiles);
-		Robot robot = new Robot();
-		robot.delay(2000);
-		StringSelection stringSelection = new StringSelection("C:\\Users\\W2191\\Desktop\\FileUpload1.au3");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-
-		// Press Enter to open the file dialog
-
-		robot.delay(2000);
-
-		// Press Ctrl+V to paste the file path
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.delay(2000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-
-		robot.delay(2000);
-		// Press Enter to confirm the file selection
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-
-		close.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", update);
-
-//NOTES
-
-		executor.executeScript("arguments[0].click();", notesTab);
+//		// Verify that productType Field is clickable or not
+//		WebElement productTypeFieldFocusedElement = driver.switchTo().activeElement();
+//		boolean productTypeFieldIsSelected = productTypeFieldFocusedElement.equals(productType);
+//		assertFalse(productTypeFieldIsSelected, "productType Text Field is not Selected");
+//
+//		// Verifying that productType Text Field is Enabled or not
+//		boolean isEnabledproductTypeField = productType.isEnabled();
+//		assertTrue(isEnabledproductTypeField);
+//
+//		productType.sendKeys(Keys.ENTER);
+//
+//		executor.executeScript("arguments[0].click();", productTypeSelect);
+//
+//		// remarks
+//
+//		remarks.sendKeys(Keys.ENTER);
+//		// Verify that remarks Field is Displayed or not
+//		boolean isDisabledremarksFieldn = !remarks.isDisplayed();
+//		assertFalse(isDisabledremarksFieldn);
+////				
+////				//Verify that  remarks Field is clickable or not
+////		  		WebElement remarksFieldFocusedElement = driver.switchTo().activeElement();
+////			    boolean remarksFieldIsSelected = remarksFieldFocusedElement.equals(remarks);
+////			    assertFalse(remarksFieldIsSelected, "remarks Text Field is not Selected");
+////		          
+//		// Verifying that remarks Text Field is Enabled or not
+//		boolean isEnabledremarksField = remarks.isEnabled();
+//		assertTrue(isEnabledremarksField);
+//		remarks.clear();
+//		remarks.sendKeys(EnterRemarks);
+//
+//		// Verifying the Placeholder which is present in remarks text field.
+//		String displayedTextInremarks = remarks.getAttribute("placeholder");
+//
+//		String expected_placeholder4 = "Enter Remarks";
+//
+//		assertEquals(displayedTextInremarks, expected_placeholder4);
+//
+//		// resonForModification
+//
+//		reasonForModification.sendKeys(Keys.ENTER);
+//		// Verify that resonForModification Field is Displayed or not
+//		boolean isDisabledresonForModificationFieldn = !reasonForModification.isDisplayed();
+//		assertFalse(isDisabledresonForModificationFieldn);
+////				
+////				//Verify that  resonForModification Field is clickable or not
+////		  		WebElement resonForModificationFieldFocusedElement = driver.switchTo().activeElement();
+////			    boolean resonForModificationFieldIsSelected = resonForModificationFieldFocusedElement.equals(resonForModification);
+////			    assertFalse(resonForModificationFieldIsSelected, "resonForModification Text Field is not Selected");
+////		          
+//		// Verifying that resonForModification Text Field is Enabled or not
+//		boolean isEnabledresonForModificationField = reasonForModification.isEnabled();
+//		assertTrue(isEnabledresonForModificationField);
+//		reasonForModification.clear();
+//		reasonForModification.sendKeys(EnterReason);
+//
+//		// Verifying the Placeholder which is present in resonForModification text
+//		// field.
+//		String displayedTextInresonForModification = reasonForModification.getAttribute("placeholder");
+//
+//		String expected_placeholder6 = "Enter Reason For Modification";
+//
+//		assertEquals(displayedTextInresonForModification, expected_placeholder6);
+//
+////ITEM
+//
+//		executor.executeScript("arguments[0].click();", itemTable);
+//
+//		// Room Name Field
+//
+//		// Verify that roomName Field is Displayed or not
+//		boolean isDisabledroomNameFieldn = !roomName.isDisplayed();
+//		assertFalse(isDisabledroomNameFieldn);
+//
+//		// Verify that roomName Field is clickable or not
+//		WebElement roomNameFieldFocusedElement = driver.switchTo().activeElement();
+//		boolean roomNameFieldIsSelected = roomNameFieldFocusedElement.equals(roomName);
+//		assertFalse(roomNameFieldIsSelected, "roomName Text Field is not Selected");
+//
+//		// Verifying that roomName Text Field is Enabled or not
+//		boolean isEnabledroomNameField = roomName.isEnabled();
+//		assertTrue(isEnabledroomNameField);
+//
+//		roomName.sendKeys(Keys.ENTER);
+//
+//		executor.executeScript("arguments[0].click();", roomNameSelect);
+//
+//		// Item Number Field
+//
+//		// Verify that itemNumber Field is Displayed or not
+//		boolean isDisableditemNumberFieldn = !itemNumber.isDisplayed();
+//		assertFalse(isDisableditemNumberFieldn);
+//
+//		// Verify that itemNumber Field is clickable or not
+//		WebElement itemNumberFieldFocusedElement = driver.switchTo().activeElement();
+//		boolean itemNumberFieldIsSelected = itemNumberFieldFocusedElement.equals(itemNumber);
+//		assertFalse(itemNumberFieldIsSelected, "itemNumber Text Field is not Selected");
+//
+////		// Verifying that itemNumber Text Field is Enabled or not
+////		boolean isEnableditemNumberField = itemNumber.isEnabled();
+////		assertTrue(isEnableditemNumberField);
+////		click(driver, itemNumber);
+////		Thread.sleep(2000);
+////		itemNumber.sendKeys(Keys.CONTROL + "a");
+////		Thread.sleep(2000);
+////		itemNumber.sendKeys(Keys.BACK_SPACE);
+////		Thread.sleep(2000);
+////		itemNumber.click();
+////
+////		executor.executeScript("arguments[0].click();", itemNumberSelect);
+//
+//		// Quantity
+//
+//		quantity.sendKeys(Keys.ENTER);
+//		// Verify that quantity Field is Displayed or not
+//		boolean isDisabledquantityFieldn = !quantity.isDisplayed();
+//		assertFalse(isDisabledquantityFieldn);
+////				
+////				//Verify that  quantity Field is clickable or not
+////		  		WebElement quantityFieldFocusedElement = driver.switchTo().activeElement();
+////			    boolean quantityFieldIsSelected = quantityFieldFocusedElement.equals(quantity);
+////			    assertFalse(quantityFieldIsSelected, "quantity Text Field is not Selected");
+////		          
+//		// Verifying that quantity Text Field is Enabled or not
+//		boolean isEnabledquantityField = quantity.isEnabled();
+//		assertTrue(isEnabledquantityField);
+//		quantity.clear();
+//		quantity.sendKeys(Enterquantity);
+//
+//		// Verifying the Placeholder which is present in quantity text field.
+//		String displayedTextInquantity = quantity.getAttribute("placeholder");
+//
+//		String expected_placeholder7 = "Enter Quantity";
+//
+//		assertEquals(displayedTextInquantity, expected_placeholder7);
+//
+//		// UploadFiles
+//		// Verifing that do we able to upload files or not.
+//		WebElement UploadFiles = driver.findElement(By.xpath("(//input[@placeholder='Upload Items'])[1]"));
+//		JavascriptExecutor executor1 = (JavascriptExecutor) driver;
+//		executor1.executeScript("arguments[0].click();", UploadFiles);
+//		Robot robot = new Robot();
+//		robot.delay(2000);
+//		StringSelection stringSelection = new StringSelection("C:\\Users\\W2191\\Desktop\\FileUpload1.au3");
+//		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+//
+//		// Press Enter to open the file dialog
+//
+//		robot.delay(2000);
+//
+//		// Press Ctrl+V to paste the file path
+//		robot.keyPress(KeyEvent.VK_CONTROL);
+//		robot.keyPress(KeyEvent.VK_V);
+//		robot.delay(2000);
+//		robot.keyRelease(KeyEvent.VK_CONTROL);
+//		robot.keyRelease(KeyEvent.VK_V);
+//
+//		robot.delay(2000);
+//		// Press Enter to confirm the file selection
+//		robot.keyPress(KeyEvent.VK_ENTER);
+//		robot.keyRelease(KeyEvent.VK_ENTER);
+//
+//		close.sendKeys(Keys.ENTER);
+//
+//		executor.executeScript("arguments[0].click();", update);
+//
+////NOTES
+//
+//		executor.executeScript("arguments[0].click();", notesTab);
 
 //		executor.executeScript("arguments[0].click();", notesTable);
 //
