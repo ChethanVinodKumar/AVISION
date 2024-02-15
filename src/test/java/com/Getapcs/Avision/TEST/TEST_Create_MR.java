@@ -20,8 +20,8 @@ import com.Getapcs.Avision.InventryReports.InventryReportBeforeOpenGrin;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
 import com.Getapcs.Avision.Sales.RFQ_CreateCS;
+import com.Getapcs.Avision.Sales.RFQ_CreateEngg;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
-import com.Getapcs.Avision.Sales.RFQ_ReleaseEngg;
 import com.Getapcs.Avision.SecondaryMaster.Price_List;
 import com.Getapcs.Avision.Transaction.Binning;
 import com.Getapcs.Avision.Transaction.DeliveryOrder;
@@ -59,7 +59,7 @@ public class TEST_Create_MR extends TestBase {
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
 	RFQ_CreateCS rfq_CreateCS;
-	RFQ_ReleaseEngg RFQ_ReleaseEngg;
+	RFQ_CreateEngg RFQ_CreateEngg;
 	QuoteCreatePage quoteCreatePage;
 	SalesOrder SalesOrder;
 	ShopOrder ShopOrder;
@@ -107,7 +107,7 @@ public class TEST_Create_MR extends TestBase {
 		priceList_CreatePage = new ItemPriceList_CreatePage();
 		rfq_CreatePage = new RFQ_CreatePage();
 		rfq_CreateCS = new RFQ_CreateCS();
-		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
+		RFQ_CreateEngg = new RFQ_CreateEngg();
 		quoteCreatePage = new QuoteCreatePage();
 		SalesOrder = new SalesOrder();
 		ShopOrder = new ShopOrder();

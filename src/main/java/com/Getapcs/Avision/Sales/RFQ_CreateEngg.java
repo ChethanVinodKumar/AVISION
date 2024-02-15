@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
-public class RFQ_ReleaseEngg extends TestBase {
+public class RFQ_CreateEngg extends TestBase {
 
 	@FindBy(xpath = "(//i[@title='Engg'])[1]")
 	WebElement enggButton;
@@ -46,11 +46,11 @@ public class RFQ_ReleaseEngg extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Add'])[1]")
 	WebElement addButton;
 
-	public RFQ_ReleaseEngg() {
+	public RFQ_CreateEngg() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage RFQEngg(String QuantityInaddShedule, String Note) throws Throwable {
+	public HomePage RFQEnggCreate(String QuantityInaddShedule, String Note) throws Throwable {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
@@ -91,25 +91,23 @@ public class RFQ_ReleaseEngg extends TestBase {
 
 		click(driver, saveButton);
 
-		// Verify and Release the CS
-		// Verify and Click on CS Button1
-
-		click(driver, enggButton);
-
-		Thread.sleep(4000);
-
-		// Verify and Click on Check Box which is Present in Item Tab-CS Release
-//		click(driver, itemTabCheckBox);
-		itemTabCheckBox.sendKeys(Keys.SPACE);
-		// itemTabCheckBox1.sendKeys(Keys.SPACE);
-
-		Thread.sleep(2000);
-
-		// Verify and Click on Release Button in Notes Tab -CS Release Page
-		boolean releaseButtonInCSReleaseIsDisplayed = releaseButtonInCSRelease.isDisplayed();
-		assertTrue(releaseButtonInCSReleaseIsDisplayed, "Release Button is not Displayed in CS Release Page.");
-
-		click(driver, releaseButtonInCSRelease);
+//		// Verify and Release the CS
+//		// Verify and Click on CS Button1
+//
+//		click(driver, enggButton);
+//
+//		Thread.sleep(4000);
+//
+//		// Verify and Click on Check Box which is Present in Item Tab-CS Release
+////		click(driver, itemTabCheckBox);
+//		itemTabCheckBox.sendKeys(Keys.SPACE);
+//		// itemTabCheckBox1.sendKeys(Keys.SPACE);
+//
+//		Thread.sleep(2000);
+//
+//		// Verify and Click on Release Button in Notes Tab -CS Release Page
+//
+//		click(driver, releaseButtonInCSRelease);
 		return new HomePage();
 
 	}

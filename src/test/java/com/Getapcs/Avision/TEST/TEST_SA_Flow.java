@@ -44,8 +44,8 @@ import com.Getapcs.Avision.SA_FG.Transaction.ShopOrderConfirmation_SA2;
 import com.Getapcs.Avision.Sales.ItemPriceList_CreatePage;
 import com.Getapcs.Avision.Sales.QuoteCreatePage;
 import com.Getapcs.Avision.Sales.RFQ_CreateCS;
+import com.Getapcs.Avision.Sales.RFQ_CreateEngg;
 import com.Getapcs.Avision.Sales.RFQ_CreatePage;
-import com.Getapcs.Avision.Sales.RFQ_ReleaseEngg;
 import com.Getapcs.Avision.Sales.VerifyLPCostingCreate;
 import com.Getapcs.Avision.Sales.VerifyLPCostingRelease;
 import com.Getapcs.Avision.Sales.VerifySourcing;
@@ -110,7 +110,7 @@ public class TEST_SA_Flow extends TestBase {
 	ItemPriceList_CreatePage priceList_CreatePage;
 	RFQ_CreatePage rfq_CreatePage;
 	RFQ_CreateCS rfq_CreateCS;
-	RFQ_ReleaseEngg RFQ_ReleaseEngg;
+	RFQ_CreateEngg RFQ_CreateEngg;
 	VerifySourcing sourcing;
 	VerifyLPCostingCreate lpCosting;
 	VerifyLPCostingRelease lpCostingRelease;
@@ -193,7 +193,7 @@ public class TEST_SA_Flow extends TestBase {
 		lpCostingRelease = new VerifyLPCostingRelease();
 		MaterialIssue = new MaterialIssue();
 		rfq_CreateCS = new RFQ_CreateCS();
-		RFQ_ReleaseEngg = new RFQ_ReleaseEngg();
+		RFQ_CreateEngg = new RFQ_CreateEngg();
 		quoteCreatePage = new QuoteCreatePage();
 		SalesOrder = new SalesOrder();
 		ShopOrder = new ShopOrder();

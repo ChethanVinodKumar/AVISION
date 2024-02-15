@@ -50,7 +50,7 @@ public class ShopOrder_For_SA extends TestBase {
 		String tableXpath = "//table[@class='table table-striped']";
 
 		// Get the first PR number text from table
-		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[2]")).getText();
+		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[5]/td[2]")).getText();
 
 		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
@@ -58,6 +58,11 @@ public class ShopOrder_For_SA extends TestBase {
 		String updatedXpathSA = elementXpath.replace("Item-FG-11-TEST", saItemNumber1 + "-Test Description");
 
 		System.out.println(updatedXpathSA);
+
+		String revNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[5]/td[5]")).getText();
+		String updatedXpathREVNo = elementXpath.replace("Item-FG-11-TEST", revNumber);
+
+		System.out.println(updatedXpathSA +"\n"+updatedXpathREVNo);
 
 		// ***********//
 
@@ -108,7 +113,8 @@ public class ShopOrder_For_SA extends TestBase {
 
 		click(driver, bomVersionNoDropDown);
 		isSelected(driver, bomVersionNoDropDown, "bomVersionNoDropDown");
-		click(driver, bomVersionNoDropDownSelectData);
+		WebElement revNoSelect = driver.findElement(By.xpath(updatedXpathREVNo));
+		click(driver, revNoSelect);
 
 		click(driver, projectNoDropDown);
 		isSelected(driver, projectNoDropDown, "projectNoDropDown");

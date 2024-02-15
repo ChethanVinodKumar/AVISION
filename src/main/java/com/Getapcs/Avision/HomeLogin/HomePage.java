@@ -625,26 +625,21 @@ public class HomePage extends TestBase {
 //Transaction
 
 	public void clickOnSalesOrderCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		sales.click();
-		quote.click();
-		js.executeScript("arguments[0].click();", quoteVieworModify);
-		Thread.sleep(6000);
-		threeLinesSideBarIcon.click();
+		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, quote);
+		click(driver, quoteVieworModify);
+		click(driver, threeLinesSideBarIcon);
+		
 	}
 
 	public void clickOnSalesOrderEdit() throws InterruptedException {
-//		menu.click();
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
-		transaction.click();
-		salesOrder.click();
-		salesOrderTablePage.click();
-		Thread.sleep(4000);
-//		menu.click();
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
-//		clickOnSalesOrderEdit.click();
-		js.executeScript("arguments[0].click();", clickOnSalesOrderEdit);
-		Thread.sleep(3000);
+		
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, salesOrder);
+		click(driver, salesOrderTablePage);
+		click(driver, threeLinesSideBarIcon);
 	}
 
 	public void clickOnSalesOrderTable() throws InterruptedException {
