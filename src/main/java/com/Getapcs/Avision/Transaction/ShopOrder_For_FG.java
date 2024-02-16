@@ -81,6 +81,9 @@ public class ShopOrder_For_FG extends TestBase {
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", fgItemNumber1 + "-Test Description");
 
 		System.out.println(updatedXpath);
+		
+		String revNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[5]")).getText();
+		String updatedXpathREVNo = elementXpath.replace("Item-FG-11-TEST", revNumber);
 
 		// ***********//
 
@@ -134,8 +137,8 @@ public class ShopOrder_For_FG extends TestBase {
 		// Verify that bomGroup Field is Displayed or not
 
 		click(driver, bomVersionNo);
-		Thread.sleep(2000);
-		click(driver, bomGroupSelect);
+		WebElement versionSelect = driver.findElement(By.xpath(updatedXpathREVNo));
+		click(driver, versionSelect);
 
 //Project Number
 

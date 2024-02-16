@@ -1,6 +1,7 @@
 package com.Getapcs.Avision.TEST;
 
 import java.awt.AWTException;
+import java.io.IOException;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -113,7 +114,7 @@ public class SecondaryMaster extends TestBase {
 	}
 
 	@BeforeTest
-	public void setUp() throws InterruptedException, AWTException {
+	public void setUp() throws InterruptedException, AWTException, IOException {
 		initialization();
 		additionalcharges = new Additionalcharges();
 		auditFrequency = new AuditFrequency();

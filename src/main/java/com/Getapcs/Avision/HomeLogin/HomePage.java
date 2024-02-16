@@ -9,6 +9,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 
 public class HomePage extends TestBase {
 
+	@FindBy(tagName = "body")
+	WebElement driverIninteractable;
+	
 //Secondary Master
 
 	@FindBy(xpath = "(//span[@class='mdi mdi-menu'])[1]")
@@ -544,6 +547,7 @@ public class HomePage extends TestBase {
 		click(driver, itemMaster);
 		click(driver, create);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -552,8 +556,10 @@ public class HomePage extends TestBase {
 		click(driver, engineering);
 		click(driver, itemMaster);
 		click(driver, modifyorViewItemMaster);
-		click(driver, editButton);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		click(driver, editButton);
+	
 		
 
 	}
@@ -573,6 +579,7 @@ public class HomePage extends TestBase {
 		click(driver, engineering);
 		click(driver, enggBom);
 		click(driver, createEnggBom);
+		actions.moveToElement(driverIninteractable).perform();
 		
 	}
 
@@ -582,8 +589,10 @@ public class HomePage extends TestBase {
 		click(driver, engineering);
 		click(driver, enggBom);
 		click(driver, modifyorViewEnggBom);
-		click(driver, editButton);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		click(driver, editButton);
+		
 	}
 
 	public void clickOnBomTablePage() {
@@ -598,9 +607,11 @@ public class HomePage extends TestBase {
 	public void clickOnReleaseBomPage() {
 		// TODO Auto-generated method stub
 		click(driver, threeLinesSideBarIcon);
-		engineering.click();
-		enggBom.click();
-		releaseBom.sendKeys(Keys.ENTER);
+		click(driver, engineering);
+		click(driver, enggBom);
+		click(driver, releaseBom);
+		actions.moveToElement(driverIninteractable).perform();
+		
 	}
 
 	// Sales
@@ -610,6 +621,7 @@ public class HomePage extends TestBase {
 		click(driver, sourcing);
 		click(driver, modifyorViewsourcing);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 		Thread.sleep(3000);
 	}
 

@@ -100,6 +100,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.google.gson.Gson;
 
 public class SA_FG_Create_Edit extends TestBase {
 
@@ -318,7 +319,7 @@ public class SA_FG_Create_Edit extends TestBase {
 //	}
 	
 	
-
+//
 //	@Test(priority = 3)
 //	public void verifyItemMasterCreateforFG() throws Throwable {
 //
@@ -519,579 +520,658 @@ public class SA_FG_Create_Edit extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //
 //	}
-//
-//	@Test(priority = 12)
-//	public void verifyBomCreateforSA2() throws Throwable {
-//
-//		test = reports.createTest("enggBomCreatePageForSA2");
-//		homePage.clickOnBomCreatePage();
-//		enggBomCreatePageForSA2.bomCreate("9", // Quantity
-//				"50", // scarpAllowance
-//				"TestRemark", // Remark
-//				"1", // Version
-//				"10", // quantityPer
-//				"100", // probability
-//				"TEST Alternate Remark", // alternateRemark
-//				"1", // quantityNRE
-//				"20");// cost
-//		Thread.sleep(3000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("enggBomEditPageForSA2");
-//		homePage.clickOnBomEditPage();
-//		enggBomEditPage.enggBomEdit("TEST Edit Remark SA2");
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 13)
-//	public void verifyBomCreateforSA1() throws Throwable {
-//		test = reports.createTest("enggBomCreatePageForSA1");
-//		homePage.clickOnBomCreatePage();
-//		enggBomCreatePageForSA1.bomCreate("8", // Quantity
-//				"50", // scarpAllowance
-//				"TestRemark", // Remark
-//				"1", // Version
-//				"10", // quantityPer
-//				"100", // probability
-//				"TEST Alternate Remark", // alternateRemark
-//				"1", // quantityNRE
-//				"20");// cost
-//		Thread.sleep(3000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("enggBomEditPageForSA1");
-//		homePage.clickOnBomEditPage();
-//		enggBomEditPage.enggBomEdit("TEST Edit Remark SA1");
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//
-//	@Test(priority = 14)
-//	public void verifyBomCreateforFG() throws Throwable {
-//
-//		test = reports.createTest("enggBomCreatePageForFG");
-//		homePage.clickOnBomCreatePage();
-//		enggBomCreatePageForFG.bomCreate("7", // Quantity
-//				"50", // scarpAllowance
-//				"TestRemark", // Remark
-//				"1", // Version
-//				"10", // quantityPer
-//				"100", // probability
-//				"TEST Alternate Remark", // alternateRemark
-//				"1", // quantityNRE
-//				"20");// cost
-//		Thread.sleep(3000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("enggBomEditPageForFG");
-//		homePage.clickOnBomEditPage();
-//		enggBomEditPage.enggBomEdit("TEST Edit Remark FG");
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//
-//	@Test(priority = 15)
-//	public void verifyReleaseBomSA2() throws Throwable {
-//
-//		test = reports.createTest("releaseBomSA2");
-//		homePage.clickOnReleaseBomPage();
-//		releaseBomSA2.releaseBom("Test Remark");// Remark
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//
-//	@Test(priority = 16)
-//	public void verifyReleaseBomSA1() throws Throwable {
-//
-//		test = reports.createTest("releaseBomSA1");
-//		homePage.clickOnReleaseBomPage();
-//		releaseBomSA1.releaseBom("Test Remark");// Remark
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//
-//	@Test(priority = 17)
-//	public void verifyReleaseBomFG() throws Throwable {
-//		test = reports.createTest("releaseBomFG");
-//		homePage.clickOnReleaseBomPage();
-//		releaseBomFG.releaseBom("Test Remark");// Remark
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 18)
-//	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
-//
-//		test = reports.createTest("verifySalesItemPriceListCreate");
-//		homePage.clickonTransactionPriceListCreate();
-//		itemPriceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 19)
-//	public void verifySalesItemPriceListEdit() throws AWTException, InterruptedException {
-//
-//		test = reports.createTest("verifySalesItemPriceListEdit");
-//		homePage.clickonTransactionPriceListEdit();
-//		itemPriceListEditPage.ItemPriceListEdit("50", "200", "50", "100", "200", "40");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 20)
-//	public void verifySalesRFQCreate() throws Throwable {
-//
-//		test = reports.createTest("verifySalesRFQCreate");
-//		homePage.clickonRFQCreate();
-//		rfq_CreatePage.RFQCreate();
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 21)
-//	public void verifySalesRFQEdit() throws Throwable {
-//
-//		test = reports.createTest("verifySalesRFQEdit");
-//		homePage.clickonRFQEdit();
-//		rfqEdit.RFQEdit(priceList, priceList, priceList, priceList, priceList);
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 22)
-//	public void verifySalesRFQCSCreate() throws Throwable {
-//
-//		test = reports.createTest("verifySalesRFQ_CS_Create");
-//		int counter = FG_DynamicValue.getCounter();
-//
-//		homePage.clickonSalesRfqModifyorView();
-//		Thread.sleep(4000);
-//		rfq_CreateCS.RFQCs(String.valueOf(counter) + "123", // ItemNumber
-//				"10", // Quantity
-//				"TEST Description", // Description
-//				"10", // QuantityInaddShedule
-//				"TEST Note"); // String Note
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 23)
-//	public void verifySalesCSEdit() throws Throwable {
-//
-//		test = reports.createTest("verifySalesRFQ_CS_Edit");
-//		homePage.clickonSalesRfqModifyorView();
-//		csEdit.RFQCSEdit();
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 24)
-//	public void verifySalesCSRelease() throws Throwable {
-//
-//		test = reports.createTest("verifySalesRFQ_CS_Release");
-//		homePage.clickonSalesRfqModifyorView();
-//		csRelease.RFQCs();
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 25)
-//	public void verifySalesRFQENGGCreate() throws Throwable {
-//
-//		test = reports.createTest("verifySalesRFQ_ENGG_Create");
-//		homePage.clickonSalesRfqModifyorView();
-//		RFQ_CreateEngg.RFQEnggCreate("10", // QuantityInaddShedule
-//				"TEST Note"); // String Note
-//
-//		Thread.sleep(3000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 26)
-//	public void verifySalesRFQENGGEdit() throws Throwable {
-//
-//		test = reports.createTest("verifySales_RFQ_ENGG_Edit");
-//		homePage.clickonSalesRfqModifyorView();
-//		enggEdit.RFQEnggEdit("10", // QuantityInaddShedule
-//				"TEST Note"); // String Note
-//
-//		Thread.sleep(3000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 27)
-//	public void verifySalesRFQENGGRelease() throws Throwable {
-//
-//		test = reports.createTest("verifySales_RFQ_ENGG_Release");
-//		homePage.clickonSalesRfqModifyorView();
-//		enggRelease.RFQEnggRelease("10", // QuantityInaddShedule
-//				"TEST Note"); // String Note
-//
-//		Thread.sleep(3000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 28)
-//	public void verifySalesSourcing() throws Throwable {
-//
-//		test = reports.createTest("verifySalesSourcing");
-//		homePage.clickonSoucing();
-//		sourcing.sourcingCreate();
-//
-//		Thread.sleep(3000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 29)
-//	public void verifySalesLpCreate() throws Throwable {
-//
-//		test = reports.createTest("verifySalesLpCreate");
-//		homePage.clickonLpCosting();
-//		lpCosting.lpCostingCreate();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//	
-//	@Test(priority = 30)
-//	public void verifySalesLpCostingRelease() throws Throwable {
-//
-//		test = reports.createTest("verifySalesLpCostingRelease");
-//		homePage.clickonLpCosting();
-//		lpCostingRelease.lpCostingRelease();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 31)
-//	public void verifyQuoteCreate() throws Throwable {
-//
-//		test = reports.createTest("QuoteCreate");
-//		int counter = FG_DynamicValue.getCounter();
-//		homePage.clickonSalesQuoteCreate();
-//		quoteCreatePage.QuoteCreate("TEST Quote Ref"+String.valueOf(counter), "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
-//				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//	
-//	@Test(priority = 32)
-//	public void verifyQuoteEdit() throws Throwable {
-//
-//		test = reports.createTest("QuoteEdit");
-//		homePage.clickonSalesQuoteModifyorView();
-//		quoteEdit.QuoteEdit();
-//	
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
 
-//	@Test(priority = 33)
-//	public void verifySalesOrderCreate() throws Throwable {
-//		
-//		test = reports.createTest("salesOrderCreate");
-//		int counter = FG_DynamicValue.getCounter();
-//		homePage.clickOnSalesOrderCreate();
-//		SalesOrder.salesOrderCreate("20", // generalDiscount
-//				"20", // orderQty
-//				"10", // discount1
-//				"9", // sgst1
-//				"9", // cgst1
-//				"9", // igst1
-//				"9", // utgst1
-//				"10", // quantity1
-//				"Test Remark", // remark1
-//				"50", // orderqty2
-//				"20", // discount2
-//				"9", // sgst2
-//				"9", // cgst2
-//				"9", // igst2
-//				"9", // utgst2
-//				"15", // quantity2
-//				"Test Remark2", // remark2
-//				"50", // orderQty3
-//				"10", // discount3
-//				"9", // sgst3
-//				"9", // cgst3
-//				"9", // igst3
-//				"9", // utgst3
-//				"25", // quantity3
-//				"Test Remark3", // remark3
-//				"30", // orderQty4
-//				"10", // discount4
-//				"8", // sgst4
-//				"8", // cgst4
-//				"8", // igst4
-//				"8", // utgst4
-//				"15", // quantity4
-//				"Test Remark4", // remark4
-//				"PO"+counter, // poNumber
-//				"TEST Remark", // billingandShippingRemark
-//				"20", // totalAddidtional Charges
-//				"8", // sgst
-//				"8", // cgst
-//				"8", // igst
-//				"8", // utgst
-//				"20");// specialDiscount
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//	
-//	@Test(priority = 34)
-//	public void verifySalesOrderEdit() throws Throwable {
-//		
-//		test = reports.createTest("salesOrderEdit");
-//		homePage.clickOnSalesOrderEdit();
-//		salesOrderEdit.salesOrderEdit();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//
-//	@Test(priority = 35)
-//	public void verifyShopOrderCreateSA2() throws Throwable {
-//
-//		test = reports.createTest("ShopOrderSA2Create");
-//		homePage.clickOnTransactionShopOrderCreate();
-//		ShopOrderSA2.ShopOrderCreate();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//		
-//	}
-//	
-//	@Test(priority = 36)
-//	public void verifyShopOrderCreateSA1() throws Throwable {
-//
-//		test = reports.createTest("ShopOrderSA1Create");
-//		homePage.clickOnTransactionShopOrderCreate();
-//		ShopOrderSA1.ShopOrderCreate();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//		
-//	}
-//	
-//	@Test(priority = 37)
-//	public void verifyShopOrderCreateFG() throws Throwable {
-//
-//		test = reports.createTest("ShopOrderFGCreate");
-//		homePage.clickOnTransactionShopOrderCreate();
-//		ShopOrderFG.ShopOrderCreate();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
+	@Test(priority = 12)
+	public void verifyBomCreateforSA2() throws Throwable {
+
+		test = reports.createTest("enggBomCreatePageForSA2");
+		homePage.clickOnBomCreatePage();
+		enggBomCreatePageForSA2.bomCreate("9", // Quantity
+				"50", // scarpAllowance
+				"TestRemark", // Remark
+				"1", // Version
+				"10", // quantityPer
+				"100", // probability
+				"TEST Alternate Remark", // alternateRemark
+				"1", // quantityNRE
+				"20");// cost
+		Thread.sleep(3000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		test = reports.createTest("enggBomEditPageForSA2");
+		homePage.clickOnBomEditPage();
+		enggBomEditPage.enggBomEdit("TEST Edit Remark SA2");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 13)
+	public void verifyBomCreateforSA1() throws Throwable {
+		test = reports.createTest("enggBomCreatePageForSA1");
+		homePage.clickOnBomCreatePage();
+		enggBomCreatePageForSA1.bomCreate("8", // Quantity
+				"50", // scarpAllowance
+				"TestRemark", // Remark
+				"1", // Version
+				"10", // quantityPer
+				"100", // probability
+				"TEST Alternate Remark", // alternateRemark
+				"1", // quantityNRE
+				"20");// cost
+		Thread.sleep(3000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		test = reports.createTest("enggBomEditPageForSA1");
+		homePage.clickOnBomEditPage();
+		enggBomEditPage.enggBomEdit("TEST Edit Remark SA1");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 14)
+	public void verifyBomCreateforFG() throws Throwable {
+
+		test = reports.createTest("enggBomCreatePageForFG");
+		homePage.clickOnBomCreatePage();
+		enggBomCreatePageForFG.bomCreate("7", // Quantity
+				"50", // scarpAllowance
+				"TestRemark", // Remark
+				"1", // Version
+				"10", // quantityPer
+				"100", // probability
+				"TEST Alternate Remark", // alternateRemark
+				"1", // quantityNRE
+				"20");// cost
+		Thread.sleep(3000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		test = reports.createTest("enggBomEditPageForFG");
+		homePage.clickOnBomEditPage();
+		enggBomEditPage.enggBomEdit("TEST Edit Remark FG");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 15)
+	public void verifyReleaseBomSA2() throws Throwable {
+
+		test = reports.createTest("releaseBomSA2");
+		homePage.clickOnReleaseBomPage();
+		releaseBomSA2.releaseBom("Test Remark");// Remark
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 16)
+	public void verifyReleaseBomSA1() throws Throwable {
+
+		test = reports.createTest("releaseBomSA1");
+		homePage.clickOnReleaseBomPage();
+		releaseBomSA1.releaseBom("Test Remark");// Remark
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+
+	@Test(priority = 17)
+	public void verifyReleaseBomFG() throws Throwable {
+		test = reports.createTest("releaseBomFG");
+		homePage.clickOnReleaseBomPage();
+		releaseBomFG.releaseBom("Test Remark");// Remark
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 18)
+	public void verifySalesItemPriceListCreate() throws AWTException, InterruptedException {
+
+		test = reports.createTest("verifySalesItemPriceListCreate");
+		homePage.clickonTransactionPriceListCreate();
+		itemPriceList_CreatePage.ItemPriceListCreate("50", "200", "50", "100", "200", "40");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 19)
+	public void verifySalesItemPriceListEdit() throws AWTException, InterruptedException {
+
+		test = reports.createTest("verifySalesItemPriceListEdit");
+		homePage.clickonTransactionPriceListEdit();
+		itemPriceListEditPage.ItemPriceListEdit("50", "200", "50", "100", "200", "40");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 20)
+	public void verifySalesRFQCreate() throws Throwable {
+
+		test = reports.createTest("verifySalesRFQCreate");
+		homePage.clickonRFQCreate();
+		rfq_CreatePage.RFQCreate();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 21)
+	public void verifySalesRFQEdit() throws Throwable {
+
+		test = reports.createTest("verifySalesRFQEdit");
+		homePage.clickonRFQEdit();
+		rfqEdit.RFQEdit(priceList, priceList, priceList, priceList, priceList);
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 22)
+	public void verifySalesRFQCSCreate() throws Throwable {
+
+		test = reports.createTest("verifySalesRFQ_CS_Create");
+		int counter = FG_DynamicValue.getCounter();
+
+		homePage.clickonSalesRfqModifyorView();
+		Thread.sleep(4000);
+		rfq_CreateCS.RFQCs(String.valueOf(counter) + "123", // ItemNumber
+				"10", // Quantity
+				"TEST Description", // Description
+				"10", // QuantityInaddShedule
+				"TEST Note"); // String Note
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 23)
+	public void verifySalesCSEdit() throws Throwable {
+
+		test = reports.createTest("verifySalesRFQ_CS_Edit");
+		homePage.clickonSalesRfqModifyorView();
+		csEdit.RFQCSEdit();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 24)
+	public void verifySalesCSRelease() throws Throwable {
+
+		test = reports.createTest("verifySalesRFQ_CS_Release");
+		homePage.clickonSalesRfqModifyorView();
+		csRelease.RFQCs();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 25)
+	public void verifySalesRFQENGGCreate() throws Throwable {
+
+		test = reports.createTest("verifySalesRFQ_ENGG_Create");
+		homePage.clickonSalesRfqModifyorView();
+		RFQ_CreateEngg.RFQEnggCreate("10", // QuantityInaddShedule
+				"TEST Note"); // String Note
+
+		Thread.sleep(3000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 26)
+	public void verifySalesRFQENGGEdit() throws Throwable {
+
+		test = reports.createTest("verifySales_RFQ_ENGG_Edit");
+		homePage.clickonSalesRfqModifyorView();
+		enggEdit.RFQEnggEdit("10", // QuantityInaddShedule
+				"TEST Note"); // String Note
+
+		Thread.sleep(3000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 27)
+	public void verifySalesRFQENGGRelease() throws Throwable {
+
+		test = reports.createTest("verifySales_RFQ_ENGG_Release");
+		homePage.clickonSalesRfqModifyorView();
+		enggRelease.RFQEnggRelease("10", // QuantityInaddShedule
+				"TEST Note"); // String Note
+
+		Thread.sleep(3000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 28)
+	public void verifySalesSourcing() throws Throwable {
+
+		test = reports.createTest("verifySalesSourcing");
+		homePage.clickonSoucing();
+		sourcing.sourcingCreate();
+
+		Thread.sleep(3000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 29)
+	public void verifySalesLpCreate() throws Throwable {
+
+		test = reports.createTest("verifySalesLpCreate");
+		homePage.clickonLpCosting();
+		lpCosting.lpCostingCreate();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+	}
+	
+	@Test(priority = 30)
+	public void verifySalesLpCostingRelease() throws Throwable {
+
+		test = reports.createTest("verifySalesLpCostingRelease");
+		homePage.clickonLpCosting();
+		lpCostingRelease.lpCostingRelease();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 31)
+	public void verifyQuoteCreate() throws Throwable {
+
+		test = reports.createTest("QuoteCreate");
+		int counter = FG_DynamicValue.getCounter();
+		homePage.clickonSalesQuoteCreate();
+		quoteCreatePage.QuoteCreate("TEST Quote Ref"+String.valueOf(counter), "10", "10", "5", "7", "7", "7", "7", "10", "10", "10", "9", "9",
+				"8", "8", "100", "7", "7", "6", "7", "TEST Special Terms");
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+	
+	@Test(priority = 32)
+	public void verifyQuoteEdit() throws Throwable {
+
+		test = reports.createTest("QuoteEdit");
+		homePage.clickonSalesQuoteModifyorView();
+		quoteEdit.QuoteEdit();
+	
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 33)
+	public void verifySalesOrderCreate() throws Throwable {
+		
+		test = reports.createTest("salesOrderCreate");
+		int counter = FG_DynamicValue.getCounter();
+		homePage.clickOnSalesOrderCreate();
+		SalesOrder.salesOrderCreate("20", // generalDiscount
+				"20", // orderQty
+				"10", // discount1
+				"9", // sgst1
+				"9", // cgst1
+				"9", // igst1
+				"9", // utgst1
+				"10", // quantity1
+				"Test Remark", // remark1
+				"50", // orderqty2
+				"20", // discount2
+				"9", // sgst2
+				"9", // cgst2
+				"9", // igst2
+				"9", // utgst2
+				"15", // quantity2
+				"Test Remark2", // remark2
+				"50", // orderQty3
+				"10", // discount3
+				"9", // sgst3
+				"9", // cgst3
+				"9", // igst3
+				"9", // utgst3
+				"25", // quantity3
+				"Test Remark3", // remark3
+				"30", // orderQty4
+				"10", // discount4
+				"8", // sgst4
+				"8", // cgst4
+				"8", // igst4
+				"8", // utgst4
+				"15", // quantity4
+				"Test Remark4", // remark4
+				"PO"+counter, // poNumber
+				"TEST Remark", // billingandShippingRemark
+				"20", // totalAddidtional Charges
+				"8", // sgst
+				"8", // cgst
+				"8", // igst
+				"8", // utgst
+				"20");// specialDiscount
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+	
+	@Test(priority = 34)
+	public void verifySalesOrderEdit() throws Throwable {
+		
+		test = reports.createTest("salesOrderEdit");
+		homePage.clickOnSalesOrderEdit();
+		salesOrderEdit.salesOrderEdit();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
 
 
+	@Test(priority = 35)
+	public void verifyShopOrderCreateSA2() throws Throwable {
 
-//################### NEED To Update Script #############################
+		test = reports.createTest("ShopOrderSA2Create");
+		homePage.clickOnTransactionShopOrderCreate();
+		ShopOrderSA2.ShopOrderCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 36)
+	public void verifyShopOrderCreateSA1() throws Throwable {
+
+		test = reports.createTest("ShopOrderSA1Create");
+		homePage.clickOnTransactionShopOrderCreate();
+		ShopOrderSA1.ShopOrderCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 37)
+	public void verifyShopOrderCreateFG() throws Throwable {
+
+		test = reports.createTest("ShopOrderFGCreate");
+		homePage.clickOnTransactionShopOrderCreate();
+		ShopOrderFG.ShopOrderCreate();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
 
 
 
-//	@Test(priority = 14)
-//	public void verifyMaterialIssue() throws Throwable {
+
+	@Test(priority = 38)
+	public void verifyMaterialIssue() throws Throwable {
+
+		test = reports.createTest("materialIssueSA2");
+		homePage.clickOnTransactionMaterialIssue();
+		materialIssueSA2.MaterialIssuePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		test = reports.createTest("materialIssueSA1");
+		homePage.clickOnTransactionMaterialIssue();
+		materialIssueSA1.MaterialIssuePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+
+		test = reports.createTest("materialIssueFG");
+		homePage.clickOnTransactionMaterialIssue();
+		materialIssueFG.MaterialIssuePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 39)
+	public void verifyPRcreateSA2() throws Throwable {
+
+		test = reports.createTest("puchaseRequisitionSA2 Create");
+		homePage.clickOnPRCreatePage();
+		puchaseRequisitionSA2.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 40)
+	public void verifyPRApprovals_1SA2() throws Throwable {
+		
+		test = reports.createTest("puchaseRequisitionSA2 prApproval1");
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 41)
+	public void verifyPRApprovals_2SA2() throws Throwable {
+		
+		test = reports.createTest("puchaseRequisitionSA2 prApproval2");
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 42)
+	public void verifyPRcreateSA1() throws Throwable {
+		
+		test = reports.createTest("puchaseRequisitionSA1 prApproval2");
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 43)
+	public void verifyPRApprovals_1SA1() throws Throwable {
+		
+		test = reports.createTest("puchaseRequisitionSA2 prApproval1");
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 44)
+	public void verifyPRApprovals_2SA1() throws Throwable {
+		
+		test = reports.createTest("puchaseRequisitionSA2 prApproval2");
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 45)
+	public void verifyPRcreateFG() throws Throwable {
+
+
+		test = reports.createTest("puchaseRequisitionFG Create");
+		homePage.clickOnPRCreatePage();
+		puchaseRequisitionFG.prCreatePage();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+		
+	}
+
+	@Test(priority = 46)
+	public void verifyPRApprovals_1FG() throws Throwable {
+		
+		test = reports.createTest("puchaseRequisitionSA2 prApproval1");
+		homePage.clickOnPOApproval1();
+		PRApproval1.prApproval1Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 47)
+	public void verifyPRApprovals_2FG() throws Throwable {
+		
+		test = reports.createTest("puchaseRequisitionSA2 prApproval2");
+		homePage.clickOnPRApproval2();
+		PRApproval2.prApproval2Page();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	// ######### Purchase Order ###############
+
+
+	@Test(priority = 48)
+	public void verifyPOcreateSA2() throws Throwable {
+
+		// ######### Purchase Order Create Page For SA2 ###############
+		test = reports.createTest("purchaseOrderSA2 Create");
+		homePage.clickontransactionPOcreate();
+		purchaseOrderSA2.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
+				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 49)
+	public void verifyPOApproval_1_SA2() throws Throwable {
+
+		// Purchase Order POApproval 1
+		test = reports.createTest("purchaseOrderSA2 prApproval1");
+		homePage.clickontransactionPOApproval1();
+		poApproval1.purchaseOrderApproval1();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+		
+	}
+	
+	@Test(priority = 50)
+	public void verifyPOApproval_2_SA2() throws Throwable {
+		// Purchase Order POApproval 2
+		test = reports.createTest("purchaseOrderSA2 prApproval2");
+		homePage.clickontransactionPOApproval2();
+		poApproval2.purchaseOrderApproval2();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+
+	@Test(priority = 51)
+	public void verifyPOcreateSA1() throws Throwable {
+		// ######### Purchase Order Create Page For SA1 ###############
+		test = reports.createTest("purchaseOrderSA1 Create");
+		homePage.clickontransactionPOcreate();
+		purchaseOrderSA1.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
+				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+
+	
+	@Test(priority = 52)
+	public void verifyPOApproval_1_SA1() throws Throwable {
+
+		// Purchase Order POApproval 1
+		test = reports.createTest("purchaseOrderSA2 prApproval1");
+		homePage.clickontransactionPOApproval1();
+		poApproval1.purchaseOrderApproval1();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+		
+	}
+	
+	@Test(priority = 53)
+	public void verifyPOApproval_2_SA1() throws Throwable {
+		// Purchase Order POApproval 2
+		test = reports.createTest("purchaseOrderSA2 prApproval2");
+		homePage.clickontransactionPOApproval2();
+		poApproval2.purchaseOrderApproval2();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 54)
+	public void verifyPOcreateFG() throws Throwable {
+
+//		 ######### Purchase Order Create Page For FG ###############
+		test = reports.createTest("purchaseOrderFG Create");
+		homePage.clickontransactionPOcreate();
+		purchaseOrderFG.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
+				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+
+	@Test(priority = 55)
+	public void verifyPOApproval_1_FG() throws Throwable {
+		// Purchase Order POApproval 1
+		test = reports.createTest("purchaseOrderFG prApproval1");
+		homePage.clickontransactionPOApproval1();
+		poApproval1.purchaseOrderApproval1();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+		
+	}
+	
+	@Test(priority = 56)
+	public void verifyPOApproval_2_FG() throws Throwable {
+		// Purchase Order POApproval 2
+		test = reports.createTest("purchaseOrderFG prApproval2");
+		homePage.clickontransactionPOApproval2();
+		poApproval2.purchaseOrderApproval2();
+		Thread.sleep(2000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 57)
+	public void verifyInventryReportBeforeGrin() throws Throwable {
+		test = reports.createTest("inventryReportBeforGrin");
+		homePage.clickOnInventryReportWithLocation();
+		inventryReportBeforGrin.InventryReportPage();
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
+
+	@Test(priority = 58)
+	public void verifyGRINCreate() throws Throwable {
+		test = reports.createTest("grinCreatePage");
+		homePage.clickOnGRINCreate();
+		grin.grinCreatePage("TEST-IN-1122", // invoiceNo
+				"10", // invoiceGST
+				"10", // totalInvoice
+				"m1", // mftrBatchNo
+				"10", // unitPrice
+				"9", // sgst
+				"9", // cgst
+				"9", // igst
+				"9", // utgst
+				"AWB-1-5657", // awbNo1
+				"AWB-2-5657", // awbNo2
+				"BE-557", // beNo
+				"80", // beCurrencyValue
+				"10", // freight
+				"10", // insurance
+				"10", // loadingOrUnloading
+				"80", // currencyConversion
+				"10", // transport
+				"test charge");// otherChargesValue
+
+		Thread.sleep(4000);
+		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
+	}
 //
-//		test = reports.createTest("materialIssueSA2");
-//		homePage.clickOnTransactionMaterialIssue();
-//		materialIssueSA2.MaterialIssuePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("materialIssueSA1");
-//		homePage.clickOnTransactionMaterialIssue();
-//		materialIssueSA1.MaterialIssuePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("materialIssueFG");
-//		homePage.clickOnTransactionMaterialIssue();
-//		materialIssueFG.MaterialIssuePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 15)
-//	public void verifyPRcreate$Approvals_1_2() throws Throwable {
-//
-//		test = reports.createTest("puchaseRequisitionSA2 Create");
-//		homePage.clickOnPRCreatePage();
-//		puchaseRequisitionSA2.prCreatePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("puchaseRequisitionSA2 prApproval1");
-//		homePage.clickOnPOApproval1();
-//		PRApproval1.prApproval1Page();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("puchaseRequisitionSA2 prApproval2");
-//		homePage.clickOnPRApproval2();
-//		PRApproval2.prApproval2Page();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		// ##############################################################################
-//
-//		test = reports.createTest("puchaseRequisitionSA1 Create");
-//		homePage.clickOnPRCreatePage();
-//		puchaseRequisitionSA1.prCreatePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("puchaseRequisitionSA1 prApproval1");
-//		homePage.clickOnPOApproval1();
-//		PRApproval1.prApproval1Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("puchaseRequisitionSA1 prApproval2");
-//		homePage.clickOnPRApproval2();
-//		PRApproval2.prApproval2Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		// ############################################################################
-//
-//		test = reports.createTest("puchaseRequisitionFG Create");
-//		homePage.clickOnPRCreatePage();
-//		puchaseRequisitionFG.prCreatePage();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("puchaseRequisitionFG prApproval1");
-//		homePage.clickOnPOApproval1();
-//		PRApproval1.prApproval1Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		test = reports.createTest("puchaseRequisitionFG prApproval2");
-//		homePage.clickOnPRApproval2();
-//		PRApproval2.prApproval2Page();
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//	}
-//
-//	@Test(priority = 16)
-//	public void verifyPOcreate$Approvals_1_2() throws Throwable {
-//
-//		// ######### Purchase Order Create Page For SA2 ###############
-//		test = reports.createTest("purchaseOrderSA2 Create");
-//		homePage.clickontransactionPOcreate();
-//		purchaseOrderSA2.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
-//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		// Purchase Order POApproval 1
-//		test = reports.createTest("purchaseOrderSA2 prApproval1");
-//		homePage.clickontransactionPOApproval1();
-//		poApproval1.purchaseOrderApproval1();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//		// Purchase Order POApproval 2
-//		test = reports.createTest("purchaseOrderSA2 prApproval2");
-//		homePage.clickontransactionPOApproval2();
-//		poApproval2.purchaseOrderApproval2();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		// ######### Purchase Order Create Page For SA1 ###############
-//		test = reports.createTest("purchaseOrderSA1 Create");
-//		homePage.clickontransactionPOcreate();
-//		purchaseOrderSA1.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
-//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		// Purchase Order POApproval 1
-//		test = reports.createTest("purchaseOrderSA1 prApproval1");
-//		homePage.clickontransactionPOApproval1();
-//		poApproval1.purchaseOrderApproval1();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//		// Purchase Order POApproval 2
-//		test = reports.createTest("purchaseOrderSA1 prApproval2");
-//		homePage.clickontransactionPOApproval2();
-//		poApproval2.purchaseOrderApproval2();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-////		 ######### Purchase Order Create Page For FG ###############
-//		test = reports.createTest("purchaseOrderFG Create");
-//		homePage.clickontransactionPOcreate();
-//		purchaseOrderFG.purchaseOrderCreatePage("10", "100", "1000", "1000", "1000", "TEST Special Instructions", "8",
-//				"8", "8", "8", "100", "Test Special Terms", "Test IncoTerms");
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//
-//		// Purchase Order POApproval 1
-//		test = reports.createTest("purchaseOrderFG prApproval1");
-//		homePage.clickontransactionPOApproval1();
-//		poApproval1.purchaseOrderApproval1();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//		// Purchase Order POApproval 2
-//		test = reports.createTest("purchaseOrderFG prApproval2");
-//		homePage.clickontransactionPOApproval2();
-//		poApproval2.purchaseOrderApproval2();
-//		Thread.sleep(2000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 17)
-//	public void verifyInventryReportBeforeGrin() throws Throwable {
-//		test = reports.createTest("inventryReportBeforGrin");
-//		homePage.clickOnInventryReportWithLocation();
-//		inventryReportBeforGrin.InventryReportPage();
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 18)
-//	public void verifyGRINCreate() throws Throwable {
-//		test = reports.createTest("grinCreatePage");
-//		homePage.clickOnGRINCreate();
-//		grin.grinCreatePage("TEST-IN-1122", // invoiceNo
-//				"10", // invoiceGST
-//				"10", // totalInvoice
-//				"m1", // mftrBatchNo
-//				"10", // unitPrice
-//				"9", // sgst
-//				"9", // cgst
-//				"9", // igst
-//				"9", // utgst
-//				"AWB-1-5657", // awbNo1
-//				"AWB-2-5657", // awbNo2
-//				"BE-557", // beNo
-//				"80", // beCurrencyValue
-//				"10", // freight
-//				"10", // insurance
-//				"10", // loadingOrUnloading
-//				"80", // currencyConversion
-//				"10", // transport
-//				"test charge");// otherChargesValue
-//
-//		Thread.sleep(4000);
-//		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
-//	}
-//
-//	@Test(priority = 19)
+//	@Test(priority = 43)
 //	public void verifyInventryReportAfterGrin() throws Throwable {
 //		test = reports.createTest("inventryReportAfterGrin");
 //		homePage.clickOnInventryReportWithLocation();
@@ -1101,7 +1181,7 @@ public class SA_FG_Create_Edit extends TestBase {
 //		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 //	}
 //
-//	@Test(priority = 20)
+//	@Test(priority = 44)
 //	public void verifyIQCCreate() throws Throwable {
 //		test = reports.createTest("iqcConfirmationCreatePage");
 //		homePage.clickOnIQCConfirmationCreate();
@@ -1466,6 +1546,8 @@ public class SA_FG_Create_Edit extends TestBase {
 
 	@AfterTest
 	public void afetrTest() {
+		String jsonLogs = new Gson().toJson(networkLogs);
+        System.out.println(jsonLogs);
 		driver.manage().window().minimize();
 		driver.quit();
 

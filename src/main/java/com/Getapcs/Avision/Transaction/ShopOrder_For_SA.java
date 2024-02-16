@@ -121,7 +121,7 @@ public class ShopOrder_For_SA extends TestBase {
 		WebElement projectNo = driver.findElement(By.xpath(updatedXpathProjectNo));
 		click(driver, projectNo);
 
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 
 		datePicker(driver, soCloseDatePicker);
 

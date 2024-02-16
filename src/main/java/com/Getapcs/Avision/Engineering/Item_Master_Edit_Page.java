@@ -358,8 +358,9 @@ public class Item_Master_Edit_Page extends TestBase {
 		click(driver, footPrintField);
 		footPrintField.clear();
 		footPrintField.clear();
-		Thread.sleep(2000);
 		footPrintField.sendKeys(footPrint);
+		
+		Thread.sleep(2000);
 
 //		// verifying that ActiveStatus is displayed or hidden.
 //		boolean isDisplayedActiveStatus = activeStatus.isDisplayed();

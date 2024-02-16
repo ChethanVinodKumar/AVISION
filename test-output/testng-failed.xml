@@ -5,20 +5,55 @@
     <classes>
       <class name="com.Getapcs.Avision.TEST.SA_FG_Create_Edit">
         <methods>
-          <include name="afetrTest"/>
-          <include name="verifySalesRFQENGGEdit"/>
+          <include name="verifyPOcreateSA1"/>
+          <include name="verifyPRApprovals_1SA1"/>
+          <include name="verifyBomCreateforSA1"/>
+          <include name="verifyPRApprovals_1SA2"/>
+          <include name="verifySalesItemPriceListEdit"/>
+          <include name="verifySalesItemPriceListCreate"/>
+          <include name="verifySalesRFQCreate"/>
           <include name="verifySalesCSRelease"/>
-          <include name="verifySalesRFQCSCreate"/>
+          <include name="verifyReleaseBomSA2"/>
+          <include name="verifyReleaseBomSA1"/>
           <include name="verifySalesLpCreate"/>
+          <include name="verifyShopOrderCreateFG"/>
+          <include name="verifyGRINCreate"/>
+          <include name="verifySalesCSEdit"/>
+          <include name="verifySalesRFQEdit"/>
+          <include name="verifySalesLpCostingRelease"/>
+          <include name="verifyShopOrderCreateSA1"/>
+          <include name="verifySalesOrderEdit"/>
+          <include name="verifyShopOrderCreateSA2"/>
+          <include name="verifyPRcreateFG"/>
+          <include name="verifyPOcreateFG"/>
+          <include name="verifyPOApproval_1_FG"/>
+          <include name="getTestResult"/>
+          <include name="verifyInventryReportBeforeGrin"/>
+          <include name="verifyQuoteCreate"/>
+          <include name="verifySalesSourcing"/>
+          <include name="verifyPRApprovals_2SA2"/>
+          <include name="verifyPOcreateSA2"/>
+          <include name="verifyPOApproval_2_SA2"/>
+          <include name="verifyPRApprovals_2SA1"/>
+          <include name="verifyBomCreateforFG"/>
+          <include name="afetrTest"/>
+          <include name="verifyPOApproval_2_SA1"/>
+          <include name="verifySalesRFQENGGEdit"/>
+          <include name="verifyPRApprovals_2FG"/>
+          <include name="verifyMaterialIssue"/>
+          <include name="verifyPRApprovals_1FG"/>
+          <include name="verifySalesRFQCSCreate"/>
+          <include name="verifyPOApproval_1_SA1"/>
+          <include name="verifyReleaseBomFG"/>
+          <include name="verifyPOApproval_1_SA2"/>
           <include name="verifySalesRFQENGGRelease"/>
           <include name="setUp"/>
-          <include name="verifySalesCSEdit"/>
-          <include name="verifySalesLpCostingRelease"/>
+          <include name="verifySalesOrderCreate"/>
           <include name="verifyQuoteEdit"/>
+          <include name="verifyPRcreateSA1"/>
+          <include name="verifyPRcreateSA2"/>
+          <include name="verifyPOApproval_2_FG"/>
           <include name="verifySalesRFQENGGCreate"/>
-          <include name="getTestResult"/>
-          <include name="verifySalesSourcing"/>
-          <include name="verifyQuoteCreate"/>
         </methods>
       </class> <!-- com.Getapcs.Avision.TEST.SA_FG_Create_Edit -->
     </classes>

@@ -1,6 +1,7 @@
 package com.Getapcs.Avision.TEST;
 
 import java.awt.AWTException;
+import java.io.IOException;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -27,7 +28,7 @@ public class PrimaryMaster extends TestBase {
 	}
 
 	@BeforeTest
-	public void setUp() throws InterruptedException, AWTException {
+	public void setUp() throws InterruptedException, AWTException, IOException {
 		initialization();
 
 		CompanyMaster = new CompanyMaster();

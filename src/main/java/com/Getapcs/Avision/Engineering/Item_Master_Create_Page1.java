@@ -450,14 +450,11 @@ public class Item_Master_Create_Page1 extends TestBase {
 		js.executeScript("arguments[0].click();", prRequiredToggleButton);
 
 		js.executeScript("arguments[0].click();", openGRINToggleButton);
+		
+		selectPreviousDate(driver, validFromDatePicker, 5);
+		
+		datePicker(driver, validToDatePicker);
 
-		validFromDatePicker.click();
-		validFromDatePicker.sendKeys(Keys.RIGHT);
-		validFromDatePicker.sendKeys(Keys.ENTER);
-
-		validToDatePicker.click();
-		validToDatePicker.sendKeys(Keys.RIGHT);
-		validToDatePicker.sendKeys(Keys.ENTER);
 
 		// Alternatives Tab
 		alternativeTab.sendKeys(Keys.ENTER);

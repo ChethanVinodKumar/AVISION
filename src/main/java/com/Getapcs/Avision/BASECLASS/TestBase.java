@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Base64;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -38,6 +40,8 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.google.gson.Gson;
+
 public class TestBase {
 	public static ChromeDriver driver;
 	public static DevTools devTools;
@@ -47,6 +51,7 @@ public class TestBase {
 	public static Actions actions;
 	public static JavascriptExecutor js;
 	public static Robot robot;
+	public static List<String> networkLogs;
 
 	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
 	static WebElement closeButton;
@@ -56,6 +61,7 @@ public class TestBase {
 		// Incognito Mode Execution
 		options = new ChromeOptions();
 		options.addArguments("--incognito");
+//		options.setExperimentalOption("w3c", false);
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(ChromeOptions.CAPABILITY, options);
 		options.merge(cap);
@@ -73,30 +79,41 @@ public class TestBase {
 		robot = new Robot();
 		js = (JavascriptExecutor) driver;
 
+		
 		// For Get the Error Status
 		   devTools = ((ChromeDriver) driver).getDevTools();
-           devTools.createSession();
-           devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-           devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
-               Request req = requestConsumer.getRequest();
-               // System.out.println("Send URL :- "+req.getUrl()+"\n"+"\n");
-           });
+        devTools.createSession();
+        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+        
+        devTools.addListener(Network.requestWillBeSent(), requestConsumer -> {
+            Request req = requestConsumer.getRequest();
+//            if (req.getPostData() != null) {
+//                networkLogs.add("Request Payload: " + req.getPostData());
+//            }
+            // System.out.println("Send URL :- "+req.getUrl()+"\n"+"\n");
+        });
 
-           devTools.addListener(Network.responseReceived(), response -> {
-               Response res = response.getResponse();
-               // System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
-               if (res.getStatus().toString().startsWith("3") || res.getStatus().toString().startsWith("4")
-                       || res.getStatus().toString().startsWith("5")) {
-            	   String errorMessage = "Error status received: " + res.getStatus() + " - " + res.getStatusText()
-                   + "\nError URL: " + res.getUrl();
-            	   
-            	   System.out.println(errorMessage);
-                   // Hard assertion
-                   Assert.fail(errorMessage);
-               }
-           });
+        devTools.addListener(Network.responseReceived(), response -> {
+            Response res = response.getResponse();
+            
+            // System.err.println(res.getStatus() + " :- "+res.getStatusText()+"\n"+"\n");
+            if (res.getStatus().toString().startsWith("3") || res.getStatus().toString().startsWith("4")
+                    || res.getStatus().toString().startsWith("5")) {
+         	   String errorMessage = "Error status received: " + res.getStatus() + " - " + res.getStatusText()
+                + "\nError URL: " + res.getUrl();
+         	   
+         	   System.out.println(errorMessage);
+                // Hard assertion
+                Assert.fail(errorMessage);
+            }
+        });
+          
 
 		driver.get("https://avision-demo.getapcs.com/login");
+		
+//		Gson gson = new Gson();
+//         System.out.println(gson.toJson(networkLogs));
+//	
 
 	}
 

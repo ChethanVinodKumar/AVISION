@@ -29,6 +29,12 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 
 	@FindBy(xpath = "//input[@placeholder='Enter Quantity']")
 	WebElement quantityField;
+	
+	@FindBy(xpath = "//input[@value='number']")
+	WebElement scarpAllowanceNumberRadioButton;
+	
+	@FindBy(xpath = "//input[@value='percentage']")
+	WebElement scarpAllowancePercentageRadioButton;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Scrap Allowance']")
 	WebElement scarpAllowanceField;
@@ -213,10 +219,11 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 		quantityField.clear();
 		quantityField.sendKeys(quantity);
 
+		Thread.sleep(8000);
 		click(driver, scarpAllowanceField);
 		isSelected(driver, scarpAllowanceField, "scarpAllowanceField");
 		scarpAllowanceField.clear();
-		scarpAllowanceField.sendKeys(scarpAllowance);
+		scarpAllowanceField.sendKeys("10");
 
 		click(driver, remarkField);
 		isSelected(driver, remarkField, "remarkField");
