@@ -1546,8 +1546,6 @@ public class SA_FG_Create_Edit extends TestBase {
 
 	@AfterTest
 	public void afetrTest() {
-		String jsonLogs = new Gson().toJson(networkLogs);
-        System.out.println(jsonLogs);
 		driver.manage().window().minimize();
 		driver.quit();
 
