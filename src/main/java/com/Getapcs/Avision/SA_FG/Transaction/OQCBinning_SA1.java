@@ -13,7 +13,11 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class OQCBinning_SA1 extends TestBase {
 
-	// Shop Order
+	// OQC Binnig
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
+	
 	@FindBy(xpath = "(//input[@value='sa'])[1]")
 	WebElement saCheckBox;
 
@@ -82,6 +86,8 @@ public class OQCBinning_SA1 extends TestBase {
 
 		String tableXpath = "//table[@class='table table-striped']";
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -97,7 +103,7 @@ public class OQCBinning_SA1 extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/create-oqc-binning");
 
-		Thread.sleep(Duration.ofSeconds(3));
+		Thread.sleep(3000);
 
 		click(driver, saCheckBox);
 

@@ -12,6 +12,9 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class ItemPriceList_CreatePage extends TestBase {
 	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
+	
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement priceListNameDropDown;
 
@@ -113,6 +116,7 @@ public class ItemPriceList_CreatePage extends TestBase {
 		itemPriceList.click();
 		itemPriceListCreate.sendKeys(Keys.ENTER);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 
 		Thread.sleep(2000);
 

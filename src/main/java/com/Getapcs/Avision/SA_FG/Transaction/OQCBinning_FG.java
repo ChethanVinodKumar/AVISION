@@ -12,6 +12,8 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class OQCBinning_FG extends TestBase {
 
 	// Shop Order
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//textarea[@role='combobox'])[1]")
 	WebElement fgItemNumber;
@@ -24,7 +26,7 @@ public class OQCBinning_FG extends TestBase {
 
 	@FindBy(xpath = "(//button[normalize-space()='Binning'])[1]")
 	WebElement binning;
-	
+
 	@FindBy(xpath = "//label[contains(text(), 'Item Quantity :')]/following-sibling::label[@class='property']/b")
 	WebElement itemQty;
 
@@ -77,7 +79,8 @@ public class OQCBinning_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
-
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String fgItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
@@ -93,6 +96,8 @@ public class OQCBinning_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order/table");
 
 		String tableXpath2 = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String shopOrderNumber = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
@@ -108,6 +113,8 @@ public class OQCBinning_FG extends TestBase {
 
 //FG Item Number
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		click(driver, fgItemNumber);
 		fgItemNumber.sendKeys(Keys.BACK_SPACE);
 		isSelected(driver, fgItemNumber, "fgItemNumber");
@@ -133,7 +140,7 @@ public class OQCBinning_FG extends TestBase {
 //Binning 
 
 		click(driver, binning);
-		
+
 		double itemQty1 = Double.parseDouble(itemQty.getText());
 		itemQty1 = itemQty1 / 2;
 		String qty = String.valueOf(itemQty1);

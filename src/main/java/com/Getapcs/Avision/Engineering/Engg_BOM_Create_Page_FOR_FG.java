@@ -9,8 +9,11 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
-	@FindBy(xpath = "(//input[@autocorrect='off'])[1]")
+	@FindBy(xpath = "(//label[normalize-space(text())='Item Number'])[1]/..//input[@type='text']")
 	WebElement itemNumberForItem;
 
 	@FindBy(xpath = "//label[contains(text(), 'Item Description')]/following-sibling::textarea")
@@ -143,12 +146,11 @@ public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/item-master/table");
 		
-		driver.navigate().refresh();
-		Thread.sleep(500);
 
 		String tableXpath = "//table[@class='table table-striped']";
 
-		Thread.sleep(200);
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
 		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[9]/td[2]")).getText();
 
@@ -185,7 +187,6 @@ public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
 		System.out.println(updatedXpathPP2);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
-		driver.navigate().refresh();
 		Thread.sleep(500);
 
 
@@ -200,14 +201,17 @@ public class Engg_BOM_Create_Page_FOR_FG extends TestBase {
 		System.out.println(updatedXpathSA1);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/create");
-		driver.navigate().refresh();
 
 		// Item Number
+		Thread.sleep(3000);
+		
+		actions.moveToElement(driverIninteractable).perform();
 
-		js.executeScript("arguments[0].scrollIntoView(true);", itemNumberForItem);
+//		js.executeScript("arguments[0].scrollIntoView(true);", itemNumberForItem);
 		Thread.sleep(5000);
 		click(driver, itemNumberForItem);
 		isSelected(driver, itemNumberForItem, "itemNumberForItem");
+		Thread.sleep(2000);
 
 		itemNumberForItem.sendKeys(ItemNumber);
 		WebElement itemNumberDropDownDataSelect = driver.findElement(By.xpath(updatedXpathFG));

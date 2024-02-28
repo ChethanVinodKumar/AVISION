@@ -15,6 +15,9 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class ShopOrder_For_FG extends TestBase {
 
 	// Shop Order
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//input[@role='combobox'])[1]")
 	WebElement fgItemNumber;
@@ -71,6 +74,8 @@ public class ShopOrder_For_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
 
 		// Get the first PR number text from table
 		String fgItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
@@ -90,6 +95,8 @@ public class ShopOrder_For_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
 
 		// Get the first PR number text from table
 		String projectNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
@@ -106,6 +113,8 @@ public class ShopOrder_For_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath2 = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
 
 		// Get the first PR number text from table
 		String salesOrderNumber = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();

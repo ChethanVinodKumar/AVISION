@@ -8,11 +8,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class Item_Master_Create_Page_SA extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "//div[@class='title_sub_div_1 mt-1']")
 	WebElement headingText;
@@ -128,6 +132,9 @@ public class Item_Master_Create_Page_SA extends TestBase {
 
 	@FindBy(xpath = "//input[@placeholder='Enter Doc Ret']")
 	WebElement docRetField;
+	
+	@FindBy(xpath = "//input[@formcontrolname='remarksToVendor']")
+	WebElement venderRemarkField;
 
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-create-item-master/div[2]/div/div/div/form/div/div[2]/div/div/div[3]/div[1]/label[2]/span")
 	WebElement cocToggleButton;
@@ -427,31 +434,43 @@ public class Item_Master_Create_Page_SA extends TestBase {
 		String generalDescriptionExpectedText = "General Description";
 		assertEquals(generalDescriptionactualText, generalDescriptionExpectedText);
 
-		typeDropDown.click();
-		js.executeScript("arguments[0].click();", typeDropDownSelectData2);
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
-		commodity.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", commodityDropDownSelectData);
+		click(driver, typeDropDown);
+		isSelected(driver, typeDropDown, "typeDropDown");
+		click(driver, typeDropDownSelectData2);
+		
+		click(driver, commodity);
+		isSelected(driver, commodity, "commodity");
+		click(driver, commodityDropDownSelectData);
+		
+		click(driver, materialGroupDropDown);
+		isSelected(driver, materialGroupDropDown, "materialGroupDropDown");
+		click(driver, materialGroupDropDownSelectData);
+		
+		click(driver, purchaseGroupDropDown);
+		isSelected(driver, purchaseGroupDropDown, "purchaseGroupDropDown");
+		click(driver, purchaseGroupDropDownSelectData);
+		
+		click(driver, departmentDropDown);
+		isSelected(driver, departmentDropDown, "departmentDropDown");
+		click(driver, departmentDropDownSelectData);
+		
+		click(driver, uOMDropDown);
+		isSelected(driver, uOMDropDown, "uOMDropDown");
+		click(driver, uomDropDownSelectData);
 
-		materialGroupDropDown.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", materialGroupDropDownSelectData);
-
-		purchaseGroupDropDown.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", purchaseGroupDropDownSelectData);
-
-		departmentDropDown.sendKeys(Keys.ENTER);
-		js.executeScript("arguments[0].click();", departmentDropDownSelectData);
-
-		uOMDropDown.sendKeys(Keys.ENTER);
-
-		js.executeScript("arguments[0].click();", uomDropDownSelectData);
-
-		hSNDropDown.sendKeys(Keys.ENTER);
+		click(driver, hSNDropDown);
+		isSelected(driver, hSNDropDown, "hSNDropDown");
 		hSNDropDown.sendKeys("1002");
-
-		js.executeScript("arguments[0].click();", prRequiredToggleButton);
-
-		js.executeScript("arguments[0].click();", openGRINToggleButton);
+		
+		click(driver, prRequiredToggleButton);
+		
+		click(driver, openGRINToggleButton);
+		
+		Select select = new Select(poMaterialType);
+		select.selectByValue("Direct");
 
 		validFromDatePicker.click();
 		validFromDatePicker.sendKeys(Keys.RIGHT);
@@ -564,6 +583,8 @@ public class Item_Master_Create_Page_SA extends TestBase {
 		assertFalse(isHiddenEnterDocRetField);
 
 		docRetField.sendKeys(docRet);
+		
+		venderRemarkField.sendKeys("Test Vender Remark");
 
 		cocToggleButton.click();
 

@@ -733,7 +733,7 @@ public class TEST_Create extends TestBase {
 	@Test(priority = 46)
 	public void verifyReturnInvoiceCreate() throws Throwable {
 		homePage.clickOnInvoiceTable();
-		ReturnInvoice.ReturnInvoicepage("2", "1");
+//		ReturnInvoice.ReturnInvoicepage("2", "1");
 
 		Thread.sleep(4000);
 

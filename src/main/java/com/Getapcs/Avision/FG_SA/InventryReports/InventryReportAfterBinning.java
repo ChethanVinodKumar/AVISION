@@ -117,6 +117,7 @@ public class InventryReportAfterBinning extends TestBase {
 			}
 
 			if (i == 1) {
+				Thread.sleep(2000);
 				searchPartType.clear();
 				searchPartType.sendKeys(partType1);
 

@@ -26,6 +26,15 @@ public class Purchase_Order_FG extends TestBase {
 
 	@FindBy(xpath = "(//span[normalize-space()='INR'])[1]")
 	WebElement currencySelect;
+	
+	@FindBy(xpath = "//input[@formcontrolname='poFiles']")
+	WebElement poFilesUpload;
+	@FindBy(xpath = "//button[text()='Save Files']")
+	WebElement saveFileButton;
+	@FindBy(xpath = "//button[text()='View Files']")
+	WebElement viewFileButton;
+	@FindBy(xpath = "//button[text()='Close']")
+	WebElement closeFileButton;
 
 	// Vender Details
 
@@ -230,6 +239,7 @@ public class Purchase_Order_FG extends TestBase {
 		click(driver, materialIssueViewButton_FG);
 
 		String tableXpath = "//table[@formarrayname='ItemData']";
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String ppNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
@@ -260,7 +270,7 @@ public class Purchase_Order_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
-
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String ProjectNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[4]")).getText();
 
@@ -281,6 +291,11 @@ public class Purchase_Order_FG extends TestBase {
 		click(driver, currency);
 		isSelected(driver, currency, "currency");
 		click(driver, currencySelect);
+		
+		uploadFile(driver, poFilesUpload, 2);
+		click(driver, saveFileButton);
+		click(driver, viewFileButton);
+		click(driver, closeFileButton);
 
 //Vender Details
 
@@ -307,14 +322,14 @@ public class Purchase_Order_FG extends TestBase {
 			if (i == 1) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("Purchase");
+				itemNumber.sendKeys(ppNumber1);
 				WebElement itemNumberSelect = driver.findElement(By.xpath(updatedXpathPP1));
 				click(driver, itemNumberSelect);
 			}
 			if (i == 2) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("Purchase");
+				itemNumber.sendKeys(ppNumber2);
 				WebElement itemNumberSelect1 = driver.findElement(By.xpath(updatedXpathPP2));
 				click(driver, itemNumberSelect1);
 			}
@@ -337,7 +352,7 @@ public class Purchase_Order_FG extends TestBase {
 			Thread.sleep(1000);
 			if (i == 1) {
 				WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath1));
-				Thread.sleep(1000);
+				Thread.sleep(500);
 				click(driver, projectNumberSelect);
 			}
 

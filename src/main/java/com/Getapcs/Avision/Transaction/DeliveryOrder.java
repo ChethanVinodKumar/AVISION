@@ -11,6 +11,9 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class DeliveryOrder extends TestBase {
 
 	// Delivery Order
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement customerNameDropDown;
@@ -128,6 +131,9 @@ public class DeliveryOrder extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String salesOrderNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
@@ -193,7 +199,7 @@ public class DeliveryOrder extends TestBase {
 		issuedTo.sendKeys("TEST Issued To");
 
 //Dispatch Quantity
-		
+		Thread.sleep(1000);
 		String dispatchQty1 = driver.findElement(By.xpath("//table[@formarrayname='ItemData']/tbody/tr[1]/td[8]")).getText();
 
 		click(driver, dispatchQty);

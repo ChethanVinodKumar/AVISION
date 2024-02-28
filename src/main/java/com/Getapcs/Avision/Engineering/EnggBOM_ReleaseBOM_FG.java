@@ -13,6 +13,9 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class EnggBOM_ReleaseBOM_FG extends TestBase {
 
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
+
 	@FindBy(xpath = "//i[@class='mdi mdi-plus-box-outline edit-icon']")
 	WebElement bomForReleaseCreateButton;
 
@@ -55,7 +58,8 @@ public class EnggBOM_ReleaseBOM_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
-
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
@@ -63,7 +67,7 @@ public class EnggBOM_ReleaseBOM_FG extends TestBase {
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", ItemNumber);
-		
+
 		String revNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[5]")).getText();
 		String updatedXpathREVNo = elementXpath.replace("Item-FG-11-TEST", revNumber);
 
@@ -106,9 +110,11 @@ public class EnggBOM_ReleaseBOM_FG extends TestBase {
 			Thread.sleep(2000);
 //			releaseItemNumberDropDown.click();
 			click(driver, releaseItemNumberDropDown);
+			Thread.sleep(2000);
 
 			WebElement itemNumberDropDownDataSelect = driver.findElement(By.xpath(updatedXpath));
 			click(driver, itemNumberDropDownDataSelect);
+			Thread.sleep(1000);
 
 			releaseVersionDropDown = driver.findElement(By.xpath("(//input[@type='text'])[3]"));
 			click(driver, releaseVersionDropDown);

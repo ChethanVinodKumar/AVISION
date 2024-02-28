@@ -13,10 +13,10 @@ public class Grin_Create extends TestBase {
 	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
-	@FindBy(xpath = "(//i[@title='Click to view'])[2]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[3]")
 	WebElement viewButton1;
 
-	@FindBy(xpath = "(//i[@title='Click to view'])[3]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[5]")
 	WebElement viewButton2;
 
 	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")
@@ -197,8 +197,8 @@ public class Grin_Create extends TestBase {
 	@FindBy(xpath = "//input[@placeholder='Enter UTGST']")
 	WebElement uTGSTField;
 	
-	@FindBy(xpath = "//input[@placeholder='Enter UTGST']")
-	WebElement dutiesField;
+	@FindBy(xpath = "//input[@placeholder='Duties']")
+	WebElement duitiesField;
 
 	@FindBy(xpath = "(//input[@type='text'])[13]")
 	WebElement remarksField;
@@ -303,8 +303,10 @@ public class Grin_Create extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		
 
-		String poNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[2]")).getText();
+		Thread.sleep(2000);
+		String poNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[5]/td[2]")).getText();
 
 		// Store the element with hard coded PR number
 		String elementXpathPO = "(//div[normalize-space()='PP-54'])[1]";
@@ -312,8 +314,10 @@ public class Grin_Create extends TestBase {
 		String updatedXpathPO = elementXpathPO.replace("PP-54", poNumber);
 
 		System.out.println(updatedXpathPO);
+		
+		Thread.sleep(2000);
 
-		String poNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
+		String poNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[2]")).getText();
 
 		// Store the element with hard coded PR number
 		String elementXpathPO1 = "(//div[normalize-space()='PP-54'])[1]";
@@ -322,6 +326,7 @@ public class Grin_Create extends TestBase {
 
 		System.out.println(updatedXpathPO1);
 
+		Thread.sleep(2000);
 		String poNumber2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
 		// Store the element with hard coded PR number
@@ -332,9 +337,9 @@ public class Grin_Create extends TestBase {
 		System.out.println(updatedXpathPO2);
 
 		click(driver, viewButton2);
-
 		click(driver, itemsTab);
 
+		Thread.sleep(1000);
 		// Get the first PR number text from table
 		String partType1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 
@@ -358,9 +363,9 @@ public class Grin_Create extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
 
 		click(driver, viewButton1);
-
 		click(driver, itemsTab);
 
+		Thread.sleep(1000);
 		// Get the first PR number text from table
 		String partType3 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 
@@ -384,9 +389,9 @@ public class Grin_Create extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-order/table");
 
 		click(driver, viewButton);
-
 		click(driver, itemsTab);
 
+		Thread.sleep(1000);
 		// Get the first PR number text from table
 		String partType5 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 
@@ -407,10 +412,9 @@ public class Grin_Create extends TestBase {
 
 		System.out.println(updatedXpath6);
 
-		Thread.sleep(3000);
-
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/grin/create");
 
+		Thread.sleep(3000);
 		// Verify and Select Value from Vender Name DropDown in GRIN Create-Transaction
 
 		click(driver, venderNameDropDown);
@@ -558,6 +562,11 @@ public class Grin_Create extends TestBase {
 			isSelected(driver, uTGSTField, "uTGSTField");
 			uTGSTField.clear();
 			uTGSTField.sendKeys(utgst);
+			
+			click(driver, duitiesField);
+			isSelected(driver, duitiesField, "duitiesField");
+			duitiesField.clear();
+			duitiesField.sendKeys("9");
 
 			// Verify save Button in Add Taxes Pop-UP
 			click(driver, saveButtonInAddTaxesPOPUP);
@@ -682,6 +691,11 @@ public class Grin_Create extends TestBase {
 			isSelected(driver, uTGSTField, "uTGSTField");
 			uTGSTField.clear();
 			uTGSTField.sendKeys(utgst);
+			
+			click(driver, duitiesField);
+			isSelected(driver, duitiesField, "duitiesField");
+			duitiesField.clear();
+			duitiesField.sendKeys("9");
 
 			// Verify save Button in Add Taxes Pop-UP
 			click(driver, saveButtonInAddTaxesPOPUP);
@@ -806,6 +820,11 @@ public class Grin_Create extends TestBase {
 			isSelected(driver, uTGSTField, "uTGSTField");
 			uTGSTField.clear();
 			uTGSTField.sendKeys(utgst);
+			
+			click(driver, duitiesField);
+			isSelected(driver, duitiesField, "duitiesField");
+			duitiesField.clear();
+			duitiesField.sendKeys("9");
 
 			// Verify save Button in Add Taxes Pop-UP
 			click(driver, saveButtonInAddTaxesPOPUP);

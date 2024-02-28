@@ -9,6 +9,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class ShopOrder_For_SA extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	// Shop Order
 
@@ -48,6 +51,8 @@ public class ShopOrder_For_SA extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[5]/td[2]")).getText();
@@ -70,6 +75,8 @@ public class ShopOrder_For_SA extends TestBase {
 
 		String tableXpath1 = "//table[@class='table table-striped']";
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String projectNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
 
@@ -86,6 +93,8 @@ public class ShopOrder_For_SA extends TestBase {
 
 		String tableXpath2 = "//table[@class='table table-striped']";
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String salesOrderNumber = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
 
@@ -121,7 +130,7 @@ public class ShopOrder_For_SA extends TestBase {
 		WebElement projectNo = driver.findElement(By.xpath(updatedXpathProjectNo));
 		click(driver, projectNo);
 
-		Thread.sleep(6000);
+		Thread.sleep(10000);
 
 		datePicker(driver, soCloseDatePicker);
 

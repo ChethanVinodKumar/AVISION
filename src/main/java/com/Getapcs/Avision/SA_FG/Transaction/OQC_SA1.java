@@ -14,6 +14,8 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class OQC_SA1 extends TestBase {
 
 	// OQC
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//input[@value='sa'])[1]")
 	WebElement saCheckBox;
@@ -51,8 +53,10 @@ public class OQC_SA1 extends TestBase {
 		System.out.println("//*************OQC Create Page******************");
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order-confirm/table");
 
+		actions.moveToElement(driverIninteractable).perform();
 		String tableXpath = "//table[@class='table table-striped']";
 
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[4]")).getText();
 		String soItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
@@ -67,7 +71,7 @@ public class OQC_SA1 extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/create-fg-oqc");
 
-		Thread.sleep(Duration.ofSeconds(3));
+		Thread.sleep(3000);
 
 		click(driver, saCheckBox);
 //SA Item Number

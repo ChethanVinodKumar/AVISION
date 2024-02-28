@@ -26,7 +26,7 @@ public class ItemPriceList_EditPage extends TestBase {
 	@FindBy(xpath = "//a[@routerlink='master/item-price-list/table']")
 	WebElement itmePriceListView_Modify;
 
-	@FindBy(xpath = "(//i[@title='Click to edit'])[1]")
+	@FindBy(xpath = "//table[@class='table table-striped']//tbody/tr[1]/td[1]/i[1]")
 	WebElement editButton;
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")

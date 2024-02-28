@@ -14,6 +14,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class IQCConfirmation extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement selectGRINnoDropDown;
@@ -54,6 +57,8 @@ public class IQCConfirmation extends TestBase {
 
 		String tableXpath = "//table[@class='table table-striped']";
 
+		Thread.sleep(2000);
+		actions.moveToElement(driverIninteractable).perform();
 		// Get the first PR number text from table
 		String grinNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
@@ -69,6 +74,8 @@ public class IQCConfirmation extends TestBase {
 		Thread.sleep(3000);
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/iqc-confirmation/create");
 
+		Thread.sleep(3000);
+		actions.moveToElement(driverIninteractable).perform();
 		// Verify Select GRIN No. Drop Down in IQC Confirmation Create Page
 		click(driver, selectGRINnoDropDown);
 		isSelected(driver, selectGRINnoDropDown, "selectGRINnoDropDown");

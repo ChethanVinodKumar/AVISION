@@ -9,6 +9,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class QuoteCreatePage extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//input[@type='text'])[1]")
 	WebElement customerNameDropDown;
@@ -197,6 +200,9 @@ public class QuoteCreatePage extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();

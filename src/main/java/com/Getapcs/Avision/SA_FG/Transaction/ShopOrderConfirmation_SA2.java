@@ -14,18 +14,20 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class ShopOrderConfirmation_SA2 extends TestBase {
 
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 	// Shop Order Confirmation
 
 	@FindBy(xpath = "(//input[@value='sa'])[1]")
 	WebElement saCheckBox;
 
-	@FindBy(xpath = "(//textarea[@role='combobox'])[1]")
+	@FindBy(xpath = "//label[normalize-space()='SA Item Number / Description']/..//textarea[@formcontrolname='saItemNoDesc']")
 	WebElement saItemNumber;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Produced Qty'])[1]")
 	WebElement producedQty;
 
-	@FindBy(xpath = "(//input[@aria-autocomplete='list'])[1]")
+	@FindBy(xpath = "//label[normalize-space()='Shop Order Number']/..//ng-select[@placeholder='Select Shop Order Number']/..//input")
 	WebElement shopOrderNum1;
 
 	@FindBy(xpath = "//label[normalize-space(text())='Shop Order Released Qty']/following-sibling::div/input[@formcontrolname='shopOrderQty']")
@@ -54,11 +56,15 @@ public class ShopOrderConfirmation_SA2 extends TestBase {
 		// TODO Auto-generated method stub
 		System.out.println("//*************Shop Order Confirmation Create Page******************");
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		// FG Item Num
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/material-issue/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[3]")).getText();
 		String soItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[2]")).getText();
@@ -72,9 +78,11 @@ public class ShopOrderConfirmation_SA2 extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order-confirm/create");
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
 //SA Item Number
 
-		Thread.sleep(Duration.ofSeconds(4));
+		Thread.sleep(3000);
 		click(driver, saCheckBox);
 
 		click(driver, saItemNumber);
@@ -82,7 +90,9 @@ public class ShopOrderConfirmation_SA2 extends TestBase {
 		saItemNumber.sendKeys((Keys.CONTROL + "a"), (Keys.BACK_SPACE));
 		WebElement saItemNumberSelect = driver.findElement(By.xpath(updatedXpath));
 		click(driver, saItemNumberSelect);
+		actions.moveToElement(driverIninteractable).perform();
 
+		Thread.sleep(2000);
 //Sales Order Number
 
 		click(driver, shopOrderNum1);
@@ -90,7 +100,9 @@ public class ShopOrderConfirmation_SA2 extends TestBase {
 		shopOrderNum1.sendKeys(soItemNumber1);
 		WebElement salesOrderNumSelect = driver.findElement(By.xpath(updatedXpathSO));
 		click(driver, salesOrderNumSelect);
-
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
+		
 //produced Qty
 
 		WebElement table = driver.findElement(By.xpath("(//table)[1]"));

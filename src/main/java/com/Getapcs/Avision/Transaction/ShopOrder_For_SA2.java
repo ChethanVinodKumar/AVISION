@@ -11,6 +11,8 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class ShopOrder_For_SA2 extends TestBase {
 
 	// Shop Order
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(id = "4")
 	WebElement saRadioButton;
@@ -45,10 +47,13 @@ public class ShopOrder_For_SA2 extends TestBase {
 	public HomePage ShopOrderCreate() throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("//*************Shop Order Create Page******************");
+		actions.moveToElement(driverIninteractable).perform();
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[3]/td[2]")).getText();
 
@@ -67,6 +72,8 @@ public class ShopOrder_For_SA2 extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/sales/rfq/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String projectNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
@@ -83,6 +90,8 @@ public class ShopOrder_For_SA2 extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath2 = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
 
 		// Get the first PR number text from table
 		String salesOrderNumber = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
@@ -121,7 +130,7 @@ public class ShopOrder_For_SA2 extends TestBase {
 		WebElement projectNo = driver.findElement(By.xpath(updatedXpathProjectNo));
 		click(driver, projectNo);
 
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 
 		datePicker(driver, soCloseDatePicker);
 

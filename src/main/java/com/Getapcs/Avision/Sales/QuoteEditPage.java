@@ -265,6 +265,8 @@ public class QuoteEditPage extends TestBase {
 
 
 		click(driver, editButton);
+		
+		Thread.sleep(6000);
 
 		click(driver, remarkField);
 		isSelected(driver, remarkField, "remarkField");
@@ -273,6 +275,7 @@ public class QuoteEditPage extends TestBase {
 
 		// Verify and Click on Save Button in Quote Create Page
 		click(driver, saveButton);
+	
 		
 		return new HomePage();
 

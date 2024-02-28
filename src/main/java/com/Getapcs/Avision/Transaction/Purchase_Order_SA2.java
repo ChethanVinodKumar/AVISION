@@ -12,6 +12,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class Purchase_Order_SA2 extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Issue Material'])[3]")
 	WebElement materialIssueViewButton_SA2;
@@ -27,6 +30,15 @@ public class Purchase_Order_SA2 extends TestBase {
 
 	@FindBy(xpath = "(//span[normalize-space()='INR'])[1]")
 	WebElement currencySelect;
+
+	@FindBy(xpath = "//input[@formcontrolname='poFiles']")
+	WebElement poFilesUpload;
+	@FindBy(xpath = "//button[text()='Save Files']")
+	WebElement saveFileButton;
+	@FindBy(xpath = "//button[text()='View Files']")
+	WebElement viewFileButton;
+	@FindBy(xpath = "//button[text()='Close']")
+	WebElement closeFileButton;
 
 	// Vender Details
 
@@ -122,8 +134,8 @@ public class Purchase_Order_SA2 extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter UTGST'])[1]")
 	WebElement utgst1;
 
-	@FindBy(xpath = "(//button[normalize-space()='Add'])[4]")
-	WebElement addItems;
+	@FindBy(xpath = "(//button[text()='Add'])[4]")
+	WebElement mainAddButton;
 
 	// Billing and Shipping Details
 
@@ -228,9 +240,9 @@ public class Purchase_Order_SA2 extends TestBase {
 
 		waitForElement(driver, materialIssueViewButton_SA2, 10, 1);
 		click(driver, materialIssueViewButton_SA2);
-
 		String tableXpath = "//table[@formarrayname='ItemData']";
 
+		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String ppNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
 
@@ -260,6 +272,7 @@ public class Purchase_Order_SA2 extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String ProjectNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[4]")).getText();
@@ -280,6 +293,12 @@ public class Purchase_Order_SA2 extends TestBase {
 		click(driver, currency);
 		isSelected(driver, currency, "currency");
 		click(driver, currencySelect);
+
+//		uploadFile(driver, poFilesUpload, 2);
+		uploadFilewithType(driver, poFilesUpload, "docx");
+		click(driver, saveFileButton);
+		click(driver, viewFileButton);
+		click(driver, closeFileButton);
 
 //Vender Details
 
@@ -306,14 +325,14 @@ public class Purchase_Order_SA2 extends TestBase {
 			if (i == 1) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("Purchase");
+				itemNumber.sendKeys(ppNumber1);
 				WebElement itemNumberSelect = driver.findElement(By.xpath(updatedXpathPP1));
 				click(driver, itemNumberSelect);
 			}
 			if (i == 2) {
 				click(driver, itemNumber);
 				itemNumber.clear();
-				itemNumber.sendKeys("Purchase");
+				itemNumber.sendKeys(ppNumber2);
 				WebElement itemNumberSelect1 = driver.findElement(By.xpath(updatedXpathPP2));
 				click(driver, itemNumberSelect1);
 			}
@@ -336,7 +355,7 @@ public class Purchase_Order_SA2 extends TestBase {
 			Thread.sleep(1000);
 			if (i == 1) {
 				WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath1));
-				Thread.sleep(1000);
+				Thread.sleep(500);
 				click(driver, projectNumberSelect);
 			}
 
@@ -346,15 +365,15 @@ public class Purchase_Order_SA2 extends TestBase {
 			projectQuntity.sendKeys(reqQty);
 
 			try {
-			if (i == 1) {
-				click(driver, prButton);
+				if (i == 1) {
+					click(driver, prButton);
 
-				click(driver, prSelect);
+					click(driver, prSelect);
 
-				click(driver, savePR);
-				Thread.sleep(2000);
-			}
-			}catch(Exception e) {
+					click(driver, savePR);
+					Thread.sleep(2000);
+				}
+			} catch (Exception e) {
 				System.out.println("Purchase Requisition Not Created for These.");
 			}
 
@@ -400,8 +419,10 @@ public class Purchase_Order_SA2 extends TestBase {
 			isSelected(driver, utgst1, "utgst1");
 			utgst1.clear();
 			utgst1.sendKeys(utgst);
+			
+			actions.moveToElement(driverIninteractable).perform();
 
-			click(driver, addItems);
+			click(driver, mainAddButton);
 
 		}
 
@@ -450,11 +471,11 @@ public class Purchase_Order_SA2 extends TestBase {
 
 //		String bu = driver.getCurrentUrl();
 		click(driver, save);
-		
+
 		Thread.sleep(4000);
-		
+
 //		String au = driver.getCurrentUrl();
-		
+
 //		Assert.assertNotEquals(bu, au);
 		return new HomePage();
 

@@ -9,6 +9,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//input[@autocorrect='off'])[1]")
 	WebElement itemNumberForItem;
@@ -145,11 +148,11 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 		System.out.println("\n" + "Engg_BOM_Create_Page_FOR_SA_2  Started" + "\n");
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/item-master/table");
-		driver.navigate().refresh();
 
 		String tableXpath = "//table[@class='table table-striped']";
 
-		Thread.sleep(500);
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(3000);
 		// Get the first PR number text from table
 		String ItemNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[7]/td[2]")).getText();
 
@@ -172,7 +175,7 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 
 		System.out.println(updatedXpathPP5);
 
-		Thread.sleep(500);
+//		Thread.sleep(500);
 		// Get the first PR number text from table
 		String ItemNum1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[6]/td[2]")).getText();
 
@@ -184,10 +187,10 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 		System.out.println(updatedXpathPP6);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/create");
-		driver.navigate().refresh();
 
 		// Item Number
 
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView(true);", itemNumberForItem);
 		Thread.sleep(5000);
 		click(driver, itemNumberForItem);
@@ -213,13 +216,13 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 
 		WebElement itemNumberForChildItemDataSelect = driver.findElement(By.xpath(updatedXpathPP5));
 		click(driver, itemNumberForChildItemDataSelect);
+		Thread.sleep(2000);
 
 		click(driver, quantityField);
 		isSelected(driver, quantityField, "quantityField");
 		quantityField.clear();
 		quantityField.sendKeys(quantity);
 
-		Thread.sleep(8000);
 		click(driver, scarpAllowanceField);
 		isSelected(driver, scarpAllowanceField, "scarpAllowanceField");
 		scarpAllowanceField.clear();
@@ -251,6 +254,7 @@ public class Engg_BOM_Create_Page_FOR_SA_2 extends TestBase {
 
 		WebElement itemNumberForChildItemDataSelect2 = driver.findElement(By.xpath(updatedXpathPP6));
 		click(driver, itemNumberForChildItemDataSelect2);
+		Thread.sleep(1000);
 
 		click(driver, quantityField);
 		isSelected(driver, quantityField, "quantityField");

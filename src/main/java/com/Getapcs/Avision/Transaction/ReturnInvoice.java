@@ -1,5 +1,6 @@
 package com.Getapcs.Avision.Transaction;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class ReturnInvoice extends TestBase {
+
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
+	WebElement shopOrderViewButton;
 
 	@FindBy(xpath = "(//button[normalize-space()='Return Invoice'])[1]")
 	WebElement returnInvoiceButtton;
@@ -76,6 +80,12 @@ public class ReturnInvoice extends TestBase {
 	@FindBy(xpath = "/html/body/app-root/div/div/div/div/div/app-return-invoice-form/div[2]/div/div/div/form/div/div[4]/div/div/div/table/tbody/tr/td[18]/div/textarea")
 	WebElement remarks;
 
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
+	WebElement viewDOButton;
+
+	@FindBy(xpath = "//button[normalize-space()='Binning']")
+	WebElement binningButton;
+
 	public ReturnInvoice() {
 
 		PageFactory.initElements(driver, this);
@@ -83,8 +93,51 @@ public class ReturnInvoice extends TestBase {
 
 //*************OQC Create Page******************
 
-	public HomePage ReturnInvoicepage(String ReturnQunatity, String Quantity) throws InterruptedException {
+	public HomePage ReturnInvoicepage() throws InterruptedException {
 
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order/table");
+
+		click(driver, shopOrderViewButton);
+
+		String tableXpath = "//table[@class='table table-striped']";
+		String tableXpath1 = "//table[@class='table mb-2']";
+		
+		Thread.sleep(2000);
+
+		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
+
+		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
+
+		String updatedXpath = elementXpath.replace("PP-54", projectNumber1);
+
+		System.out.println(updatedXpath);
+
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/delivery-order/table");
+
+		click(driver, viewDOButton);
+		click(driver, binningButton);
+		
+		Thread.sleep(2000);
+		String returnQty1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[13]")).getText();
+
+		String xPath = "(//span[normalize-space()='AVision Stores-III(General)'])[1]";
+
+		String wareHouse1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
+		String locationn1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		String qty1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+
+		String wareHouse2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[1]")).getText();
+		String locationn2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
+		String qty2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
+
+		String updatedXpathW1 = xPath.replace("AVision Stores-III(General)", wareHouse1);
+		String updatedXpathW2 = xPath.replace("AVision Stores-III(General)", wareHouse2);
+		String updatedXpathL1 = xPath.replace("AVision Stores-III(General)", locationn1);
+		String updatedXpathL2 = xPath.replace("AVision Stores-III(General)", locationn2);
+		System.out.println(updatedXpathW1 + "\n" + updatedXpathW2 + "\n" + updatedXpathL1 + "\n" + updatedXpathL2);
+
+		driver.navigate().to("https://avision-demo.getapcs.com/transaction/invoice/table");
+		
 		click(driver, returnInvoiceButtton);
 
 //Invoice Number
@@ -104,8 +157,11 @@ public class ReturnInvoice extends TestBase {
 //Project Number
 
 		click(driver, projectNumber);
+		WebElement projectNumberSelect = driver.findElement(By.xpath(updatedXpath));
+		click(driver, projectNumberSelect);
+		
 
-		projectNumber.sendKeys(Keys.ENTER);
+		
 
 //Return Qty
 
@@ -113,7 +169,7 @@ public class ReturnInvoice extends TestBase {
 
 		isSelected(driver, returnQty, "returnQty");
 
-		returnQty.sendKeys(ReturnQunatity);
+		returnQty.sendKeys(returnQty1);
 
 //Binning 
 
@@ -127,39 +183,39 @@ public class ReturnInvoice extends TestBase {
 
 				click(driver, warehouse);
 
-				isSelected(driver, warehouse, "warehouse");
-
-				click(driver, warehouseSelect);
+				WebElement warehouseSelect1 = driver.findElement(By.xpath(updatedXpathW1));
+				click(driver, warehouseSelect1);
 
 				// Location
 
 				click(driver, location);
+				WebElement locationSelect1 = driver.findElement(By.xpath(updatedXpathL1));
+				click(driver, locationSelect1);
+				
+				click(driver, binningQuantity);
 
-				isSelected(driver, location, "location");
-
-				click(driver, locationSelect);
+				binningQuantity.sendKeys(qty1);
 			}
 			if (i == 2) {
 				// Warehouse
 
 				click(driver, warehouse1);
 
-				isSelected(driver, warehouse1, "warehouse1");
-
-				click(driver, warehouseSelect1);
+				WebElement warehouseSelect2 = driver.findElement(By.xpath(updatedXpathW2));
+				click(driver, warehouseSelect2);
 
 				// Location
 
 				click(driver, location1);
 
-				isSelected(driver, location1, "location1");
+				WebElement locationSelect2 = driver.findElement(By.xpath(updatedXpathL2));
+				click(driver, locationSelect2);
+				
+				click(driver, binningQuantity);
 
-				click(driver, locationSelect1);
+				binningQuantity.sendKeys(qty2);
 			}
 
-			click(driver, binningQuantity);
-
-			binningQuantity.sendKeys(Quantity);
 
 			click(driver, add);
 		}

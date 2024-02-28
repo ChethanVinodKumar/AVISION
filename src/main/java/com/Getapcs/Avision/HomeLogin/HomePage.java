@@ -10,7 +10,7 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 public class HomePage extends TestBase {
 
 	@FindBy(tagName = "body")
-	WebElement driverIninteractable;
+	public static WebElement driverIninteractable;
 	
 //Secondary Master
 
@@ -169,7 +169,7 @@ public class HomePage extends TestBase {
 	@FindBy(linkText = "Modify / View")
 	WebElement prModifyorView;
 
-	@FindBy(xpath = "//tbody/tr[9]/td[1]/i[1]")
+	@FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]")
 	WebElement prEditOption;
 
 	@FindBy(xpath = "(//a[normalize-space()='PR Approval-I'])[1]")
@@ -183,7 +183,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//span[normalize-space()='Purchase Order (PO)'])[1]")
 	WebElement purchaseOrder;
 
-	@FindBy(xpath = "//a[@routerlink=\"transaction/purchase-order/create\"]")
+	@FindBy(xpath = "//a[@routerlink='transaction/purchase-order/create']")
 	WebElement poCreate;
 
 	@FindBy(xpath = "(//a[@routerlink='transaction/purchase-order/table'])[1]")
@@ -212,7 +212,7 @@ public class HomePage extends TestBase {
 	WebElement openGRINEditOption;
 
 	// GRIN
-	@FindBy(xpath = "//span[normalize-space()='GRIN']")
+	@FindBy(xpath = "(//span[normalize-space()='GRIN'])[1]")
 	WebElement grin;
 
 	@FindBy(xpath = "//a[@routerlink='transaction/grin/create']")
@@ -494,6 +494,7 @@ public class HomePage extends TestBase {
 		click(driver, rfq);
 		click(driver, createRFQ);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 	public void clickonRFQEdit() {
 		click(driver, threeLinesSideBarIcon);
@@ -501,14 +502,16 @@ public class HomePage extends TestBase {
 		click(driver, rfq);
 		click(driver, modifyorViewRfq);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickonSalesRfqModifyorView() {
-		threeLinesSideBarIcon.click();
-		sales.click();
-		rfq.click();
-		modifyorViewRfq.sendKeys(Keys.ENTER);
 		click(driver, threeLinesSideBarIcon);
+		click(driver, sales);
+		click(driver, rfq);
+		click(driver, modifyorViewRfq);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -526,6 +529,7 @@ public class HomePage extends TestBase {
 		click(driver, quoteModuleDropDown);
 		click(driver, createQuoteOption);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -536,6 +540,7 @@ public class HomePage extends TestBase {
 		click(driver, quote);
 		click(driver, modifyorViewQuote);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 //Engineering
@@ -622,7 +627,6 @@ public class HomePage extends TestBase {
 		click(driver, modifyorViewsourcing);
 		click(driver, threeLinesSideBarIcon);
 		actions.moveToElement(driverIninteractable).perform();
-		Thread.sleep(3000);
 	}
 
 	public void clickonLpCosting() throws InterruptedException {
@@ -631,7 +635,7 @@ public class HomePage extends TestBase {
 		click(driver, lpCosting);
 		click(driver, lpCostingModifyorView);
 		click(driver, threeLinesSideBarIcon);
-		Thread.sleep(3000);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 //Transaction
@@ -642,7 +646,7 @@ public class HomePage extends TestBase {
 		click(driver, quote);
 		click(driver, quoteVieworModify);
 		click(driver, threeLinesSideBarIcon);
-		
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickOnSalesOrderEdit() throws InterruptedException {
@@ -652,6 +656,7 @@ public class HomePage extends TestBase {
 		click(driver, salesOrder);
 		click(driver, salesOrderTablePage);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickOnSalesOrderTable() throws InterruptedException {
@@ -678,6 +683,7 @@ public class HomePage extends TestBase {
 		click(driver, shopOrder);
 		click(driver, createShopOrder);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -750,15 +756,13 @@ public class HomePage extends TestBase {
 	}
 
 	public void clickOnPREditPage() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		pr.click();
-		prModifyorView.click();
-		Thread.sleep(4000);
 		click(driver, threeLinesSideBarIcon);
-		js.executeScript("arguments[0].click();", prEditOption);
-		Thread.sleep(4000);
-//		prEditOption.click();
+		click(driver, transaction);
+		click(driver, pr);
+		click(driver, prModifyorView);
+		click(driver, threeLinesSideBarIcon);
+//		click(driver, prEditOption);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickOnPRTablePage() throws InterruptedException {
@@ -772,11 +776,13 @@ public class HomePage extends TestBase {
 //Purchase Order
 
 	public void clickontransactionPOcreate() {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		purchaseOrder.click();
-		poCreate.click();
+	
 		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, purchaseOrder);
+		click(driver, poCreate);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -785,29 +791,33 @@ public class HomePage extends TestBase {
 		click(driver, transaction);
 		click(driver, purchaseOrder);
 		click(driver, POmodelAndView);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickontransactionPOApproval1() {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		purchaseOrder.click();
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, purchaseOrder);
 		click(driver, poApproval1);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickontransactionPOApproval2() {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		purchaseOrder.click();
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, purchaseOrder);
 		click(driver, poApproval2);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
 	public void clickonPOEdit() {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		purchaseOrder.click();
-		POModifyandView.click();
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, purchaseOrder);
+		click(driver, POModifyandView);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickonPOTable() {
@@ -826,19 +836,20 @@ public class HomePage extends TestBase {
 		click(driver, openGRIN);
 		click(driver, openGRIN_Create);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 		Thread.sleep(3000);
 	}
 
 	// GRIN
 
 	public void clickOnGRINCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		grin.click();
-		grin_Create.click();
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, grin);
+		click(driver, grin_Create);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 //			menu.click();
-		Thread.sleep(3000);
 
 	}
 
@@ -849,6 +860,7 @@ public class HomePage extends TestBase {
 		click(driver, grin);
 		click(driver, grin_VieworModify);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 		Thread.sleep(3000);
 
 	}
@@ -857,12 +869,12 @@ public class HomePage extends TestBase {
 
 	public void clickOnIQCConfirmationCreate() throws InterruptedException {
 		click(driver, threeLinesSideBarIcon);
-		transaction.click();
-		iqcConfirmation.click();
+		click(driver, transaction);
+		click(driver, iqcConfirmation);
 		click(driver, iqcConfirmationCreate);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 //			menu.click();
-		Thread.sleep(3000);
 
 	}
 
@@ -880,15 +892,12 @@ public class HomePage extends TestBase {
 	// Binning
 
 	public void clickOnBinningCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
 		click(driver, binning);
-//			iqcConfirmationCreate.click();
-		js.executeScript("arguments[0].click();", binningCreate);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
-//			menu.click();
-		Thread.sleep(3000);
-
+		click(driver, binningCreate);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 	}
 
 	public void clickOnBinningTable() throws InterruptedException {
@@ -908,8 +917,10 @@ public class HomePage extends TestBase {
 		click(driver, transaction);
 		click(driver, shopOrder);
 		click(driver, shopOrderConfirmation);
-		click(driver, createshopOrderConfirmation);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		click(driver, createshopOrderConfirmation);
+		
 	}
 
 	public void clickOnShopOrderConfirmationTable() throws InterruptedException {
@@ -930,27 +941,31 @@ public class HomePage extends TestBase {
 		click(driver, transaction);
 		click(driver, oQC);
 		click(driver, oQC1);
-		click(driver, createOQC);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		click(driver, createOQC);
 	}
 
 	public void clickOnOQCTable() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		js.executeScript("arguments[0].click();", oQC);
-		js.executeScript("arguments[0].click();", oQC1);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, oQC);
+		click(driver, oQC1);
+		click(driver, threeLinesSideBarIcon);
 	}
 
 	// OQC Binning
 
 	public void clickOnOQCBinningCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		js.executeScript("arguments[0].click();", oQCBinning);
-		js.executeScript("arguments[0].click();", oQCBinningModifyorView);
-		js.executeScript("arguments[0].click();", createOQCBinning);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, oQCBinning);
+		click(driver, oQCBinningModifyorView);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		click(driver, createOQCBinning);
+		
 	}
 
 	public void clickOnOQCBinningTable() throws InterruptedException {
@@ -964,11 +979,13 @@ public class HomePage extends TestBase {
 	// Delivery Order
 
 	public void clickOnDOCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		transaction.click();
-		js.executeScript("arguments[0].click();", deliveryOrder);
-		js.executeScript("arguments[0].click();", createDeliveryOrder);
-		js.executeScript("arguments[0].click();", threeLinesSideBarIcon);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, deliveryOrder);
+		click(driver, createDeliveryOrder);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		
 	}
 
 	public void clickOnDOTable() throws InterruptedException {
@@ -986,7 +1003,7 @@ public class HomePage extends TestBase {
 		click(driver, deliveryOrder);
 		click(driver, MorVDeliveryOrder);
 		click(driver, threeLinesSideBarIcon);
-		Thread.sleep(3000);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -1011,7 +1028,6 @@ public class HomePage extends TestBase {
 		click(driver, returnODO);
 		click(driver, threeLinesSideBarIcon);
 
-		Thread.sleep(3000);
 
 	}
 
@@ -1021,7 +1037,17 @@ public class HomePage extends TestBase {
 		click(driver, invoice);
 		click(driver, invoiceCreate);
 		click(driver, threeLinesSideBarIcon);
-		Thread.sleep(3000);
+		actions.moveToElement(driverIninteractable).perform();
+
+	}
+	
+	public void clickOnReturnInvoice() throws InterruptedException {
+		click(driver, threeLinesSideBarIcon);
+		click(driver, transaction);
+		click(driver, invoice);
+		click(driver, invoiceMorV);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -1031,7 +1057,7 @@ public class HomePage extends TestBase {
 		click(driver, invoice);
 		click(driver, invoiceMorV);
 		click(driver, threeLinesSideBarIcon);
-		Thread.sleep(3000);
+		actions.moveToElement(driverIninteractable).perform();
 
 	}
 
@@ -1092,6 +1118,7 @@ public class HomePage extends TestBase {
 		click(driver, reports);
 		click(driver, inventryReportWithLocation);
 		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
 		Thread.sleep(3000);
 
 	}

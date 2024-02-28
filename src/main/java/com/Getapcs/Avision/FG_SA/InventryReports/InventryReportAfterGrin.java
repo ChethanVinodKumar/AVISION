@@ -32,10 +32,10 @@ public class InventryReportAfterGrin extends TestBase {
 	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
-	@FindBy(xpath = "(//i[@title='Click to view'])[2]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[3]")
 	WebElement viewButton1;
 
-	@FindBy(xpath = "(//i[@title='Click to view'])[3]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[5]")
 	WebElement viewButton2;
 
 	@FindBy(xpath = "(//a[normalize-space()='Items'])[1]")
@@ -147,6 +147,7 @@ public class InventryReportAfterGrin extends TestBase {
 			}
 
 			if (i == 1) {
+				Thread.sleep(1000);
 				searchPartType.clear();
 				searchPartType.sendKeys(partType1);
 

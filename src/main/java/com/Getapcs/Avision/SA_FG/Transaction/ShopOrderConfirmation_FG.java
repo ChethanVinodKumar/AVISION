@@ -12,6 +12,8 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class ShopOrderConfirmation_FG extends TestBase {
 
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 	// Shop Order
 
 	@FindBy(xpath = "(//textarea[@role='combobox'])[1]")
@@ -54,6 +56,9 @@ public class ShopOrderConfirmation_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/material-issue/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		String fgItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
 
@@ -65,6 +70,8 @@ public class ShopOrderConfirmation_FG extends TestBase {
 
 		// Shop Order Number
 
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(500);
 		String salesOrderNum = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 
 		String updatedXpath1 = elementXpath.replace("Item-FG-11-TEST", salesOrderNum);
@@ -73,14 +80,18 @@ public class ShopOrderConfirmation_FG extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order-confirm/create");
 
+		Thread.sleep(3000);
+		
+		actions.moveToElement(driverIninteractable).perform();
 //FG Item Number
 		click(driver, fgItemNumber);
 		fgItemNumber.sendKeys(Keys.BACK_SPACE);
 		isSelected(driver, fgItemNumber, "fgItemNumber");
 
 		WebElement fgItemNumberSelect = driver.findElement(By.xpath(updatedXpath));
-
-		js.executeScript("arguments[0].click();", fgItemNumberSelect);
+		click(driver, fgItemNumberSelect);
+		
+		Thread.sleep(3000);
 
 //Sales Order Number
 
@@ -89,8 +100,9 @@ public class ShopOrderConfirmation_FG extends TestBase {
 		isSelected(driver, salesOrderNum1, "fgItemNumber");
 
 		WebElement salesOrderNumSelect = driver.findElement(By.xpath(updatedXpath1));
+		click(driver, salesOrderNumSelect);
 
-		js.executeScript("arguments[0].click();", salesOrderNumSelect);
+		Thread.sleep(3000);
 
 //produced Qty
 

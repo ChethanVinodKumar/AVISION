@@ -15,17 +15,19 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class ShopOrderConfirmation_SA1 extends TestBase {
 
 	// Shop Order Confirmation
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//input[@value='sa'])[1]")
 	WebElement saCheckBox;
 
-	@FindBy(xpath = "(//textarea[@role='combobox'])[1]")
+	@FindBy(xpath = "//label[normalize-space()='SA Item Number / Description']/..//textarea[@formcontrolname='saItemNoDesc']")
 	WebElement saItemNumber;
 
 	@FindBy(xpath = "(//input[@placeholder='Enter Produced Qty'])[1]")
 	WebElement producedQty;
 
-	@FindBy(xpath = "(//input[@aria-autocomplete='list'])[1]")
+	@FindBy(xpath = "//label[normalize-space()='Shop Order Number']/..//ng-select[@placeholder='Select Shop Order Number']/..//input")
 	WebElement shopOrderNum1;
 
 	@FindBy(xpath = "//label[normalize-space(text())='Shop Order Released Qty']/following-sibling::div/input[@formcontrolname='shopOrderQty']")
@@ -54,6 +56,7 @@ public class ShopOrderConfirmation_SA1 extends TestBase {
 		// TODO Auto-generated method stub
 		System.out.println("//*************Shop Order Confirmation Create Page******************");
 
+		Thread.sleep(3000);
 		// FG Item Num
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/material-issue/table");
@@ -73,23 +76,32 @@ public class ShopOrderConfirmation_SA1 extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/shop-order-confirm/create");
 
 //SA Item Number
+		actions.moveToElement(driverIninteractable).perform();
 
 		Thread.sleep(Duration.ofSeconds(4));
 		click(driver, saCheckBox);
 
+		actions.moveToElement(driverIninteractable).perform();
 		click(driver, saItemNumber);
 		isSelected(driver, saItemNumber, "saItemNumber");
 		saItemNumber.sendKeys((Keys.CONTROL + "a"), (Keys.BACK_SPACE));
 		WebElement saItemNumberSelect = driver.findElement(By.xpath(updatedXpath));
 		click(driver, saItemNumberSelect);
+		Thread.sleep(2000);
+		actions.moveToElement(driverIninteractable).perform();
+		
 
 //Sales Order Number
+		Thread.sleep(3000);
 
 		click(driver, shopOrderNum1);
 		isSelected(driver, shopOrderNum1, "shopOrderNum1");
 		shopOrderNum1.sendKeys(soItemNumber1);
 		WebElement salesOrderNumSelect = driver.findElement(By.xpath(updatedXpathSO));
 		click(driver, salesOrderNumSelect);
+		Thread.sleep(2000);
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(4000);
 
 //produced Qty
 

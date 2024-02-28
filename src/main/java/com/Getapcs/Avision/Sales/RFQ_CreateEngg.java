@@ -12,6 +12,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class RFQ_CreateEngg extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "(//i[@title='Engg'])[1]")
 	WebElement enggButton;
@@ -55,6 +58,9 @@ public class RFQ_CreateEngg extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/engineering/engg-bom/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String fgItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
@@ -96,7 +102,7 @@ public class RFQ_CreateEngg extends TestBase {
 //
 //		click(driver, enggButton);
 //
-//		Thread.sleep(4000);
+		Thread.sleep(4000);
 //
 //		// Verify and Click on Check Box which is Present in Item Tab-CS Release
 ////		click(driver, itemTabCheckBox);

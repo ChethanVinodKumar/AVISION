@@ -179,9 +179,9 @@ public class Engg_BOM_Edit_Page extends TestBase {
 //		assertFalse(isHiddenScrapAllowanceField);
 //		scarpAllowanceField.clear();
 //		scarpAllowanceField.sendKeys(scarpAllowance);
-		Thread.sleep(2000);
+		Thread.sleep(7000);
 		click(driver, clickForUpdateChildItem);
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 
 		// 1Verifying that Remarks Field is Enabled or not
 		click(driver, remarkField);

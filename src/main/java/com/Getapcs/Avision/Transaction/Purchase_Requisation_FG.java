@@ -12,6 +12,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class Purchase_Requisation_FG extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	@FindBy(xpath = "//label[normalize-space(text())='PR Date']/following-sibling::div/input[@formcontrolname='prDate']")
 	WebElement prDateElement;
@@ -229,6 +232,9 @@ public class Purchase_Requisation_FG extends TestBase {
 		click(driver, materialIssueViewButton_FG);
 
 		String tableXpath = "//table[@formarrayname='ItemData']";
+		
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Get the first PR number text from table
 		String ppNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
@@ -259,7 +265,9 @@ public class Purchase_Requisation_FG extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/sales-order/table");
 
 		String tableXpath1 = "//table[@class='table table-striped']";
-
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
+		
 		// Get the first PR number text from table
 		String ProjectNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[4]")).getText();
 
@@ -271,6 +279,8 @@ public class Purchase_Requisation_FG extends TestBase {
 		System.out.println(updatedXpath1);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/purchase-requisition/create");
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Procutement Type
 
@@ -302,15 +312,16 @@ public class Purchase_Requisation_FG extends TestBase {
 			click(driver, itemNumberDropDown);
 
 			itemNumberDropDown.clear();
-			itemNumberDropDown.sendKeys("Purchase");
 
 			if (i == 1) {
+				itemNumberDropDown.sendKeys(ppNumber1);
 				WebElement itemNumberDropDownDataSelect = driver.findElement(By.xpath(updatedXpathPP1));
 				waitForElement(driver, itemNumberDropDownDataSelect, 20, 1);
 				click(driver, itemNumberDropDownDataSelect);
 			}
 
 			if (i == 2) {
+				itemNumberDropDown.sendKeys(ppNumber2);
 				WebElement itemNumberDropDownDataSelect1 = driver.findElement(By.xpath(updatedXpathPP2));
 				waitForElement(driver, itemNumberDropDownDataSelect1, 20, 1);
 				click(driver, itemNumberDropDownDataSelect1);

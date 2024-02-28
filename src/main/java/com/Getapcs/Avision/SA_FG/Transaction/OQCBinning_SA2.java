@@ -12,6 +12,9 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class OQCBinning_SA2 extends TestBase {
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 
 	// Shop Order
 	@FindBy(xpath = "(//input[@value='sa'])[1]")
@@ -81,6 +84,8 @@ public class OQCBinning_SA2 extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/fg-oqc");
 
 		String tableXpath = "//table[@class='table table-striped']";
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
