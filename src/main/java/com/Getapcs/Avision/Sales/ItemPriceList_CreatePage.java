@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
@@ -88,8 +89,9 @@ public class ItemPriceList_CreatePage extends TestBase {
 		driver.navigate().to("https://avision-demo.getapcs.com/master/price-list/table");
 
 		String tableXpath = "//table[@class='table table-striped']";
-
+		Thread.sleep(2000);
 		String PriceList = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		Assert.assertNotNull(PriceList,"PriceList is Null");
 
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -103,7 +105,8 @@ public class ItemPriceList_CreatePage extends TestBase {
 		String tableXpath1 = "//table[@class='table table-striped']";
 
 		String ItemNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[2]")).getText();
-
+		Assert.assertNotNull(ItemNumber,"ItemNumber is Null");
+		
 		String elementXpath1 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath1 = elementXpath1.replace("Item-FG-11-TEST", ItemNumber + "-Test Description");

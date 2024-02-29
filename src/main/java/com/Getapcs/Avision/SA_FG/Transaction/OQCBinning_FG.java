@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
@@ -83,7 +84,8 @@ public class OQCBinning_FG extends TestBase {
 		Thread.sleep(2000);
 		// Get the first PR number text from table
 		String fgItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
-
+		Assert.assertNotNull(fgItemNumber1,"fgItemNumber1 is Null");
+		
 		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -101,6 +103,7 @@ public class OQCBinning_FG extends TestBase {
 
 		// Get the first PR number text from table
 		String shopOrderNumber = driver.findElement(By.xpath(tableXpath2 + "/tbody/tr[1]/td[2]")).getText();
+		Assert.assertNotNull(shopOrderNumber,"shopOrderNumber is Null");
 
 		// Store the element with hard coded PR number
 		String elementXpath2 = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
@@ -116,7 +119,7 @@ public class OQCBinning_FG extends TestBase {
 		actions.moveToElement(driverIninteractable).perform();
 		Thread.sleep(2000);
 		click(driver, fgItemNumber);
-		fgItemNumber.sendKeys(Keys.BACK_SPACE);
+		fgItemNumber.sendKeys((Keys.CONTROL + "a"), Keys.BACK_SPACE);
 		isSelected(driver, fgItemNumber, "fgItemNumber");
 
 		WebElement fgItemNumberSelect = driver.findElement(By.xpath(updatedXpath));
@@ -126,11 +129,8 @@ public class OQCBinning_FG extends TestBase {
 //Shop Order Number
 
 		click(driver, shopOrderNum);
-
 		isSelected(driver, shopOrderNum, "shopOrderNum");
-
 		WebElement shopOrderNumSelect = driver.findElement(By.xpath(updatedXpath2));
-
 		click(driver, shopOrderNumSelect);
 
 //accepted Qty

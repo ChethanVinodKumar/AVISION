@@ -102,6 +102,7 @@ public class InventryReportAfterMaterialIssue_SA1 extends TestBase {
 			}
 
 			if (i == 1) {
+				Thread.sleep(1000);
 				searchPartType.clear();
 				searchPartType.sendKeys(partType1);
 

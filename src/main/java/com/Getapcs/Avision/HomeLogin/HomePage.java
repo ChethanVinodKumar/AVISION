@@ -1032,6 +1032,7 @@ public class HomePage extends TestBase {
 	}
 
 	public void clickOnInvoiceCreate() throws InterruptedException {
+		Thread.sleep(2000);
 		click(driver, threeLinesSideBarIcon);
 		click(driver, transaction);
 		click(driver, invoice);
@@ -1042,6 +1043,7 @@ public class HomePage extends TestBase {
 	}
 	
 	public void clickOnReturnInvoice() throws InterruptedException {
+		Thread.sleep(2000);
 		click(driver, threeLinesSideBarIcon);
 		click(driver, transaction);
 		click(driver, invoice);

@@ -388,6 +388,7 @@ public class SalesOrder extends TestBase {
 		click(driver, releaseButton);
 
 		click(driver, convertToSalesOrderButton);
+		Thread.sleep(2000);
 
 		// ################ Sales Order Create Page ##################
 
@@ -523,7 +524,7 @@ public class SalesOrder extends TestBase {
 
 		datePicker(driver, poDatePicker);
 
-		datePicker(driver, poReceivedDatePicker);
+		selectPreviousDate(driver, poReceivedDatePicker,3);
 
 		// ################## Billing & Shipping Details Tab ######################
 

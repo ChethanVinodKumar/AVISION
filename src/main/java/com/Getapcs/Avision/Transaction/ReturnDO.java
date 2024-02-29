@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
@@ -13,6 +14,9 @@ import com.Getapcs.Avision.HomeLogin.HomePage;
 public class ReturnDO extends TestBase {
 
 	// Return Delivery Order
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
 	
 	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement shopOrderViewButton;
@@ -115,16 +119,25 @@ public class ReturnDO extends TestBase {
 
 		String tableXpath = "//table[@class='table table-striped']";
 		String tableXpath1 = "//table[@class='table mb-2']";
+		
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 
 		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
-
+		Assert.assertNotNull(projectNumber1,"projectNumber1 is Null");
+		
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
 
 		String updatedXpath = elementXpath.replace("PP-54", projectNumber1);
 
 		System.out.println(updatedXpath);
+		
+		Thread.sleep(2000);
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/delivery-order/table");
+		
+		Thread.sleep(5000);
+		
 		click(driver, viewDOButton);
 		click(driver, binningButton);
 		
@@ -134,10 +147,17 @@ public class ReturnDO extends TestBase {
 		String wareHouse1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
 		String locationn1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
 		String qty1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+		Assert.assertNotNull(wareHouse1,"wareHouse1 is Null");
+		Assert.assertNotNull(locationn1,"locationn1 is Null");
+		Assert.assertNotNull(qty1,"qty1 is Null");
 		
 		String wareHouse2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[1]")).getText();
 		String locationn2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
 		String qty2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
+		Assert.assertNotNull(wareHouse2,"wareHouse1 is Null");
+		Assert.assertNotNull(locationn2,"locationn1 is Null");
+		Assert.assertNotNull(qty2,"qty1 is Null");
+		
 		
 		String updatedXpathW1 = xPath.replace("AVision Stores-III(General)", wareHouse1);
 		String updatedXpathW2 = xPath.replace("AVision Stores-III(General)", wareHouse2);
@@ -146,7 +166,7 @@ public class ReturnDO extends TestBase {
 		System.out.println(updatedXpathW1+"\n"+updatedXpathW2+"\n"+updatedXpathL1+"\n"+updatedXpathL2);
 		
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/delivery-order/table");
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		click(driver, returnDO);
 
 //Customer Name

@@ -31,7 +31,7 @@ public class ENGG_Release extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButton;
 
-	@FindBy(xpath = "//table[@class='table table-striped']//th[1]//input")
+	@FindBy(xpath = "(//table[@class='table table-striped']//tr[1]//input[1])[2]")
 	WebElement itemTabCheckBox;
 
 	@FindBy(xpath = "(//input[@value='1400'])[1]")

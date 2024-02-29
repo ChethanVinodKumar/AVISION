@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
@@ -69,6 +70,10 @@ public class VerifyInvoiceCreate extends TestBase {
 		String customerName = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[4]")).getText();
 
 		String doNumber = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		
+		Assert.assertNotNull(customerId,"customerId is Null");
+		Assert.assertNotNull(customerName,"customerName is Null");
+		Assert.assertNotNull(doNumber,"doNumber is Null");
 
 		// Store the element with hard coded PR number
 		String customerIdXpath = "//span[normalize-space()='031023PR-00002']";
@@ -79,12 +84,16 @@ public class VerifyInvoiceCreate extends TestBase {
 
 		System.out.println(doNumberupdatedXpath);
 		System.out.println(customerIdupdatedXpath);
+		
+		Thread.sleep(1000);
 
 		click(driver, viewDO);
 
 		String tableXpath1 = "//table[@class='table mb-2']";
 		Thread.sleep(1000);
 		String fgNumber = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[1]")).getText();
+		Assert.assertNotNull(fgNumber,"fgNumber is Null");
+		
 		System.out.println("fgNumber :- "+fgNumber);
 		
 		String fgNumberXpath = "//span[normalize-space()='031023PR-00002']";
@@ -94,7 +103,7 @@ public class VerifyInvoiceCreate extends TestBase {
 		Thread.sleep(1000);
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/invoice/create");
 
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		click(driver, customerNameDropDown);
 		isSelected(driver, customerNameDropDown, "customerNameDropDown");
 		WebElement customerIdSelect = driver.findElement(By.xpath(customerIdupdatedXpath));

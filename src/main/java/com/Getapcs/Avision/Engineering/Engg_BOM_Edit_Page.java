@@ -1,11 +1,10 @@
 package com.Getapcs.Avision.Engineering;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;;
@@ -179,7 +178,7 @@ public class Engg_BOM_Edit_Page extends TestBase {
 //		assertFalse(isHiddenScrapAllowanceField);
 //		scarpAllowanceField.clear();
 //		scarpAllowanceField.sendKeys(scarpAllowance);
-		Thread.sleep(7000);
+		Thread.sleep(14000);
 		click(driver, clickForUpdateChildItem);
 		Thread.sleep(1000);
 

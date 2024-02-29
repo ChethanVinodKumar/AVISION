@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.ShopOrderConfirmationDynamicValue;
 import com.Getapcs.Avision.BASECLASS.TestBase;
@@ -66,6 +67,9 @@ public class ShopOrderConfirmation_SA1 extends TestBase {
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
 		String soItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
 
+		Assert.assertNotNull(saItemNumber1,"saItemNumber1 is Null");
+		Assert.assertNotNull(soItemNumber1,"soItemNumber1 is Null");
+		
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", saItemNumber1 + "-Test Description");

@@ -791,7 +791,7 @@ public class SA_FG_Create_Edit extends TestBase {
 
 		test = reports.createTest("verifySalesRFQ_ENGG_Create");
 		homePage.clickonSalesRfqModifyorView();
-		RFQ_CreateEngg.RFQEnggCreate("10", // QuantityInaddShedule
+		RFQ_CreateEngg.RFQEnggCreate("10", // Q0uantityInaddShedule
 				"TEST Note"); // String Note
 
 		Thread.sleep(3000);
@@ -1653,7 +1653,7 @@ public class SA_FG_Create_Edit extends TestBase {
 		homePage.clickOnReturnDO();
 		returnDO.ReturnDOCreate("5");
 
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 	}
 

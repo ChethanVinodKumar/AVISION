@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
@@ -61,6 +62,9 @@ public class OQC_SA1 extends TestBase {
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[4]")).getText();
 		String soItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
 
+		Assert.assertNotNull(saItemNumber1,"saItemNumber1 is Null");
+		Assert.assertNotNull(soItemNumber1,"soItemNumber1 is Null");
+		
 		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -74,6 +78,9 @@ public class OQC_SA1 extends TestBase {
 		Thread.sleep(3000);
 
 		click(driver, saCheckBox);
+		
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 //SA Item Number
 
 		click(driver, saItemNumber);

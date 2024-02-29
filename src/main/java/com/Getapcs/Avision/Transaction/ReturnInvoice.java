@@ -5,12 +5,17 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class ReturnInvoice extends TestBase {
 
+	
+	@FindBy(tagName = "body")
+	public static WebElement driverIninteractable;
+	
 	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement shopOrderViewButton;
 
@@ -105,6 +110,7 @@ public class ReturnInvoice extends TestBase {
 		Thread.sleep(2000);
 
 		String projectNumber1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[3]")).getText();
+		Assert.assertNotNull(projectNumber1,"customerId is Null");
 
 		String elementXpath = "(//div[normalize-space()='PP-54'])[1]";
 
@@ -119,17 +125,24 @@ public class ReturnInvoice extends TestBase {
 		
 		Thread.sleep(2000);
 		String returnQty1 = driver.findElement(By.xpath(tableXpath1 + "/tbody/tr[1]/td[13]")).getText();
+		Assert.assertNotNull(returnQty1,"customerId is Null");
 
 		String xPath = "(//span[normalize-space()='AVision Stores-III(General)'])[1]";
 
 		String wareHouse1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[1]")).getText();
+		Assert.assertNotNull(wareHouse1,"wareHouse1 is Null");
 		String locationn1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
+		Assert.assertNotNull(locationn1,"locationn1 is Null");
 		String qty1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
+		Assert.assertNotNull(qty1,"qty1 is Null");
 
 		String wareHouse2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[1]")).getText();
+		Assert.assertNotNull(wareHouse2,"wareHouse1 is Null");
 		String locationn2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
+		Assert.assertNotNull(locationn2,"locationn1 is Null");
 		String qty2 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
-
+		Assert.assertNotNull(qty2,"qty2 is Null");
+		
 		String updatedXpathW1 = xPath.replace("AVision Stores-III(General)", wareHouse1);
 		String updatedXpathW2 = xPath.replace("AVision Stores-III(General)", wareHouse2);
 		String updatedXpathL1 = xPath.replace("AVision Stores-III(General)", locationn1);
