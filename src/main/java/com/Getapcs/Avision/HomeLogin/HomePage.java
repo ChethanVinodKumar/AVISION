@@ -47,7 +47,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//a[@routerlink='masters/company-master/table']")
 	WebElement modifyorView;
 
-	@FindBy(xpath = "(//i[@title='Click to edit'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to Edit'])[1]")
 	WebElement editButton;
 
 	@FindBy(xpath = "(//span[normalize-space()='Vendor Master'])[1]")
@@ -415,21 +415,24 @@ public class HomePage extends TestBase {
 //PrimaryMaster
 
 	public void clickOnCompanyMasterCreate() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		primaryMaster.click();
-		companyMaster.click();
-		companyMasterCreate.click();
-		Thread.sleep(4000);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, primaryMaster);
+		click(driver, companyMaster);
+		click(driver, companyMasterCreate);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 	}
 
 	public void clickOnCompanyMasterEdit() throws InterruptedException {
-		threeLinesSideBarIcon.click();
-		primaryMaster.click();
-		companyMaster.click();
-		modifyorView.click();
-		js.executeScript("arguments[0].click()", editButton);
-
-		Thread.sleep(4000);
+		click(driver, threeLinesSideBarIcon);
+		click(driver, primaryMaster);
+		click(driver, companyMaster);
+		click(driver, modifyorView);
+		click(driver, editButton);
+		click(driver, threeLinesSideBarIcon);
+		actions.moveToElement(driverIninteractable).perform();
+		Thread.sleep(2000);
 	}
 
 	public void clickOnCustomerMasterCreate() throws InterruptedException {

@@ -508,944 +508,217 @@ public class CustomerMaster extends TestBase {
 			String skill, String people, String cacp, String floor, String machine1, String tools, String sqft1,
 			String erp2, String osp2, String approved) throws InterruptedException, AWTException {
 
+		System.out.println("######## Customer Master Create Started Now #########");
+
+		click(driver, customerId);
+		isSelected(driver, customerId, "customerId");
 		customerId.sendKeys(cusId);
-		// 1Verifying that Item Number Text Field is Enabled or not
-		boolean isEnabledCompanyIdTextField = customerId.isEnabled();
-		assertTrue(isEnabledCompanyIdTextField);
-		boolean isDisabledCompanyIdTextFieldn = !customerId.isEnabled();
-		assertFalse(isDisabledCompanyIdTextFieldn);
 
-		// Verifying that Item Number Text Field is displayed or hidden.
-		boolean isDisplayedCompanyIdTextField = customerId.isDisplayed();
-		assertTrue(isDisplayedCompanyIdTextField);
-		boolean isHiddenCompanyIdTextField = !customerId.isDisplayed();
-		assertFalse(isHiddenCompanyIdTextField);
-
-		// Verifying that Item Number Text Field is Selected or unselected
-		boolean isSelectedCompanyIdTextField = customerId.isSelected();
-		assertFalse(isSelectedCompanyIdTextField);
-		boolean isDeselectedCompanyIdTextField = !customerId.isSelected();
-		assertTrue(isDeselectedCompanyIdTextField);
-
-		// Verifying the Placeholder which is present in CompanyId Name text field.
-		String displayedTextInCompanyId = customerId.getAttribute("placeholder");
-
-		String expected_placeholder1 = "Enter Customer Id";
-
-		assertEquals(displayedTextInCompanyId, expected_placeholder1);
-
+		click(driver, customerName);
+		isSelected(driver, customerName, "customerName");
 		customerName.sendKeys(cusName);
-		// 1Verifying that Item Number Text Field is Enabled or not
-		boolean isEnabledCompanyNameTextField = customerName.isEnabled();
-		assertTrue(isEnabledCompanyNameTextField);
-		boolean isDisabledCompanyNameTextFieldn = !customerName.isEnabled();
-		assertFalse(isDisabledCompanyNameTextFieldn);
 
-		// Verifying that Item Number Text Field is displayed or hidden.
-		boolean isDisplayedCompanyNameTextField = customerName.isDisplayed();
-		assertTrue(isDisplayedCompanyNameTextField);
-		boolean isHiddenCompanyNameTextField = !customerName.isDisplayed();
-		assertFalse(isHiddenCompanyNameTextField);
-
-		// Verifying that Item Number Text Field is Selected or unselected
-		boolean isSelectedCompanyNameTextField = customerName.isSelected();
-		assertFalse(isSelectedCompanyNameTextField);
-		boolean isDeselectedCompanyNameTextField = !customerName.isSelected();
-		assertTrue(isDeselectedCompanyNameTextField);
-
-		// Verifying the Placeholder which is present in CompanyName text field.
-		String displayedTextInCompanyName = customerName.getAttribute("placeholder");
-
-		String expected_placeholder2 = "Enter Customer Name";
-
-		assertEquals(displayedTextInCompanyName, expected_placeholder2);
-
+		click(driver, customerAlias);
+		isSelected(driver, customerAlias, "customerAlias");
 		customerAlias.sendKeys(cusAlias);
-		// 1Verifying that Item Number Text Field is Enabled or not
-		boolean isEnabledCompanyAliasTextField = customerAlias.isEnabled();
-		assertTrue(isEnabledCompanyAliasTextField);
-		boolean isDisabledCompanyAliasTextFieldn = !customerAlias.isEnabled();
-		assertFalse(isDisabledCompanyAliasTextFieldn);
-
-		// Verifying that Item Number Text Field is displayed or hidden.
-		boolean isDisplayedCompanyAliasTextField = customerAlias.isDisplayed();
-		assertTrue(isDisplayedCompanyAliasTextField);
-		boolean isHiddenCompanyAliasTextField = !customerAlias.isDisplayed();
-		assertFalse(isHiddenCompanyAliasTextField);
-
-		// Verifying that Item Number Text Field is Selected or unselected
-		boolean isSelectedCompanyAliasTextField = customerAlias.isSelected();
-		assertFalse(isSelectedCompanyAliasTextField);
-		boolean isDeselectedCompanyAliasTextField = !customerAlias.isSelected();
-		assertTrue(isDeselectedCompanyAliasTextField);
-
-		// Verifying the Placeholder which is present in CompanyAlias text field.
-		String displayedTextInCompanyAlias = customerAlias.getAttribute("placeholder");
-
-		String expected_placeholder3 = "Enter Customer Alias";
-
-		assertEquals(displayedTextInCompanyAlias, expected_placeholder3);
-
-//        //Verify the Hight and Width of the CompanyId and CompanyName Text Field.
-//		int CompanyIdfieldHeightSize = CompanyId.getSize().getHeight();
-//		int CompanyIdfieldWidthSize = CompanyId.getSize().getWidth();
-//	
-//		int CompanyNamefieldHeightSize = CompanyName.getSize().getHeight();
-//		int CompanyNamefieldWidthSize = CompanyName.getSize().getWidth();
-//		
-//		int CompanyAliasfieldHeightSize = CompanyAlias.getSize().getHeight();
-//		int CompanyAliasfieldWidthSize = CompanyAlias.getSize().getWidth();
-//		
-//		System.out.println("The maximun Height of CompanyId Text field is"+CompanyIdfieldHeightSize);
-//		System.out.println("The maximun Width of CompanyId Text field is "+CompanyIdfieldWidthSize);
-//		System.out.println("The maximun Height of CompanyName text field is "+CompanyNamefieldHeightSize);
-//		System.out.println("The maximun Width of CompanyName text field is "+CompanyNamefieldWidthSize);
-//		System.out.println("The maximun Height of CompanyAlias text field is "+CompanyAliasfieldHeightSize);
-//		System.out.println("The maximun Width of CompanyAlias text field is "+CompanyAliasfieldWidthSize);		
-
-		// *****************************//
 
 //General
 
-		// Verify that CustomerType Field is Displayed or not
-		boolean isDisabledCustomerTypeFieldn = !customerType.isDisplayed();
-		assertFalse(isDisabledCustomerTypeFieldn);
+		click(driver, customerType);
+		isSelected(driver, customerType, "customerType");
+		click(driver, customerTypeSelect);
 
-		// Verify that CustomerType Field is clickable or not
-		WebElement CustomerTypeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean CustomerTypeFieldIsSelected = CustomerTypeFieldFocusedElement.equals(customerType);
-		assertFalse(CustomerTypeFieldIsSelected, "CustomerType Text Field is not Selected");
-
-		// Verifying that CustomerType Text Field is Enabled or not
-		boolean isEnabledInspectionIntDaysField = customerType.isEnabled();
-		assertTrue(isEnabledInspectionIntDaysField);
-
-		customerType.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", customerTypeSelect);
-
-		// Verify that Address Field is Displayed or not
-		boolean isDisabledAddressFieldn = !address.isDisplayed();
-		assertFalse(isDisabledAddressFieldn);
-
-		// Verify that Address Field is clickable or not
-		WebElement AddressFieldFocusedElement = driver.switchTo().activeElement();
-		boolean AddressFieldIsSelected = AddressFieldFocusedElement.equals(address);
-		assertFalse(AddressFieldIsSelected, "Address Text Field is not Selected");
-
-		// Verifying that Address Text Field is Enabled or not
-		boolean isEnabledAddressField = address.isEnabled();
-		assertTrue(isEnabledAddressField);
+		click(driver, address);
+		isSelected(driver, address, "address");
 		address.sendKeys(add);
 
-		// Verifying the Placeholder which is present in Address text field.
-		String displayedTextInAddress = address.getAttribute("placeholder");
-
-		String expected_placeholder4 = "Enter Address";
-
-		assertEquals(displayedTextInAddress, expected_placeholder4);
-
-		// Verify that City Field is Displayed or not
-		boolean isDisabledCityFieldn = !city.isDisplayed();
-		assertFalse(isDisabledCityFieldn);
-
-		// Verify that City Field is clickable or not
-		WebElement CityFieldFocusedElement = driver.switchTo().activeElement();
-		boolean CityFieldIsSelected = CityFieldFocusedElement.equals(city);
-		assertFalse(CityFieldIsSelected, "City Text Field is not Selected");
-
-		// Verifying that City Text Field is Enabled or not
-		boolean isEnabledCityField = city.isEnabled();
-		assertTrue(isEnabledCityField);
-
-		// Verifying the Placeholder which is present in City text field.
-		String displayedTextInCity = city.getAttribute("placeholder");
-
-		String expected_placeholder5 = "Enter city";
-
-		assertEquals(displayedTextInCity, expected_placeholder5);
-
+		click(driver, city);
+		isSelected(driver, city, "city");
 		city.sendKeys(cty);
 
-		// Verify that State Field is Displayed or not
-		boolean isDisabledStateFieldn = !state.isDisplayed();
-		assertFalse(isDisabledStateFieldn);
-
-		// Verify that State Field is clickable or not
-		WebElement StateFieldFocusedElement = driver.switchTo().activeElement();
-		boolean StateFieldIsSelected = StateFieldFocusedElement.equals(state);
-		assertFalse(StateFieldIsSelected, "State Text Field is not Selected");
-
-		// Verifying that State Text Field is Enabled or not
-		boolean isEnabledStateField = state.isEnabled();
-		assertTrue(isEnabledStateField);
-
-		// Verifying the Placeholder which is present in State text field.
-		String displayedTextInState = state.getAttribute("placeholder");
-
-		String expected_placeholder6 = "Enter state";
-
-		assertEquals(displayedTextInState, expected_placeholder6);
-
+		click(driver, state);
+		isSelected(driver, state, "state");
 		state.sendKeys(stat);
 
-		// Verify that Country Field is Displayed or not
-		boolean isDisabledCountryFieldn = !country.isDisplayed();
-		assertFalse(isDisabledCountryFieldn);
+		click(driver, country);
+		isSelected(driver, country, "country");
+		click(driver, countrySelect);
 
-		// Verify that Country Field is clickable or not
-		WebElement CountryFieldFocusedElement = driver.switchTo().activeElement();
-		boolean CountryFieldIsSelected = CountryFieldFocusedElement.equals(country);
-		assertFalse(CountryFieldIsSelected, "Country Text Field is not Selected");
-
-		// Verifying that Country Text Field is Enabled or not
-		boolean isEnabledCountryField = country.isEnabled();
-		assertTrue(isEnabledCountryField);
-
-		country.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", countrySelect);
-
-		// Verify that ZipCode Field is Displayed or not
-		boolean isDisabledZipCodeFieldn = !zipCode.isDisplayed();
-		assertFalse(isDisabledZipCodeFieldn);
-
-		// Verify that ZipCode Field is clickable or not
-		WebElement ZipCodeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean ZipCodeFieldIsSelected = ZipCodeFieldFocusedElement.equals(zipCode);
-		assertFalse(ZipCodeFieldIsSelected, "ZipCode Text Field is not Selected");
-
-		// Verifying that ZipCode Text Field is Enabled or not
-		boolean isEnabledZipCodeField = zipCode.isEnabled();
-		assertTrue(isEnabledZipCodeField);
-
-		// Verifying the Placeholder which is present in ZipCode text field.
-		String displayedTextInZipCode = zipCode.getAttribute("placeholder");
-
-		String expected_placeholder_in_ZipCode = "Enter Pin / Zip Code";
-
-		assertEquals(displayedTextInZipCode, expected_placeholder_in_ZipCode);
-
+		click(driver, zipCode);
+		isSelected(driver, zipCode, "zipCode");
 		zipCode.sendKeys(code);
 
-		// Verify that PurchaseGroup Field is Displayed or not
-		boolean isDisabledPurchaseGroupFieldn = !segment.isDisplayed();
-		assertFalse(isDisabledPurchaseGroupFieldn);
+		click(driver, segment);
+		isSelected(driver, segment, "segment");
+		click(driver, segmentSelect);
 
-		// Verify that PurchaseGroup Field is clickable or not
-		WebElement PurchaseGroupFieldFocusedElement = driver.switchTo().activeElement();
-		boolean PurchaseGroupFieldIsSelected = PurchaseGroupFieldFocusedElement.equals(segment);
-		assertFalse(PurchaseGroupFieldIsSelected, "PurchaseGroup Text Field is not Selected");
-
-		// Verifying that PurchaseGroup Text Field is Enabled or not
-		boolean isEnabledPurchaseGroupField = segment.isEnabled();
-		assertTrue(isEnabledPurchaseGroupField);
-
-		segment.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", segmentSelect);
-
-		// Verify that boardNumber Field is Displayed or not
-		boolean isDisabledboardNumberFieldn = !boardNumber.isDisplayed();
-		assertFalse(isDisabledboardNumberFieldn);
-
-		// Verify that boardNumber Field is clickable or not
-		WebElement boardNumberFieldFocusedElement = driver.switchTo().activeElement();
-		boolean boardNumberFieldIsSelected = boardNumberFieldFocusedElement.equals(boardNumber);
-		assertFalse(boardNumberFieldIsSelected, "boardNumber Text Field is not Selected");
-
-		// Verifying that boardNumber Text Field is Enabled or not
-		boolean isEnabledboardNumberField = boardNumber.isEnabled();
-		assertTrue(isEnabledboardNumberField);
-
-		// Verifying the Placeholder which is present in boardNumber text field.
-		String displayedTextInboardNumber = boardNumber.getAttribute("placeholder");
-
-		String expected_placeholder_in_boardNumber = "Enter Board No";
-
-		assertEquals(displayedTextInboardNumber, expected_placeholder_in_boardNumber);
-
+		click(driver, boardNumber);
+		isSelected(driver, boardNumber, "boardNumber");
 		boardNumber.sendKeys(boardnum);
 
-		// Verify that webSite Field is Displayed or not
-		boolean isDisabledwebSiteFieldn = !website.isDisplayed();
-		assertFalse(isDisabledwebSiteFieldn);
-
-		// Verify that webSite Field is clickable or not
-		WebElement webSiteFieldFocusedElement = driver.switchTo().activeElement();
-		boolean webSiteFieldIsSelected = webSiteFieldFocusedElement.equals(website);
-		assertFalse(webSiteFieldIsSelected, "webSite Text Field is not Selected");
-
-		// Verifying that webSite Text Field is Enabled or not
-		boolean isEnabledwebSiteField = website.isEnabled();
-		assertTrue(isEnabledwebSiteField);
-
-		// Verifying the Placeholder which is present in webSite text field.
-		String displayedTextInwebSite = website.getAttribute("placeholder");
-
-		String expected_placeholder_in_webSite = "Enter Website";
-
-		assertEquals(displayedTextInwebSite, expected_placeholder_in_webSite);
-
+		click(driver, website);
+		isSelected(driver, website, "website");
 		website.sendKeys(web);
 
-		// Verify that email Field is Displayed or not
-		boolean isDisabledemailFieldn = !email.isDisplayed();
-		assertFalse(isDisabledemailFieldn);
-
-		// Verify that email Field is clickable or not
-		WebElement emailFieldFocusedElement = driver.switchTo().activeElement();
-		boolean emailFieldIsSelected = emailFieldFocusedElement.equals(email);
-		assertFalse(emailFieldIsSelected, "email Text Field is not Selected");
-
-		// Verifying that email Text Field is Enabled or not
-		boolean isEnabledemailField = email.isEnabled();
-		assertTrue(isEnabledemailField);
-
-		// Verifying the Placeholder which is present in email text field.
-		String displayedTextInemail = email.getAttribute("placeholder");
-
-		String expected_placeholder_in_email = "Enter Email";
-
-		assertEquals(displayedTextInemail, expected_placeholder_in_email);
-
+		click(driver, email);
+		isSelected(driver, email, "email");
 		email.sendKeys(eml);
 
-		// Verify that Currency Field is Displayed or not
-		boolean isDisabledCurrencyFieldn = !currency.isDisplayed();
-		assertFalse(isDisabledCurrencyFieldn);
+		click(driver, currency);
+		isSelected(driver, currency, "currency");
+		click(driver, currencySelect);
 
-		// Verify that Currency Field is clickable or not
-		WebElement CurrencyFieldFocusedElement = driver.switchTo().activeElement();
-		boolean CurrencyFieldIsSelected = CurrencyFieldFocusedElement.equals(currency);
-		assertFalse(CurrencyFieldIsSelected, "Currency Text Field is not Selected");
-
-		// Verifying that Currency Text Field is Enabled or not
-		boolean isEnabledCurrencyField = currency.isEnabled();
-		assertTrue(isEnabledCurrencyField);
-
-		currency.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", currencySelect);
-
-		// Verify that generalPinLocation Field is Displayed or not
-		boolean isDisabledgeneralPinLocationFieldn = !generalPinLocation.isDisplayed();
-		assertFalse(isDisabledgeneralPinLocationFieldn);
-
-		// Verify that generalPinLocation Field is clickable or not
-		WebElement generalPinLocationFieldFocusedElement = driver.switchTo().activeElement();
-		boolean generalPinLocationFieldIsSelected = generalPinLocationFieldFocusedElement.equals(generalPinLocation);
-		assertFalse(generalPinLocationFieldIsSelected, "generalPinLocation Text Field is not Selected");
-
-		// Verifying that generalPinLocation Text Field is Enabled or not
-		boolean isEnabledgeneralPinLocationField = generalPinLocation.isEnabled();
-		assertTrue(isEnabledgeneralPinLocationField);
-
-		// Verifying the Placeholder which is present in generalPinLocation text field.
-		String displayedTextIngeneralPinLocation = generalPinLocation.getAttribute("placeholder");
-
-		String expected_placeholder_in_generalPinLocation = "Enter Google Pin Location";
-
-		assertEquals(displayedTextIngeneralPinLocation, expected_placeholder_in_generalPinLocation);
-
+		click(driver, generalPinLocation);
+		isSelected(driver, generalPinLocation, "generalPinLocation");
 		generalPinLocation.sendKeys(generalpin);
 
-		// Verify that typeOfCompany Field is Displayed or not
-		boolean isDisabledtypeOfCompanyFieldn = !typeOfCompany.isDisplayed();
-		assertFalse(isDisabledtypeOfCompanyFieldn);
+		click(driver, typeOfCompany);
+		isSelected(driver, typeOfCompany, "typeOfCompany");
+		click(driver, typeOfCompanySelect);
 
-		// Verify that typeOfCompany Field is clickable or not
-		WebElement typeOfCompanyFieldFocusedElement = driver.switchTo().activeElement();
-		boolean typeOfCompanyFieldIsSelected = typeOfCompanyFieldFocusedElement.equals(typeOfCompany);
-		assertFalse(typeOfCompanyFieldIsSelected, "typeOfCompany Text Field is not Selected");
+		click(driver, exportUnitType);
+		isSelected(driver, exportUnitType, "exportUnitType");
+		click(driver, exportUnitTypeSelect);
 
-		// Verifying that typeOfCompany Text Field is Enabled or not
-		boolean isEnabledtypeOfCompanyField = typeOfCompany.isEnabled();
-		assertTrue(isEnabledtypeOfCompanyField);
+		click(driver, toggleButton);
 
-		typeOfCompany.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", typeOfCompanySelect);
-
-		// Verify that exportUnitType Field is Displayed or not
-		boolean isDisabledexportUnitTypeFieldn = !exportUnitType.isDisplayed();
-		assertFalse(isDisabledexportUnitTypeFieldn);
-
-		// Verify that exportUnitType Field is clickable or not
-		WebElement exportUnitTypeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean exportUnitTypeFieldIsSelected = exportUnitTypeFieldFocusedElement.equals(exportUnitType);
-		assertFalse(exportUnitTypeFieldIsSelected, "exportUnitType Text Field is not Selected");
-
-		// Verifying that exportUnitType Text Field is Enabled or not
-		boolean isEnabledexportUnitTypeField = exportUnitType.isEnabled();
-		assertTrue(isEnabledexportUnitTypeField);
-
-		exportUnitType.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", exportUnitTypeSelect);
-
-		executor.executeScript("arguments[0].click();", toggleButton);
-
-		// Verify that code Field is Displayed or not
-		boolean isDisabledcodeFieldn = !salesManagerCode.isDisplayed();
-		assertFalse(isDisabledcodeFieldn);
-
-		// Verify that code Field is clickable or not
-		WebElement codeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean codeFieldIsSelected = codeFieldFocusedElement.equals(salesManagerCode);
-		assertFalse(codeFieldIsSelected, "code Text Field is not Selected");
-
-		// Verifying that code Text Field is Enabled or not
-		boolean isEnabledcodeField = salesManagerCode.isEnabled();
-		assertTrue(isEnabledcodeField);
-
-		// Verifying the Placeholder which is present in code text field.
-		String displayedTextIncode = salesManagerCode.getAttribute("placeholder");
-
-		String expected_placeholder_in_code = "Code";
-
-		assertEquals(displayedTextIncode, expected_placeholder_in_code);
-
+		click(driver, salesManagerCode);
+		isSelected(driver, salesManagerCode, "salesManagerCode");
 		salesManagerCode.clear();
 		salesManagerCode.sendKeys("6785");
 
-		// Verify that salesManager Field is Displayed or not
-		boolean isDisabledsalesManagerFieldn = !salesManagerText.isDisplayed();
-		assertFalse(isDisabledsalesManagerFieldn);
-
-		// Verify that salesManager Field is clickable or not
-		WebElement salesManagerFieldFocusedElement = driver.switchTo().activeElement();
-		boolean salesManagerFieldIsSelected = salesManagerFieldFocusedElement.equals(salesManagerText);
-		assertFalse(salesManagerFieldIsSelected, "salesManager Text Field is not Selected");
-
-		// Verifying that salesManager Text Field is Enabled or not
-		boolean isEnabledsalesManagerField = salesManagerText.isEnabled();
-		assertTrue(isEnabledsalesManagerField);
-
-		// Verifying the Placeholder which is present in salesManager text field.
-		String displayedTextInsalesManager = salesManagerText.getAttribute("placeholder");
-
-		String expected_placeholder_in_salesManager = "Enter Sales Manager";
-
-		assertEquals(displayedTextInsalesManager, expected_placeholder_in_salesManager);
-
+		click(driver, salesManagerText);
+		isSelected(driver, salesManagerText, "salesManagerText");
 		salesManagerText.clear();
 		salesManagerText.sendKeys("TEST Sales Manager1");
 
-		// Verify that region Field is Displayed or not
-		boolean isDisabledregionFieldn = !region.isDisplayed();
-		assertFalse(isDisabledregionFieldn);
-
-		// Verify that region Field is clickable or not
-		WebElement regionFieldFocusedElement = driver.switchTo().activeElement();
-		boolean regionFieldIsSelected = regionFieldFocusedElement.equals(region);
-		assertFalse(regionFieldIsSelected, "region Text Field is not Selected");
-
-		// Verifying that region Text Field is Enabled or not
-		boolean isEnabledregionField = region.isEnabled();
-		assertTrue(isEnabledregionField);
-
-		// Verifying the Placeholder which is present in region text field.
-		String displayedTextInregion = region.getAttribute("placeholder");
-
-		String expected_placeholder_in_region = "Enter Region";
-
-		assertEquals(displayedTextInregion, expected_placeholder_in_region);
-
+		click(driver, region);
+		isSelected(driver, region, "region");
 		region.clear();
 		region.sendKeys("TEST Region1");
 
-		// Verify that shippingMode Field is Displayed or not
-		boolean isDisabledshippingModeFieldn = !shippingMode.isDisplayed();
-		assertFalse(isDisabledshippingModeFieldn);
+		click(driver, shippingMode);
+		isSelected(driver, shippingMode, "shippingMode");
+		click(driver, shippingModeSelect);
 
-		// Verify that shippingMode Field is clickable or not
-		WebElement shippingModeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean shippingModeFieldIsSelected = shippingModeFieldFocusedElement.equals(shippingMode);
-		assertFalse(shippingModeFieldIsSelected, "shippingMode Text Field is not Selected");
-
-		// Verifying that shippingMode Text Field is Enabled or not
-		boolean isEnabledshippingModeField = shippingMode.isEnabled();
-		assertTrue(isEnabledshippingModeField);
-
-		shippingMode.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", shippingModeSelect);
 //Contacts
 
-		executor.executeScript("arguments[0].click();", contacts);
+		click(driver, contacts);
 
-		// Verify that salutation Field is Displayed or not
-		boolean isDisabledsalutationFieldn = !salutation.isDisplayed();
-		assertFalse(isDisabledsalutationFieldn);
+		click(driver, salutation);
+		isSelected(driver, salutation, "salutation");
+		click(driver, salutationSelect);
 
-		// Verify that salutation Field is clickable or not
-		WebElement salutationFieldFocusedElement = driver.switchTo().activeElement();
-		boolean salutationFieldIsSelected = salutationFieldFocusedElement.equals(salutation);
-		assertFalse(salutationFieldIsSelected, "salutation Text Field is not Selected");
-
-		// Verifying that salutation Text Field is Enabled or not
-		boolean isEnabledsalutationField = salutation.isEnabled();
-		assertTrue(isEnabledsalutationField);
-
-		salutation.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", salutationSelect);
-
-		// Verify that callName Field is Displayed or not
-		boolean isDisabledcallNameFieldn = !callName.isDisplayed();
-		assertFalse(isDisabledcallNameFieldn);
-
-		// Verify that callName Field is clickable or not
-		WebElement callNameFieldFocusedElement = driver.switchTo().activeElement();
-		boolean callNameFieldIsSelected = callNameFieldFocusedElement.equals(callName);
-		assertFalse(callNameFieldIsSelected, "callName Text Field is not Selected");
-
-		// Verifying that callName Text Field is Enabled or not
-		boolean isEnabledcallNameField = callName.isEnabled();
-		assertTrue(isEnabledcallNameField);
-
-		// Verifying the Placeholder which is present in callName text field.
-		String displayedTextIncallName = callName.getAttribute("placeholder");
-
-		String expected_placeholder_in_callName = "Enter Call Name";
-
-		assertEquals(displayedTextIncallName, expected_placeholder_in_callName);
-
+		click(driver, callName);
+		isSelected(driver, callName, "callName");
 		callName.sendKeys(cName);
 
-		// Verify that mobileNumCode Field is Displayed or not
-		boolean isDisabledmobileNumCodeFieldn = !mobileNumCode.isDisplayed();
-		assertFalse(isDisabledmobileNumCodeFieldn);
+		click(driver, mobileNumCode);
+		isSelected(driver, mobileNumCode, "mobileNumCode");
+		click(driver, mobileNumCodeSelect);
 
-		// Verify that mobileNumCode Field is clickable or not
-		WebElement mobileNumCodeFieldFocusedElement = driver.switchTo().activeElement();
-		boolean mobileNumCodeFieldIsSelected = mobileNumCodeFieldFocusedElement.equals(mobileNumCode);
-		assertFalse(mobileNumCodeFieldIsSelected, "mobileNumCode Text Field is not Selected");
-
-		// Verifying that mobileNumCode Text Field is Enabled or not
-		boolean isEnabledmobileNumCodeField = mobileNumCode.isEnabled();
-		assertTrue(isEnabledmobileNumCodeField);
-
-		mobileNumCode.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", mobileNumCodeSelect);
-
-		// Verify that mobileNum Field is Displayed or not
-		boolean isDisabledmobileNumFieldn = !mobileNum.isDisplayed();
-		assertFalse(isDisabledmobileNumFieldn);
-
-		// Verify that mobileNum Field is clickable or not
-		WebElement mobileNumFieldFocusedElement = driver.switchTo().activeElement();
-		boolean mobileNumFieldIsSelected = mobileNumFieldFocusedElement.equals(mobileNum);
-		assertFalse(mobileNumFieldIsSelected, "mobileNum Text Field is not Selected");
-
-		// Verifying that mobileNum Text Field is Enabled or not
-		boolean isEnabledmobileNumField = mobileNum.isEnabled();
-		assertTrue(isEnabledmobileNumField);
-
-		// Verifying the Placeholder which is present in mobileNum text field.
-		String displayedTextInmobileNum = mobileNum.getAttribute("placeholder");
-
-		String expected_placeholder_in_mobileNum = "Enter Mobile No";
-
-		assertEquals(displayedTextInmobileNum, expected_placeholder_in_mobileNum);
-
+		click(driver, mobileNum);
+		isSelected(driver, mobileNum, "mobileNum");
 		mobileNum.sendKeys(mobileNo);
 
-		// Verify that landLineNo Field is Displayed or not
-		boolean isDisabledlandLineNoFieldn = !landLineNo.isDisplayed();
-		assertFalse(isDisabledlandLineNoFieldn);
-
-		// Verify that landLineNo Field is clickable or not
-		WebElement landLineNoFieldFocusedElement = driver.switchTo().activeElement();
-		boolean landLineNoFieldIsSelected = landLineNoFieldFocusedElement.equals(landLineNo);
-		assertFalse(landLineNoFieldIsSelected, "landLineNo Text Field is not Selected");
-
-		// Verifying that landLineNo Text Field is Enabled or not
-		boolean isEnabledlandLineNoField = landLineNo.isEnabled();
-		assertTrue(isEnabledlandLineNoField);
-
-		// Verifying the Placeholder which is present in landLineNo text field.
-		String displayedTextInlandLineNo = landLineNo.getAttribute("placeholder");
-
-		String expected_placeholder_in_landLineNo = "Land Line";
-
-		assertEquals(displayedTextInlandLineNo, expected_placeholder_in_landLineNo);
-
+		click(driver, landLineNo);
+		isSelected(driver, landLineNo, "landLineNo");
 		landLineNo.sendKeys(llNum);
 
 		executor.executeScript("arguments[0].click();", timeToCall);
 		timeToCall.sendKeys("12");
 		timeToCall.sendKeys("12");
 
-		// Verify that firstName Field is Displayed or not
-		boolean isDisabledfirstNameFieldn = !firstName.isDisplayed();
-		assertFalse(isDisabledfirstNameFieldn);
-
-		// Verify that firstName Field is clickable or not
-		WebElement firstNameFieldFocusedElement = driver.switchTo().activeElement();
-		boolean firstNameFieldIsSelected = firstNameFieldFocusedElement.equals(firstName);
-		assertFalse(firstNameFieldIsSelected, "firstName Text Field is not Selected");
-
-		// Verifying that firstName Text Field is Enabled or not
-		boolean isEnabledfirstNameField = firstName.isEnabled();
-		assertTrue(isEnabledfirstNameField);
-
-		// Verifying the Placeholder which is present in firstName text field.
-		String displayedTextInfirstName = firstName.getAttribute("placeholder");
-
-		String expected_placeholder_in_firstName = "Enter First Name";
-
-		assertEquals(displayedTextInfirstName, expected_placeholder_in_firstName);
-
+		click(driver, firstName);
+		isSelected(driver, firstName, "firstName");
 		firstName.sendKeys(fN);
 
-		// Verify that designation Field is Displayed or not
-		boolean isDisableddesignationFieldn = !designation.isDisplayed();
-		assertFalse(isDisableddesignationFieldn);
-
-		// Verify that designation Field is clickable or not
-		WebElement designationFieldFocusedElement = driver.switchTo().activeElement();
-		boolean designationFieldIsSelected = designationFieldFocusedElement.equals(designation);
-		assertFalse(designationFieldIsSelected, "designation Text Field is not Selected");
-
-		// Verifying that designation Text Field is Enabled or not
-		boolean isEnableddesignationField = designation.isEnabled();
-		assertTrue(isEnableddesignationField);
-
-		// Verifying the Placeholder which is present in designation text field.
-		String displayedTextIndesignation = designation.getAttribute("placeholder");
-
-		String expected_placeholder_in_designation = "Enter Designation";
-
-		assertEquals(displayedTextIndesignation, expected_placeholder_in_designation);
-
+		click(driver, designation);
+		isSelected(driver, designation, "designation");
 		designation.sendKeys(desig);
 
-		// Verify that mobileNumCode1 Field is Displayed or not
-		boolean isDisabledmobileNumCode1Fieldn = !mobileNumCode1.isDisplayed();
-		assertFalse(isDisabledmobileNumCode1Fieldn);
+		click(driver, mobileNumCode1);
+		isSelected(driver, mobileNumCode1, "mobileNumCode1");
+		click(driver, mobileNumCode1Select);
 
-		// Verify that mobileNumCode1 Field is clickable or not
-		WebElement mobileNumCode1FieldFocusedElement = driver.switchTo().activeElement();
-		boolean mobileNumCode1FieldIsSelected = mobileNumCode1FieldFocusedElement.equals(mobileNumCode1);
-		assertFalse(mobileNumCode1FieldIsSelected, "mobileNumCode1 Text Field is not Selected");
-
-		// Verifying that mobileNumCode1 Text Field is Enabled or not
-		boolean isEnabledmobileNumCode1Field = mobileNumCode1.isEnabled();
-		assertTrue(isEnabledmobileNumCode1Field);
-
-		mobileNumCode1.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", mobileNumCode1Select);
-
-		// Verify that mobileNum1 Field is Displayed or not
-		boolean isDisabledmobileNum1Fieldn = !mobileNum1.isDisplayed();
-		assertFalse(isDisabledmobileNum1Fieldn);
-
-		// Verify that mobileNum1 Field is clickable or not
-		WebElement mobileNum1FieldFocusedElement = driver.switchTo().activeElement();
-		boolean mobileNum1FieldIsSelected = mobileNum1FieldFocusedElement.equals(mobileNum1);
-		assertFalse(mobileNum1FieldIsSelected, "mobileNum1 Text Field is not Selected");
-
-		// Verifying that mobileNum1 Text Field is Enabled or not
-		boolean isEnabledmobileNum1Field = mobileNum1.isEnabled();
-		assertTrue(isEnabledmobileNum1Field);
-
-		// Verifying the Placeholder which is present in mobileNum1 text field.
-		String displayedTextInmobileNum1 = mobileNum1.getAttribute("placeholder");
-
-		String expected_placeholder_in_mobileNum1 = "Enter Mobile No";
-
-		assertEquals(displayedTextInmobileNum1, expected_placeholder_in_mobileNum1);
-
+		click(driver, mobileNum1);
+		isSelected(driver, mobileNum1, "mobileNum1");
 		mobileNum1.sendKeys(mobileno2);
 
-		// Verify that skypeId Field is Displayed or not
-		boolean isDisabledskypeIdFieldn = !skypeID.isDisplayed();
-		assertFalse(isDisabledskypeIdFieldn);
-
-		// Verify that skypeId Field is clickable or not
-		WebElement skypeIdFieldFocusedElement = driver.switchTo().activeElement();
-		boolean skypeIdFieldIsSelected = skypeIdFieldFocusedElement.equals(skypeID);
-		assertFalse(skypeIdFieldIsSelected, "skypeId Text Field is not Selected");
-
-		// Verifying that skypeId Text Field is Enabled or not
-		boolean isEnabledskypeIdField = skypeID.isEnabled();
-		assertTrue(isEnabledskypeIdField);
-
-		// Verifying the Placeholder which is present in skypeId text field.
-		String displayedTextInskypeId = skypeID.getAttribute("placeholder");
-
-		String expected_placeholder_in_skypeId = "Skype Id";
-
-		assertEquals(displayedTextInskypeId, expected_placeholder_in_skypeId);
+		click(driver, skypeID);
+		isSelected(driver, skypeID, "skypeID");
 		skypeID.clear();
 		skypeID.sendKeys("60");
 
-		// Verify that Extension Field is Displayed or not
-		boolean isDisabledExtensionFieldn = !extension.isDisplayed();
-		assertFalse(isDisabledExtensionFieldn);
-
-		// Verify that Extension Field is clickable or not
-		WebElement ExtensionFieldFocusedElement = driver.switchTo().activeElement();
-		boolean ExtensionFieldIsSelected = ExtensionFieldFocusedElement.equals(extension);
-		assertFalse(ExtensionFieldIsSelected, "Extension Text Field is not Selected");
-
-		// Verifying that Extension Text Field is Enabled or not
-		boolean isEnabledExtensionField = extension.isEnabled();
-		assertTrue(isEnabledExtensionField);
-
-		// Verifying the Placeholder which is present in Extension text field.
-		String displayedTextInExtension = extension.getAttribute("placeholder");
-
-		String expected_placeholder_in_Extension = "Extension";
-
-		assertEquals(displayedTextInExtension, expected_placeholder_in_Extension);
-
+		click(driver, extension);
+		isSelected(driver, extension, "extension");
 		extension.sendKeys(exten);
 
-		// Verify that language Field is Displayed or not
-		boolean isDisabledlanguageFieldn = !language.isDisplayed();
-		assertFalse(isDisabledlanguageFieldn);
+		click(driver, language);
+		isSelected(driver, language, "language");
+		click(driver, languageSelect);
 
-		// Verify that language Field is clickable or not
-		WebElement languageFieldFocusedElement = driver.switchTo().activeElement();
-		boolean languageFieldIsSelected = languageFieldFocusedElement.equals(language);
-		assertFalse(languageFieldIsSelected, "language Text Field is not Selected");
-
-		// Verifying that language Text Field is Enabled or not
-		boolean isEnabledlanguageField = language.isEnabled();
-		assertTrue(isEnabledlanguageField);
-
-		language.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", languageSelect);
-
-		// Verify that lastName Field is Displayed or not
-		boolean isDisabledlastNameFieldn = !lastName.isDisplayed();
-		assertFalse(isDisabledlastNameFieldn);
-
-		// Verify that lastName Field is clickable or not
-		WebElement lastNameFieldFocusedElement = driver.switchTo().activeElement();
-		boolean lastNameFieldIsSelected = lastNameFieldFocusedElement.equals(lastName);
-		assertFalse(lastNameFieldIsSelected, "lastName Text Field is not Selected");
-
-		// Verifying that lastName Text Field is Enabled or not
-		boolean isEnabledlastNameField = lastName.isEnabled();
-		assertTrue(isEnabledlastNameField);
-
-		// Verifying the Placeholder which is present in lastName text field.
-		String displayedTextInlastName = lastName.getAttribute("placeholder");
-
-		String expected_placeholder_in_lastName = "Enter Last Name";
-
-		assertEquals(displayedTextInlastName, expected_placeholder_in_lastName);
-
+		click(driver, lastName);
+		isSelected(driver, lastName, "lastName");
 		lastName.sendKeys(lN);
 
-		// Verify that department Field is Displayed or not
-		boolean isDisableddepartmentFieldn = !department.isDisplayed();
-		assertFalse(isDisableddepartmentFieldn);
+		click(driver, department);
+		isSelected(driver, department, "department");
+		click(driver, departmentSelect);
 
-		// Verify that department Field is clickable or not
-		WebElement departmentFieldFocusedElement = driver.switchTo().activeElement();
-		boolean departmentFieldIsSelected = departmentFieldFocusedElement.equals(department);
-		assertFalse(departmentFieldIsSelected, "department Text Field is not Selected");
-
-		// Verifying that department Text Field is Enabled or not
-		boolean isEnableddepartmentField = department.isEnabled();
-		assertTrue(isEnableddepartmentField);
-
-		department.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", departmentSelect);
-
-		// Verify that email1 Field is Displayed or not
-		boolean isDisabledemail1Fieldn = !email1.isDisplayed();
-		assertFalse(isDisabledemail1Fieldn);
-
-		// Verify that email1 Field is clickable or not
-		WebElement email1FieldFocusedElement = driver.switchTo().activeElement();
-		boolean email1FieldIsSelected = email1FieldFocusedElement.equals(email1);
-		assertFalse(email1FieldIsSelected, "email1 Text Field is not Selected");
-
-		// Verifying that email1 Text Field is Enabled or not
-		boolean isEnabledemail1Field = email1.isEnabled();
-		assertTrue(isEnabledemail1Field);
-
-		// Verifying the Placeholder which is present in email1 text field.
-		String displayedTextInemail1 = email1.getAttribute("placeholder");
-
-		String expected_placeholder_in_email1 = "Email";
-
-		assertEquals(displayedTextInemail1, expected_placeholder_in_email1);
-
+		click(driver, email1);
+		isSelected(driver, email1, "email1");
 		email1.sendKeys(eml1);
 
-		executor.executeScript("arguments[0].click();", addContacts);
+		click(driver, addContacts);
 
 		// **********************//
 
 //RelatedCompanyLink
 
-		executor.executeScript("arguments[0].click();", releatedCustomerLink);
+		click(driver, releatedCustomerLink);
 
-		// Verify that company Field is Displayed or not
-		boolean isDisabledcompanyFieldn = !customer.isDisplayed();
-		assertFalse(isDisabledcompanyFieldn);
+		click(driver, customer);
+		isSelected(driver, customer, "customer");
+		click(driver, customerSelect);
 
-		// Verify that company Field is clickable or not
-		WebElement companyFieldFocusedElement = driver.switchTo().activeElement();
-		boolean companyFieldIsSelected = companyFieldFocusedElement.equals(customer);
-		assertFalse(companyFieldIsSelected, "company Text Field is not Selected");
-
-		// Verifying that company Text Field is Enabled or not
-		boolean isEnabledcompanyField = customer.isEnabled();
-		assertTrue(isEnabledcompanyField);
-
-		customer.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", customerSelect);
-
-		// Verify that natureOfRelationship Field is Displayed or not
-		boolean isDisablednatureOfRelationshipFieldn = !natureOfRelationship.isDisplayed();
-		assertFalse(isDisablednatureOfRelationshipFieldn);
-
-		// Verify that natureOfRelationship Field is clickable or not
-		WebElement natureOfRelationshipFieldFocusedElement = driver.switchTo().activeElement();
-		boolean natureOfRelationshipFieldIsSelected = natureOfRelationshipFieldFocusedElement
-				.equals(natureOfRelationship);
-		assertFalse(natureOfRelationshipFieldIsSelected, "natureOfRelationship Text Field is not Selected");
-
-		// Verifying that natureOfRelationship Text Field is Enabled or not
-		boolean isEnablednatureOfRelationshipField = natureOfRelationship.isEnabled();
-		assertTrue(isEnablednatureOfRelationshipField);
-
-		natureOfRelationship.sendKeys(Keys.ENTER);
-
-		executor.executeScript("arguments[0].click();", natureOfRelationshipSelect);
+		click(driver, natureOfRelationship);
+		isSelected(driver, natureOfRelationship, "natureOfRelationship");
+		click(driver, natureOfRelationship);
 
 //Addressess		
-		executor.executeScript("arguments[0].click();", addresses);
+		
+		click(driver, addresses);
 
-		// Verify that poAddress Field is Displayed or not
-		boolean isDisabledpoAddressFieldn = !billToAddress.isDisplayed();
-		assertFalse(isDisabledpoAddressFieldn);
-
-		// Verify that poAddress Field is clickable or not
-		WebElement poAddressFieldFocusedElement = driver.switchTo().activeElement();
-		boolean poAddressFieldIsSelected = poAddressFieldFocusedElement.equals(billToAddress);
-		assertFalse(poAddressFieldIsSelected, "poAddress Text Field is not Selected");
-
-		// Verifying that poAddress Text Field is Enabled or not
-		boolean isEnabledpoAddressField = billToAddress.isEnabled();
-		assertTrue(isEnabledpoAddressField);
-
-		// Verifying the Placeholder which is present in poAddress text field.
-		String displayedTextInpoAddress = billToAddress.getAttribute("placeholder");
-
-		String expected_placeholder_in_poAddress = "Enter Invoice Address";
-
-		assertEquals(displayedTextInpoAddress, expected_placeholder_in_poAddress);
-
+		click(driver, billToAddress);
+		isSelected(driver, billToAddress, "billToAddress");
 		billToAddress.sendKeys(addrs);
 
-		// Verify that gstnNum Field is Displayed or not
-		boolean isDisabledgstnNumFieldn = !gstnNum.isDisplayed();
-		assertFalse(isDisabledgstnNumFieldn);
-
-		// Verifying that gstnNum Text Field is Enabled or not
-		boolean isEnabledgstnNumField = gstnNum.isEnabled();
-		assertTrue(isEnabledgstnNumField);
-
-		// Verifying the Placeholder which is present in gstnNum text field.
-		String displayedTextIngstnNum = gstnNum.getAttribute("placeholder");
-
-		String expected_placeholder_in_gstnNum = "GSTN Number";
-
-		assertEquals(displayedTextIngstnNum, expected_placeholder_in_gstnNum);
-
+		click(driver, gstnNum);
+		isSelected(driver, gstnNum, "gstnNum");
 		gstnNum.sendKeys(gst);
 
-		// Verify that panNum Field is Displayed or not
-		boolean isDisabledpanNumFieldn = !panNum.isDisplayed();
-		assertFalse(isDisabledpanNumFieldn);
-
-		// Verify that panNum Field is clickable or not
-		WebElement panNumFieldFocusedElement = driver.switchTo().activeElement();
-		boolean panNumFieldIsSelected = panNumFieldFocusedElement.equals(panNum);
-		assertFalse(panNumFieldIsSelected, "panNum Text Field is not Selected");
-
-		// Verifying that panNum Text Field is Enabled or not
-		boolean isEnabledpanNumField = panNum.isEnabled();
-		assertTrue(isEnabledpanNumField);
-
-		// Verifying the Placeholder which is present in panNum text field.
-		String displayedTextInpanNum = panNum.getAttribute("placeholder");
-
-		String expected_placeholder_in_panNum = "PAN Number";
-
-		assertEquals(displayedTextInpanNum, expected_placeholder_in_panNum);
-
+		click(driver, panNum);
+		isSelected(driver, panNum, "panNum");
 		panNum.sendKeys(pan);
 
 		addAddress.click();
 
 //Shipping Address
-
-		executor.executeScript("arguments[0].click();", shippingAddress);
-
-		// Verify that shipToAddress Field is Displayed or not
-		boolean isDisabledshipToAddressFieldn = !shipToAddress.isDisplayed();
-		assertFalse(isDisabledshipToAddressFieldn);
-
-		// Verify that shipToAddress Field is clickable or not
-		WebElement shipToAddressFieldFocusedElement = driver.switchTo().activeElement();
-		boolean shipToAddressFieldIsSelected = shipToAddressFieldFocusedElement.equals(shipToAddress);
-		assertFalse(shipToAddressFieldIsSelected, "shipToAddress Text Field is not Selected");
-
-		// Verifying that shipToAddress Text Field is Enabled or not
-		boolean isEnabledshipToAddressField = shipToAddress.isEnabled();
-		assertTrue(isEnabledshipToAddressField);
-
-		// Verifying the Placeholder which is present in shipToAddress text field.
-		String displayedTextInshipToAddress = shipToAddress.getAttribute("placeholder");
-
-		String expected_placeholder_in_shipToAddress = "Enter Shipping Address";
-
-		assertEquals(displayedTextInshipToAddress, expected_placeholder_in_shipToAddress);
-
+		
+		click(driver, shippingAddress);
+		isSelected(driver, shipToAddress, "shipToAddress");
 		shipToAddress.sendKeys("TEST Shipping Address");
 
-		// Verify that googlePinLocation Field is Displayed or not
-		boolean isDisabledgooglePinLocationFieldn = !googlePinLocation.isDisplayed();
-		assertFalse(isDisabledgooglePinLocationFieldn);
-
-		// Verify that googlePinLocation Field is clickable or not
-		WebElement googlePinLocationFieldFocusedElement = driver.switchTo().activeElement();
-		boolean googlePinLocationFieldIsSelected = googlePinLocationFieldFocusedElement.equals(googlePinLocation);
-		assertFalse(googlePinLocationFieldIsSelected, "googlePinLocation Text Field is not Selected");
-
-		// Verifying that googlePinLocation Text Field is Enabled or not
-		boolean isEnabledgooglePinLocationField = googlePinLocation.isEnabled();
-		assertTrue(isEnabledgooglePinLocationField);
-
-		// Verifying the Placeholder which is present in googlePinLocation text field.
-		String displayedTextIngooglePinLocation = googlePinLocation.getAttribute("placeholder");
-
-		String expected_placeholder_in_googlePinLocation = "Google Pin Location";
-
-		assertEquals(displayedTextIngooglePinLocation, expected_placeholder_in_googlePinLocation);
-
+		click(driver, googlePinLocation);
+		isSelected(driver, googlePinLocation, "googlePinLocation");
 		googlePinLocation.sendKeys("TEST Google Pin Location");
 
-		executor.executeScript("arguments[0].click();", addShippingAddress);
+		click(driver, addShippingAddress);
 
 //Banking
 
-		executor.executeScript("arguments[0].click();", banking);
+		click(driver, banking);
 
 		// Verify that bankName1 Field is Displayed or not
 		boolean isDisabledbankName1Fieldn = !bankName.isDisplayed();

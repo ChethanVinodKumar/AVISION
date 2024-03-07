@@ -3,106 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Getapcs.Avision.TEST.SA_FG_Create_Edit">
+      <class name="com.Getapcs.Avision.TEST.PrimaryMaster">
         <methods>
-          <include name="verifyPOcreateSA1"/>
-          <include name="verifyPRApprovals_1SA1"/>
-          <include name="verifyPRApprovals_1SA2"/>
-          <include name="verifyPOEditFG"/>
-          <include name="verifyReturnDO"/>
-          <include name="verifyInventryAfterOQCForSA1"/>
-          <include name="verifyShopOrderConfirmationForFG"/>
-          <include name="verifyOQCBinnig_ForSA1"/>
-          <include name="verifyOQCBinnig_ForSA2"/>
-          <include name="verifyPOEditSA1"/>
-          <include name="verifyPOEditSA2"/>
-          <include name="verifyShopOrderConfirmationForSA1"/>
-          <include name="verifySalesLpCostingRelease"/>
-          <include name="verifyPRcreateFG"/>
-          <include name="verifyPOApproval_1_FG"/>
-          <include name="verifyInventryAfterDOForFG"/>
-          <include name="verifyInventryAfterReturnDOForFG"/>
-          <include name="verifyInventryAfterOQCBinningForSA1"/>
-          <include name="verifyQuoteCreate"/>
-          <include name="verifyInventryReportBeforeGrin"/>
-          <include name="verifyPOApproval_2_SA2"/>
-          <include name="verifyOQC_ForFG"/>
-          <include name="verifyInventryReportAfterBinnig"/>
-          <include name="verifyBomCreateforFG"/>
-          <include name="verifyInventryAfterMaterialIssueReleaseForSA2"/>
-          <include name="verifyInventryAfterOQC_ForSA2"/>
-          <include name="verifyInventryAfterMaterialIssueReleaseForSA1"/>
-          <include name="verifyPOApproval_2_SA1"/>
-          <include name="verifyInventryAfterAgainDOForFG"/>
-          <include name="verifyMaterialIssue"/>
-          <include name="verifyPRApprovals_1FG"/>
-          <include name="verifyPOApproval_1_SA1"/>
-          <include name="verifyBinningCreate"/>
-          <include name="verifyPOApproval_1_SA2"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="verifyInvoiceCreate"/>
-          <include name="verifyPRcreateSA1"/>
-          <include name="verifyInventryAfterMaterialIssueReleaseForFG"/>
-          <include name="verifyPRcreateSA2"/>
-          <include name="verifyMaterialIssueReleaseForFG"/>
-          <include name="verifyInventryAfterReturnInvoiceForFG"/>
-          <include name="verifyOQC_ForSA2"/>
-          <include name="verifyOQC_ForSA1"/>
-          <include name="verifyInventryReportAfterGrin"/>
-          <include name="verifyBomCreateforSA1"/>
-          <include name="verifyBomCreateforSA2"/>
-          <include name="verifyOQCBinnig_ForFG"/>
-          <include name="verifySalesItemPriceListCreate"/>
-          <include name="verifyDOforFG"/>
-          <include name="verifySalesRFQCreate"/>
-          <include name="verifySalesCSRelease"/>
-          <include name="verifyIQCCreate"/>
-          <include name="verifyPREditSA2"/>
-          <include name="verifyPREditSA1"/>
-          <include name="verifyInventryAfterShopOrderConfirmationForFG"/>
-          <include name="verifyReleaseBomSA2"/>
-          <include name="verifyReleaseBomSA1"/>
-          <include name="verifyReturnInvoice"/>
-          <include name="verifySalesLpCreate"/>
-          <include name="verifyGRINCreate"/>
-          <include name="verifyShopOrderCreateFG"/>
-          <include name="verifySalesCSEdit"/>
-          <include name="verifySalesRFQEdit"/>
-          <include name="verifySalesOrderEdit"/>
-          <include name="verifyShopOrderCreateSA1"/>
-          <include name="verifyShopOrderCreateSA2"/>
-          <include name="verifyPOcreateFG"/>
-          <include name="getTestResult"/>
-          <include name="verifySalesSourcing"/>
-          <include name="verifyPRApprovals_2SA2"/>
-          <include name="verifyPOcreateSA2"/>
-          <include name="verifyPRApprovals_2SA1"/>
-          <include name="verifyItemMasterCreateforPP6"/>
-          <include name="verifyAgainDOforFG"/>
-          <include name="afetrTest"/>
-          <include name="verifyInventryAfterOQCBinning_ForSA2"/>
-          <include name="verifyMaterialIssueReleaseForSA2"/>
-          <include name="verifyShopOrderConfirmationForSA2"/>
-          <include name="verifyMaterialIssueReleaseForSA1"/>
-          <include name="verifyInventryAfterShopOrderConfirmationForSA1"/>
-          <include name="verifyInventryAfterShopOrderConfirmationForSA2"/>
-          <include name="verifySalesRFQENGGEdit"/>
-          <include name="verifyItemMasterCreateforPP5"/>
-          <include name="verifyPRApprovals_2FG"/>
-          <include name="verifySalesRFQCSCreate"/>
-          <include name="verifyInventryReportAfterIQC"/>
-          <include name="verifyInventryAfterOQCForFG"/>
-          <include name="verifyInventryAfterInvoiceForFG"/>
-          <include name="verifyPREditFG"/>
-          <include name="verifySalesRFQENGGRelease"/>
-          <include name="verifyInventryAfterOQCBinningForFG"/>
-          <include name="verifyReleaseBomFG"/>
-          <include name="verifySalesOrderCreate"/>
-          <include name="verifyQuoteEdit"/>
-          <include name="verifyPOApproval_2_FG"/>
-          <include name="verifySalesRFQENGGCreate"/>
+          <include name="verifyCompanyMaster"/>
         </methods>
-      </class> <!-- com.Getapcs.Avision.TEST.SA_FG_Create_Edit -->
+      </class> <!-- com.Getapcs.Avision.TEST.PrimaryMaster -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -112,7 +112,7 @@ public class SA_FG_Create_Edit extends TestBase {
 	public ExtentSparkReporter htmlReporter;
 	public ExtentTest test;
 
-	public final static String priceList = "TEST PriceList 14";
+	public final static String priceList = "TEST PriceList 15";
 
 	LoginPage loginPage;
 	HomePage homePage;
@@ -308,6 +308,7 @@ public class SA_FG_Create_Edit extends TestBase {
 		htmlReporter.config().setDocumentTitle("Extent Report for SA_FG Flow");
 		htmlReporter.config().setReportName("TEST AVision");
 		htmlReporter.config().setTheme(Theme.STANDARD);
+		htmlReporter.config().setTimelineEnabled(true);
 		htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
 
 	}
@@ -1732,7 +1733,7 @@ public class SA_FG_Create_Edit extends TestBase {
 		Thread.sleep(2000);
 		driver.navigate().to("https://avision-demo.getapcs.com/dashboard");
 
-	}
+	} 
 
 	@AfterMethod
 	public void getTestResult(ITestResult result) {

@@ -78,15 +78,6 @@
 	    <version>2.10.1</version>
 	</dependency>
 
-
-
-
-
-   <dependency>
-		<groupId>com.relevantcodes</groupId>
-		<artifactId>extentreports</artifactId>
-		<version>2.41.2</version>
-	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 <dependency>
@@ -94,6 +85,8 @@
     <artifactId>extentreports</artifactId>
     <version>5.1.1</version>
 </dependency>
+
+
 
 <dependency>
     <groupId>org.freemarker</groupId>
