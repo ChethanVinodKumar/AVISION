@@ -258,7 +258,7 @@ public class Binning extends TestBase {
 
 		}
 		click(driver, save);
-//		click(driver, save1);
+		click(driver, save1);
 		return new HomePage();
 	}
 

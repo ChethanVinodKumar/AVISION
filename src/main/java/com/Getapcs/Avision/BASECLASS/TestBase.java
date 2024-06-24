@@ -40,7 +40,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-
 public class TestBase {
 	public static ChromeDriver driver;
 	public static DevTools devTools;
@@ -74,10 +73,10 @@ public class TestBase {
 
 		actions = new Actions(driver);
 		robot = new Robot();
-		js = (JavascriptExecutor) driver;
+		js = driver;
 
 		// For Get the Error Status
-		devTools = ((ChromeDriver) driver).getDevTools();
+		devTools = driver.getDevTools();
 		devTools.createSession();
 		devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
@@ -113,6 +112,7 @@ public class TestBase {
 				.pollingEvery(Duration.ofSeconds(pollingInterval)).ignoring(ElementClickInterceptedException.class);
 
 		return wait.until(new Function<WebDriver, WebElement>() {
+			@Override
 			public WebElement apply(WebDriver driver) {
 				return wait.until(ExpectedConditions.elementToBeClickable(element));
 			}
@@ -158,49 +158,51 @@ public class TestBase {
 
 	// File Upload
 	private static final Map<String, String> fileTypeToFileName = new HashMap<>();
-    static {
-        fileTypeToFileName.put("image", "D:\\c drive\\Desktop\\Picture1.png");
-        fileTypeToFileName.put("excel", "D:\\c drive\\Desktop\\Avision Table Pages.xlsx");
-        fileTypeToFileName.put("docx", "D:\\c drive\\Desktop\\Sales Order Create.docx");
-        fileTypeToFileName.put("text", "D:\\c drive\\Desktop\\Utility Methods.txt");
-    }
-    
-    public static void uploadFilewithType(WebDriver driver, WebElement element, String fileType) throws Exception {
-        js.executeScript("arguments[0].click();", element);
+	static {
+		fileTypeToFileName.put("image",
+				"search-ms:displayname=Search%20Results%20in%20Downloads&crumb=System.Generic.String%3Aimage&crumb=location:C%3A%5CUsers%5CW2191%5CDownloads\\image");
+		fileTypeToFileName.put("excel", "C:\\Users\\W2191\\Desktop\\TESTdatafinal.xlsx");
+		fileTypeToFileName.put("docx", "C:\\Users\\W2191\\Desktop\\Project Documentation.docx");
+		fileTypeToFileName.put("text", "C:\\Users\\W2191\\Documents\\123.txt");
+	}
 
-        String file = fileTypeToFileName.get(fileType);
+	public static void uploadFilewithType(WebDriver driver, WebElement element, String fileType) throws Exception {
+		js.executeScript("arguments[0].click();", element);
 
-        if (file == null) {
-            throw new IllegalArgumentException("File type " + fileType + " not supported.");
-        }
+		String file = fileTypeToFileName.get(fileType);
 
-        StringSelection stringSelection = new StringSelection(file);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		if (file == null) {
+			throw new IllegalArgumentException("File type " + fileType + " not supported.");
+		}
 
-        robot.delay(1000);
+		StringSelection stringSelection = new StringSelection(file);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyRelease(KeyEvent.VK_V);
+		robot.delay(1000);
 
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.delay(1000);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-    }
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyRelease(KeyEvent.VK_V);
+
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.delay(1000);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
 //	
 //	Usage
 //	FileUploader.uploadFile(driver, element, "excel");
-	
+
 	// File Upload
 	public static void uploadFile(WebDriver driver, WebElement element, int fileIndex) throws Exception {
 
 		js.executeScript("arguments[0].click();", element);
 
-		String[] files = new String[] { "D:\\c drive\\Desktop\\Picture1.png", // imgae
-				"D:\\c drive\\Desktop\\Avision Table Pages.xlsx", // excel
-				"D:\\c drive\\Desktop\\Sales Order Create.docx", // docx
-				"D:\\c drive\\Desktop\\Utility Methods.txt" }; // Text
+		String[] files = new String[] {
+				"search-ms:displayname=Search%20Results%20in%20Downloads&crumb=System.Generic.String%3Aimage&crumb=location:C%3A%5CUsers%5CW2191%5CDownloads\\image", // imgae
+				"C:\\Users\\W2191\\Desktop\\TESTdatafinal.xlsx", // excel
+				"C:\\Users\\W2191\\Desktop\\Project Documentation.docx", // Docx
+				"C:\\Users\\W2191\\Documents\\123.txt" }; // txt
 
 		String file = files[fileIndex];
 

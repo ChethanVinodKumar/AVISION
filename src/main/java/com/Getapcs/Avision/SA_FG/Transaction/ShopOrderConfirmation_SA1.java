@@ -1,7 +1,5 @@
 package com.Getapcs.Avision.SA_FG.Transaction;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -67,9 +65,9 @@ public class ShopOrderConfirmation_SA1 extends TestBase {
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[3]")).getText();
 		String soItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[2]/td[2]")).getText();
 
-		Assert.assertNotNull(saItemNumber1,"saItemNumber1 is Null");
-		Assert.assertNotNull(soItemNumber1,"soItemNumber1 is Null");
-		
+		Assert.assertNotNull(saItemNumber1, "saItemNumber1 is Null");
+		Assert.assertNotNull(soItemNumber1, "soItemNumber1 is Null");
+
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
 		String updatedXpath = elementXpath.replace("Item-FG-11-TEST", saItemNumber1 + "-Test Description");
@@ -82,7 +80,7 @@ public class ShopOrderConfirmation_SA1 extends TestBase {
 //SA Item Number
 		actions.moveToElement(driverIninteractable).perform();
 
-		Thread.sleep(Duration.ofSeconds(4));
+		Thread.sleep(4000);
 		click(driver, saCheckBox);
 
 		actions.moveToElement(driverIninteractable).perform();
@@ -93,7 +91,6 @@ public class ShopOrderConfirmation_SA1 extends TestBase {
 		click(driver, saItemNumberSelect);
 		Thread.sleep(2000);
 		actions.moveToElement(driverIninteractable).perform();
-		
 
 //Sales Order Number
 		Thread.sleep(3000);

@@ -1,7 +1,5 @@
 package com.Getapcs.Avision.SA_FG.Transaction;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -13,7 +11,7 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class OQCBinning_SA2 extends TestBase {
-	
+
 	@FindBy(tagName = "body")
 	public static WebElement driverIninteractable;
 
@@ -94,9 +92,9 @@ public class OQCBinning_SA2 extends TestBase {
 		// Get the first PR number text from table
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[4]")).getText();
 		String soItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[2]")).getText();
-		
-		Assert.assertNotNull(saItemNumber1,"saItemNumber1 is Null");
-		Assert.assertNotNull(soItemNumber1,"soItemNumber1 is Null");
+
+		Assert.assertNotNull(saItemNumber1, "saItemNumber1 is Null");
+		Assert.assertNotNull(soItemNumber1, "soItemNumber1 is Null");
 
 		String updatedXpathSA = elementXpath.replace("Item-FG-11-TEST", saItemNumber1 + "-Test Description");
 		String updatedXpathSO = elementXpath.replace("Item-FG-11-TEST", soItemNumber1);
@@ -105,7 +103,7 @@ public class OQCBinning_SA2 extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/create-oqc-binning");
 
-		Thread.sleep(Duration.ofSeconds(3));
+		Thread.sleep(3000);
 
 		click(driver, saCheckBox);
 		actions.moveToElement(driverIninteractable).perform();

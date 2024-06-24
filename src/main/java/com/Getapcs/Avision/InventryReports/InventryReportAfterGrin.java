@@ -29,11 +29,17 @@ public class InventryReportAfterGrin extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement editButton;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[9]")
+	WebElement warehouse;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[10]")
+	WebElement location;
 
 	public InventryReportAfterGrin() {
 
@@ -116,7 +122,16 @@ public class InventryReportAfterGrin extends TestBase {
 
 		click(driver, filter);
 
-		Thread.sleep(4000);
+		String warehouse_text = warehouse.getText();
+		String location_text = location.getText();
+
+		// Assert that the warehouse and location texts are equal to "GRIN"
+		assert warehouse_text.equals("GRIN") && location_text.equals("GRIN") : "Texts are not equal to 'GRIN'";
+
+		Thread.sleep(2000);
+		screenShot("After GRIN");
+
+		Thread.sleep(2000);
 		screenShot("After GRIN");
 
 		return new HomePage();

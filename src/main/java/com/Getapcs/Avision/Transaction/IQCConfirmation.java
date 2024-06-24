@@ -14,7 +14,7 @@ import com.Getapcs.Avision.BASECLASS.TestBase;
 import com.Getapcs.Avision.HomeLogin.HomePage;
 
 public class IQCConfirmation extends TestBase {
-	
+
 	@FindBy(tagName = "body")
 	public static WebElement driverIninteractable;
 
@@ -165,15 +165,15 @@ public class IQCConfirmation extends TestBase {
 
 		remarks.sendKeys("TEST Remarks1");
 
-		remarks1.sendKeys("TEST Remarks2");
-
-		remarks2.sendKeys("TEST Remarks3");
-
-		remarks3.sendKeys("TEST Remarks4");
-
-		remarks4.sendKeys("TEST Remarks5");
-
-		remarks5.sendKeys("TEST Remarks6");
+//		remarks1.sendKeys("TEST Remarks2");
+//
+//		remarks2.sendKeys("TEST Remarks3");
+//
+//		remarks3.sendKeys("TEST Remarks4");
+//
+//		remarks4.sendKeys("TEST Remarks5");
+//
+//		remarks5.sendKeys("TEST Remarks6");
 
 		click(driver, otherDetails);
 

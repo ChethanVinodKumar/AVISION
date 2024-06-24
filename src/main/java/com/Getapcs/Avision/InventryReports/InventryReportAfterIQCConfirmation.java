@@ -29,11 +29,17 @@ public class InventryReportAfterIQCConfirmation extends TestBase {
 	@FindBy(xpath = "(//button[normalize-space()='Filter'])[1]")
 	WebElement filter;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
 	@FindBy(xpath = "(//i[@title='Add Project'])[1]")
 	WebElement addProject;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[9]")
+	WebElement warehouse;
+
+	@FindBy(xpath = "//*[@class='table table-striped']/tbody/tr/td[10]")
+	WebElement location;
 
 	public InventryReportAfterIQCConfirmation() {
 
@@ -105,7 +111,13 @@ public class InventryReportAfterIQCConfirmation extends TestBase {
 
 		click(driver, filter);
 
-		Thread.sleep(4000);
+		String warehouse_text = warehouse.getText();
+		String location_text = location.getText();
+
+		// Assert that the warehouse and location texts are equal to "GRIN"
+		assert warehouse_text.equals("IQC") && location_text.equals("IQC") : "Texts are not equal to 'IQC'";
+
+		Thread.sleep(2000);
 		screenShot("After IQCConfirmation");
 
 		return new HomePage();

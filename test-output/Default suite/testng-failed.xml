@@ -3,13 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Getapcs.Avision.TEST.PrimaryMaster">
+      <class name="com.Getapcs.Avision.TEST.TEST_Create">
         <methods>
-          <include name="tearDown"/>
+          <include name="verifySalesRFQCreate"/>
+          <include name="verifyBomCreate"/>
+          <include name="verifyReleaseBom"/>
+          <include name="verifySalesRFQEdit"/>
+          <include name="afterTest"/>
+          <include name="verifyItemMasterCreate"/>
+          <include name="verifySalesItemPriceListCreate"/>
           <include name="setUp"/>
-          <include name="verifyCompanyMaster"/>
         </methods>
-      </class> <!-- com.Getapcs.Avision.TEST.PrimaryMaster -->
+      </class> <!-- com.Getapcs.Avision.TEST.TEST_Create -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

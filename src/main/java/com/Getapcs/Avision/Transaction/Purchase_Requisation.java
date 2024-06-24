@@ -116,7 +116,13 @@ public class Purchase_Requisation extends TestBase {
 	WebElement specialTerms$ConditionTextField;
 
 	@FindBy(xpath = "(//button[contains(text(),'Save')])[1]")
+	WebElement saveFile;
+
+	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButtonInPRCreate;
+
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewFile;
 
 	// PR Approval 1
 
@@ -260,6 +266,10 @@ public class Purchase_Requisation extends TestBase {
 
 		uploadFile(driver, uploadFile, 1);
 
+		click(driver, saveFile);
+		click(driver, viewFile);
+		click(driver, closeButton);
+
 		// ################## Item Tab ######################
 
 		click(driver, itemTab);
@@ -380,7 +390,7 @@ public class Purchase_Requisation extends TestBase {
 
 		specialTerms$ConditionTextField.sendKeys("TEST Special Terms & Condition");
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		click(driver, saveButtonInPRCreate);
 

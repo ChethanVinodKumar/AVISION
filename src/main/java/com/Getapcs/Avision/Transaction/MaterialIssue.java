@@ -94,40 +94,40 @@ public class MaterialIssue extends TestBase {
 		System.out.println("Work Order Released Qty is : " + workOrderReleasedQty);
 		Thread.sleep(2000);
 
-		WebElement table = driver.findElement(By.xpath("//table[@formarrayname='ItemData']"));
-
-		// Fetch values from each cell in the table
-		List<WebElement> rows = table.findElements(By.xpath(".//tbody/tr"));
-		for (WebElement row : rows) {
-			List<WebElement> cells = row.findElements(By.xpath(".//td"));
-
-			String slNo = cells.get(1).getText();
-			String partNo = cells.get(2).findElement(By.xpath(".//div")).getText();
-			String description = cells.get(3).findElement(By.xpath(".//div")).getText();
-			String partType = cells.get(4).findElement(By.xpath(".//div")).getText();
-			String uom = cells.get(5).findElement(By.xpath(".//div")).getText();
-			String requiredQuantity = cells.get(6).findElement(By.xpath(".//div")).getText();
-			String availableQuantity = cells.get(7).findElement(By.xpath(".//div")).getText();
-			String alreadyIssuedQty = cells.get(8).findElement(By.xpath(".//div")).getText();
-			String balanceQty = cells.get(9).findElement(By.xpath(".//div")).getText();
-
-			// Action button
-			WebElement actionButton = cells.get(10).findElement(By.xpath(".//button"));
-			String actionButtonText = actionButton.getText();
-			// If you want to perform an action on the button, you can do so here
-
-			// Print or use the retrieved values
-			System.out.println("Sl No: " + slNo);
-			System.out.println("Part No: " + partNo);
-			System.out.println("Description: " + description);
-			System.out.println("Part Type: " + partType);
-			System.out.println("UOM: " + uom);
-			System.out.println("Required Quantity: " + requiredQuantity);
-			System.out.println("Available Quantity: " + availableQuantity);
-			System.out.println("Already Issued Qty: " + alreadyIssuedQty);
-			System.out.println("Balance Qty: " + balanceQty);
-			System.out.println("Action Button Text: " + actionButtonText);
-		}
+//		WebElement table = driver.findElement(By.xpath("//table[@formarrayname='ItemData']"));
+//
+//		// Fetch values from each cell in the table
+//		List<WebElement> rows = table.findElements(By.xpath(".//tbody/tr"));
+//		for (WebElement row : rows) {
+//			List<WebElement> cells = row.findElements(By.xpath(".//td"));
+//
+//			String slNo = cells.get(1).getText();
+//			String partNo = cells.get(2).findElement(By.xpath(".//div")).getText();
+//			String description = cells.get(3).findElement(By.xpath(".//div")).getText();
+//			String partType = cells.get(4).findElement(By.xpath(".//div")).getText();
+//			String uom = cells.get(5).findElement(By.xpath(".//div")).getText();
+//			String requiredQuantity = cells.get(6).findElement(By.xpath(".//div")).getText();
+//			String availableQuantity = cells.get(7).findElement(By.xpath(".//div")).getText();
+//			String alreadyIssuedQty = cells.get(8).findElement(By.xpath(".//div")).getText();
+//			String balanceQty = cells.get(9).findElement(By.xpath(".//div")).getText();
+//
+//			// Action button
+//			WebElement actionButton = cells.get(10).findElement(By.xpath(".//button"));
+//			String actionButtonText = actionButton.getText();
+//			// If you want to perform an action on the button, you can do so here
+//
+//			// Print or use the retrieved values
+//			System.out.println("Sl No: " + slNo);
+//			System.out.println("Part No: " + partNo);
+//			System.out.println("Description: " + description);
+//			System.out.println("Part Type: " + partType);
+//			System.out.println("UOM: " + uom);
+//			System.out.println("Required Quantity: " + requiredQuantity);
+//			System.out.println("Available Quantity: " + availableQuantity);
+//			System.out.println("Already Issued Qty: " + alreadyIssuedQty);
+//			System.out.println("Balance Qty: " + balanceQty);
+//			System.out.println("Action Button Text: " + actionButtonText);
+//		}
 
 		js.executeScript("arguments[0].click();", issueCheckBox);
 		js.executeScript("arguments[0].click();", issueButton);

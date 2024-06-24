@@ -1,7 +1,5 @@
 package com.Getapcs.Avision.SA_FG.Transaction;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -63,10 +61,9 @@ public class OQC_SA2 extends TestBase {
 		String saItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[4]")).getText();
 		String soItemNumber1 = driver.findElement(By.xpath(tableXpath + "/tbody/tr[1]/td[3]")).getText();
 
-		Assert.assertNotNull(saItemNumber1,"saItemNumber1 is Null");
-		Assert.assertNotNull(soItemNumber1,"soItemNumber1 is Null");
-		
-		
+		Assert.assertNotNull(saItemNumber1, "saItemNumber1 is Null");
+		Assert.assertNotNull(soItemNumber1, "soItemNumber1 is Null");
+
 		// Store the element with hard coded PR number
 		String elementXpath = "(//span[normalize-space()='Item-FG-11-TEST'])[1]";
 
@@ -77,10 +74,10 @@ public class OQC_SA2 extends TestBase {
 
 		driver.navigate().to("https://avision-demo.getapcs.com/transaction/create-fg-oqc");
 
-		Thread.sleep(Duration.ofSeconds(4));
+		Thread.sleep(4000);
 
 		click(driver, saCheckBox);
-		
+
 		actions.moveToElement(driverIninteractable).perform();
 		Thread.sleep(2000);
 //SA Item Number
@@ -112,7 +109,7 @@ public class OQC_SA2 extends TestBase {
 		isSelected(driver, acceptedQty, "acceptedQty");
 
 		double acceptedQty1 = Double.parseDouble(elementValue);
-		int acceptedQty2 = (int)acceptedQty1 - 1;
+		int acceptedQty2 = (int) acceptedQty1 - 1;
 		System.out.println("acceptedQty2 : " + acceptedQty2);
 
 		acceptedQty.sendKeys(String.valueOf(acceptedQty2));

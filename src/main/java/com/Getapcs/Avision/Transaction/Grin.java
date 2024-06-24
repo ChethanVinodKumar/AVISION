@@ -105,7 +105,7 @@ public class Grin extends TestBase {
 	@FindBy(xpath = "//input[@placeholder='Enter UTGST']")
 	WebElement uTGSTField;
 
-	@FindBy(xpath = "(//input[@type='text'])[14]")
+	@FindBy(xpath = "(//input[@class='form-control w-100 ng-pristine ng-valid ng-touched'])[1]")
 	WebElement remarksField;
 
 	@FindBy(xpath = "(//button[@type='submit'][normalize-space()='Save'])[1]")
@@ -137,8 +137,23 @@ public class Grin extends TestBase {
 	@FindBy(xpath = "//input[@placeholder='BE Currency Value']")
 	WebElement beCurrencyValueField;
 
+	@FindBy(xpath = "(//button[normalize-space()='Coc Upload'])[1]")
+	WebElement uploadCocButton;
+
 	@FindBy(xpath = "(//input[@placeholder='Upload file'])[1]")
-	WebElement uploadDocButton;
+	WebElement uploadFile;
+
+	@FindBy(xpath = "(//button[normalize-space()='Save Files'])[1]")
+	WebElement saveFile;
+
+	@FindBy(xpath = "(//button[normalize-space()='View Files'])[1]")
+	WebElement viewFile;
+
+	@FindBy(xpath = "(//button[normalize-space()='Upload'])[1]")
+	WebElement uploadButton;
+
+	@FindBy(xpath = "(//button[normalize-space()='Close'])[1]")
+	WebElement closeButton;
 
 	@FindBy(linkText = "Other Cost")
 	WebElement otherCostTab;
@@ -387,7 +402,10 @@ public class Grin extends TestBase {
 		// Verifying and Coc Upload Files in Grin Create
 //  		WebElement cocUploadFiles = driver.findElement(By.xpath("//input[@placeholder='Upload file']"));
 
-		uploadFile(driver, cocUploadFiles, 3);
+		click(driver, uploadCocButton);
+		uploadFile(driver, uploadFile, 1);
+		click(driver, uploadButton);
+		click(driver, closeButton);
 
 		// Verify Taxes Button in Add Project Pop-UP
 //          WebElement taxesButton = driver.findElement(By.xpath("//i[@title='Add Taxes']"));
@@ -446,9 +464,9 @@ public class Grin extends TestBase {
 				"save Button in Add Taxes Pop-Up Expansion Panel is not Displayed.");
 		saveButtonInAddTaxesPOPUP.click();
 
-		js.executeScript("arguments[0].click();", remarksField);
-
-		remarksField.sendKeys("TEST");
+//		click(driver, remarksField);
+//
+//		remarksField.sendKeys("TEST");
 
 		// Verify Freight Charges Tab
 		boolean freightChargesTabIsDisplayed = freightChargesTab.isDisplayed();
@@ -539,7 +557,10 @@ public class Grin extends TestBase {
 		assertTrue(beCurrencyValueFieldIsSelected, "B/E Currency Value Field is not Selected");
 		beCurrencyValueField.sendKeys(beCurrencyValue);
 
-		uploadFile(driver, uploadDocButton, 1);
+		uploadFile(driver, uploadFile, 1);
+		click(driver, saveFile);
+		click(driver, viewFile);
+		click(driver, closeButton);
 
 		// Verify Other Cost Tab
 		boolean otherCostTabIsDisplayed = otherCostTab.isDisplayed();

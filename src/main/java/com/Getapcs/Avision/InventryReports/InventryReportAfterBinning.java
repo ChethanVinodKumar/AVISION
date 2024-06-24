@@ -53,7 +53,7 @@ public class InventryReportAfterBinning extends TestBase {
 	@FindBy(xpath = "(//span[normalize-space()='»»'])[1]")
 	WebElement paginationLast;
 
-	@FindBy(xpath = "(//i[@class='mdi mdi-eye edit-icon'])[1]")
+	@FindBy(xpath = "(//i[@title='Click to view'])[1]")
 	WebElement viewButton;
 
 	public InventryReportAfterBinning() {
